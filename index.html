@@ -19,61 +19,337 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-height -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <meta name="description" content="Sample HTML Page"> -->
-    <title>Nitender Portfolio</title>
+    <title>Nitender Kumar | Principal Data Engineer Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
+        .vertical-tabs {
+            min-width: 220px;
+            background: #212529;
+            border-radius: 0.5rem;
             padding: 0;
-            background-color: #f4f4f4;
+            height: 100vh;
+            margin-top: 0;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
         }
-        header {
-            background-color: #333;
+        .vertical-tabs .nav-link {
             color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        nav {
-            margin: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: #333;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.2rem;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        main {
-            padding: 20px;
-            text-align: center;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
+            border-radius: 0;
+            margin-bottom: 0;
+            text-align: left;
+            font-weight: 500;
             width: 100%;
-            text-align: center;
+            padding: 1rem 1.25rem;
+            transition: background 0.2s;
+        }
+        .vertical-tabs .nav-link.active {
+            background: #0d6efd;
+            color: #fff;
+            box-shadow: none;
+        }
+        .vertical-tabs .nav-link:focus {
+            outline: none;
+        }
+        .vertical-tabs .nav-link:hover {
+            background: #343a40;
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            .vertical-tabs {
+                min-width: 100%;
+                flex-direction: row !important;
+                padding: 0.5rem 0;
+                height: auto;
+            }
+            .vertical-tabs .nav-link {
+                margin-bottom: 0;
+                margin-right: 0.5rem;
+                border-radius: 0.375rem;
+                padding: 0.75rem 1rem;
+            }
+        }
+        .project-section-header {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0d6efd;
+            margin-bottom: 0.5rem;
+            margin-top: 1.5rem;
+            letter-spacing: 0.5px;
+            text-decoration: underline 2px #0d6efd33;
+        }
+        .project-content-text {
+            font-size: 1.2em;
+            color: #23272b;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+        .project-title {
+            background: #0d6efd;
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            font-size: 2.1rem;
+            box-shadow: 0 2px 8px 0 #0d6efd22;
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>Welcome to Nitender's Portfolio</h1>
-        <h1>I am a Web Developer</h1>
-    </header>
-    <hr />
-    <h3><a href="./public/movie-ranking.html">Movie Ranking Project</a></h3>
-    <img src="./assets/images/movie-ranking.png" height="200" alt="movie ranking project preview"/>
-    <h3><a href="./public/birthday-invite.html">Birthday Invite Project</a></h3>
-    <img src="./assets/images/birthday-invite.png" height="200" alt="birthday invite project preview"/>
-    <hr />
-    <a href="./public/about.html">About Me</a>
-    <a href="./public/contact.html">Contact Me</a>
+<body class="bg-light d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0" style="min-height: 90px;">
+        <div class="container-fluid d-flex align-items-center justify-content-between" style="min-height: 90px;">
+            <div class="d-flex align-items-center">
+                <a class="navbar-brand mb-0 h1" href="#" style="font-size:2rem;">Nitender Kumar</a>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="d-none d-md-block me-3">
+                    
+                </div>
+                <div class="profile-pic-placeholder rounded-circle bg-secondary" style="width:64px; height:64px; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                    <!-- Replace src with your profile image if available -->
+                    <img src="./assets/images/profile_pic.jpg" alt="Profile Picture" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+                </div>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./public/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./public/contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-2" href="https://www.linkedin.com/in/nitender-kumar" target="_blank">LinkedIn</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container-fluid flex-grow-1 d-flex flex-column p-0">
+        <div class="row flex-grow-1" style="min-height: 0;">
+            <div class="col-12 col-md-3 d-flex flex-column align-items-stretch p-0" style="min-width:220px;max-width:300px;">
+                <div class="vertical-tabs d-flex flex-column h-100 w-100 p-0" style="border-radius:0;">
+                    <h2 class="mb-4 text-white ps-3 pt-3">Projects</h2>
+                    <ul class="nav nav-pills flex-column w-100" id="projectTabs" role="tablist" style="flex:1 1 auto;">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="deepview-tab" data-bs-toggle="tab" data-bs-target="#deepview" type="button" role="tab" aria-controls="deepview" aria-selected="true">Deep View Analytics</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="qlm-tab" data-bs-toggle="tab" data-bs-target="#qlm" type="button" role="tab" aria-controls="qlm" aria-selected="false">QLM</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="selfanalytics-tab" data-bs-toggle="tab" data-bs-target="#selfanalytics" type="button" role="tab" aria-controls="selfanalytics" aria-selected="false">Self Analytics</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="iotbigdata-tab" data-bs-toggle="tab" data-bs-target="#iotbigdata" type="button" role="tab" aria-controls="iotbigdata" aria-selected="false">NEC IoT Big Data</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="paos-tab" data-bs-toggle="tab" data-bs-target="#paos" type="button" role="tab" aria-controls="paos" aria-selected="false">PAOS</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-9 d-flex flex-column p-0" style="min-height: 0;">
+                <div class="pt-4 pb-2 ps-2 pe-2" style="background: #f8f9fa;">
+                    <h1 class="display-5 mb-2">Principal Data Engineer Portfolio</h1>
+                    <p class="lead mb-0">Experienced in designing and building scalable data architectures, leading engineering teams, and delivering impactful data solutions for business growth.</p>
+                </div>
+                <div class="tab-content flex-grow-1 d-flex flex-column min-vh-60 h-100 ps-3 ps-md-4" id="projectTabsContent" style="flex:1 1 auto;min-height:0;">
+                    <div class="tab-pane fade show active h-100" id="deepview" role="tabpanel" aria-labelledby="deepview-tab">
+                        <div class="py-4 min-vh-60 d-flex flex-column justify-content-between text-start ps-3 ps-md-4" style="height:100%;">
+                            <div>
+                                <h1 class="project-title">Deep View Analytics Platform</h1>
+                                <p class="lead fs-5 fs-md-4 lh-sm lh-md-base">A versatile data science and analytics platform built from scratch to support automotive, marketing, and sustainability use cases. The platform ingests, processes, and analyzes high-frequency data from vehicles and digital marketing sources, providing actionable insights for businesses and fleet owners.</p>
+                                <div class="mb-4 project-content-text">
+                                    <div class="project-section-header">Your Role</div>
+                                    Principal Data Engineer
+                                </div>
+                                <div class="mb-4 project-content-text">
+                                    <div class="project-section-header">Technologies</div>
+                                    Python, FastAPI, MongoDB, PostgreSQL, RabbitMQ, Docker, Kubernetes, AWS, GenAI (ChatGPT, Gemini, Claude, Mixtral), RESTful APIs
+                                </div>
+                                <div class="mb-4 project-content-text">
+                                    <div class="project-section-header">Key Contributions & Impact</div>
+                                    <ul>
+                                        <li>Designed and developed the platform architecture for scalable analytics across automotive and marketing domains.</li>
+                                        <li>Implemented dynamic data processing for OBD II vehicle data, Google Ads, Google Analytics, and Salesforce.</li>
+                                        <li>Containerized all services for easy horizontal scaling and cloud/on-premise deployment.</li>
+                                        <li>Enabled insights on vehicle health, driver behavior, road conditions, and digital marketing performance.</li>
+                                        <li>Powered C6-Insights for carbon tracking and sustainability analytics, integrating AI for actionable recommendations.</li>
+                                        <li>Mentored engineers on big data, RESTful design, and DevOps automation.</li>
+                                    </ul>
+                                </div>
+                                <div class="mb-5 project-content-text">
+                                    <div class="project-section-header">Architecture Diagram</div>
+                                    <img src="./assets/images/diagrams/deep_view_platform-diagram-2025-07-08-101815.png" class="img-fluid border" style="max-width:700px; width:100%; height:auto; display:block; margin-left:auto; margin-right:auto;" alt="Architecture Diagram (replace with your image)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade h-100" id="qlm" role="tabpanel" aria-labelledby="qlm-tab">
+                        <div class="py-4 min-vh-60 d-flex flex-column justify-content-between text-start ps-3 ps-md-4" style="height:100%;">
+                            <div>
+                                <h1 class="project-title">QLM (Queue Length Management)</h1>
+                                <p class="lead fs-5 fs-md-4 lh-sm lh-md-base">An AI-powered application designed to monitor live video feeds of queues, automatically counting people and alerting supervisors when queue length exceeds thresholds. Developed as a POC for MORE hypermarkets to optimize service counter management.</p>
+                                <div class="mb-4 project-content-text">
+                                    <div class="project-section-header">Your Role</div>
+                                    Senior Software Engineer
+                                </div>
+                                <div class="mb-4 project-content-text">
+                                    <div class="project-section-header">Technologies</div>
+                                    TensorFlow, OpenCV, Django, Python, Hadoop, Spark
+                                </div>
+                                <div class="mb-4 project-content-text">
+                                    <div class="project-section-header">Key Contributions & Impact</div>
+                                    <ul>
+                                        <li>Designed and implemented the AI-powered queue monitoring system using computer vision.</li>
+                                        <li>Developed real-time alerting for supervisors to optimize service counter allocation.</li>
+                                        <li>Integrated the system with live video feeds and deployed as a proof of concept for retail environments.</li>
+                                        <li>Improved customer experience and operational efficiency for hypermarkets.</li>
+                                    </ul>
+                                </div>
+                                <div class="mb-5 project-content-text">
+                                    <div class="project-section-header">Architecture Diagram</div>
+                                    <img src="./assets/images/your-diagram.png" class="img-fluid border" alt="Architecture Diagram (replace with your image)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade h-100" id="selfanalytics" role="tabpanel" aria-labelledby="selfanalytics-tab">
+                        <div class="py-4 min-vh-60 d-flex flex-column justify-content-between text-start ps-3 ps-md-4" style="height:100%;">
+                            <div>
+                                <h1 class="project-title">Self Analytics</h1>
+                                <p class="lead fs-5 fs-md-4 lh-sm lh-md-base">A web-based application built over an analytical engine to empower data scientists in feature engineering for machine learning models. The tool automates resource creation and feature selection, streamlining the model development process.</p>
+                                <div class="mb-4 project-content-text">
+                                    <div class="project-section-header">Your Role</div>
+                                    Senior Software Engineer
+                                </div>
+                                <div class="mb-4 project-content-text">
+                                    <div class="project-section-header">Technologies</div>
+                                    Python, Django, Spark, Hadoop, Analytical Engine (Refactor)
+                                </div>
+                                <div class="mb-4 project-content-text">
+                                    <div class="project-section-header">Key Contributions & Impact</div>
+                                    <ul>
+                                        <li>Developed a web application for in-house data scientists to create and select features for ML models.</li>
+                                        <li>Automated the generation of valuable resources for datasets, enhancing productivity and model quality.</li>
+                                        <li>Integrated with NEC-LABS USA's analytical engine for advanced feature engineering.</li>
+                                        <li>Enabled rapid prototyping and experimentation for data science teams.</li>
+                                    </ul>
+                                </div>
+                                <div class="mb-5 project-content-text">
+                                    <div class="project-section-header">Architecture Diagram</div>
+                                    <img src="./assets/images/your-diagram.png" class="img-fluid border" alt="Architecture Diagram (replace with your image)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade h-100" id="iotbigdata" role="tabpanel" aria-labelledby="iotbigdata-tab">
+                        <div class="py-4 min-vh-60 d-flex flex-column justify-content-between text-start ps-3 ps-md-4" style="height:100%;">
+                            <div>
+                                <h1 class="project-title">NEC IoT Big Data Solution</h1>
+                                <p class="lead fs-5 fs-md-4 lh-sm lh-md-base">A project to deploy big data technology stack on NEC's Micro Modular Server (MMS), providing end users with powerful analytics capabilities while abstracting system complexities. Enabled scalable, user-friendly big data solutions for IoT applications.</p>
+                                <div class="mb-4 project-content-text">
+                                    <div class="project-section-header">Your Role</div>
+                                    Senior Software Engineer
+                                </div>
+                                <div class="mb-4 project-content-text">
+                                    <div class="project-section-header">Technologies</div>
+                                    Hadoop, Spark, Python, NEC MMS, Big Data Stack
+                                </div>
+                                <div class="mb-4 project-content-text">
+                                    <div class="project-section-header">Key Contributions & Impact</div>
+                                    <ul>
+                                        <li>Deployed and configured big data stack on NEC's Micro Modular Server for IoT analytics.</li>
+                                        <li>Abstracted system complexities, enabling end users to leverage big data without deep technical knowledge.</li>
+                                        <li>Enhanced accessibility and scalability of big data resources for IoT use cases.</li>
+                                    </ul>
+                                </div>
+                                <div class="mb-5 project-content-text">
+                                    <div class="project-section-header">Architecture Diagram</div>
+                                    <img src="./assets/images/your-diagram.png" class="img-fluid border" alt="Architecture Diagram (replace with your image)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade h-100" id="paos" role="tabpanel" aria-labelledby="paos-tab">
+                        <div class="py-4 min-vh-60 d-flex flex-column justify-content-between text-start ps-3 ps-md-4" style="height:100%;">
+                            <div>
+                                <h1 class="project-title">PAOS (Predictive Auto Ordering System)</h1>
+                                <p class="lead fs-5 fs-md-4 lh-sm lh-md-base">A recommendation engine that predicts optimal inventory levels for products based on sales data, minimizing losses from shortages and overstocking. Leveraged proprietary ML tools and frameworks to deliver actionable insights for inventory management.</p>
+                                <div class="mb-4 project-content-text">
+                                    <div class="project-section-header">Your Role</div>
+                                    Senior Software Engineer
+                                </div>
+                                <div class="mb-4 project-content-text">
+                                    <div class="project-section-header">Technologies</div>
+                                    Python, SAMPO Framework, Proprietary ML Tools, Hadoop, Spark
+                                </div>
+                                <div class="mb-4 project-content-text">
+                                    <div class="project-section-header">Key Contributions & Impact</div>
+                                    <ul>
+                                        <li>Developed a recommendation engine to predict optimal inventory levels using sales data.</li>
+                                        <li>Built and optimized models for each product, reducing losses from shortages and overstocking.</li>
+                                        <li>Overcame limitations of the SAMPO framework by optimizing application architecture for performance and parallelization.</li>
+                                    </ul>
+                                </div>
+                                <div class="mb-5 project-content-text">
+                                    <div class="project-section-header">Architecture Diagram</div>
+                                    <img src="./assets/images/your-diagram.png" class="img-fluid border" alt="Architecture Diagram (replace with your image)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between mt-4 mb-4">
+                    <button class="btn btn-secondary" id="prevTabBtn">&#8592; Previous Project</button>
+                    <button class="btn btn-primary" id="nextTabBtn">Next Project &#8594;</button>
+                </div>
+            </div>
+        </div>
+        <script>
+        const tabIds = ['deepview', 'qlm', 'selfanalytics', 'iotbigdata', 'paos'];
+        let currentTab = 0;
+        function showTab(idx) {
+            if(idx < 0 || idx >= tabIds.length) return;
+            const tabTrigger = document.querySelector(`[data-bs-target="#${tabIds[idx]}"]`);
+            if(tabTrigger) {
+                const tab = new bootstrap.Tab(tabTrigger);
+                tab.show();
+            }
+            currentTab = idx;
+            updateNavButtons();
+        }
+        function updateNavButtons() {
+            document.getElementById('prevTabBtn').disabled = currentTab === 0;
+            document.getElementById('nextTabBtn').disabled = currentTab === tabIds.length - 1;
+        }
+        document.getElementById('prevTabBtn').onclick = () => {
+            if (currentTab > 0) showTab(currentTab - 1);
+        };
+        document.getElementById('nextTabBtn').onclick = () => {
+            if (currentTab < tabIds.length - 1) showTab(currentTab + 1);
+        };
+        document.querySelectorAll('.nav-link').forEach((el, i) => {
+            el.addEventListener('shown.bs.tab', function() {
+                currentTab = i;
+                updateNavButtons();
+            });
+        });
+        // On page load, ensure first tab is active and buttons are correct
+        showTab(0);
+        </script>
+    </main>
+    <footer class="bg-dark text-white text-center py-3 mt-auto">
+        &copy; 2025 Nitender Kumar | Principal Data Engineer
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

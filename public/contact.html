@@ -1,9 +1,84 @@
-<h1>Contact Me</h1>
-<p>Tel: +123456789</p>
-<p>Email: me@gmail.com</p>
-<p>Address:</p>
-<p>
-  123 North Street<br />
-  Some City<br />
-  Some Country <br />
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Nitender Kumar Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-title {
+            background: #0d6efd;
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            font-size: 2.1rem;
+            box-shadow: 0 2px 8px 0 #0d6efd22;
+        }
+        .contact-section-header {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0d6efd;
+            margin-bottom: 0.5rem;
+            margin-top: 1.5rem;
+            letter-spacing: 0.5px;
+            text-decoration: underline 2px #0d6efd33;
+        }
+        .contact-content-text {
+            font-size: 1.15em;
+            color: #23272b;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+        .contact-card {
+            background: #f8f9fa;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px 0 #0d6efd11;
+            padding: 2rem 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .contact-link {
+            color: #0d6efd;
+            text-decoration: underline;
+        }
+        .contact-link:hover {
+            color: #0a58ca;
+        }
+    </style>
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+    <div class="container py-5 flex-grow-1" style="max-width: 700px;">
+        <h1 class="contact-title">Contact Me</h1>
+        <div class="contact-card">
+            <div class="contact-section-header">Phone</div>
+            <div class="contact-content-text mb-2">
+                <a href="tel:+917899911081" class="contact-link">+91-7899911081</a>
+            </div>
+            <div class="contact-section-header">Email</div>
+            <div class="contact-content-text mb-2">
+                <a href="mailto:nitender.kumar11@gmail.com" class="contact-link">nitender.kumar11@gmail.com</a>
+            </div>
+            <div class="contact-section-header">Address</div>
+            <div class="contact-content-text">
+                Electronic City,<br>
+                Bangalore - 560100<br>
+                India
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-white text-center py-3 mt-auto">
+        &copy; 2025 Nitender Kumar | Principal Data Engineer
+    </footer>
+</body>
+</html>
