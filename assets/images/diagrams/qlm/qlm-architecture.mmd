@@ -1,0 +1,8 @@
+graph TD
+    A[Live Video Feed] --> B[OpenCV Processing]
+    B --> C[TensorFlow Model]
+    C --> D[Queue Counter]
+    D --> E[Alert System]
+    E --> F[Supervisor Dashboard]
+    G[Camera System] --> A
+    H[Queue Threshold] --> E 
