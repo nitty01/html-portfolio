@@ -24,12 +24,13 @@
         }
         .project-section-header {
             font-size: 1.4rem;
-            font-weight: 700;
+            font-weight: 800;
             color: #0d6efd;
             margin-bottom: 0.75rem;
             margin-top: 2rem;
             letter-spacing: 0.5px;
             text-decoration: underline 2px #0d6efd33;
+            text-transform: uppercase;
         }
         .project-content-text {
             font-size: 1.1rem;
@@ -49,6 +50,28 @@
             border-radius: 0.5rem;
             border-left: 4px solid #0d6efd;
             margin-bottom: 2rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .tech-stack-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+        .tech-item {
+            background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);
+            transition: all 0.3s ease;
+        }
+        .tech-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.4);
         }
         .contributions-list {
             background: #fff;
@@ -95,16 +118,33 @@
         </p>
         
         <div class="project-content-text">
-            <div class="project-section-header">Your Role</div>
+            <div class="project-section-header">Designation</div>
             <div class="tech-stack">
                 <strong>Senior Software Engineer</strong>
             </div>
         </div>
         
         <div class="project-content-text">
+            <div class="project-section-header">ROLE</div>
+            <div class="contributions-list">
+                <ul>
+                    <li>Developed and optimized machine learning algorithms for predictive analytics</li>
+                    <li>Implemented SAMPO framework integration for advanced data processing</li>
+                    <li>Designed scalable data pipelines using Hadoop and Spark ecosystems</li>
+                    <li>Created proprietary ML tools and frameworks for specialized use cases</li>
+                    <li>Collaborated with research teams to enhance predictive modeling capabilities</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="project-content-text">
             <div class="project-section-header">Technologies</div>
-            <div class="tech-stack">
-                Python, SAMPO Framework, Proprietary ML Tools, Hadoop, Spark
+            <div class="tech-stack-grid">
+                <span class="tech-item">Python</span>
+                <span class="tech-item">SAMPO Framework</span>
+                <span class="tech-item">Proprietary ML Tools</span>
+                <span class="tech-item">Hadoop</span>
+                <span class="tech-item">Spark</span>
             </div>
         </div>
         
