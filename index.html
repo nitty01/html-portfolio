@@ -1,19 +1,3 @@
-<!-- TODO 1: Create the HTML Boilerplate -->
-
-<!-- TODO 2: Add Your previous projects' HTML into the public folder -->
-
-<!-- TODO 3: Take screenshots of your project previews and add the images to the images folder -->
-
-<!-- TODO 4: Add titles/subtitles etc. -->
-
-<!-- TODO 5: Add a link to the project pages -->
-
-<!-- TODO 6: Add images to show the project previews
-HINT for TODO 6: You can use the height attribute set to 200 to make the image smaller:
-https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-height -->
-
-<!-- TODO 7: Add the Contact Me and About Me page links -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,36 +8,40 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-height -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .vertical-tabs {
-            min-width: 220px;
+            min-width: 200px;
             background: #212529;
-            border-radius: 0.5rem;
+            border-radius: 0;
             padding: 0;
             height: 100vh;
             margin-top: 0;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
         }
         .vertical-tabs .nav-link {
             color: #fff;
             border-radius: 0;
             margin-bottom: 0;
             text-align: left;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1.1rem;
             width: 100%;
             padding: 1rem 1.25rem;
-            transition: background 0.2s;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
         }
         .vertical-tabs .nav-link.active {
-            background: #0d6efd;
+            background: linear-gradient(135deg, #0d6efd, #0b5ed7);
             color: #fff;
-            box-shadow: none;
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+            border-left: 4px solid #fff;
+            transform: translateX(5px);
         }
         .vertical-tabs .nav-link:focus {
             outline: none;
+            box-shadow: none;
         }
         .vertical-tabs .nav-link:hover {
-            background: #343a40;
+            background: linear-gradient(135deg, #343a40, #495057);
             color: #fff;
+            transform: translateX(3px);
         }
         @media (max-width: 768px) {
             .vertical-tabs {
@@ -67,34 +55,48 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-height -->
                 margin-right: 0.5rem;
                 border-radius: 0.375rem;
                 padding: 0.75rem 1rem;
+                font-size: 1rem;
             }
         }
-        .project-section-header {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #0d6efd;
-            margin-bottom: 0.5rem;
-            margin-top: 1.5rem;
-            letter-spacing: 0.5px;
-            text-decoration: underline 2px #0d6efd33;
+        .project-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
-        .project-content-text {
-            font-size: 1.2em;
-            color: #23272b;
-            line-height: 1.7;
-            font-weight: 500;
+        .projects-section {
+            background: #fff;
+            border-radius: 0;
+            margin: 0;
+            box-shadow: none;
+            overflow: hidden;
+            height: calc(100vh - 90px);
+            display: flex;
+            flex-direction: column;
         }
-        .project-title {
-            background: #0d6efd;
-            color: #fff;
+        .projects-header {
+            background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+            color: white;
+            padding: 1.5rem 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            text-transform: uppercase;
-            padding: 0.75rem 1.25rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
-            font-size: 2.1rem;
-            box-shadow: 0 2px 8px 0 #0d6efd22;
+            flex-shrink: 0;
+        }
+        .projects-content {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+        }
+        .tab-content {
+            flex: 1;
+            overflow: hidden;
+            width: 100%;
+        }
+        .tab-pane {
+            height: 100%;
+        }
+        .nav-pills {
+            overflow: hidden;
         }
     </style>
 </head>
@@ -132,219 +134,54 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-height -->
         </div>
     </nav>
     <main class="container-fluid flex-grow-1 d-flex flex-column p-0">
-        <div class="row flex-grow-1" style="min-height: 0;">
-            <div class="col-12 col-md-3 d-flex flex-column align-items-stretch p-0" style="min-width:220px;max-width:300px;">
-                <div class="vertical-tabs d-flex flex-column h-100 w-100 p-0" style="border-radius:0;">
-                    <h2 class="mb-4 text-white ps-3 pt-3">Projects</h2>
-                    <ul class="nav nav-pills flex-column w-100" id="projectTabs" role="tablist" style="flex:1 1 auto;">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="deepview-tab" data-bs-toggle="tab" data-bs-target="#deepview" type="button" role="tab" aria-controls="deepview" aria-selected="true">Deep View Analytics</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="qlm-tab" data-bs-toggle="tab" data-bs-target="#qlm" type="button" role="tab" aria-controls="qlm" aria-selected="false">QLM</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="selfanalytics-tab" data-bs-toggle="tab" data-bs-target="#selfanalytics" type="button" role="tab" aria-controls="selfanalytics" aria-selected="false">Self Analytics</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="iotbigdata-tab" data-bs-toggle="tab" data-bs-target="#iotbigdata" type="button" role="tab" aria-controls="iotbigdata" aria-selected="false">NEC IoT Big Data</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="paos-tab" data-bs-toggle="tab" data-bs-target="#paos" type="button" role="tab" aria-controls="paos" aria-selected="false">PAOS</button>
-                        </li>
-                    </ul>
-                </div>
+        <!-- Projects Section -->
+        <div class="projects-section">
+            <div class="projects-header">
+                <h2 class="mb-0">Featured Projects</h2>
             </div>
-            <div class="col-12 col-md-9 d-flex flex-column p-0" style="min-height: 0;">
-                <div class="pt-4 pb-2 ps-2 pe-2" style="background: #f8f9fa;">
-                    <h1 class="display-5 mb-2">Principal Data Engineer Portfolio</h1>
-                    <p class="lead mb-0">Experienced in designing and building scalable data architectures, leading engineering teams, and delivering impactful data solutions for business growth.</p>
-                </div>
-                <div class="tab-content flex-grow-1 d-flex flex-column min-vh-60 h-100 ps-3 ps-md-4" id="projectTabsContent" style="flex:1 1 auto;min-height:0;">
-                    <div class="tab-pane fade show active h-100" id="deepview" role="tabpanel" aria-labelledby="deepview-tab">
-                        <div class="py-4 min-vh-60 d-flex flex-column justify-content-between text-start ps-3 ps-md-4" style="height:100%;">
-                            <div>
-                                <h1 class="project-title">Deep View Analytics Platform</h1>
-                                <p class="lead fs-5 fs-md-4 lh-sm lh-md-base">A versatile data science and analytics platform built from scratch to support automotive, marketing, and sustainability use cases. The platform ingests, processes, and analyzes high-frequency data from vehicles and digital marketing sources, providing actionable insights for businesses and fleet owners.</p>
-                                <div class="mb-4 project-content-text">
-                                    <div class="project-section-header">Your Role</div>
-                                    Principal Data Engineer
-                                </div>
-                                <div class="mb-4 project-content-text">
-                                    <div class="project-section-header">Technologies</div>
-                                    Python, FastAPI, MongoDB, PostgreSQL, RabbitMQ, Docker, Kubernetes, AWS, GenAI (ChatGPT, Gemini, Claude, Mixtral), RESTful APIs
-                                </div>
-                                <div class="mb-4 project-content-text">
-                                    <div class="project-section-header">Key Contributions & Impact</div>
-                                    <ul>
-                                        <li>Designed and developed the platform architecture for scalable analytics across automotive and marketing domains.</li>
-                                        <li>Implemented dynamic data processing for OBD II vehicle data, Google Ads, Google Analytics, and Salesforce.</li>
-                                        <li>Containerized all services for easy horizontal scaling and cloud/on-premise deployment.</li>
-                                        <li>Enabled insights on vehicle health, driver behavior, road conditions, and digital marketing performance.</li>
-                                        <li>Powered C6-Insights for carbon tracking and sustainability analytics, integrating AI for actionable recommendations.</li>
-                                        <li>Mentored engineers on big data, RESTful design, and DevOps automation.</li>
-                                    </ul>
-                                </div>
-                                <div class="mb-5 project-content-text">
-                                    <div class="project-section-header">Architecture Diagram</div>
-                                    <img src="./assets/images/diagrams/deep_view_platform-diagram-2025-07-08-101815.png" class="img-fluid border" style="max-width:700px; width:100%; height:auto; display:block; margin-left:auto; margin-right:auto;" alt="Architecture Diagram (replace with your image)">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade h-100" id="qlm" role="tabpanel" aria-labelledby="qlm-tab">
-                        <div class="py-4 min-vh-60 d-flex flex-column justify-content-between text-start ps-3 ps-md-4" style="height:100%;">
-                            <div>
-                                <h1 class="project-title">QLM (Queue Length Management)</h1>
-                                <p class="lead fs-5 fs-md-4 lh-sm lh-md-base">An AI-powered application designed to monitor live video feeds of queues, automatically counting people and alerting supervisors when queue length exceeds thresholds. Developed as a POC for MORE hypermarkets to optimize service counter management.</p>
-                                <div class="mb-4 project-content-text">
-                                    <div class="project-section-header">Your Role</div>
-                                    Senior Software Engineer
-                                </div>
-                                <div class="mb-4 project-content-text">
-                                    <div class="project-section-header">Technologies</div>
-                                    TensorFlow, OpenCV, Django, Python, Hadoop, Spark
-                                </div>
-                                <div class="mb-4 project-content-text">
-                                    <div class="project-section-header">Key Contributions & Impact</div>
-                                    <ul>
-                                        <li>Designed and implemented the AI-powered queue monitoring system using computer vision.</li>
-                                        <li>Developed real-time alerting for supervisors to optimize service counter allocation.</li>
-                                        <li>Integrated the system with live video feeds and deployed as a proof of concept for retail environments.</li>
-                                        <li>Improved customer experience and operational efficiency for hypermarkets.</li>
-                                    </ul>
-                                </div>
-                                <div class="mb-5 project-content-text">
-                                    <div class="project-section-header">Architecture Diagram</div>
-                                    <img src="./assets/images/your-diagram.png" class="img-fluid border" alt="Architecture Diagram (replace with your image)">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade h-100" id="selfanalytics" role="tabpanel" aria-labelledby="selfanalytics-tab">
-                        <div class="py-4 min-vh-60 d-flex flex-column justify-content-between text-start ps-3 ps-md-4" style="height:100%;">
-                            <div>
-                                <h1 class="project-title">Self Analytics</h1>
-                                <p class="lead fs-5 fs-md-4 lh-sm lh-md-base">A web-based application built over an analytical engine to empower data scientists in feature engineering for machine learning models. The tool automates resource creation and feature selection, streamlining the model development process.</p>
-                                <div class="mb-4 project-content-text">
-                                    <div class="project-section-header">Your Role</div>
-                                    Senior Software Engineer
-                                </div>
-                                <div class="mb-4 project-content-text">
-                                    <div class="project-section-header">Technologies</div>
-                                    Python, Django, Spark, Hadoop, Analytical Engine (Refactor)
-                                </div>
-                                <div class="mb-4 project-content-text">
-                                    <div class="project-section-header">Key Contributions & Impact</div>
-                                    <ul>
-                                        <li>Developed a web application for in-house data scientists to create and select features for ML models.</li>
-                                        <li>Automated the generation of valuable resources for datasets, enhancing productivity and model quality.</li>
-                                        <li>Integrated with NEC-LABS USA's analytical engine for advanced feature engineering.</li>
-                                        <li>Enabled rapid prototyping and experimentation for data science teams.</li>
-                                    </ul>
-                                </div>
-                                <div class="mb-5 project-content-text">
-                                    <div class="project-section-header">Architecture Diagram</div>
-                                    <img src="./assets/images/your-diagram.png" class="img-fluid border" alt="Architecture Diagram (replace with your image)">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade h-100" id="iotbigdata" role="tabpanel" aria-labelledby="iotbigdata-tab">
-                        <div class="py-4 min-vh-60 d-flex flex-column justify-content-between text-start ps-3 ps-md-4" style="height:100%;">
-                            <div>
-                                <h1 class="project-title">NEC IoT Big Data Solution</h1>
-                                <p class="lead fs-5 fs-md-4 lh-sm lh-md-base">A project to deploy big data technology stack on NEC's Micro Modular Server (MMS), providing end users with powerful analytics capabilities while abstracting system complexities. Enabled scalable, user-friendly big data solutions for IoT applications.</p>
-                                <div class="mb-4 project-content-text">
-                                    <div class="project-section-header">Your Role</div>
-                                    Senior Software Engineer
-                                </div>
-                                <div class="mb-4 project-content-text">
-                                    <div class="project-section-header">Technologies</div>
-                                    Hadoop, Spark, Python, NEC MMS, Big Data Stack
-                                </div>
-                                <div class="mb-4 project-content-text">
-                                    <div class="project-section-header">Key Contributions & Impact</div>
-                                    <ul>
-                                        <li>Deployed and configured big data stack on NEC's Micro Modular Server for IoT analytics.</li>
-                                        <li>Abstracted system complexities, enabling end users to leverage big data without deep technical knowledge.</li>
-                                        <li>Enhanced accessibility and scalability of big data resources for IoT use cases.</li>
-                                    </ul>
-                                </div>
-                                <div class="mb-5 project-content-text">
-                                    <div class="project-section-header">Architecture Diagram</div>
-                                    <img src="./assets/images/your-diagram.png" class="img-fluid border" alt="Architecture Diagram (replace with your image)">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade h-100" id="paos" role="tabpanel" aria-labelledby="paos-tab">
-                        <div class="py-4 min-vh-60 d-flex flex-column justify-content-between text-start ps-3 ps-md-4" style="height:100%;">
-                            <div>
-                                <h1 class="project-title">PAOS (Predictive Auto Ordering System)</h1>
-                                <p class="lead fs-5 fs-md-4 lh-sm lh-md-base">A recommendation engine that predicts optimal inventory levels for products based on sales data, minimizing losses from shortages and overstocking. Leveraged proprietary ML tools and frameworks to deliver actionable insights for inventory management.</p>
-                                <div class="mb-4 project-content-text">
-                                    <div class="project-section-header">Your Role</div>
-                                    Senior Software Engineer
-                                </div>
-                                <div class="mb-4 project-content-text">
-                                    <div class="project-section-header">Technologies</div>
-                                    Python, SAMPO Framework, Proprietary ML Tools, Hadoop, Spark
-                                </div>
-                                <div class="mb-4 project-content-text">
-                                    <div class="project-section-header">Key Contributions & Impact</div>
-                                    <ul>
-                                        <li>Developed a recommendation engine to predict optimal inventory levels using sales data.</li>
-                                        <li>Built and optimized models for each product, reducing losses from shortages and overstocking.</li>
-                                        <li>Overcame limitations of the SAMPO framework by optimizing application architecture for performance and parallelization.</li>
-                                    </ul>
-                                </div>
-                                <div class="mb-5 project-content-text">
-                                    <div class="project-section-header">Architecture Diagram</div>
-                                    <img src="./assets/images/your-diagram.png" class="img-fluid border" alt="Architecture Diagram (replace with your image)">
-                                </div>
-                            </div>
-                        </div>
+            <div class="projects-content">
+                <div class="col-12 col-md-3 d-flex flex-column align-items-stretch p-0" style="min-width:200px;max-width:250px;">
+                    <div class="vertical-tabs d-flex flex-column h-100 w-100 p-0" style="border-radius:0;">
+                        <ul class="nav nav-pills flex-column w-100" id="projectTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="deepview-tab" data-bs-toggle="tab" data-bs-target="#deepview" type="button" role="tab" aria-controls="deepview" aria-selected="true">Deep View Analytics</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="qlm-tab" data-bs-toggle="tab" data-bs-target="#qlm" type="button" role="tab" aria-controls="qlm" aria-selected="false">QLM</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="selfanalytics-tab" data-bs-toggle="tab" data-bs-target="#selfanalytics" type="button" role="tab" aria-controls="selfanalytics" aria-selected="false">Self Analytics</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="iotbigdata-tab" data-bs-toggle="tab" data-bs-target="#iotbigdata" type="button" role="tab" aria-controls="iotbigdata" aria-selected="false">NEC IoT Big Data</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="paos-tab" data-bs-toggle="tab" data-bs-target="#paos" type="button" role="tab" aria-controls="paos" aria-selected="false">PAOS</button>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="d-flex justify-content-between mt-4 mb-4">
-                    <button class="btn btn-secondary" id="prevTabBtn">&#8592; Previous Project</button>
-                    <button class="btn btn-primary" id="nextTabBtn">Next Project &#8594;</button>
+                <div class="col-12 col-md-9 d-flex flex-column p-0" style="width: calc(100% - 200px);">
+                    <div class="tab-content flex-grow-1 d-flex flex-column" id="projectTabsContent">
+                        <div class="tab-pane fade show active h-100" id="deepview" role="tabpanel" aria-labelledby="deepview-tab">
+                            <iframe src="./public/project-deep-view-analytics.html" class="project-iframe"></iframe>
+                        </div>
+                        <div class="tab-pane fade h-100" id="qlm" role="tabpanel" aria-labelledby="qlm-tab">
+                            <iframe src="./public/project-qlm.html" class="project-iframe"></iframe>
+                        </div>
+                        <div class="tab-pane fade h-100" id="selfanalytics" role="tabpanel" aria-labelledby="selfanalytics-tab">
+                            <iframe src="./public/project-self-analytics.html" class="project-iframe"></iframe>
+                        </div>
+                        <div class="tab-pane fade h-100" id="iotbigdata" role="tabpanel" aria-labelledby="iotbigdata-tab">
+                            <iframe src="./public/project-nec-iot-big-data.html" class="project-iframe"></iframe>
+                        </div>
+                        <div class="tab-pane fade h-100" id="paos" role="tabpanel" aria-labelledby="paos-tab">
+                            <iframe src="./public/project-paos.html" class="project-iframe"></iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <script>
-        const tabIds = ['deepview', 'qlm', 'selfanalytics', 'iotbigdata', 'paos'];
-        let currentTab = 0;
-        function showTab(idx) {
-            if(idx < 0 || idx >= tabIds.length) return;
-            const tabTrigger = document.querySelector(`[data-bs-target="#${tabIds[idx]}"]`);
-            if(tabTrigger) {
-                const tab = new bootstrap.Tab(tabTrigger);
-                tab.show();
-            }
-            currentTab = idx;
-            updateNavButtons();
-        }
-        function updateNavButtons() {
-            document.getElementById('prevTabBtn').disabled = currentTab === 0;
-            document.getElementById('nextTabBtn').disabled = currentTab === tabIds.length - 1;
-        }
-        document.getElementById('prevTabBtn').onclick = () => {
-            if (currentTab > 0) showTab(currentTab - 1);
-        };
-        document.getElementById('nextTabBtn').onclick = () => {
-            if (currentTab < tabIds.length - 1) showTab(currentTab + 1);
-        };
-        document.querySelectorAll('.nav-link').forEach((el, i) => {
-            el.addEventListener('shown.bs.tab', function() {
-                currentTab = i;
-                updateNavButtons();
-            });
-        });
-        // On page load, ensure first tab is active and buttons are correct
-        showTab(0);
-        </script>
     </main>
     <footer class="bg-dark text-white text-center py-3 mt-auto">
         &copy; 2025 Nitender Kumar | Principal Data Engineer

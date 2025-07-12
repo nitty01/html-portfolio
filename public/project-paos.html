@@ -3,42 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAOS (Predictive Auto Ordering System) | Nitender Kumar Portfolio</title>
+    <title>PAOS | Nitender Kumar Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .project-title {
+            background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+        }
+        .project-section-header {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0d6efd;
+            margin-bottom: 0.75rem;
+            margin-top: 2rem;
+            letter-spacing: 0.5px;
+            text-decoration: underline 2px #0d6efd33;
+        }
+        .project-content-text {
+            font-size: 1.1rem;
+            color: #23272b;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+        .project-description {
+            font-size: 1.2rem;
+            color: #495057;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        .tech-stack {
+            background: #e9ecef;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #0d6efd;
+            margin-bottom: 2rem;
+        }
+        .contributions-list {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        .contributions-list ul {
+            margin-bottom: 0;
+        }
+        .contributions-list li {
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+        .architecture-section {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        .architecture-section h3 {
+            color: #0d6efd;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        .architecture-image {
+            width: 100%;
+            height: 500px;
+            object-fit: contain;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background: #f8f9fa;
+        }
+    </style>
 </head>
-<body class="bg-light">
-    <main class="container py-5">
-        <h1 class="mb-3">PAOS (Predictive Auto Ordering System)</h1>
-        <p class="lead">A recommendation engine that predicts optimal inventory levels for products based on sales data, minimizing losses from shortages and overstocking. Leveraged proprietary ML tools and frameworks to deliver actionable insights for inventory management.</p>
-        <div class="mb-4">
-            <strong>Your Role:</strong> <span>Senior Software Engineer</span>
+<body>
+    <div class="container-fluid p-4">
+        <h1 class="project-title">PAOS (Predictive Auto Ordering System)</h1>
+        
+        <p class="project-description">
+            A recommendation engine that predicts optimal inventory levels for products based on sales data, minimizing losses from shortages and overstocking. Leveraged proprietary ML tools and frameworks to deliver actionable insights for inventory management.
+        </p>
+        
+        <div class="project-content-text">
+            <div class="project-section-header">Your Role</div>
+            <div class="tech-stack">
+                <strong>Senior Software Engineer</strong>
+            </div>
         </div>
-        <div class="mb-4">
-            <strong>Technologies:</strong> <span>Python, SAMPO Framework, Proprietary ML Tools, Hadoop, Spark</span>
+        
+        <div class="project-content-text">
+            <div class="project-section-header">Technologies</div>
+            <div class="tech-stack">
+                Python, SAMPO Framework, Proprietary ML Tools, Hadoop, Spark
+            </div>
         </div>
-        <div class="mb-4">
-            <strong>Key Contributions & Impact:</strong>
-            <ul>
-                <li>Developed a recommendation engine to predict optimal inventory levels using sales data.</li>
-                <li>Built and optimized models for each product, reducing losses from shortages and overstocking.</li>
-                <li>Overcame limitations of the SAMPO framework by optimizing application architecture for performance and parallelization.</li>
-            </ul>
+        
+        <div class="project-content-text">
+            <div class="project-section-header">Key Contributions & Impact</div>
+            <div class="contributions-list">
+                <ul>
+                    <li>Developed a recommendation engine to predict optimal inventory levels using sales data.</li>
+                    <li>Built and optimized models for each product, reducing losses from shortages and overstocking.</li>
+                    <li>Overcame limitations of the SAMPO framework by optimizing application architecture for performance and parallelization.</li>
+                </ul>
+            </div>
         </div>
-        <div class="mb-5">
+        
+        <div class="architecture-section">
             <h3>Architecture Diagram</h3>
-            <img src="../assets/images/your-diagram.png" class="img-fluid border" alt="Architecture Diagram (replace with your image)">
+            <img src="../assets/images/diagrams/paos/paos-architecture-2025-07-12-v1.png" class="architecture-image" alt="PAOS Architecture Diagram">
         </div>
-        <div class="d-flex justify-content-between">
-            <a href="project-nec-iot-big-data.html" class="btn btn-secondary">&#8592; Previous Project</a>
-            <a href="../index.html" class="btn btn-primary">Back to Home &#8594;</a>
-        </div>
-        <div class="alert alert-info mt-5" role="alert">
-            <strong>Instructions:</strong> Duplicate this file for each project. Update the content, image, and links as needed. For diagrams, see the comments above.
-        </div>
-    </main>
-    <footer class="bg-dark text-white text-center py-3 mt-5">
-        &copy; 2024 Nitender Kumar | Principal Data Engineer
-    </footer>
+    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html> 
