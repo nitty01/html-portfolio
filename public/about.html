@@ -7,6 +7,27 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --base-font-size: clamp(14px, 2vw, 16px);
+            --heading-font-size: clamp(1.8rem, 4.5vw, 2.1rem);
+            --section-font-size: clamp(1.1rem, 2.8vw, 1.3rem);
+            --content-font-size: clamp(1rem, 2.2vw, 1.15em);
+            --hobby-title-font-size: clamp(1rem, 2.5vw, 1.2rem);
+            --hobby-icon-font-size: clamp(2rem, 5vw, 3rem);
+        }
+        
+        body {
+            font-size: var(--base-font-size);
+        }
+        
+        .navbar-brand {
+            font-size: var(--heading-font-size) !important;
+        }
+        
+        .nav-link {
+            font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+        }
+        
         .about-title {
             background: #0d6efd;
             color: #fff;
@@ -16,11 +37,11 @@
             border-radius: 0.5rem;
             margin-bottom: 1.5rem;
             letter-spacing: 1px;
-            font-size: 2.1rem;
+            font-size: var(--heading-font-size);
             box-shadow: 0 2px 8px 0 #0d6efd22;
         }
         .about-section-header {
-            font-size: 1.3rem;
+            font-size: var(--section-font-size);
             font-weight: 700;
             color: #0d6efd;
             margin-bottom: 0.5rem;
@@ -29,7 +50,7 @@
             text-decoration: underline 2px #0d6efd33;
         }
         .about-content-text {
-            font-size: 1.15em;
+            font-size: var(--content-font-size);
             color: #23272b;
             line-height: 1.7;
             font-weight: 500;
@@ -97,13 +118,13 @@
             border-color: #0d6efd;
         }
         .hobby-icon {
-            font-size: 3rem;
+            font-size: var(--hobby-icon-font-size);
             color: #0d6efd;
             margin-bottom: 1rem;
             display: block;
         }
         .hobby-title {
-            font-size: 1.2rem;
+            font-size: var(--hobby-title-font-size);
             font-weight: 600;
             color: #212529;
             margin: 0;
@@ -164,27 +185,27 @@
                 padding: 1rem;
             }
             .about-title {
-                font-size: 1.8rem;
+                font-size: clamp(1.5rem, 4vw, 1.8rem);
                 padding: 0.5rem 1rem;
             }
             .about-section-header {
-                font-size: 1.1rem;
+                font-size: clamp(1rem, 2.5vw, 1.1rem);
             }
             .about-content-text {
-                font-size: 1rem;
+                font-size: clamp(0.9rem, 2.2vw, 1rem);
             }
             .hobby-card {
                 padding: 1rem;
                 margin-bottom: 0.75rem;
             }
             .hobby-icon {
-                font-size: 2.5rem;
+                font-size: clamp(2rem, 4.5vw, 2.5rem);
             }
             .hobby-title {
-                font-size: 1.1rem;
+                font-size: clamp(1rem, 2.3vw, 1.1rem);
             }
             .navbar-brand {
-                font-size: 1.5rem !important;
+                font-size: clamp(1.25rem, 4vw, 1.5rem) !important;
             }
             .profile-pic-placeholder {
                 width: 48px !important;
@@ -196,31 +217,51 @@
                 padding: 0.75rem;
             }
             .about-title {
-                font-size: 1.5rem;
+                font-size: clamp(1.25rem, 3.5vw, 1.5rem);
                 padding: 0.4rem 0.8rem;
             }
             .about-section-header {
-                font-size: 1rem;
+                font-size: clamp(0.9rem, 2.2vw, 1rem);
             }
             .about-content-text {
-                font-size: 0.95rem;
+                font-size: clamp(0.85rem, 2vw, 0.95rem);
             }
             .hobby-card {
                 padding: 0.75rem;
                 margin-bottom: 0.5rem;
             }
             .hobby-icon {
-                font-size: 2rem;
+                font-size: clamp(1.75rem, 4vw, 2rem);
             }
             .hobby-title {
-                font-size: 1rem;
+                font-size: clamp(0.9rem, 2.1vw, 1rem);
             }
             .navbar-brand {
-                font-size: 1.25rem !important;
+                font-size: clamp(1rem, 3.5vw, 1.25rem) !important;
             }
             .profile-pic-placeholder {
                 width: 40px !important;
                 height: 40px !important;
+            }
+        }
+        @media (max-width: 480px) {
+            :root {
+                --base-font-size: clamp(12px, 1.8vw, 14px);
+                --heading-font-size: clamp(1.4rem, 4vw, 1.6rem);
+                --section-font-size: clamp(1rem, 2.5vw, 1.1rem);
+                --content-font-size: clamp(0.9rem, 2vw, 1rem);
+                --hobby-title-font-size: clamp(0.9rem, 2.2vw, 1rem);
+                --hobby-icon-font-size: clamp(1.5rem, 3.5vw, 1.8rem);
+            }
+        }
+        @media (min-width: 1200px) {
+            :root {
+                --base-font-size: clamp(16px, 1.2vw, 18px);
+                --heading-font-size: clamp(2.1rem, 2.5vw, 2.5rem);
+                --section-font-size: clamp(1.3rem, 1.8vw, 1.5rem);
+                --content-font-size: clamp(1.15em, 1.5vw, 1.25em);
+                --hobby-title-font-size: clamp(1.2rem, 1.8vw, 1.3rem);
+                --hobby-icon-font-size: clamp(3rem, 3.5vw, 3.5rem);
             }
         }
     </style>
