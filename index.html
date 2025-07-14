@@ -62,27 +62,32 @@
             <div class="flex flex-col md:flex-row w-full h-full max-w-full max-h-full rounded-3xl shadow-glass bg-white/5 backdrop-blur-md p-0 overflow-auto">
                 <!-- Sidebar Tabs -->
                 <nav class="flex flex-row md:flex-col items-stretch gap-2 bg-transparent rounded-2xl p-2 md:p-4 basis-full md:basis-1/5 min-w-0 md:min-w-[180px] max-w-full md:max-w-xs w-full md:w-auto h-auto md:h-full" aria-label="Project navigation">
-                    <button class="tab-btn w-full px-3 py-2 md:px-4 md:py-2 rounded-lg font-semibold bg-gray-900/80 text-gray-200 hover:bg-accent2 hover:text-white transition shadow-glass mb-2 active text-xs md:text-base" data-tab="deepview">Deep View Analytics</button>
-                    <button class="tab-btn w-full px-3 py-2 md:px-4 md:py-2 rounded-lg font-semibold bg-gray-900/80 text-gray-200 hover:bg-accent2 hover:text-white transition shadow-glass mb-2 text-xs md:text-base" data-tab="qlm">QLM</button>
-                    <button class="tab-btn w-full px-3 py-2 md:px-4 md:py-2 rounded-lg font-semibold bg-gray-900/80 text-gray-200 hover:bg-accent2 hover:text-white transition shadow-glass mb-2 text-xs md:text-base" data-tab="selfanalytics">Self Analytics</button>
-                    <button class="tab-btn w-full px-3 py-2 md:px-4 md:py-2 rounded-lg font-semibold bg-gray-900/80 text-gray-200 hover:bg-accent2 hover:text-white transition shadow-glass mb-2 text-xs md:text-base" data-tab="iotbigdata">NEC IoT Big Data</button>
-                    <button class="tab-btn w-full px-3 py-2 md:px-4 md:py-2 rounded-lg font-semibold bg-gray-900/80 text-gray-200 hover:bg-accent2 hover:text-white transition shadow-glass text-xs md:text-base" data-tab="paos">PAOS</button>
+                    <button class="tab-btn w-full px-3 py-2 md:px-4 md:py-2 rounded-lg font-bold uppercase bg-gray-900/80 text-gray-200 hover:bg-accent2 hover:text-white transition shadow-glass mb-2 active text-xs md:text-base" data-tab="deepview">Deep View Analytics</button>
+                    <button class="tab-btn w-full px-3 py-2 md:px-4 md:py-2 rounded-lg font-bold uppercase bg-gray-900/80 text-gray-200 hover:bg-accent2 hover:text-white transition shadow-glass mb-2 text-xs md:text-base" data-tab="qlm">QLM</button>
+                    <button class="tab-btn w-full px-3 py-2 md:px-4 md:py-2 rounded-lg font-bold uppercase bg-gray-900/80 text-gray-200 hover:bg-accent2 hover:text-white transition shadow-glass mb-2 text-xs md:text-base" data-tab="selfanalytics">Self Analytics</button>
+                    <button class="tab-btn w-full px-3 py-2 md:px-4 md:py-2 rounded-lg font-bold uppercase bg-gray-900/80 text-gray-200 hover:bg-accent2 hover:text-white transition shadow-glass mb-2 text-xs md:text-base" data-tab="iotbigdata">NEC IoT Big Data</button>
+                    <button class="tab-btn w-full px-3 py-2 md:px-4 md:py-2 rounded-lg font-bold uppercase bg-gray-900/80 text-gray-200 hover:bg-accent2 hover:text-white transition shadow-glass text-xs md:text-base" data-tab="paos">PAOS</button>
                 </nav>
                 <!-- Project Content -->
                 <div class="flex flex-col flex-1 basis-full md:basis-4/5 h-auto md:h-full overflow-y-auto">
                     <div id="deepview-pane" class="tab-pane rounded-2xl bg-white/10 backdrop-blur-md shadow-glass p-2 md:p-6 h-[320px] md:h-full block overflow-auto">
+                        <h3 class="text-lg md:text-2xl font-bold uppercase text-accent mb-2">DEEP VIEW ANALYTICS</h3>
                         <iframe src="./public/project-deep-view-analytics.html" class="w-full h-full min-h-[240px] md:min-h-[400px] md:min-h-[600px] rounded-xl border-0 shadow-glass" title="Deep View Analytics Project" tabindex="0"></iframe>
                     </div>
                     <div id="qlm-pane" class="tab-pane rounded-2xl bg-white/10 backdrop-blur-md shadow-glass p-2 md:p-6 h-[320px] md:h-full hidden overflow-auto">
+                        <h3 class="text-lg md:text-2xl font-bold uppercase text-accent mb-2">QLM</h3>
                         <iframe src="./public/project-qlm.html" class="w-full h-full min-h-[240px] md:min-h-[400px] md:min-h-[600px] rounded-xl border-0 shadow-glass" title="QLM Project" tabindex="0"></iframe>
                     </div>
                     <div id="selfanalytics-pane" class="tab-pane rounded-2xl bg-white/10 backdrop-blur-md shadow-glass p-2 md:p-6 h-[320px] md:h-full hidden overflow-auto">
+                        <h3 class="text-lg md:text-2xl font-bold uppercase text-accent mb-2">SELF ANALYTICS</h3>
                         <iframe src="./public/project-self-analytics.html" class="w-full h-full min-h-[240px] md:min-h-[400px] md:min-h-[600px] rounded-xl border-0 shadow-glass" title="Self Analytics Project" tabindex="0"></iframe>
                     </div>
                     <div id="iotbigdata-pane" class="tab-pane rounded-2xl bg-white/10 backdrop-blur-md shadow-glass p-2 md:p-6 h-[320px] md:h-full hidden overflow-auto">
+                        <h3 class="text-lg md:text-2xl font-bold uppercase text-accent mb-2">NEC IOT BIG DATA</h3>
                         <iframe src="./public/project-nec-iot-big-data.html" class="w-full h-full min-h-[240px] md:min-h-[400px] md:min-h-[600px] rounded-xl border-0 shadow-glass" title="NEC IoT Big Data Project" tabindex="0"></iframe>
                     </div>
                     <div id="paos-pane" class="tab-pane rounded-2xl bg-white/10 backdrop-blur-md shadow-glass p-2 md:p-6 h-[320px] md:h-full hidden overflow-auto">
+                        <h3 class="text-lg md:text-2xl font-bold uppercase text-accent mb-2">PAOS</h3>
                         <iframe src="./public/project-paos.html" class="w-full h-full min-h-[240px] md:min-h-[400px] md:min-h-[600px] rounded-xl border-0 shadow-glass" title="PAOS Project" tabindex="0"></iframe>
                     </div>
                 </div>
