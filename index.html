@@ -4,341 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nitender Kumar | Principal Data Engineer Portfolio</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'Poppins', 'Space Grotesk', 'ui-sans-serif', 'system-ui'],
+            },
+            colors: {
+              accent: '#06b6d4',
+              accent2: '#6366f1',
+            },
+            boxShadow: {
+              glass: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+            },
+            backdropBlur: {
+              sm: '4px',
+              md: '8px',
+              lg: '16px',
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="stylesheet" href="./styles.css">
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        /* Base Styles */
-        body {
-            margin: 0;
-            padding: 0;
-        }
-        /* Navigation */
-        nav.sticky-nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: #212529;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        }
-        :root {
-            --base-font-size: clamp(14px, 2vw, 16px);
-            --heading-font-size: clamp(1.5rem, 4vw, 2rem);
-            --nav-font-size: clamp(1rem, 2.5vw, 1.1rem);
-            --title-font-size: clamp(1.25rem, 3vw, 1.5rem);
-        }
-        
-        body {
-            font-size: var(--base-font-size);
-        }
-        
-        .navbar-brand {
-            font-size: var(--heading-font-size) !important;
-        }
-        
-        .nav-link {
-            font-size: var(--nav-font-size);
-        }
-        
-        .projects-header h2 {
-            font-size: var(--title-font-size);
-        }
-        
-        .vertical-tabs {
-            min-width: clamp(180px, 15vw, 250px);
-            background: #212529;
-            border-radius: 0;
-            padding: 0;
-            height: calc(100vh - clamp(70px, 8vh, 90px));
-            margin-top: 0;
-            flex-shrink: 0;
-            overflow: hidden;
-        }
-        .vertical-tabs .nav-link {
-            color: #fff;
-            border-radius: 0;
-            margin-bottom: 0;
-            text-align: left;
-            font-weight: 700;
-            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-            width: 100%;
-            padding: clamp(0.75rem, 2vw, 1.25rem);
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
-            text-transform: uppercase;
-            box-sizing: border-box;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-        .vertical-tabs .nav-link.active {
-            background: linear-gradient(135deg, #0d6efd, #0b5ed7);
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
-            border-left: 4px solid #fff;
-            transform: none;
-            position: relative;
-            z-index: 1;
-        }
-        .vertical-tabs .nav-link:focus {
-            outline: none;
-            box-shadow: none;
-        }
-        .vertical-tabs .nav-link:hover {
-            background: linear-gradient(135deg, #343a40, #495057);
-            color: #fff;
-            transform: none;
-            position: relative;
-            z-index: 1;
-        }
-        @media (max-width: 768px) {
-            .vertical-tabs {
-                min-width: 100%;
-                flex-direction: row !important;
-                padding: clamp(0.3rem, 1.5vw, 0.5rem) 0;
-                height: auto;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .vertical-tabs .nav-link {
-                margin-bottom: 0;
-                margin-right: clamp(0.25rem, 1vw, 0.5rem);
-                border-radius: 0.375rem;
-                padding: clamp(0.5rem, 2vw, 1rem);
-                font-size: clamp(0.8rem, 2vw, 1rem);
-                white-space: nowrap;
-                min-width: fit-content;
-            }
-            .navbar-brand {
-                font-size: clamp(1.25rem, 4vw, 1.5rem) !important;
-            }
-            .profile-pic-placeholder {
-                width: clamp(40px, 6vw, 48px) !important;
-                height: clamp(40px, 6vw, 48px) !important;
-            }
-            .projects-header {
-                padding: clamp(0.75rem, 2.5vw, 1rem);
-                font-size: clamp(1rem, 2.5vw, 1.25rem);
-            }
-            .projects-content {
-                flex-direction: column;
-                min-height: 0;
-            }
-            .col-12.col-md-3 {
-                min-width: 100% !important;
-                max-width: 100% !important;
-                width: 100% !important;
-                flex-shrink: 0;
-            }
-            .col-12.col-md-9 {
-                width: 100% !important;
-                flex: 1;
-                min-height: 0;
-            }
-            .vertical-tabs .nav-link {
-                font-size: clamp(0.75rem, 1.8vw, 0.9rem);
-                padding: clamp(0.4rem, 1.5vw, 0.75rem);
-            }
-        }
-        @media (max-width: 576px) {
-            .navbar-brand {
-                font-size: clamp(1rem, 3.5vw, 1.25rem) !important;
-            }
-            .profile-pic-placeholder {
-                width: clamp(35px, 5vw, 40px) !important;
-                height: clamp(35px, 5vw, 40px) !important;
-            }
-            .projects-header {
-                padding: clamp(0.5rem, 2vw, 0.75rem);
-                font-size: clamp(0.9rem, 2.2vw, 1.1rem);
-            }
-            .vertical-tabs .nav-link {
-                font-size: clamp(0.7rem, 1.5vw, 0.8rem);
-                padding: clamp(0.3rem, 1.2vw, 0.6rem);
-                margin-right: clamp(0.2rem, 0.8vw, 0.25rem);
-                margin-bottom: 0.25rem;
-            }
-            .vertical-tabs {
-                padding: clamp(0.2rem, 1vw, 0.3rem) 0;
-            }
-        }
-        @media (max-width: 480px) {
-            :root {
-                --base-font-size: clamp(12px, 1.8vw, 14px);
-                --heading-font-size: clamp(1.25rem, 3.5vw, 1.5rem);
-                --nav-font-size: clamp(0.9rem, 2.2vw, 1rem);
-                --title-font-size: clamp(1rem, 2.8vw, 1.25rem);
-            }
-            .vertical-tabs .nav-link {
-                font-size: clamp(0.65rem, 1.3vw, 0.75rem);
-                padding: clamp(0.25rem, 1vw, 0.4rem);
-                margin-right: clamp(0.15rem, 0.6vw, 0.2rem);
-            }
-            .projects-header {
-                padding: clamp(0.4rem, 1.8vw, 0.5rem);
-                font-size: clamp(0.8rem, 2vw, 0.9rem);
-            }
-        }
-        @media (min-width: 1200px) {
-            :root {
-                --base-font-size: clamp(16px, 1.2vw, 18px);
-                --heading-font-size: clamp(2rem, 2.5vw, 2.5rem);
-                --nav-font-size: clamp(1.1rem, 1.5vw, 1.2rem);
-                --title-font-size: clamp(1.5rem, 2vw, 1.8rem);
-            }
-            .vertical-tabs {
-                min-width: clamp(220px, 12vw, 280px);
-            }
-            .vertical-tabs .nav-link {
-                padding: clamp(1rem, 1.5vw, 1.5rem);
-                font-size: clamp(1rem, 1.2vw, 1.2rem);
-            }
-        }
-        .project-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .projects-section {
-            background: #fff;
-            border-radius: 0;
-            margin: 0;
-            box-shadow: none;
-            overflow: hidden;
-            height: calc(100vh - clamp(70px, 8vh, 90px));
-            display: flex;
-            flex-direction: column;
-        }
-        .projects-header {
-            background: linear-gradient(135deg, #0d6efd, #0b5ed7);
-            color: white;
-            padding: clamp(1rem, 3vw, 2rem);
-            font-size: clamp(1.1rem, 3vw, 1.5rem);
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-        .projects-content {
-            flex: 1;
-            display: flex;
-            overflow: hidden;
-            width: 100%;
-            min-height: 0;
-        }
-        .tab-content {
-            flex: 1;
-            overflow: hidden;
-            width: 100%;
-            min-height: 0;
-        }
-        .tab-pane {
-            height: 100%;
-            min-height: 0;
-        }
-        .nav-pills {
-            overflow: hidden;
-            min-height: 0;
-        }
-        #about {
-            font-size: 16px;
-            line-height: 1.6;
-        }
-        #about h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
+        /* Remove redundant styles now handled by styles.css */
+        html { scroll-behavior: smooth; }
+        body { margin: 0; padding: 0; }
     </style>
 </head>
-<body class="bg-light d-flex flex-column min-vh-100">
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0 sticky-nav" style="min-height: 90px;">
-        <div class="container-fluid d-flex align-items-center justify-content-between" style="min-height: 90px;">
-            <div class="d-flex align-items-center">
-                <a class="navbar-brand mb-0 h1" href="#" style="font-size:2rem;">Nitender Kumar</a>
-            </div>
-            <div class="d-flex align-items-center">
-                <div class="d-none d-md-block me-3">
-                    
-                </div>
-                <div class="profile-pic-placeholder rounded-circle bg-secondary" style="width:64px; height:64px; overflow:hidden; display:flex; align-items:center; justify-content:center;">
-                    <!-- Replace src with your profile image if available -->
-                    <img src="./assets/images/profile_pic.jpg" alt="Profile Picture" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
-                </div>
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="./public/about.html">About Me</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./public/contact.html">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-primary ms-2" href="https://www.linkedin.com/in/nitender-kumar" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    </li>
-                </ul>
+<body class="dark bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen font-sans text-gray-200 flex flex-col">
+    <nav class="w-full flex items-center justify-between py-4 px-4 bg-gray-900/90 backdrop-blur-lg shadow-lg sticky top-0 z-30">
+        <a class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text" href="./index.html">Nitender Kumar</a>
+        <div class="flex items-center gap-4">
+            <a class="text-base font-semibold text-accent2 hover:underline underline-offset-4 transition" href="./public/about.html">About Me</a>
+            <a class="text-base font-semibold text-accent2 hover:underline underline-offset-4 transition" href="./public/contact.html">Contact</a>
+            <a class="inline-block px-4 py-2 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-glass hover:scale-105 transition" href="https://www.linkedin.com/in/nitender-kumar" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+    </nav>
+    <!-- Modern Hero Section -->
+    <section class="flex items-center justify-center flex-col text-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen h-screen w-full" id="hero-section">
+        <div class="w-full flex justify-center">
+            <div class="bg-white/10 backdrop-blur-lg rounded-3xl shadow-glass p-8 md:p-12 max-w-2xl w-full mx-4">
+                <h1 class="text-3xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text drop-shadow-lg" style="font-family: var(--heading-font); letter-spacing: 0.01em;">Principal Data Engineer & Solution Architect</h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-6 leading-relaxed">Building scalable, elegant, and impactful data solutions. Passionate about architecture, analytics, and empowering teams to deliver excellence.</p>
+                <button id="view-work-btn" class="inline-block px-6 py-3 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-glass hover:scale-105 transition mt-2 focus:outline-none focus:ring-2 focus:ring-accent2">View My Work</button>
             </div>
         </div>
-      </nav>
-    </header>
-    <main class="container-fluid flex-grow-1 d-flex flex-column p-0">
+    </section>
+    <main class="w-full flex-grow flex flex-col p-0">
         <!-- Projects Section -->
-        <div class="projects-section">
-            <div class="projects-header">
-                <h2 class="mb-0">Featured Projects</h2>
-            </div>
-            <div class="projects-content">
-                <div class="col-12 col-md-3 d-flex flex-column align-items-stretch p-0" style="min-width:clamp(180px, 15vw, 250px);max-width:clamp(200px, 20vw, 280px);">
-                    <div class="vertical-tabs d-flex flex-column h-100 w-100 p-0" style="border-radius:0;">
-                        <ul class="nav nav-pills flex-column w-100" id="projectTabs" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="deepview-tab" data-bs-toggle="tab" data-bs-target="#deepview" type="button" role="tab" aria-controls="deepview" aria-selected="true">Deep View Analytics</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="qlm-tab" data-bs-toggle="tab" data-bs-target="#qlm" type="button" role="tab" aria-controls="qlm" aria-selected="false">QLM</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="selfanalytics-tab" data-bs-toggle="tab" data-bs-target="#selfanalytics" type="button" role="tab" aria-controls="selfanalytics" aria-selected="false">Self Analytics</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="iotbigdata-tab" data-bs-toggle="tab" data-bs-target="#iotbigdata" type="button" role="tab" aria-controls="iotbigdata" aria-selected="false">NEC IoT Big Data</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="paos-tab" data-bs-toggle="tab" data-bs-target="#paos" type="button" role="tab" aria-controls="paos" aria-selected="false">PAOS</button>
-                            </li>
-                        </ul>
+        <section id="projects-section" class="absolute left-0 right-0 top-0 z-40 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center transition-opacity duration-700 opacity-0 pointer-events-none w-full min-h-[calc(100vh-0px)]" style="top:4.5rem; bottom:3.5rem; min-height:calc(100vh - 7rem);">
+            <div class="flex flex-row w-full h-full max-w-full max-h-full rounded-3xl shadow-glass bg-white/5 backdrop-blur-md p-0">
+                <!-- Sidebar Tabs -->
+                <nav class="flex flex-col items-stretch gap-2 bg-transparent rounded-2xl p-4 basis-1/5 min-w-[180px] max-w-xs h-full" aria-label="Project navigation">
+                    <button class="tab-btn w-full px-4 py-2 rounded-lg font-semibold bg-gray-900/80 text-gray-200 hover:bg-accent2 hover:text-white transition shadow-glass mb-2 active" data-tab="deepview">Deep View Analytics</button>
+                    <button class="tab-btn w-full px-4 py-2 rounded-lg font-semibold bg-gray-900/80 text-gray-200 hover:bg-accent2 hover:text-white transition shadow-glass mb-2" data-tab="qlm">QLM</button>
+                    <button class="tab-btn w-full px-4 py-2 rounded-lg font-semibold bg-gray-900/80 text-gray-200 hover:bg-accent2 hover:text-white transition shadow-glass mb-2" data-tab="selfanalytics">Self Analytics</button>
+                    <button class="tab-btn w-full px-4 py-2 rounded-lg font-semibold bg-gray-900/80 text-gray-200 hover:bg-accent2 hover:text-white transition shadow-glass mb-2" data-tab="iotbigdata">NEC IoT Big Data</button>
+                    <button class="tab-btn w-full px-4 py-2 rounded-lg font-semibold bg-gray-900/80 text-gray-200 hover:bg-accent2 hover:text-white transition shadow-glass" data-tab="paos">PAOS</button>
+                </nav>
+                <!-- Project Content -->
+                <div class="flex flex-col flex-1 basis-4/5 h-full overflow-y-auto">
+                    <div id="deepview-pane" class="tab-pane rounded-2xl bg-white/10 backdrop-blur-md shadow-glass p-2 md:p-6 h-full block">
+                        <iframe src="./public/project-deep-view-analytics.html" class="w-full h-full min-h-[400px] md:min-h-[600px] rounded-xl border-0 shadow-glass" title="Deep View Analytics Project" tabindex="0"></iframe>
                     </div>
-                </div>
-                <div class="col-12 col-md-9 d-flex flex-column p-0" style="width: calc(100% - clamp(180px, 15vw, 250px));">
-                    <div class="tab-content flex-grow-1 d-flex flex-column" id="projectTabsContent">
-                        <div class="tab-pane fade show active h-100" id="deepview" role="tabpanel" aria-labelledby="deepview-tab">
-                            <iframe src="./public/project-deep-view-analytics.html" class="project-iframe"></iframe>
-                        </div>
-                        <div class="tab-pane fade h-100" id="qlm" role="tabpanel" aria-labelledby="qlm-tab">
-                            <iframe src="./public/project-qlm.html" class="project-iframe"></iframe>
-                        </div>
-                        <div class="tab-pane fade h-100" id="selfanalytics" role="tabpanel" aria-labelledby="selfanalytics-tab">
-                            <iframe src="./public/project-self-analytics.html" class="project-iframe"></iframe>
-                        </div>
-                        <div class="tab-pane fade h-100" id="iotbigdata" role="tabpanel" aria-labelledby="iotbigdata-tab">
-                            <iframe src="./public/project-nec-iot-big-data.html" class="project-iframe"></iframe>
-                        </div>
-                        <div class="tab-pane fade h-100" id="paos" role="tabpanel" aria-labelledby="paos-tab">
-                            <iframe src="./public/project-paos.html" class="project-iframe"></iframe>
-                        </div>
+                    <div id="qlm-pane" class="tab-pane rounded-2xl bg-white/10 backdrop-blur-md shadow-glass p-2 md:p-6 h-full hidden">
+                        <iframe src="./public/project-qlm.html" class="w-full h-full min-h-[400px] md:min-h-[600px] rounded-xl border-0 shadow-glass" title="QLM Project" tabindex="0"></iframe>
+                    </div>
+                    <div id="selfanalytics-pane" class="tab-pane rounded-2xl bg-white/10 backdrop-blur-md shadow-glass p-2 md:p-6 h-full hidden">
+                        <iframe src="./public/project-self-analytics.html" class="w-full h-full min-h-[400px] md:min-h-[600px] rounded-xl border-0 shadow-glass" title="Self Analytics Project" tabindex="0"></iframe>
+                    </div>
+                    <div id="iotbigdata-pane" class="tab-pane rounded-2xl bg-white/10 backdrop-blur-md shadow-glass p-2 md:p-6 h-full hidden">
+                        <iframe src="./public/project-nec-iot-big-data.html" class="w-full h-full min-h-[400px] md:min-h-[600px] rounded-xl border-0 shadow-glass" title="NEC IoT Big Data Project" tabindex="0"></iframe>
+                    </div>
+                    <div id="paos-pane" class="tab-pane rounded-2xl bg-white/10 backdrop-blur-md shadow-glass p-2 md:p-6 h-full hidden">
+                        <iframe src="./public/project-paos.html" class="w-full h-full min-h-[400px] md:min-h-[600px] rounded-xl border-0 shadow-glass" title="PAOS Project" tabindex="0"></iframe>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
     <footer class="bg-dark text-white text-center py-3 mt-auto">
         &copy; 2025 Nitender Kumar | Principal Data Engineer
     </footer>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Keyboard navigation for project tabs
+      document.addEventListener('DOMContentLoaded', function() {
+         // Tab switching logic
+         const tabBtns = document.querySelectorAll('.tab-btn');
+         const tabPanes = document.querySelectorAll('.tab-pane');
+         tabBtns.forEach(btn => {
+           btn.addEventListener('click', function() {
+             tabBtns.forEach(b => b.classList.remove('bg-accent2', 'text-white', 'active'));
+             tabPanes.forEach(pane => pane.classList.add('hidden'));
+             btn.classList.add('bg-accent2', 'text-white', 'active');
+             const tab = btn.getAttribute('data-tab');
+             document.getElementById(tab + '-pane').classList.remove('hidden');
+           });
+         });
+         // Keyboard navigation for accessibility
+         const tabList = document.getElementById('projectTabs');
+         if(tabList) {
+           const tabs = tabList.querySelectorAll('.tab-btn');
+           tabList.addEventListener('keydown', function(e) {
+             const current = document.activeElement;
+             let idx = Array.prototype.indexOf.call(tabs, current);
+             if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+               idx = (idx + 1) % tabs.length;
+               tabs[idx].focus();
+               e.preventDefault();
+             } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+               idx = (idx - 1 + tabs.length) % tabs.length;
+               tabs[idx].focus();
+               e.preventDefault();
+             }
+           });
+         }
+         // Show projects section on button click
+         const viewWorkBtn = document.getElementById('view-work-btn');
+         const projectsSection = document.getElementById('projects-section');
+         if(viewWorkBtn && projectsSection) {
+           viewWorkBtn.addEventListener('click', function() {
+             projectsSection.classList.remove('opacity-0', 'pointer-events-none');
+             projectsSection.classList.add('opacity-100');
+             window.scrollTo({ top: 0, behavior: 'smooth' });
+           });
+         }
+      });
+    </script>
 </body>
 </html>

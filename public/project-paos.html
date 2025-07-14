@@ -4,146 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAOS | Nitender Kumar Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: #f8f9fa;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .project-title {
-            background: linear-gradient(135deg, #0d6efd, #0b5ed7);
-            color: #fff;
-            font-weight: 700;
-            text-transform: uppercase;
-            padding: 1rem 1.5rem;
-            border-radius: 0.5rem;
-            margin-bottom: 2rem;
-            letter-spacing: 1px;
-            font-size: 2rem;
-            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
-        }
-        .project-section-header {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: #0d6efd;
-            margin-bottom: 0.75rem;
-            margin-top: 2rem;
-            letter-spacing: 0.5px;
-            text-decoration: underline 2px #0d6efd33;
-            text-transform: uppercase;
-        }
-        .project-content-text {
-            font-size: 1.1rem;
-            color: #23272b;
-            line-height: 1.7;
-            font-weight: 500;
-        }
-        .project-description {
-            font-size: 1.2rem;
-            color: #495057;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
-        .tech-stack {
-            background: #e9ecef;
-            padding: 1rem 1.5rem;
-            border-radius: 0.5rem;
-            border-left: 4px solid #0d6efd;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-        .tech-stack-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: 2rem;
-        }
-        .tech-item {
-            background: linear-gradient(135deg, #0d6efd, #0b5ed7);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);
-            transition: all 0.3s ease;
-        }
-        .tech-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.4);
-        }
-        .contributions-list {
-            background: #fff;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-        .contributions-list ul {
-            margin-bottom: 0;
-        }
-        .contributions-list li {
-            margin-bottom: 0.75rem;
-            font-size: 1.1rem;
-        }
-        .architecture-section {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-        .architecture-section h3 {
-            color: #0d6efd;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-        .architecture-image {
-            width: 100%;
-            height: 500px;
-            object-fit: contain;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            background: #f8f9fa;
-        }
-        /* S.O.L.I.D. Design Principles Section */
-        .solid-summary {
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 1.05em;
-            padding: 0.5em 0;
-        }
-        .solid-details ul {
-            margin: 0.5em 0 0 1.2em;
-            padding: 0;
-            list-style: disc inside;
-            font-size: 0.98em;
-        }
-        .solid-details li {
-            margin-bottom: 0.3em;
-        }
-    </style>
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'Poppins', 'Space Grotesk', 'ui-sans-serif', 'system-ui'],
+            },
+            colors: {
+              accent: '#06b6d4',
+              accent2: '#6366f1',
+            },
+            boxShadow: {
+              glass: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+            },
+            backdropBlur: {
+              sm: '4px',
+              md: '8px',
+              lg: '16px',
+            },
+          },
+        },
+      }
+    </script>
 </head>
-<body>
-    <div class="container-fluid p-4">
-        <h1 class="project-title">PAOS (Predictive Auto Ordering System)</h1>
-        
-        <p class="project-description">
-            A recommendation engine that predicts optimal inventory levels for products based on sales data, minimizing losses from shortages and overstocking. Leveraged proprietary ML tools and frameworks to deliver actionable insights for inventory management.
-        </p>
-        
-        <div class="project-content-text">
-            <div class="project-section-header">Designation</div>
-            <div class="tech-stack">
-                <strong>Senior Software Engineer</strong>
+<body class="dark bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen font-sans text-gray-200">
+    <main class="container mx-auto px-4 py-8">
+        <section class="mb-10">
+            <h1 class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4 drop-shadow-lg">PAOS (Predictive Auto Ordering System)</h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl">A recommendation engine that predicts optimal inventory levels for products based on sales data, minimizing losses from shortages and overstocking. Leveraged proprietary ML tools and frameworks to deliver actionable insights for inventory management.</p>
+        </section>
+        <section class="grid md:grid-cols-2 gap-10 mb-10 items-start">
+            <div>
+                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Designation</h2>
+                <div class="inline-block bg-gradient-to-r from-accent to-accent2 text-white px-4 py-2 rounded-lg font-semibold shadow-glass">Senior Software Engineer</div>
             </div>
-        </div>
-        
-        <div class="project-content-text">
-            <div class="project-section-header">ROLE</div>
-            <div class="contributions-list">
-                <ul>
+            <div>
+                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Technologies</h2>
+                <div class="flex flex-wrap gap-3 mb-2">
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Python</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">SAMPO Framework</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Proprietary ML Tools</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Hadoop</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Spark</span>
+                </div>
+            </div>
+            <div>
+                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Role</h2>
+                <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base">
                     <li>Developed and optimized machine learning algorithms for predictive analytics</li>
                     <li>Implemented SAMPO framework integration for advanced data processing</li>
                     <li>Designed scalable data pipelines using Hadoop and Spark ecosystems</li>
@@ -151,49 +62,41 @@
                     <li>Collaborated with research teams to enhance predictive modeling capabilities</li>
                 </ul>
             </div>
-        </div>
-        
-        <div class="project-content-text">
-            <div class="project-section-header">Technologies</div>
-            <div class="tech-stack-grid">
-                <span class="tech-item">Python</span>
-                <span class="tech-item">SAMPO Framework</span>
-                <span class="tech-item">Proprietary ML Tools</span>
-                <span class="tech-item">Hadoop</span>
-                <span class="tech-item">Spark</span>
-            </div>
-        </div>
-        
-        <div class="project-content-text">
-            <div class="project-section-header">Key Contributions & Impact</div>
-            <div class="contributions-list">
-                <ul>
+            <div>
+                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Key Contributions & Impact</h2>
+                <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base">
                     <li>Developed a recommendation engine to predict optimal inventory levels using sales data.</li>
                     <li>Built and optimized models for each product, reducing losses from shortages and overstocking.</li>
                     <li>Overcame limitations of the SAMPO framework by optimizing application architecture for performance and parallelization.</li>
                 </ul>
             </div>
-        </div>
-        
-        <details class="solid-details architecture-section">
-            <summary class="solid-summary">Architecture Diagram &amp; S.O.L.I.D. Design Principles</summary>
-            <div>
-            <h3>Architecture Diagram</h3>
-            <img src="../assets/images/diagrams/paos/paos-architecture-2025-07-12-v1.png" class="architecture-image" alt="PAOS Architecture Diagram">
-        </div>
-            <div style="margin-top:2rem;">
-                <h4 style="color:#0d6efd;font-weight:700;">S.O.L.I.D. Design Principles</h4>
-                <ul>
-                    <li><strong>Single Responsibility:</strong> Order prediction, data ingestion, and model training are handled by separate modules for clarity and maintainability.</li>
-                    <li><strong>Open/Closed Principle:</strong> The recommendation engine is designed to support new forecasting models and data sources without modifying existing logic.</li>
-                    <li><strong>Liskov Substitution:</strong> All forecasting models implement a common interface, allowing for easy replacement and upgrades.</li>
-                    <li><strong>Interface Segregation:</strong> APIs for admin, forecasting, and reporting are kept distinct, so clients only interact with relevant endpoints.</li>
-                    <li><strong>Dependency Inversion:</strong> The application uses abstractions for data access, ML logic, and presentation, enabling flexible integration and testing.</li>
-                </ul>
-            </div>
-        </details>
-    </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        </section>
+        <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
+            <details class="group">
+                <summary class="cursor-pointer text-xl font-bold text-accent2 mb-4 select-none flex items-center gap-2">
+                    <span class="inline-block transition-transform duration-300 group-open:rotate-90">
+                        <!-- Chevron Right SVG -->
+                        <svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </span>
+                    Architecture Diagram &amp; S.O.L.I.D. Design Principles
+                </summary>
+                <style>summary::-webkit-details-marker { display:none; }</style>
+                <div class="mt-4">
+                    <h3 class="text-accent2 font-bold text-lg mb-4">Architecture Diagram</h3>
+                    <img src="../assets/images/diagrams/paos/paos-architecture-2025-07-12-v1.png" class="w-full max-h-96 object-contain rounded-xl shadow-glass bg-gray-900" alt="PAOS Architecture Diagram">
+                </div>
+                <div class="mt-8">
+                    <h4 class="text-accent font-bold text-base mb-2">S.O.L.I.D. Design Principles</h4>
+                    <ul class="list-disc list-inside space-y-1 text-gray-300">
+                        <li><strong>Single Responsibility:</strong> Order prediction, data ingestion, and model training are handled by separate modules for clarity and maintainability.</li>
+                        <li><strong>Open/Closed Principle:</strong> The recommendation engine is designed to support new forecasting models and data sources without modifying existing logic.</li>
+                        <li><strong>Liskov Substitution:</strong> All forecasting models implement a common interface, allowing for easy replacement and upgrades.</li>
+                        <li><strong>Interface Segregation:</strong> APIs for admin, forecasting, and reporting are kept distinct, so clients only interact with relevant endpoints.</li>
+                        <li><strong>Dependency Inversion:</strong> The application uses abstractions for data access, ML logic, and presentation, enabling flexible integration and testing.</li>
+                    </ul>
+                </div>
+            </details>
+        </section>
+    </main>
 </body>
 </html> 
