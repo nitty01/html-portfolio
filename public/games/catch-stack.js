@@ -133,9 +133,10 @@
     gameActive = false;
     clearInterval(iconTimer);
     cancelAnimationFrame(animationFrame);
+    var link = window.portfolioLink || '../../index.html#projects-section';
     gameMessage.innerHTML = `<div class='text-2xl font-bold text-accent2 mb-2'>Game Over!</div>
       <div class='mb-2 text-lg'>Your Score: <span class='font-bold text-accent'>${score}</span></div>
-      <div class='mb-4'>Now that you've played, <a href='../index.html' class='underline text-accent2 hover:text-accent'>check out my projects!</a></div>`;
+      <div class='mb-4'>Now that you've played, <a href='${link}' class='underline text-accent2 hover:text-accent'>check out my projects!</a></div>`;
     gameMessage.classList.remove('hidden');
   }
 
