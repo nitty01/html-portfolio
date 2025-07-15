@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fun Zone | Nitender Kumar Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Poppins', 'Space Grotesk', 'ui-sans-serif', 'system-ui'],
+          },
+          colors: {
+            accent: '#06b6d4',
+            accent2: '#6366f1',
+          },
+          boxShadow: {
+            glass: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    :root {
+      --accent: #06b6d4;
+      --accent2: #6366f1;
+      --bg-dark: #18181b;
+      --bg-light: #f3f4f6;
+      --text-dark: #18181b;
+      --text-light: #f3f4f6;
+    }
+    .light {
+      --bg: var(--bg-light);
+      --text: var(--text-dark);
+    }
+    .dark {
+      --bg: var(--bg-dark);
+      --text: var(--text-light);
+    }
+    body {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
+    }
+    body.light {
+      background: var(--bg-light);
+      color: var(--text-dark);
+    }
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-light);
+    }
+  </style>
+</head>
+<body class="dark min-h-screen font-sans flex flex-col" id="body">
+  <nav class="w-full flex items-center justify-between py-2 px-4 bg-gray-900/90 backdrop-blur-lg shadow-lg sticky top-0 z-30">
+    <a href="/index.html" class="text-accent2 font-bold text-lg">&#8592; Back to Portfolio</a>
+    <button id="globalThemeToggle" class="ml-2 px-2 py-1 rounded bg-gray-700 text-white text-xs" title="Toggle Light/Dark Mode">🌙/☀️</button>
+  </nav>
+  <main class="flex-1 w-full max-w-2xl mx-auto p-4 flex flex-col items-center justify-center">
+    <h1 class="text-3xl md:text-4xl font-extrabold uppercase bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-6 drop-shadow-lg">Fun Zone</h1>
+    <div class="mb-6 flex gap-4">
+      <button class="game-selector bg-accent2 text-white px-4 py-2 rounded shadow hover:bg-accent transition font-semibold" data-game="bug-squash">Bug Squash</button>
+      <button class="game-selector bg-accent2 text-white px-4 py-2 rounded shadow hover:bg-accent transition font-semibold" data-game="catch-icon">Catch the Stack</button>
+    </div>
+    <div id="gameArea" class="w-full flex flex-col items-center"></div>
+  </main>
+  <script src="/public/games/bug-squash.js"></script>
+  <script src="/public/games/catch-stack.js"></script>
+  <script>
+    // Theme logic (sync with global site)
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const body = document.body;
+      if (savedTheme === 'light') {
+        body.classList.remove('dark');
+        body.classList.add('light');
+      } else {
+        body.classList.remove('light');
+        body.classList.add('dark');
+      }
+    })();
+    document.addEventListener('DOMContentLoaded', function() {
+      const btn = document.getElementById('globalThemeToggle');
+      if (!btn) return;
+      function setTheme(theme) {
+        if (theme === 'light') {
+          document.body.classList.remove('dark');
+          document.body.classList.add('light');
+          btn.textContent = '☀️';
+        } else {
+          document.body.classList.remove('light');
+          document.body.classList.add('dark');
+          btn.textContent = '🌙';
+        }
+        localStorage.setItem('theme', theme);
+      }
+      if (document.body.classList.contains('light')) {
+        btn.textContent = '☀️';
+      } else {
+        btn.textContent = '🌙';
+      }
+      btn.addEventListener('click', function() {
+        if (document.body.classList.contains('dark')) {
+          setTheme('light');
+        } else {
+          setTheme('dark');
+        }
+      });
+      // Listen for theme changes in other tabs
+      window.addEventListener('storage', function(e) {
+        if (e.key === 'theme') {
+          setTheme(e.newValue);
+        }
+      });
+    });
+    // Game selector logic
+    document.querySelectorAll('.game-selector').forEach(btn => {
+      btn.addEventListener('click', function() {
+        if (btn.disabled) return;
+        const game = btn.getAttribute('data-game');
+        if (game === 'bug-squash') {
+          window.loadBugSquashGame && window.loadBugSquashGame();
+        } else if (game === 'catch-icon') {
+          window.loadCatchStackGame && window.loadCatchStackGame();
+        }
+      });
+    });
+    // Auto-load Bug Squash on page load
+    window.addEventListener('DOMContentLoaded', function() {
+      window.loadBugSquashGame && window.loadBugSquashGame();
+    });
+  </script>
+</body>
+</html> 
