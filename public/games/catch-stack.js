@@ -122,7 +122,7 @@
     cancelAnimationFrame(animationFrame);
     gameMessage.innerHTML = `<div class='text-2xl font-bold text-accent2 mb-2'>Game Over!</div>
       <div class='mb-2 text-lg'>Your Score: <span class='font-bold text-accent'>${score}</span></div>
-      <div class='mb-4'><a href='/index.html#projects-section' class='underline text-accent2 hover:text-accent font-semibold'>Show My Work</a></div>`;
+      <div class='mb-4'><a href='../../index.html#projects-section' class='underline text-accent2 hover:text-accent font-semibold'>Show My Work</a></div>`;
     gameMessage.classList.remove('hidden');
   }
 
