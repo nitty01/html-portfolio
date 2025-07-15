@@ -31,11 +31,11 @@
       }
     </script>
 </head>
-<body class="dark bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen font-sans text-gray-200">
+<body class="dark" id="body">
     <main class="container mx-auto px-4 py-8">
         <section class="mb-10">
             <h1 class="text-4xl md:text-5xl font-extrabold uppercase bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4 drop-shadow-lg">DEEP VIEW ANALYTICS PLATFORM</h1>
-            <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl">A versatile data science and analytics platform built from scratch to support automotive, marketing, and sustainability use cases. The platform ingests, processes, and analyzes high-frequency data from vehicles and digital marketing sources, providing actionable insights for businesses and fleet owners.</p>
+            <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl project-description hero-desc">A versatile data science and analytics platform built from scratch to support automotive, marketing, and sustainability use cases. The platform ingests, processes, and analyzes high-frequency data from vehicles and digital marketing sources, providing actionable insights for businesses and fleet owners.</p>
         </section>
         <section class="grid md:grid-cols-2 gap-10 mb-10 items-start">
             <div>
@@ -106,5 +106,96 @@
             </details>
         </section>
     </main>
+    <style>
+      :root {
+        --accent: #06b6d4;
+        --accent2: #6366f1;
+        --bg-dark: #18181b;
+        --bg-light: #f3f4f6;
+        --text-dark: #18181b;
+        --text-light: #f3f4f6;
+      }
+      body {
+        background: var(--bg-dark);
+        color: var(--text-light);
+        transition: background 0.3s, color 0.3s;
+      }
+      body.light {
+        background: var(--bg-light);
+        color: var(--text-dark);
+      }
+      body.dark {
+        background: var(--bg-dark);
+        color: var(--text-light);
+      }
+      .project-navbar {
+        background: var(--bg-dark);
+        color: var(--text-light);
+        transition: background 0.3s, color 0.3s;
+        padding: 1rem 2rem;
+        font-weight: bold;
+        font-size: 1.1rem;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+      }
+      body.light .project-navbar {
+        background: var(--bg-light);
+        color: var(--text-dark);
+      }
+      body.dark .project-navbar {
+        background: var(--bg-dark);
+        color: var(--text-light);
+      }
+      .project-title, .project-section-title {
+        color: inherit;
+      }
+      .project-description {
+        color: var(--text-light);
+        transition: color 0.3s;
+      }
+      body.light .project-description {
+        color: var(--text-dark);
+      }
+      body.dark .project-description {
+        color: var(--text-light);
+      }
+      .theme-body-text {
+        color: var(--text-light);
+        transition: color 0.3s;
+      }
+      body.light .theme-body-text {
+        color: var(--text-dark);
+      }
+      body.dark .theme-body-text {
+        color: var(--text-light);
+      }
+      .hero-desc {
+        transition: color 0.3s;
+      }
+      body.light .hero-desc {
+        color: #334155 !important; /* slate-700 */
+      }
+    </style>
+    <script>
+      // Inherit theme from global setting (localStorage)
+      function applyTheme(theme) {
+        const body = document.body;
+        if (theme === 'light') {
+          body.classList.remove('dark');
+          body.classList.add('light');
+        } else {
+          body.classList.remove('light');
+          body.classList.add('dark');
+        }
+      }
+      function syncThemeFromStorage() {
+        const savedTheme = localStorage.getItem('theme');
+        applyTheme(savedTheme === 'light' ? 'light' : 'dark');
+      }
+      syncThemeFromStorage();
+      window.addEventListener('storage', function(e) {
+        if (e.key === 'theme') syncThemeFromStorage();
+      });
+    </script>
 </body>
 </html> 

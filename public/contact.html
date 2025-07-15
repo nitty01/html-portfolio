@@ -31,32 +31,35 @@
       }
     </script>
 </head>
-<body class="dark bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen font-sans text-gray-200 flex flex-col">
+<body class="dark min-h-screen flex flex-col theme-bg" id="body">
     <nav class="w-full flex items-center justify-between py-4 px-4 bg-gray-900/90 backdrop-blur-lg shadow-lg sticky top-0 z-30">
-        <a class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text" href="../index.html">Nitender Kumar</a>
-        <div class="flex items-center gap-4">
-            <a class="text-base font-semibold text-accent2 hover:underline underline-offset-4 transition" href="./about.html">About Me</a>
-            <a class="text-base font-semibold text-accent2 hover:underline underline-offset-4 transition" href="./contact.html">Contact</a>
-            <a class="inline-block px-4 py-2 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-glass hover:scale-105 transition" href="https://www.linkedin.com/in/nitender-kumar" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
+      <a class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text" href="../index.html">Nitender Kumar</a>
+      <div class="flex items-center gap-2 md:gap-4">
+        <a class="text-sm md:text-base font-semibold text-accent2 hover:underline underline-offset-4 transition" href="./about.html">About Me</a>
+        <a class="text-sm md:text-base font-semibold text-accent2 hover:underline underline-offset-4 transition" href="./contact.html">Contact</a>
+        <button id="globalThemeToggle" class="ml-2 px-2 py-1 rounded bg-gray-700 text-white text-xs" title="Toggle Light/Dark Mode">🌙/☀️</button>
+        <a class="inline-block px-3 py-2 md:px-4 md:py-2 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-glass hover:scale-105 transition text-sm md:text-base" href="https://www.linkedin.com/in/nitender-kumar" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
     </nav>
-    <main class="w-full max-w-screen-2xl mx-auto flex-1 px-2 md:px-6 lg:px-8 py-10 flex flex-col items-center">
-        <h1 class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-8 drop-shadow-lg">Contact Me</h1>
-        <div class="bg-white/10 backdrop-blur-md rounded-2xl shadow-glass p-8 md:p-12 w-full max-w-xl flex flex-col gap-6">
+    <main class="w-full max-w-screen-2xl mx-auto flex-1 px-2 md:px-6 lg:px-8 py-10 flex flex-col items-center justify-center">
+        <div class="theme-card-bg backdrop-blur-md rounded-2xl shadow-glass px-8 md:px-16 py-8 md:py-12 w-full max-w-2xl mx-auto flex flex-col gap-6">
+            <h1 class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-8 drop-shadow-lg mt-2">Contact Me</h1>
             <div>
                 <div class="uppercase text-accent font-bold text-lg mb-1 tracking-wide">Phone</div>
-                <a href="tel:+917899911081" class="text-accent2 font-semibold text-lg hover:underline">+91-7899911081</a>
-                <a href="https://wa.me/917899911081" target="_blank" rel="noopener" aria-label="WhatsApp" class="ml-2 inline-block hover:scale-110 transition-transform align-middle">
-                  <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.007-.372-.009-.571-.009-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.099 3.2 5.077 4.363.71.306 1.263.489 1.695.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.288.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 6.107h-.001a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.455 4.436-9.89 9.892-9.89 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.896 6.994c-.003 5.456-4.438 9.891-9.896 9.891zm8.413-18.304a11.815 11.815 0 0 0-8.413-3.488C5.195-.303.001 4.488 0 10.066c0 1.776.466 3.507 1.353 5.034L.057 23.25a1 1 0 0 0 1.225 1.225l8.144-2.149a11.876 11.876 0 0 0 4.549.902h.005c6.574 0 11.92-5.392 11.943-11.965a11.82 11.82 0 0 0-3.488-8.413z"/></svg>
-                </a>
+                <div class="flex items-center gap-2 theme-body-text">
+                    <a href="tel:+917899911081" class="font-semibold text-lg hover:underline theme-body-text">+91-7899911081</a>
+                    <a href="https://wa.me/917899911081" target="_blank" rel="noopener" aria-label="WhatsApp" class="inline-flex items-center justify-center hover:scale-110 transition-transform align-middle">
+                      <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.007-.372-.009-.571-.009-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.099 3.2 5.077 4.363.71.306 1.263.489 1.695.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.288.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 6.107h-.001a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.455 4.436-9.89 9.892-9.89 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.896 6.994c-.003 5.456-4.438 9.891-9.896 9.891zm8.413-18.304a11.815 11.815 0 0 0-8.413-3.488C5.195-.303.001 4.488 0 10.066c0 1.776.466 3.507 1.353 5.034L.057 23.25a1 1 0 0 0 1.225 1.225l8.144-2.149a11.876 11.876 0 0 0 4.549.902h.005c6.574 0 11.92-5.392 11.943-11.965a11.82 11.82 0 0 0-3.488-8.413z"/></svg>
+                    </a>
+                </div>
             </div>
             <div>
                 <div class="uppercase text-accent font-bold text-lg mb-1 tracking-wide">Email</div>
-                <a href="mailto:nitender.kumar11@gmail.com" class="text-accent2 font-semibold text-lg hover:underline">nitender.kumar11@gmail.com</a>
+                <a href="mailto:nitender.kumar11@gmail.com" class="font-semibold text-lg hover:underline theme-body-text">nitender.kumar11@gmail.com</a>
             </div>
             <div>
                 <div class="uppercase text-accent font-bold text-lg mb-1 tracking-wide">Address</div>
-                <div class="text-gray-300 text-base font-medium leading-relaxed">
+                <div class="theme-body-text text-base font-medium leading-relaxed">
                     Electronic City,<br>
                     Bangalore - 560100<br>
                     India
@@ -64,8 +67,86 @@
             </div>
         </div>
     </main>
-    <footer class="bg-gray-900 text-gray-400 text-center py-3 mt-auto">
+    <footer class="bg-gray-900 text-gray-400 text-center py-3 mt-auto text-xs md:text-base dark:bg-gray-900 dark:text-gray-400 light:bg-gray-100 light:text-gray-800">
         &copy; 2025 Nitender Kumar | Principal Data Engineer
     </footer>
+    <script>
+      // Apply saved theme on page load and sync icon
+      function applyTheme(theme) {
+        const body = document.body;
+        const btn = document.getElementById('globalThemeToggle');
+        if (theme === 'light') {
+          body.classList.remove('dark');
+          body.classList.add('light');
+          if (btn) btn.textContent = '☀️';
+        } else {
+          body.classList.remove('light');
+          body.classList.add('dark');
+          if (btn) btn.textContent = '🌙';
+        }
+        localStorage.setItem('theme', theme);
+      }
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        applyTheme(savedTheme === 'light' ? 'light' : 'dark');
+      })();
+      document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('globalThemeToggle');
+        if (!btn) return;
+        if (document.body.classList.contains('light')) {
+          btn.textContent = '☀️';
+        } else {
+          btn.textContent = '🌙';
+        }
+        btn.addEventListener('click', function() {
+          if (document.body.classList.contains('dark')) {
+            applyTheme('light');
+          } else {
+            applyTheme('dark');
+          }
+        });
+      });
+      // Sync theme across tabs
+      window.addEventListener('storage', function(event) {
+        if (event.key === 'theme') {
+          applyTheme(event.newValue === 'light' ? 'light' : 'dark');
+        }
+      });
+    </script>
+    <style>
+      html, body {
+        min-height: 100%;
+        height: 100%;
+      }
+      :root {
+        --bg-dark: #0f172a;
+        --bg-light: #f8fafc;
+        --text-light: #f1f5f9;
+        --text-dark: #1e293b;
+      }
+      .theme-card-bg {
+        background: rgba(24, 24, 27, 0.7); /* dark mode default */
+        transition: background 0.3s;
+      }
+      body.light .theme-card-bg {
+        background: rgba(243, 244, 246, 0.7); /* light mode */
+      }
+      body.dark .theme-card-bg {
+        background: rgba(24, 24, 27, 0.7);
+      }
+      .theme-bg {
+        background: var(--bg-dark);
+        color: var(--text-light);
+        transition: background 0.3s, color 0.3s;
+      }
+      body.light.theme-bg, body.light .theme-bg {
+        background: var(--bg-light);
+        color: var(--text-dark);
+      }
+      body.dark.theme-bg, body.dark .theme-bg {
+        background: var(--bg-dark);
+        color: var(--text-light);
+      }
+    </style>
 </body>
 </html>

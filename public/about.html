@@ -36,15 +36,57 @@
   @media (min-width: 768px) { .hobby-icon { font-size: 5rem; } }
   .emoji-icon { font-size: 2.25rem; margin-left: 0.5rem; vertical-align: middle; display: inline-block; }
   @media (min-width: 768px) { .emoji-icon { font-size: 2.75rem; } }
+  :root {
+    --accent: #06b6d4;
+    --accent2: #6366f1;
+    --bg-dark: #18181b;
+    --bg-light: #f3f4f6;
+    --text-dark: #18181b;
+    --text-light: #f3f4f6;
+  }
+  body {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    transition: background 0.3s, color 0.3s;
+  }
+  body.light {
+    background: var(--bg-light);
+    color: var(--text-dark);
+  }
+  body.dark {
+    background: var(--bg-dark);
+    color: var(--text-light);
+  }
+  .about-description {
+    color: var(--text-light);
+    transition: color 0.3s;
+  }
+  body.light .about-description {
+    color: var(--text-dark);
+  }
+  body.dark .about-description {
+    color: var(--text-light);
+  }
+  .theme-body-text {
+    color: var(--text-light);
+    transition: color 0.3s;
+  }
+  body.light .theme-body-text {
+    color: var(--text-dark);
+  }
+  body.dark .theme-body-text {
+    color: var(--text-light);
+  }
 </style>
 </head>
-<body class="dark bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen font-sans text-gray-200 flex flex-col">
+<body class="dark" id="body">
     <nav class="w-full flex items-center justify-between py-4 px-4 bg-gray-900/90 backdrop-blur-lg shadow-lg sticky top-0 z-30">
         <a class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text" href="../index.html">Nitender Kumar</a>
-        <div class="flex items-center gap-4">
-            <a class="text-base font-semibold text-accent2 hover:underline underline-offset-4 transition" href="./about.html">About Me</a>
-            <a class="text-base font-semibold text-accent2 hover:underline underline-offset-4 transition" href="./contact.html">Contact</a>
-            <a class="inline-block px-4 py-2 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-glass hover:scale-105 transition" href="https://www.linkedin.com/in/nitender-kumar" target="_blank" rel="noopener">LinkedIn</a>
+        <div class="flex items-center gap-2 md:gap-4">
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:underline underline-offset-4 transition" href="./about.html">About Me</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:underline underline-offset-4 transition" href="./contact.html">Contact</a>
+            <button id="globalThemeToggle" class="ml-2 px-2 py-1 rounded bg-gray-700 text-white text-xs" title="Toggle Light/Dark Mode">🌙/☀️</button>
+            <a class="inline-block px-3 py-2 md:px-4 md:py-2 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-glass hover:scale-105 transition text-sm md:text-base" href="https://www.linkedin.com/in/nitender-kumar" target="_blank" rel="noopener">LinkedIn</a>
         </div>
     </nav>
     <main class="w-full max-w-screen-2xl mx-auto flex-1 px-2 md:px-6 lg:px-8 py-10">
@@ -60,8 +102,10 @@
                         <p class="text-gray-400 text-sm">Electronic City, Bangalore - 560100</p>
                         <p class="text-gray-400 text-sm"><span class="font-semibold text-accent">Email:</span> <a href="mailto:nitender.kumar11@gmail.com" class="hover:underline">nitender.kumar11@gmail.com</a></p>
                         <p class="text-gray-400 text-sm flex items-center"><span class="font-semibold text-accent">Mobile:</span> +91-7899911081
-                          <a href="https://wa.me/917899911081" target="_blank" rel="noopener" aria-label="WhatsApp" class="ml-2 inline-block hover:scale-110 transition-transform">
-                            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.007-.372-.009-.571-.009-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.099 3.2 5.077 4.363.71.306 1.263.489 1.695.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.288.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 6.107h-.001a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.455 4.436-9.89 9.892-9.89 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.896 6.994c-.003 5.456-4.438 9.891-9.896 9.891zm8.413-18.304a11.815 11.815 0 0 0-8.413-3.488C5.195-.303.001 4.488 0 10.066c0 1.776.466 3.507 1.353 5.034L.057 23.25a1 1 0 0 0 1.225 1.225l8.144-2.149a11.876 11.876 0 0 0 4.549.902h.005c6.574 0 11.92-5.392 11.943-11.965a11.82 11.82 0 0 0-3.488-8.413z"/></svg>
+                          <a href="https://wa.me/917899911081" target="_blank" rel="noopener" aria-label="WhatsApp" class="ml-2 inline-flex items-center justify-center hover:scale-110 transition-transform">
+                            <span class="flex items-center justify-center w-6 h-6">
+                              <svg class="w-5 h-5 text-green-500 mx-auto my-auto" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.007-.372-.009-.571-.009-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.099 3.2 5.077 4.363.71.306 1.263.489 1.695.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.288.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 6.107h-.001a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.455 4.436-9.89 9.892-9.89 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.896 6.994c-.003 5.456-4.438 9.891-9.896 9.891zm8.413-18.304a11.815 11.815 0 0 0-8.413-3.488C5.195-.303.001 4.488 0 10.066c0 1.776.466 3.507 1.353 5.034L.057 23.25a1 1 0 0 0 1.225 1.225l8.144-2.149a11.876 11.876 0 0 0 4.549.902h.005c6.574 0 11.92-5.392 11.943-11.965a11.82 11.82 0 0 0-3.488-8.413z"/></svg>
+                            </span>
                           </a>
                         </p>
                     </div>
@@ -96,104 +140,130 @@
                 </div>
             </aside>
             <!-- Right: About, Experience, Education, etc. -->
-            <section class="flex-1 min-w-0 md:basis-2/4 flex flex-col gap-8">
+            <section class="bg-white/10 backdrop-blur-md rounded-2xl shadow-glass px-8 md:px-16 py-8 md:py-12 w-full max-w-4xl mx-auto flex flex-col gap-6">
                 <h1 class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4 drop-shadow-lg">About Me</h1>
                 <div class="text-base md:text-lg text-gray-300 mb-2">
-                    <span class="font-bold text-accent">Nitender Kumar</span><br>
-            Electronic City, Bangalore - 560100<br>
-                    <span class="font-semibold text-accent">Email:</span> <a href="mailto:nitender.kumar11@gmail.com" class="hover:underline">nitender.kumar11@gmail.com</a><br>
-                    <span class="font-semibold text-accent">Mobile:</span> +91-7899911081
+                    <span class="font-bold text-accent">Nitender Kumar</span>
         </div>
                 <div>
                     <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Career Overview</h2>
-                    <p class="text-gray-200 leading-relaxed">Seasoned Data Engineer with 12+ years of experience building robust data processing pipelines and software applications for high-volume, high-frequency data. Adept at designing end-to-end solutions for data ingestion, cleaning, transformation, feature engineering, and modeling, both on cloud and on-premise platforms. Skilled in leveraging big data, cloud computing, and machine learning to deliver business intelligence and actionable insights. Recognized for leading and mentoring high-performing teams, driving innovation, and ensuring the success and efficiency of data-driven initiatives.</p>
+                    <p class="theme-body-text">Seasoned Data Engineer with 12+ years of experience building robust data processing pipelines and software applications for high-volume, high-frequency data. Adept at designing end-to-end solutions for data ingestion, cleaning, transformation, feature engineering, and modeling, both on cloud and on-premise platforms. Skilled in leveraging big data, cloud computing, and machine learning to deliver business intelligence and actionable insights. Recognized for leading and mentoring high-performing teams, driving innovation, and ensuring the success and efficiency of data-driven initiatives.</p>
         </div>
                 <div>
                     <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Technical Skills</h2>
-                    <ul class="list-disc list-inside text-gray-200 space-y-1">
-                <li>Python (OOP & Scripting), Pandas, NumPy</li>
-                <li>Data Visualization: Python Dash, RShiny</li>
-                <li>Data Ingestion: RMQ, Kafka, Databases, APIs</li>
-                <li>Cloud Platforms: AWS</li>
-                <li>SQL (MySQL, Postgres), NoSQL (MongoDB)</li>
-                <li>Big Data: Spark, Hadoop</li>
-                <li>Machine Learning: TensorFlow, Keras, PyTorch</li>
-                <li>RESTful APIs: Django, Flask, FastAPI</li>
-                <li>Containerization: Kubernetes, Docker</li>
-                <li>Continuous Deployment: Jenkins, GitHub</li>
-                <li>GenAI (Fine-tuning local models)</li>
-                <li>System Design, Performance Optimization</li>
-                <li>Creative Solution Development</li>
-            </ul>
-        </div>
+                    <ul class="theme-body-text list-disc list-inside mb-4 text-base md:text-lg">
+                        <li>Python (OOP & Scripting), Pandas, NumPy</li>
+                        <li>Data Visualization: Python Dash, RShiny</li>
+                        <li>Data Ingestion: RMQ, Kafka, Databases, APIs</li>
+                        <li>Cloud Platforms: AWS</li>
+                        <li>SQL (MySQL, Postgres), NoSQL (MongoDB)</li>
+                        <li>Big Data: Spark, Hadoop</li>
+                        <li>Machine Learning: TensorFlow, Keras, PyTorch</li>
+                        <li>RESTful APIs: Django, Flask, FastAPI</li>
+                        <li>Containerization: Kubernetes, Docker</li>
+                        <li>Continuous Deployment: Jenkins, GitHub</li>
+                        <li>GenAI (Fine-tuning local models)</li>
+                        <li>System Design, Performance Optimization</li>
+                        <li>Creative Solution Development</li>
+                    </ul>
+                </div>
                 <div>
                     <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Education</h2>
-                    <ul class="list-disc list-inside text-gray-200 space-y-1">
-                <li>M. Tech (Data Science & Engineering), Birla Institute of Technology & Science, 2020-22</li>
-                <li>B. Tech (Electronics & Communication), Graphic Era Institute of Technology (Dehradun), 2007-11</li>
-            </ul>
-        </div>
+                    <ul class="theme-body-text mb-4 text-base md:text-lg">
+                        <li>M. Tech (Data Science & Engineering), Birla Institute of Technology & Science, 2020-22</li>
+                        <li>B. Tech (Electronics & Communication), Graphic Era Institute of Technology (Dehradun), 2007-11</li>
+                    </ul>
+                </div>
                 <div>
                     <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Personal Qualities & Interests</h2>
-                    <ul class="list-disc list-inside text-gray-200 space-y-1">
-                <li>Hard working, Leadership, Patience, Understanding, Quick Learner</li>
-                <li>Hobbies: Playing Chess, Acting, Touring on bike</li>
-            </ul>
-                        </div>
+                    <ul class="theme-body-text list-disc list-inside mb-4 text-base md:text-lg">
+                        <li>Analytical Thinker & Problem Solver</li>
+                        <li>Team Leadership & Mentoring</li>
+                        <li>Continuous Learner & Innovator</li>
+                        <li>Effective Communicator</li>
+                        <li>Passionate about Data, AI, and Technology</li>
+                        <li>Interests: Reading, Chess, Music, Travel</li>
+                    </ul>
+                </div>
                 <div>
                     <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Software Philosophy</h2>
-                    <p class="text-gray-200 leading-relaxed">As a developer, I believe in writing clean, modular, and maintainable code. I apply principles like SOLID, test-driven development (TDD), and domain-driven design (DDD) to ensure every component of the system is scalable and robust.</p>
-                        </div>
+                    <ul class="theme-body-text list-disc list-inside mb-4 text-base md:text-lg">
+                        <li>Build for Scalability, Maintainability, and Simplicity</li>
+                        <li>Embrace Automation and Reusability</li>
+                        <li>Prioritize Code Quality, Testing, and Documentation</li>
+                        <li>Value Collaboration and Knowledge Sharing</li>
+                    </ul>
+                </div>
                 <div>
                     <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Architecture Practices</h2>
-                    <p class="text-gray-200 leading-relaxed">My architectural designs focus on loosely coupled microservices, CI/CD automation, containerized deployments using Docker and Kubernetes, and cloud-native practices.</p>
-                        </div>
+                    <ul class="theme-body-text list-disc list-inside mb-4 text-base md:text-lg">
+                        <li>Modular, Layered, and Service-Oriented Design</li>
+                        <li>Cloud-Native and Microservices Architectures</li>
+                        <li>Event-Driven and Real-Time Data Processing</li>
+                        <li>Security, Monitoring, and Observability</li>
+                        <li>Adopt SOLID, DRY, and KISS principles</li>
+                    </ul>
+                </div>
             </section>
             <!-- Hobbies Sidebar -->
-            <aside class="flex-1 min-w-0 md:basis-1/4 w-full flex flex-col items-center">
+            <aside class="flex-1 min-w-0 md:basis-1/4 w-full flex flex-col items-center md:items-stretch">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-center mb-6 mt-2 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text" style="font-family: 'Inter', 'Poppins', sans-serif;">My Hobbies</h2>
-                <div class="grid grid-cols-2 sm:grid-cols-2 gap-5 w-full" style="max-width: 400px;">
+                <div class="grid grid-cols-2 sm:grid-cols-2 gap-5 w-full">
                     <!-- Chess -->
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl flex flex-col items-center justify-center p-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_16px_2px_#a855f7] group cursor-pointer" title="Chess">
-                        <i class="fa-solid fa-chess hobby-icon text-accent2 mb-2 group-hover:scale-110 transition-all duration-300" aria-label="Chess"></i>
-                        <span class="emoji-icon">♟️</span>
-                        <span class="font-semibold text-[#e0e0e0] text-base" style="font-family: 'Inter', 'Poppins', sans-serif;">Chess</span>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center aspect-square w-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_16px_2px_#a855f7] group cursor-pointer" title="Chess">
+                        <div class="flex flex-col items-center justify-center w-full h-full">
+                            <i class="fa-solid fa-chess hobby-icon text-accent2 mb-1 group-hover:scale-105 transition-all duration-300" aria-label="Chess" style="font-size:2.2rem;"></i>
+                            <span class="emoji-icon" style="font-size:1.2rem;">♟️</span>
+                            <span class="font-semibold text-[#e0e0e0] text-sm mt-1" style="font-family: 'Inter', 'Poppins', sans-serif;">Chess</span>
+                        </div>
                     </div>
                     <!-- Touring -->
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl flex flex-col items-center justify-center p-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_16px_2px_#a855f7] group cursor-pointer" title="Touring">
-                        <i class="fa-solid fa-map-location-dot hobby-icon text-accent2 mb-2 group-hover:scale-110 transition-all duration-300" aria-label="Touring"></i>
-                        <span class="emoji-icon">🗺️</span>
-                        <span class="font-semibold text-[#e0e0e0] text-base" style="font-family: 'Inter', 'Poppins', sans-serif;">Touring</span>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center aspect-square w-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_16px_2px_#a855f7] group cursor-pointer" title="Touring">
+                        <div class="flex flex-col items-center justify-center w-full h-full">
+                            <i class="fa-solid fa-map-location-dot hobby-icon text-accent2 mb-1 group-hover:scale-105 transition-all duration-300" aria-label="Touring" style="font-size:2.2rem;"></i>
+                            <span class="emoji-icon" style="font-size:1.2rem;">🗺️</span>
+                            <span class="font-semibold text-[#e0e0e0] text-sm mt-1" style="font-family: 'Inter', 'Poppins', sans-serif;">Touring</span>
+                        </div>
                     </div>
                     <!-- Acting -->
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl flex flex-col items-center justify-center p-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_16px_2px_#a855f7] group cursor-pointer" title="Acting">
-                        <i class="fa-solid fa-masks-theater hobby-icon text-accent2 mb-2 group-hover:scale-110 transition-all duration-300" aria-label="Acting"></i>
-                        <span class="emoji-icon">🎭</span>
-                        <span class="font-semibold text-[#e0e0e0] text-base" style="font-family: 'Inter', 'Poppins', sans-serif;">Acting</span>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center aspect-square w-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_16px_2px_#a855f7] group cursor-pointer" title="Acting">
+                        <div class="flex flex-col items-center justify-center w-full h-full">
+                            <i class="fa-solid fa-masks-theater hobby-icon text-accent2 mb-1 group-hover:scale-105 transition-all duration-300" aria-label="Acting" style="font-size:2.2rem;"></i>
+                            <span class="emoji-icon" style="font-size:1.2rem;">🎭</span>
+                            <span class="font-semibold text-[#e0e0e0] text-sm mt-1" style="font-family: 'Inter', 'Poppins', sans-serif;">Acting</span>
+                        </div>
                     </div>
                     <!-- Trekking -->
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl flex flex-col items-center justify-center p-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_16px_2px_#a855f7] group cursor-pointer" title="Trekking">
-                        <i class="fa-solid fa-person-hiking hobby-icon text-accent2 mb-2 group-hover:scale-110 transition-all duration-300" aria-label="Trekking"></i>
-                        <span class="emoji-icon">🥾</span>
-                        <span class="font-semibold text-[#e0e0e0] text-base" style="font-family: 'Inter', 'Poppins', sans-serif;">Trekking</span>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center aspect-square w-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_16px_2px_#a855f7] group cursor-pointer" title="Trekking">
+                        <div class="flex flex-col items-center justify-center w-full h-full">
+                            <i class="fa-solid fa-person-hiking hobby-icon text-accent2 mb-1 group-hover:scale-105 transition-all duration-300" aria-label="Trekking" style="font-size:2.2rem;"></i>
+                            <span class="emoji-icon" style="font-size:1.2rem;">🥾</span>
+                            <span class="font-semibold text-[#e0e0e0] text-sm mt-1" style="font-family: 'Inter', 'Poppins', sans-serif;">Trekking</span>
+                        </div>
                     </div>
                     <!-- Puzzle Solving -->
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl flex flex-col items-center justify-center p-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_16px_2px_#a855f7] group cursor-pointer" title="Puzzle Solving">
-                        <i class="fa-solid fa-puzzle-piece hobby-icon text-accent2 mb-2 group-hover:scale-110 transition-all duration-300" aria-label="Puzzle Solving"></i>
-                        <span class="emoji-icon">🧩</span>
-                        <span class="font-semibold text-[#e0e0e0] text-base" style="font-family: 'Inter', 'Poppins', sans-serif;">Puzzle Solving</span>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center aspect-square w-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_16px_2px_#a855f7] group cursor-pointer" title="Puzzle Solving">
+                        <div class="flex flex-col items-center justify-center w-full h-full">
+                            <i class="fa-solid fa-puzzle-piece hobby-icon text-accent2 mb-1 group-hover:scale-105 transition-all duration-300" aria-label="Puzzle Solving" style="font-size:2.2rem;"></i>
+                            <span class="emoji-icon" style="font-size:1.2rem;">🧩</span>
+                            <span class="font-semibold text-[#e0e0e0] text-sm mt-1" style="font-family: 'Inter', 'Poppins', sans-serif;">Puzzle Solving</span>
+                        </div>
                     </div>
                     <!-- Sudoku -->
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl flex flex-col items-center justify-center p-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_16px_2px_#a855f7] group cursor-pointer" title="Sudoku">
-                        <i class="fa-solid fa-th hobby-icon text-accent2 mb-2 group-hover:scale-110 transition-all duration-300" aria-label="Sudoku"></i>
-                        <span class="emoji-icon">🔢</span>
-                        <span class="font-semibold text-[#e0e0e0] text-base" style="font-family: 'Inter', 'Poppins', sans-serif;">Sudoku</span>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center aspect-square w-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_16px_2px_#a855f7] group cursor-pointer" title="Sudoku">
+                        <div class="flex flex-col items-center justify-center w-full h-full">
+                            <i class="fa-solid fa-th hobby-icon text-accent2 mb-1 group-hover:scale-105 transition-all duration-300" aria-label="Sudoku" style="font-size:2.2rem;"></i>
+                            <span class="emoji-icon" style="font-size:1.2rem;">🔢</span>
+                            <span class="font-semibold text-[#e0e0e0] text-sm mt-1" style="font-family: 'Inter', 'Poppins', sans-serif;">Sudoku</span>
+                        </div>
                     </div>
                     <!-- Table Tennis -->
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl flex flex-col items-center justify-center p-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_16px_2px_#a855f7] group cursor-pointer col-span-2 sm:col-span-1" title="Table Tennis">
-                        <i class="fa-solid fa-table-tennis-paddle-ball hobby-icon text-accent2 mb-2 group-hover:scale-110 transition-all duration-300" aria-label="Table Tennis"></i>
-                        <span class="emoji-icon">🏓</span>
-                        <span class="font-semibold text-[#e0e0e0] text-base" style="font-family: 'Inter', 'Poppins', sans-serif;">Table Tennis</span>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center aspect-square w-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_16px_2px_#a855f7] group cursor-pointer col-span-2 sm:col-span-1" title="Table Tennis">
+                        <div class="flex flex-col items-center justify-center w-full h-full">
+                            <i class="fa-solid fa-table-tennis-paddle-ball hobby-icon text-accent2 mb-1 group-hover:scale-105 transition-all duration-300" aria-label="Table Tennis" style="font-size:2.2rem;"></i>
+                            <span class="emoji-icon" style="font-size:1.2rem;">🏓</span>
+                            <span class="font-semibold text-[#e0e0e0] text-sm mt-1" style="font-family: 'Inter', 'Poppins', sans-serif;">Table Tennis</span>
+                        </div>
                     </div>
                 </div>
             </aside>
@@ -202,5 +272,45 @@
     <footer class="bg-gray-900 text-gray-400 text-center py-3 mt-auto">
         &copy; 2025 Nitender Kumar | Principal Data Engineer
     </footer>
+    <nav class="w-full flex items-center justify-end py-2 px-4 bg-gray-900/90 backdrop-blur-lg shadow-lg sticky top-0 z-30">
+    <button id="globalThemeToggle" class="ml-2 px-2 py-1 rounded bg-gray-700 text-white text-xs" title="Toggle Light/Dark Mode">🌙/☀️</button>
+  </nav>
 </body>
+<script>
+  // Apply saved theme on page load and sync icon
+  function applyTheme(theme) {
+    const body = document.body;
+    const btn = document.getElementById('globalThemeToggle');
+    if (theme === 'light') {
+      body.classList.remove('dark');
+      body.classList.add('light');
+      if (btn) btn.textContent = '☀️';
+    } else {
+      body.classList.remove('light');
+      body.classList.add('dark');
+      if (btn) btn.textContent = '🌙';
+    }
+    localStorage.setItem('theme', theme);
+  }
+  (function() {
+    const savedTheme = localStorage.getItem('theme');
+    applyTheme(savedTheme === 'light' ? 'light' : 'dark');
+  })();
+  document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('globalThemeToggle');
+    if (!btn) return;
+    if (document.body.classList.contains('light')) {
+      btn.textContent = '☀️';
+    } else {
+      btn.textContent = '🌙';
+    }
+    btn.addEventListener('click', function() {
+      if (document.body.classList.contains('dark')) {
+        applyTheme('light');
+      } else {
+        applyTheme('dark');
+      }
+    });
+  });
+</script>
 </html>
