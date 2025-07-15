@@ -1,17 +1,26 @@
 // Bug Squash Game Module for Fun Zone
 (function() {
+  function getResponsiveDimensions() {
+    const isMobile = window.innerWidth < 640;
+    return {
+      width: isMobile ? Math.min(window.innerWidth - 32, 340) : 480,
+      height: isMobile ? 320 : 420,
+      bugSize: isMobile ? 28 : 36
+    };
+  }
   window.loadBugSquashGame = function() {
+    const dims = getResponsiveDimensions();
     const gameArea = document.getElementById('gameArea');
     if (!gameArea) return;
     gameArea.innerHTML = `
-      <div class="w-full max-w-lg mx-auto p-4 flex flex-col items-center">
+      <div class="w-full max-w-lg mx-auto p-2 sm:p-4 flex flex-col items-center">
         <h2 class="text-2xl md:text-3xl font-extrabold uppercase bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4 drop-shadow-lg">Bug Squash</h2>
         <div class="flex items-center gap-4 mb-4">
           <span id="score" class="text-lg font-bold text-accent2">Score: 0</span>
           <button id="restartBtn" class="bg-accent2 text-white px-3 py-1 rounded shadow hover:bg-accent transition">Restart</button>
           <button id="howToPlayBtn" class="ml-2 px-2 py-1 rounded bg-gray-700 text-white text-xs" title="How to Play">ℹ️ How to Play</button>
         </div>
-        <div id="gameContainer" class="relative w-full h-[420px] bg-gray-900/80 rounded-2xl shadow-glass overflow-hidden"></div>
+        <div id="gameContainer" class="relative w-full" style="max-width:${dims.width}px; height:${dims.height}px; background:rgba(17,24,39,0.8); border-radius:1.5rem; box-shadow:0 8px 32px 0 rgba(31,38,135,0.37); overflow:hidden; touch-action: none;"></div>
         <div id="gameMessage" class="hidden mt-6 text-center"></div>
         <div id="instructionsModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden">
           <div class="bg-gray-900 text-gray-100 rounded-2xl shadow-glass p-6 max-w-md w-full mx-4 relative">
@@ -45,7 +54,7 @@
     let bugTimer = null;
     let animationFrame = null;
     // --- DOM ---
-    const gameContainer = document.getElementById('gameContainer');
+    let gameContainer = document.getElementById('gameContainer');
     const scoreEl = document.getElementById('score');
     const restartBtn = document.getElementById('restartBtn');
     const gameMessage = document.getElementById('gameMessage');
@@ -54,7 +63,7 @@
       gameContainer.style.width = GAME_WIDTH + 'px';
       gameContainer.style.height = GAME_HEIGHT + 'px';
     }
-    function startGame() {
+    function startGame(dims) {
       score = 0;
       bugs.forEach(bug => bug.el.remove());
       bugs = [];
@@ -75,18 +84,19 @@
     function showGameOver() {
       gameMessage.innerHTML = `<div class='text-2xl font-bold text-accent2 mb-2'>Game Over!</div>
         <div class='mb-2 text-lg'>Your Score: <span class='font-bold text-accent'>${score}</span></div>
-        <div class='mb-4'>Now that you've played, <a href='/index.html' class='underline text-accent2 hover:text-accent'>check out my projects!</a></div>`;
+        <div class='mb-4'>Now that you've played, <a href='../../index.html#projects-section' class='underline text-accent2 hover:text-accent'>check out my projects!</a></div>`;
       gameMessage.classList.remove('hidden');
     }
     // --- BUGS ---
     function spawnBug() {
       if (!gameActive) return;
+      const dims = getResponsiveDimensions();
       if (bugs.length >= MAX_BUGS_ON_SCREEN) {
         endGame();
         return;
       }
-      const x = Math.random() * (GAME_WIDTH - BUG_SIZE);
-      const y = Math.random() * (GAME_HEIGHT - BUG_SIZE - 20);
+      const x = Math.random() * (dims.width - dims.bugSize);
+      const y = Math.random() * (dims.height - dims.bugSize - 20);
       const speedX = (Math.random() - 0.5) * (BUG_SPEED_MAX - BUG_SPEED_MIN) * 2;
       const speedY = (Math.random() * (BUG_SPEED_MAX - BUG_SPEED_MIN) + BUG_SPEED_MIN) * (Math.random() > 0.5 ? 1 : -1);
       const bug = document.createElement('div');
@@ -94,13 +104,13 @@
       bug.className = 'absolute cursor-pointer transition-transform duration-150 text-3xl select-none pointer-events-auto';
       bug.style.left = x + 'px';
       bug.style.top = y + 'px';
-      bug.style.width = BUG_SIZE + 'px';
-      bug.style.height = BUG_SIZE + 'px';
+      bug.style.width = dims.bugSize + 'px';
+      bug.style.height = dims.bugSize + 'px';
       bug.style.zIndex = 2;
       bug.style.display = 'flex';
       bug.style.alignItems = 'center';
       bug.style.justifyContent = 'center';
-      bug.style.fontSize = '32px';
+      bug.style.fontSize = dims.bugSize + 'px';
       bug.style.lineHeight = '1';
       gameContainer.appendChild(bug);
       bugs.push({ el: bug, x, y, speedX, speedY });
@@ -123,21 +133,41 @@
     // --- GAME LOOP ---
     function gameLoop() {
       if (!gameActive) return;
+      const dims = getResponsiveDimensions();
       for (let i = bugs.length - 1; i >= 0; i--) {
         const bug = bugs[i];
         bug.x += bug.speedX;
         bug.y += bug.speedY;
-        if (bug.x < 0 || bug.x > GAME_WIDTH - BUG_SIZE) bug.speedX *= -1;
-        if (bug.y < 0 || bug.y > GAME_HEIGHT - BUG_SIZE) bug.speedY *= -1;
-        bug.x = Math.max(0, Math.min(GAME_WIDTH - BUG_SIZE, bug.x));
-        bug.y = Math.max(0, Math.min(GAME_HEIGHT - BUG_SIZE, bug.y));
+        if (bug.x < 0 || bug.x > dims.width - dims.bugSize) bug.speedX *= -1;
+        if (bug.y < 0 || bug.y > dims.height - dims.bugSize) bug.speedY *= -1;
+        bug.x = Math.max(0, Math.min(dims.width - dims.bugSize, bug.x));
+        bug.y = Math.max(0, Math.min(dims.height - dims.bugSize, bug.y));
         bug.el.style.left = bug.x + 'px';
         bug.el.style.top = bug.y + 'px';
       }
       animationFrame = requestAnimationFrame(gameLoop);
     }
     // --- CONTROLS ---
-    restartBtn.addEventListener('click', startGame);
+    function setupControls() {
+      // Touch
+      gameContainer.addEventListener('touchstart', function(e) {
+        if (!gameActive) return;
+        for (let i = 0; i < e.touches.length; i++) {
+          const touch = e.touches[i];
+          const target = document.elementFromPoint(touch.clientX, touch.clientY);
+          if (target && target.textContent === BUG_EMOJI && target.classList.contains('pointer-events-auto')) {
+            const bug = target;
+            bug.classList.add('scale-75', 'opacity-60');
+            setTimeout(() => {
+              if (bug.parentNode) bug.parentNode.removeChild(bug);
+              bugs = bugs.filter(b => b.el !== bug);
+            }, 180);
+            score++;
+            scoreEl.textContent = 'Score: ' + score;
+          }
+        }
+      });
+    }
     // --- INSTRUCTIONS MODAL ---
     const instructionsModal = document.getElementById('instructionsModal');
     const closeInstructions = document.getElementById('closeInstructions');
@@ -160,6 +190,8 @@
     });
     // --- INITIALIZE ---
     setupGameArea();
-    startGame();
+    startGame(dims);
+    // Redraw on resize
+    window.addEventListener('resize', () => window.loadBugSquashGame(), { once: true });
   };
 })(); 

@@ -28,6 +28,17 @@
   let basketEl = null;
   let gameContainer, scoreEl, missEl, restartBtn, gameMessage;
 
+  function getResponsiveDimensions() {
+    const isMobile = window.innerWidth < 640;
+    return {
+      width: isMobile ? Math.min(window.innerWidth - 32, 340) : 480,
+      height: isMobile ? 320 : 420,
+      basketWidth: isMobile ? 70 : 110,
+      basketHeight: isMobile ? 28 : 40,
+      iconSize: isMobile ? 32 : 40
+    };
+  }
+
   function showTooltip(x, y, text) {
     let tooltip = document.createElement('div');
     tooltip.className = 'absolute z-50 px-3 py-2 rounded bg-gray-800 text-white text-xs shadow-lg pointer-events-none';
@@ -40,19 +51,20 @@
 
   function spawnIcon() {
     if (!gameActive) return;
+    const dims = getResponsiveDimensions();
     const tech = TECH_ICONS[Math.floor(Math.random() * TECH_ICONS.length)];
-    const x = Math.random() * (GAME_WIDTH - ICON_SIZE);
+    const x = Math.random() * (dims.width - dims.iconSize);
     const icon = document.createElement('div');
     icon.textContent = tech.icon;
     icon.className = 'absolute text-3xl select-none pointer-events-none';
     icon.style.left = x + 'px';
     icon.style.top = '0px';
-    icon.style.width = ICON_SIZE + 'px';
-    icon.style.height = ICON_SIZE + 'px';
+    icon.style.width = dims.iconSize + 'px';
+    icon.style.height = dims.iconSize + 'px';
     icon.style.display = 'flex';
     icon.style.alignItems = 'center';
     icon.style.justifyContent = 'center';
-    icon.style.fontSize = '32px';
+    icon.style.fontSize = dims.iconSize + 'px';
     icon.style.lineHeight = '1';
     icon.dataset.name = tech.name;
     icon.dataset.fact = tech.fact;
@@ -67,6 +79,7 @@
 
   function gameLoop() {
     if (!gameActive) return;
+    const dims = getResponsiveDimensions();
     // Move icons
     for (let i = icons.length - 1; i >= 0; i--) {
       const icon = icons[i];
@@ -74,9 +87,9 @@
       icon.el.style.top = icon.y + 'px';
       // Check for catch
       if (
-        icon.y + ICON_SIZE >= GAME_HEIGHT - BASKET_HEIGHT &&
-        icon.x + ICON_SIZE > basketX &&
-        icon.x < basketX + BASKET_WIDTH
+        icon.y + dims.iconSize >= dims.height - dims.basketHeight &&
+        icon.x + dims.iconSize > basketX &&
+        icon.x < basketX + dims.basketWidth
       ) {
         // Caught!
         showTooltip(icon.x, icon.y, icon.tech.name + ': ' + icon.tech.fact);
@@ -87,7 +100,7 @@
         continue;
       }
       // Remove if missed
-      if (icon.y > GAME_HEIGHT) {
+      if (icon.y > dims.height) {
         icon.el.remove();
         icons.splice(i, 1);
         misses++;
@@ -122,39 +135,50 @@
     cancelAnimationFrame(animationFrame);
     gameMessage.innerHTML = `<div class='text-2xl font-bold text-accent2 mb-2'>Game Over!</div>
       <div class='mb-2 text-lg'>Your Score: <span class='font-bold text-accent'>${score}</span></div>
-      <div class='mb-4'><a href='../../index.html#projects-section' class='underline text-accent2 hover:text-accent font-semibold'>Show My Work</a></div>`;
+      <div class='mb-4'>Now that you've played, <a href='../../index.html#projects-section' class='underline text-accent2 hover:text-accent'>check out my projects!</a></div>`;
     gameMessage.classList.remove('hidden');
   }
 
-  function setupControls() {
+  function setupControls(dims) {
     // Keyboard
     window.addEventListener('keydown', function(e) {
       if (!gameActive) return;
-      if (e.key === 'ArrowLeft') moveBasket(-24);
-      if (e.key === 'ArrowRight') moveBasket(24);
+      if (e.key === 'ArrowLeft') moveBasket(-Math.round(dims.basketWidth/2));
+      if (e.key === 'ArrowRight') moveBasket(Math.round(dims.basketWidth/2));
     });
     // Mouse
     gameContainer.addEventListener('mousemove', function(e) {
       if (!gameActive) return;
       const rect = gameContainer.getBoundingClientRect();
-      let x = e.clientX - rect.left - BASKET_WIDTH/2;
-      basketX = Math.max(0, Math.min(GAME_WIDTH - BASKET_WIDTH, x));
+      let x = e.clientX - rect.left - dims.basketWidth/2;
+      basketX = Math.max(0, Math.min(dims.width - dims.basketWidth, x));
       basketEl.style.left = basketX + 'px';
+    });
+    // Touch
+    gameContainer.addEventListener('touchmove', function(e) {
+      if (!gameActive) return;
+      if (e.touches.length > 0) {
+        const rect = gameContainer.getBoundingClientRect();
+        let x = e.touches[0].clientX - rect.left - dims.basketWidth/2;
+        basketX = Math.max(0, Math.min(dims.width - dims.basketWidth, x));
+        basketEl.style.left = basketX + 'px';
+      }
     });
   }
 
   window.loadCatchStackGame = function() {
+    const dims = getResponsiveDimensions();
     const gameArea = document.getElementById('gameArea');
     if (!gameArea) return;
     gameArea.innerHTML = `
-      <div class="w-full max-w-lg mx-auto p-4 flex flex-col items-center">
+      <div class="w-full max-w-lg mx-auto p-2 sm:p-4 flex flex-col items-center">
         <h2 class="text-2xl md:text-3xl font-extrabold uppercase bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4 drop-shadow-lg">Catch the Stack</h2>
         <div class="flex items-center gap-4 mb-4">
           <span id="score" class="text-lg font-bold text-accent2">Score: 0</span>
           <span id="misses" class="text-lg font-bold text-red-400">Misses: 0 / 5</span>
           <button id="restartBtn" class="bg-accent2 text-white px-3 py-1 rounded shadow hover:bg-accent transition">Restart</button>
         </div>
-        <div id="gameContainer" class="relative w-full h-[420px] bg-gray-900/80 rounded-2xl shadow-glass overflow-hidden" style="touch-action: none;"></div>
+        <div id="gameContainer" class="relative w-full" style="max-width:${dims.width}px; height:${dims.height}px; background:rgba(17,24,39,0.8); border-radius:1.5rem; box-shadow:0 8px 32px 0 rgba(31,38,135,0.37); overflow:hidden; touch-action: none;"></div>
         <div id="gameMessage" class="hidden mt-6 text-center"></div>
       </div>
     `;
@@ -165,19 +189,22 @@
     restartBtn = document.getElementById('restartBtn');
     gameMessage = document.getElementById('gameMessage');
     // Basket
+    basketX = dims.width/2 - dims.basketWidth/2;
     basketEl = document.createElement('div');
     basketEl.className = 'absolute bottom-0 bg-accent2 rounded-lg shadow-lg flex items-center justify-center';
-    basketEl.style.width = BASKET_WIDTH + 'px';
-    basketEl.style.height = BASKET_HEIGHT + 'px';
+    basketEl.style.width = dims.basketWidth + 'px';
+    basketEl.style.height = dims.basketHeight + 'px';
     basketEl.style.left = basketX + 'px';
     basketEl.style.bottom = '0px';
-    basketEl.innerHTML = '<span class="text-white text-2xl">🧺</span>';
+    basketEl.innerHTML = `<span class="text-white ${dims.basketWidth < 100 ? 'text-lg' : 'text-2xl'}">🧺</span>`;
     gameContainer.appendChild(basketEl);
     // Controls
-    setupControls();
+    setupControls(dims);
     // Events
     restartBtn.addEventListener('click', startGame);
     // Start
-    startGame();
+    startGame(dims);
+    // Redraw on resize
+    window.addEventListener('resize', () => window.loadCatchStackGame(), { once: true });
   };
 })(); 
