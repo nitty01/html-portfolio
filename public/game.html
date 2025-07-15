@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catch the Icon Game | Nitender Kumar Portfolio</title>
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Poppins', 'Space Grotesk', 'ui-sans-serif', 'system-ui'],
+          },
+          colors: {
+            accent: '#06b6d4', // teal
+            accent2: '#6366f1', // blue/purple
+          },
+          boxShadow: {
+            glass: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    :root {
+      --accent: #06b6d4;
+      --accent2: #6366f1;
+      --bg-dark: #18181b;
+      --bg-light: #f3f4f6;
+      --text-dark: #18181b;
+      --text-light: #f3f4f6;
+    }
+    .light {
+      --bg: var(--bg-light);
+      --text: var(--text-dark);
+    }
+    .dark {
+      --bg: var(--bg-dark);
+      --text: var(--text-light);
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+    body.light {
+      background: var(--bg-light);
+      color: var(--text-dark);
+    }
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-light);
+    }
+  </style>
+</head>
+<body class="dark min-h-screen font-sans flex flex-col items-center justify-center" id="body">
+  <nav class="w-full flex items-center justify-end py-2 px-4 bg-gray-900/90 backdrop-blur-lg shadow-lg sticky top-0 z-30">
+    <button id="globalThemeToggle" class="ml-2 px-2 py-1 rounded bg-gray-700 text-white text-xs" title="Toggle Light/Dark Mode">🌙/☀️</button>
+  </nav>
+  <main class="w-full max-w-md mx-auto p-4 flex flex-col items-center">
+    <h1 class="text-3xl md:text-4xl font-extrabold uppercase bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4 drop-shadow-lg">Catch the Icon</h1>
+    <div class="flex items-center gap-4 mb-4">
+      <span id="score" class="text-lg font-bold text-accent2">Score: 0</span>
+      <button id="restartBtn" class="bg-accent2 text-white px-3 py-1 rounded shadow hover:bg-accent transition">Restart</button>
+      <button id="toggleMode" class="ml-2 px-2 py-1 rounded bg-gray-700 text-white text-xs">🌙/☀️</button>
+    </div>
+    <!-- Game Area -->
+    <div id="gameContainer" class="relative w-full h-80 bg-gray-900/80 rounded-2xl shadow-glass overflow-hidden flex items-end justify-center">
+      <!-- Basket, falling icons, etc. will be rendered here by JS -->
+      <!-- Placeholder basket -->
+      <div id="basket" class="absolute bottom-2 left-1/2 -translate-x-1/2 w-20 h-8 bg-accent2 rounded-lg shadow-lg flex items-center justify-center">
+        <!-- Optionally insert basket icon here -->
+      </div>
+      <!-- Placeholder for falling icons -->
+    </div>
+    <div id="gameMessage" class="hidden mt-6 text-center"></div>
+  </main>
+  <!-- Game logic will be added here -->
+  <script>
+    // Apply saved theme on page load
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const body = document.body;
+      if (savedTheme === 'light') {
+        body.classList.remove('dark');
+        body.classList.add('light');
+      } else {
+        body.classList.remove('light');
+        body.classList.add('dark');
+      }
+    })();
+    // Theme toggle button logic
+    document.addEventListener('DOMContentLoaded', function() {
+      const btn = document.getElementById('globalThemeToggle');
+      if (!btn) return;
+      function setTheme(theme) {
+        if (theme === 'light') {
+          document.body.classList.remove('dark');
+          document.body.classList.add('light');
+          btn.textContent = '☀️';
+        } else {
+          document.body.classList.remove('light');
+          document.body.classList.add('dark');
+          btn.textContent = '🌙';
+        }
+        localStorage.setItem('theme', theme);
+      }
+      // Set initial icon
+      if (document.body.classList.contains('light')) {
+        btn.textContent = '☀️';
+      } else {
+        btn.textContent = '🌙';
+      }
+      btn.addEventListener('click', function() {
+        if (document.body.classList.contains('dark')) {
+          setTheme('light');
+        } else {
+          setTheme('dark');
+        }
+      });
+    });
+    // --- CONFIGURATION ---
+    const ICONS = [
+      // Use PNGs from assets as placeholders; add more as needed
+      '../assets/images/diagrams/qlm/qlm-architecture-2025-07-12-v1.png',
+      '../assets/images/diagrams/qlm/qlm-architecture-2025-07-12-v1.png', // repeat for demo
+    ];
+    const GAME_WIDTH = 350;
+    const GAME_HEIGHT = 320;
+    const BASKET_WIDTH = 80;
+    const BASKET_HEIGHT = 24;
+    const ICON_SIZE = 40;
+    const ICON_FALL_SPEED = 2.5; // px per frame
+    const ICON_INTERVAL = 1200; // ms between icons
+    const MAX_LIVES = 3;
+    
+    // --- STATE ---
+    let score = 0;
+    let lives = MAX_LIVES;
+    let icons = [];
+    let basketX = (GAME_WIDTH - BASKET_WIDTH) / 2;
+    let basketMove = 0;
+    let gameActive = true;
+    let iconTimer = null;
+    let animationFrame = null;
+    
+    // --- DOM ---
+    const gameContainer = document.getElementById('gameContainer');
+    const basket = document.getElementById('basket');
+    const scoreEl = document.getElementById('score');
+    const restartBtn = document.getElementById('restartBtn');
+    const gameMessage = document.getElementById('gameMessage');
+    const toggleMode = document.getElementById('toggleMode');
+    const body = document.getElementById('body');
+    
+    // --- INIT ---
+    function setupGameArea() {
+      gameContainer.style.width = GAME_WIDTH + 'px';
+      gameContainer.style.height = GAME_HEIGHT + 'px';
+      basket.style.width = BASKET_WIDTH + 'px';
+      basket.style.height = BASKET_HEIGHT + 'px';
+      moveBasket(basketX);
+    }
+    
+    function startGame() {
+      score = 0;
+      lives = MAX_LIVES;
+      icons = [];
+      basketX = (GAME_WIDTH - BASKET_WIDTH) / 2;
+      basketMove = 0;
+      gameActive = true;
+      scoreEl.textContent = 'Score: 0';
+      gameMessage.classList.add('hidden');
+      clearIcons();
+      moveBasket(basketX);
+      if (iconTimer) clearInterval(iconTimer);
+      iconTimer = setInterval(spawnIcon, ICON_INTERVAL);
+      if (animationFrame) cancelAnimationFrame(animationFrame);
+      animationFrame = requestAnimationFrame(gameLoop);
+    }
+    
+    function endGame() {
+      gameActive = false;
+      clearInterval(iconTimer);
+      cancelAnimationFrame(animationFrame);
+      showGameOver();
+    }
+    
+    function showGameOver() {
+      gameMessage.innerHTML = `<div class="text-2xl font-bold text-accent2 mb-2">Game Over!</div>
+        <div class="mb-2 text-lg">Your Score: <span class='font-bold text-accent'>${score}</span></div>
+        <div class="mb-4">Now that you’ve played, <a href='/index.html' class='underline text-accent2 hover:text-accent'>check out my projects!</a></div>`;
+      gameMessage.classList.remove('hidden');
+    }
+    
+    // --- ICONS ---
+    function spawnIcon() {
+      if (!gameActive) return;
+      const iconIdx = Math.floor(Math.random() * ICONS.length);
+      const x = Math.random() * (GAME_WIDTH - ICON_SIZE);
+      const icon = document.createElement('img');
+      icon.src = ICONS[iconIdx];
+      icon.className = 'absolute rounded shadow-glass transition-transform duration-200';
+      icon.style.width = ICON_SIZE + 'px';
+      icon.style.height = ICON_SIZE + 'px';
+      icon.style.left = x + 'px';
+      icon.style.top = '0px';
+      gameContainer.appendChild(icon);
+      icons.push({ el: icon, x, y: 0 });
+    }
+    
+    function clearIcons() {
+      icons.forEach(icon => icon.el.remove());
+      icons = [];
+    }
+    
+    // --- BASKET ---
+    function moveBasket(x) {
+      basketX = Math.max(0, Math.min(GAME_WIDTH - BASKET_WIDTH, x));
+      basket.style.left = basketX + 'px';
+    }
+    
+    // --- GAME LOOP ---
+    function gameLoop() {
+      if (!gameActive) return;
+      // Move basket
+      if (basketMove !== 0) {
+        moveBasket(basketX + basketMove);
+      }
+      // Move icons
+      for (let i = icons.length - 1; i >= 0; i--) {
+        const icon = icons[i];
+        icon.y += ICON_FALL_SPEED;
+        icon.el.style.top = icon.y + 'px';
+        // Collision with basket
+        if (
+          icon.y + ICON_SIZE >= GAME_HEIGHT - BASKET_HEIGHT - 4 &&
+          icon.x + ICON_SIZE > basketX &&
+          icon.x < basketX + BASKET_WIDTH
+        ) {
+          // Caught!
+          icon.el.classList.add('scale-110');
+          setTimeout(() => icon.el.remove(), 150);
+          icons.splice(i, 1);
+          score++;
+          scoreEl.textContent = 'Score: ' + score;
+          continue;
+        }
+        // Missed (bottom)
+        if (icon.y > GAME_HEIGHT) {
+          icon.el.classList.add('opacity-30');
+          setTimeout(() => icon.el.remove(), 200);
+          icons.splice(i, 1);
+          lives--;
+          if (lives <= 0) {
+            endGame();
+            return;
+          }
+        }
+      }
+      animationFrame = requestAnimationFrame(gameLoop);
+    }
+    
+    // --- CONTROLS ---
+    // Keyboard
+    document.addEventListener('keydown', e => {
+      if (!gameActive) return;
+      if (e.key === 'ArrowLeft' || e.key === 'a') basketMove = -7;
+      if (e.key === 'ArrowRight' || e.key === 'd') basketMove = 7;
+    });
+    document.addEventListener('keyup', e => {
+      if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'ArrowRight' || e.key === 'd') basketMove = 0;
+    });
+    // Touch
+    let touchStartX = null;
+    gameContainer.addEventListener('touchstart', e => {
+      if (!gameActive) return;
+      touchStartX = e.touches[0].clientX;
+    });
+    gameContainer.addEventListener('touchmove', e => {
+      if (!gameActive || touchStartX === null) return;
+      const touchX = e.touches[0].clientX;
+      const rect = gameContainer.getBoundingClientRect();
+      const relX = touchX - rect.left - BASKET_WIDTH / 2;
+      moveBasket(relX);
+    });
+    gameContainer.addEventListener('touchend', () => {
+      touchStartX = null;
+    });
+    // Restart
+    restartBtn.addEventListener('click', startGame);
+    // Dark/Light mode toggle
+    toggleMode.addEventListener('click', () => {
+      if (body.classList.contains('dark')) {
+        body.classList.remove('dark');
+        body.classList.add('light');
+        toggleMode.textContent = '☀️';
+      } else {
+        body.classList.remove('light');
+        body.classList.add('dark');
+        toggleMode.textContent = '🌙';
+      }
+    });
+    // --- INITIALIZE ---
+    setupGameArea();
+    startGame();
+  </script>
+</body>
+</html> 
