@@ -1,0 +1,41 @@
+graph LR
+    %% ---------------------- Data Sources ----------------------
+    A[🚗 OBD-II Data] --> B[📥 Ingestion Service<br/>RabbitMQ]
+    C[📊 Google Ads / Analytics / Salesforce] --> B
+
+    %% ---------------------- Processing ----------------------
+    B --> D[⚙️ Processing<br/>Python + FastAPI]
+
+    %% ---------------------- Storage ----------------------
+    D --> E[(💾 MongoDB)]
+    D --> F[(🗄️ PostgreSQL)]
+
+    %% ---------------------- Analytics ----------------------
+    D --> G[📊 Analytics Engine]
+    G --> H[📈 Insights Dashboard]
+    G --> I[🤖 AI / LLM Integration]
+
+    %% ---------------------- Outputs ----------------------
+    H --> J[👥 End Users]
+    I --> J
+
+    %% ---------------------- Infrastructure ----------------------
+    K[🐳 Containerized Services<br/>Docker + Kubernetes] --> D
+    L[☁️ AWS Cloud] --> K
+
+    %% ---------------------- Styles ----------------------
+    classDef source fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D1B2A;
+    classDef ingestion fill:#B2DFDB,stroke:#00695C,stroke-width:2px,color:#00332E;
+    classDef processing fill:#D1C4E9,stroke:#4527A0,stroke-width:2px,color:#1A093F;
+    classDef storage fill:#FFE0B2,stroke:#EF6C00,stroke-width:2px,color:#4A2500;
+    classDef analytics fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#0B2E13;
+    classDef output fill:#F8BBD0,stroke:#AD1457,stroke-width:2px,color:#4A0E2E;
+    classDef infra fill:#E1BEE7,stroke:#6A1B9A,stroke-width:2px,color:#2D0A3A;
+
+    class A,C source
+    class B ingestion
+    class D processing
+    class E,F storage
+    class G analytics
+    class H,I,J output
+    class K,L infra

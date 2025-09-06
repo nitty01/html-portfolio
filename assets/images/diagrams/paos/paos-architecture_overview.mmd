@@ -1,0 +1,40 @@
+graph LR
+    %% ---------------------- Users ----------------------
+    A[Retail Managers\nInventory & Supply Chain Teams] --> B[Web Interface\nDjango / Portal]
+    
+    %% ---------------------- Services ----------------------
+    B --> C[Data Ingestion Services\nSales & Inventory Feeds]
+    C --> D[Data Processing Engine\nSpark + Hadoop Pipelines]
+    D --> E[ML Recommendation Engine\nDemand Forecast & Auto-Order]
+    
+    %% ---------------------- Storage ----------------------
+    D --> F[(Central Data Store\nSQL + Hadoop Cluster)]
+    
+    %% ---------------------- Outputs ----------------------
+    E --> G[Recommendation Reports\nOptimal Inventory Levels]
+    E --> I1[Auto-Order Triggers\nInventory System]
+    F --> H[Analytics Dashboard\nSales & Demand Trends]
+    
+    %% ---------------------- Infrastructure ----------------------
+    subgraph Infra[Infrastructure Layer]
+        J[On-Prem / Hybrid Cloud] --> I[Docker + DevOps Environment]
+    end
+    I --> C
+    
+    %% ---------------------- Styles ----------------------
+    classDef users fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D1B2A;
+    classDef api fill:#B2DFDB,stroke:#00695C,stroke-width:2px,color:#00332E;
+    classDef services fill:#D1C4E9,stroke:#4527A0,stroke-width:2px,color:#1A093F;
+    classDef processing fill:#FFE0B2,stroke:#EF6C00,stroke-width:2px,color:#4A2500;
+    classDef storage fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#0B2E13;
+    classDef output fill:#E1BEE7,stroke:#6A1B9A,stroke-width:2px,color:#2D0A3A;
+    classDef infra fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100;
+    
+    class A users
+    class B api
+    class C services
+    class D processing
+    class E processing
+    class F storage
+    class G,H,I1 output
+    class I,J infra
