@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Nitender Kumar | Principal Data Engineer Portfolio</title>
     
     <!-- Favicon -->
@@ -116,8 +116,34 @@
         .animate-float {
           animation: float 3s ease-in-out infinite;
         }
+
+        /* Blinking green border animation */
+        @keyframes blinkBorder {
+          0%, 50% { border-color: #10b981; box-shadow: 0 0 0 4px #10b981, 0 0 20px #10b981; }
+          51%, 100% { border-color: #06b6d4; box-shadow: 0 0 0 4px #06b6d4, 0 0 20px #06b6d4; }
+        }
+        
+        .profile-pic-blink {
+          box-sizing: border-box;
+          width: 12rem;
+          height: 12rem;
+          animation: blinkBorder 2s infinite;
+        }
         
         /* Loading states */
+
+        /* Ensure proper page scaling */
+        html {
+          zoom: 1;
+          -webkit-text-size-adjust: 100%;
+          -ms-text-size-adjust: 100%;
+        }
+        
+        body {
+          zoom: 1;
+          -webkit-text-size-adjust: 100%;
+          -ms-text-size-adjust: 100%;
+        }
         .loading {
           position: relative;
           overflow: hidden;
@@ -208,8 +234,7 @@
                 <div class="relative inline-block">
                     <img src="assets/images/profile_pic.jpg" 
                          alt="Nitender Kumar" 
-                         class="w-32 h-32 rounded-full border-4 border-accent shadow-2xl hover:scale-105 transition-transform duration-300 object-cover">
-                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-gray-900 animate-pulse"></div>
+                         class="w-48 h-48 rounded-full border-6 border-accent shadow-2xl hover:scale-105 transition-transform duration-300 object-cover profile-pic-blink">
                 </div>
             </div>
             
