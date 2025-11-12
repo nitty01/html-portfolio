@@ -274,12 +274,9 @@
         </a>
         <div class="flex items-center gap-2 md:gap-4">
             <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="about.html">About Me</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="../index.html#projects">Projects</a>
             <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="contact.html">Contact</a>
-            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="fun-zone.html">Tech Playground</a>
-            <button id="globalThemeToggle" class="ml-2 px-3 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-white text-sm transition-colors" title="Toggle Light/Dark Mode">
-                <i class="fas fa-moon dark:hidden"></i>
-                <i class="fas fa-sun hidden dark:inline"></i>
-            </button>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="tech-playground.html">Tech Playground</a>
             <a class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all text-sm md:text-base" href="https://www.linkedin.com/in/nitender-kumar" target="_blank" rel="noopener">
                 <i class="fab fa-linkedin"></i>
                 LinkedIn
@@ -418,7 +415,7 @@
                         <li><a href="about.html" class="text-gray-400 hover:text-accent transition-colors">About Me</a></li>
                         <li><a href="../index.html#projects" class="text-gray-400 hover:text-accent transition-colors">Projects</a></li>
                         <li><a href="contact.html" class="text-gray-400 hover:text-accent transition-colors">Contact</a></li>
-                        <li><a href="fun-zone.html" class="text-gray-400 hover:text-accent transition-colors">Tech Playground</a></li>
+                        <li><a href="tech-playground.html" class="text-gray-400 hover:text-accent transition-colors">Tech Playground</a></li>
                     </ul>
                 </div>
                 
@@ -659,70 +656,23 @@
             }
         }
 
-        // Theme management
-        function applyTheme(theme) {
-            const body = document.body;
-            const btn = document.getElementById('globalThemeToggle');
-            if (theme === 'light') {
-                body.classList.remove('dark');
-                body.classList.add('light');
-                if (btn) {
-                    btn.innerHTML = '<i class="fas fa-sun"></i>';
-                }
-                // Update Mermaid theme
-                mermaidConfig.theme = 'light';
-                mermaidConfig.themeVariables = {
-                    primaryColor: '#06b6d4',
-                    primaryTextColor: '#1e293b',
-                    primaryBorderColor: '#6366f1',
-                    lineColor: '#6366f1',
-                    secondaryColor: '#f8fafc',
-                    tertiaryColor: '#ffffff'
-                };
-            } else {
-                body.classList.remove('light');
-                body.classList.add('dark');
-                if (btn) {
-                    btn.innerHTML = '<i class="fas fa-moon"></i>';
-                }
-                // Update Mermaid theme
-                mermaidConfig.theme = 'dark';
-                mermaidConfig.themeVariables = {
-                    primaryColor: '#06b6d4',
-                    primaryTextColor: '#f1f5f9',
-                    primaryBorderColor: '#6366f1',
-                    lineColor: '#6366f1',
-                    secondaryColor: '#1e293b',
-                    tertiaryColor: '#0f172a'
-                };
-            }
-            localStorage.setItem('theme', theme);
-            // Re-render Mermaid diagrams
-            mermaid.initialize(mermaidConfig);
-            mermaid.init();
-        }
-
-        // Initialize theme
+        // Initialize Mermaid with dark theme
         (function() {
-            const savedTheme = localStorage.getItem('theme');
-            applyTheme(savedTheme === 'light' ? 'light' : 'dark');
+            mermaidConfig.theme = 'dark';
+            mermaidConfig.themeVariables = {
+                primaryColor: '#06b6d4',
+                primaryTextColor: '#f1f5f9',
+                primaryBorderColor: '#6366f1',
+                lineColor: '#6366f1',
+                secondaryColor: '#1e293b',
+                tertiaryColor: '#0f172a'
+            };
+            mermaid.initialize(mermaidConfig);
         })();
 
         document.addEventListener('DOMContentLoaded', function() {
             // Load initial diagram when page loads
             loadDiagram('overview');
-
-            // Theme toggle
-            const themeBtn = document.getElementById('globalThemeToggle');
-            if (themeBtn) {
-                themeBtn.addEventListener('click', function() {
-                    if (document.body.classList.contains('dark')) {
-                        applyTheme('light');
-                    } else {
-                        applyTheme('dark');
-                    }
-                });
-            }
 
             // Scroll to top
             const scrollToTopBtn = document.getElementById('scroll-to-top');

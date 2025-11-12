@@ -1,0 +1,2392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Playground | Nitender Kumar Portfolio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.svg">
+    <meta name="theme-color" content="#0f172a">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Y1JBT1EXB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6Y1JBT1EXB', {
+        debug_mode: true
+      });
+    </script>
+    
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "t8hxb4v0kn");
+    </script>
+    
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'Poppins', 'Space Grotesk', 'ui-sans-serif', 'system-ui'],
+            },
+            colors: {
+              accent: '#06b6d4',
+              accent2: '#6366f1',
+            },
+            boxShadow: {
+              glass: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+            },
+            backdropBlur: {
+              sm: '4px',
+              md: '8px',
+              lg: '16px',
+            },
+          },
+        },
+      }
+    </script>
+    
+    <!-- Additional Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+          --accent: #06b6d4;
+          --accent2: #6366f1;
+          --bg-dark: #0f172a;
+          --text-light: #f1f5f9;
+        }
+        
+        html { 
+          scroll-behavior: smooth; 
+        }
+        
+        body {
+          background: var(--bg-dark);
+          color: var(--text-light);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+          width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+          background: linear-gradient(to bottom, var(--accent), var(--accent2));
+          border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(to bottom, var(--accent2), var(--accent));
+        }
+
+        /* Animated background gradient */
+        .animated-bg {
+          background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #1e1b4b);
+          background-size: 400% 400%;
+          animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        /* Glass morphism effect */
+        .glass-card {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Pulse animation for cards */
+        @keyframes pulse-glow {
+          0%, 100% { box-shadow: 0 0 20px rgba(6, 182, 212, 0.3); }
+          50% { box-shadow: 0 0 30px rgba(99, 102, 241, 0.5); }
+        }
+
+        .pulse-glow {
+          animation: pulse-glow 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="dark min-h-screen font-sans text-gray-200 animated-bg">
+    <!-- Enhanced Navigation -->
+    <nav class="w-full flex items-center justify-between py-4 px-4 bg-gray-900/95 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-gray-800/50">
+        <a class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text hover:scale-105 transition-transform" href="../index.html">
+            Nitender Kumar
+        </a>
+        <div class="flex items-center gap-2 md:gap-4">
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="about.html">About Me</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="contact.html">Contact</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10 bg-accent/20" href="tech-playground.html">Tech Playground</a>
+            <a class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all text-sm md:text-base" href="https://www.linkedin.com/in/nitender-kumar" target="_blank" rel="noopener">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12 max-w-7xl">
+        <!-- Hero Section with improved layout -->
+        <section class="text-center mb-20">
+            <div class="inline-block mb-6">
+                <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                    <i class="fas fa-code mr-2"></i>Interactive Learning Experience
+                </span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-accent via-accent2 to-accent text-transparent bg-clip-text bg-[length:200%_auto] animate-gradient">
+                Tech Playground
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                Explore my engineering expertise through interactive Q&A flashcards. Click cards to reveal insights about my problem-solving approach and technical philosophy.
+            </p>
+        </section>
+
+        <!-- Tech Playground Q&A Carousel Section - Restructured -->
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
+                    Engineering Expertise Flashcards
+                </h2>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                    Navigate through interactive cards using arrow keys or buttons. Click the center card to cycle through symbol → question → answer.
+                </p>
+            </div>
+            
+            <!-- Controls Section -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                <button id="shuffleBtn" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent to-accent2 text-white rounded-xl font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 pulse-glow" onclick="shuffleCards()">
+                    <i class="fas fa-random"></i>
+                    Shuffle Cards
+                </button>
+                <div class="text-gray-400 text-sm">
+                    <i class="fas fa-keyboard mr-2"></i>
+                    Use ← → arrows to navigate, Space/Enter to flip
+                </div>
+            </div>
+            
+            <!-- Search/Filter Section -->
+            <div class="max-w-md mx-auto mb-8">
+                <div class="relative">
+                    <input type="text" id="cardSearch" placeholder="Search cards by topic..." class="w-full px-4 py-3 pl-12 bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent">
+                    <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-4 justify-center" id="categoryFilters">
+                    <button class="category-filter active px-4 py-2 bg-accent/20 text-accent rounded-lg text-sm font-medium hover:bg-accent/30 transition-all" data-category="all">All</button>
+                    <button class="category-filter px-4 py-2 bg-white/10 text-gray-300 rounded-lg text-sm font-medium hover:bg-white/20 transition-all" data-category="data">Data Engineering</button>
+                    <button class="category-filter px-4 py-2 bg-white/10 text-gray-300 rounded-lg text-sm font-medium hover:bg-white/20 transition-all" data-category="cloud">Cloud</button>
+                    <button class="category-filter px-4 py-2 bg-white/10 text-gray-300 rounded-lg text-sm font-medium hover:bg-white/20 transition-all" data-category="ai">AI/ML</button>
+                    <button class="category-filter px-4 py-2 bg-white/10 text-gray-300 rounded-lg text-sm font-medium hover:bg-white/20 transition-all" data-category="leadership">Leadership</button>
+                </div>
+            </div>
+            
+            <!-- Progress Tracking -->
+            <div class="max-w-2xl mx-auto mb-12">
+                <div class="glass-card rounded-xl p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-bold text-white">Your Progress</h3>
+                        <span id="progressPercentage" class="text-accent font-bold">0%</span>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-3 mb-4">
+                        <div id="progressBar" class="bg-gradient-to-r from-accent to-accent2 h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                    <div class="flex justify-between text-sm text-gray-400">
+                        <span>Cards Viewed: <span id="cardsViewed">0</span>/<span id="totalCards">9</span></span>
+                        <span>Total Flips: <span id="totalFlips">0</span></span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carousel Container -->
+            <div class="relative max-w-6xl mx-auto mb-8">
+                <!-- Navigation Arrows - Enhanced -->
+                <button id="prevBtn" class="absolute left-0 md:-left-12 top-1/2 transform -translate-y-1/2 z-20 w-14 h-14 bg-white/10 backdrop-blur-lg rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110 shadow-lg" onclick="navigateCarousel(-1)" aria-label="Previous card">
+                    <i class="fas fa-chevron-left text-xl"></i>
+                </button>
+                <button id="nextBtn" class="absolute right-0 md:-right-12 top-1/2 transform -translate-y-1/2 z-20 w-14 h-14 bg-white/10 backdrop-blur-lg rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110 shadow-lg" onclick="navigateCarousel(1)" aria-label="Next card">
+                    <i class="fas fa-chevron-right text-xl"></i>
+                </button>
+                
+                <!-- Carousel Cards -->
+                <div id="carouselContainer" class="flex items-center justify-center min-h-[450px] px-16 md:px-24">
+                    <!-- Card 1: Data Pipeline Optimization -->
+                    <div class="carousel-card qa-card" data-index="0" data-category="data" role="button" tabindex="0" aria-label="Data Pipeline Optimization flashcard">
+                        <div class="card-inner">
+                            <div class="card-symbol">
+                                <div class="flex items-center justify-center w-28 h-28 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto shadow-lg">
+                                    <span class="text-6xl" role="img" aria-label="Lightning bolt">⚡</span>
+                                </div>
+                                <div class="text-center mt-8">
+                                    <span class="text-accent text-sm font-medium">Click to reveal question</span>
+                                </div>
+                            </div>
+                            <div class="card-question">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-6 shadow-lg">
+                                    <span class="text-3xl" role="img" aria-label="Lightning bolt">⚡</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">Data Pipeline Optimization</h3>
+                                <p class="text-gray-300 text-center mb-6">How do you optimize data pipelines at scale?</p>
+                                <div class="text-center">
+                                    <span class="text-accent text-xs font-medium">Click to reveal answer</span>
+                                </div>
+                            </div>
+                            <div class="card-answer">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-6 shadow-lg">
+                                    <span class="text-3xl" role="img" aria-label="Lightning bolt">⚡</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">My Approach</h3>
+                                <ul class="text-gray-300 text-sm space-y-2 text-left">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-accent mt-1"></i>
+                                        <span>Distributed caching & adaptive query plans</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-accent mt-1"></i>
+                                        <span>Partition pruning & auto-scaling clusters</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-accent mt-1"></i>
+                                        <span>Handle 10M+ daily events efficiently</span>
+                                    </li>
+                                </ul>
+                                <div class="text-center mt-6">
+                                    <span class="text-accent text-xs font-medium cursor-pointer">Click to go back</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Data Quality -->
+                    <div class="carousel-card qa-card" data-index="1" data-category="data" role="button" tabindex="0" aria-label="Data Quality Assurance flashcard">
+                        <div class="card-inner">
+                            <div class="card-symbol">
+                                <div class="flex items-center justify-center w-28 h-28 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mx-auto shadow-lg">
+                                    <span class="text-6xl" role="img" aria-label="Check mark">✅</span>
+                                </div>
+                                <div class="text-center mt-8">
+                                    <span class="text-accent text-sm font-medium">Click to reveal question</span>
+                                </div>
+                            </div>
+                            <div class="card-question">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mx-auto mb-6 shadow-lg">
+                                    <span class="text-3xl" role="img" aria-label="Check mark">✅</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">Data Quality Assurance</h3>
+                                <p class="text-gray-300 text-center mb-6">What's your approach to ensuring data quality?</p>
+                                <div class="text-center">
+                                    <span class="text-accent text-xs font-medium">Click to reveal answer</span>
+                                </div>
+                            </div>
+                            <div class="card-answer">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mx-auto mb-6 shadow-lg">
+                                    <span class="text-3xl" role="img" aria-label="Check mark">✅</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">My Approach</h3>
+                                <ul class="text-gray-300 text-sm space-y-2 text-left">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                                        <span>Automated validation & anomaly detection</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                                        <span>Real-time monitoring & alerting</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                                        <span>Reduced reporting errors by 40%</span>
+                                    </li>
+                                </ul>
+                                <div class="text-center mt-6">
+                                    <span class="text-accent text-xs font-medium cursor-pointer">Click to go back</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Cost Optimization -->
+                    <div class="carousel-card qa-card" data-index="2" data-category="cloud" role="button" tabindex="0" aria-label="Cost Optimization flashcard">
+                        <div class="card-inner">
+                            <div class="card-symbol">
+                                <div class="flex items-center justify-center w-28 h-28 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full mx-auto shadow-lg">
+                                    <span class="text-6xl" role="img" aria-label="Money bag">💰</span>
+                                </div>
+                                <div class="text-center mt-8">
+                                    <span class="text-accent text-sm font-medium">Click to reveal question</span>
+                                </div>
+                            </div>
+                            <div class="card-question">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full mx-auto mb-6 shadow-lg">
+                                    <span class="text-3xl" role="img" aria-label="Money bag">💰</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">Cost Optimization</h3>
+                                <p class="text-gray-300 text-center mb-6">How do you balance cost vs performance?</p>
+                                <div class="text-center">
+                                    <span class="text-accent text-xs font-medium">Click to reveal answer</span>
+                                </div>
+                            </div>
+                            <div class="card-answer">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full mx-auto mb-6 shadow-lg">
+                                    <span class="text-3xl" role="img" aria-label="Money bag">💰</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">My Approach</h3>
+                                <ul class="text-gray-300 text-sm space-y-2 text-left">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-yellow-400 mt-1"></i>
+                                        <span>FinOps practices & instance right-sizing</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-yellow-400 mt-1"></i>
+                                        <span>Smart workload scheduling</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-yellow-400 mt-1"></i>
+                                        <span>Saved 25–30% cloud spend without SLA impact</span>
+                                    </li>
+                                </ul>
+                                <div class="text-center mt-6">
+                                    <span class="text-accent text-xs font-medium cursor-pointer">Click to go back</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: AI/ML Integration -->
+                    <div class="carousel-card qa-card" data-index="3" data-category="ai" role="button" tabindex="0" aria-label="AI/ML Integration flashcard">
+                        <div class="card-inner">
+                            <div class="card-symbol">
+                                <div class="flex items-center justify-center w-28 h-28 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto shadow-lg">
+                                    <span class="text-6xl" role="img" aria-label="Robot">🤖</span>
+                                </div>
+                                <div class="text-center mt-8">
+                                    <span class="text-accent text-sm font-medium">Click to reveal question</span>
+                                </div>
+                            </div>
+                            <div class="card-question">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto mb-6 shadow-lg">
+                                    <span class="text-3xl" role="img" aria-label="Robot">🤖</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">AI/ML Integration</h3>
+                                <p class="text-gray-300 text-center mb-6">How do you integrate AI/ML into workflows?</p>
+                                <div class="text-center">
+                                    <span class="text-accent text-xs font-medium">Click to reveal answer</span>
+                                </div>
+                            </div>
+                            <div class="card-answer">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto mb-6 shadow-lg">
+                                    <span class="text-3xl" role="img" aria-label="Robot">🤖</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">My Approach</h3>
+                                <ul class="text-gray-300 text-sm space-y-2 text-left">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-purple-400 mt-1"></i>
+                                        <span>Models as first-class pipeline components</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-purple-400 mt-1"></i>
+                                        <span>Real-time inference & monitoring</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-purple-400 mt-1"></i>
+                                        <span>Continuous retraining workflows</span>
+                                    </li>
+                                </ul>
+                                <div class="text-center mt-6">
+                                    <span class="text-accent text-xs font-medium cursor-pointer">Click to go back</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Leadership Philosophy -->
+                    <div class="carousel-card qa-card" data-index="4" data-category="leadership" role="button" tabindex="0" aria-label="Leadership Philosophy flashcard">
+                        <div class="card-inner">
+                            <div class="card-symbol">
+                                <div class="flex items-center justify-center w-28 h-28 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full mx-auto shadow-lg">
+                                    <span class="text-6xl" role="img" aria-label="Developer">👨‍💻</span>
+                                </div>
+                                <div class="text-center mt-8">
+                                    <span class="text-accent text-sm font-medium">Click to reveal question</span>
+                                </div>
+                            </div>
+                            <div class="card-question">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full mx-auto mb-6 shadow-lg">
+                                    <span class="text-3xl" role="img" aria-label="Developer">👨‍💻</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">Leadership Philosophy</h3>
+                                <p class="text-gray-300 text-center mb-6">What's your leadership approach?</p>
+                                <div class="text-center">
+                                    <span class="text-accent text-xs font-medium">Click to reveal answer</span>
+                                </div>
+                            </div>
+                            <div class="card-answer">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full mx-auto mb-6 shadow-lg">
+                                    <span class="text-3xl" role="img" aria-label="Developer">👨‍💻</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">My Approach</h3>
+                                <ul class="text-gray-300 text-sm space-y-2 text-left">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-indigo-400 mt-1"></i>
+                                        <span>Lead by example and hands-on mentoring</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-indigo-400 mt-1"></i>
+                                        <span>Foster growth mindset & continuous learning</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-indigo-400 mt-1"></i>
+                                        <span>Build high-performing, collaborative teams</span>
+                                    </li>
+                                </ul>
+                                <div class="text-center mt-6">
+                                    <span class="text-accent text-xs font-medium cursor-pointer">Click to go back</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: System Architecture -->
+                    <div class="carousel-card qa-card" data-index="5" data-category="cloud" role="button" tabindex="0" aria-label="System Architecture flashcard">
+                        <div class="card-inner">
+                            <div class="card-symbol">
+                                <div class="flex items-center justify-center w-28 h-28 bg-gradient-to-r from-red-500 to-rose-500 rounded-full mx-auto shadow-lg">
+                                    <span class="text-6xl" role="img" aria-label="Building">🏗️</span>
+                                </div>
+                                <div class="text-center mt-8">
+                                    <span class="text-accent text-sm font-medium">Click to reveal question</span>
+                                </div>
+                            </div>
+                            <div class="card-question">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-red-500 to-rose-500 rounded-full mx-auto mb-6 shadow-lg">
+                                    <span class="text-3xl" role="img" aria-label="Building">🏗️</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">System Architecture</h3>
+                                <p class="text-gray-300 text-center mb-6">How do you design fault-tolerant systems?</p>
+                                <div class="text-center">
+                                    <span class="text-accent text-xs font-medium">Click to reveal answer</span>
+                                </div>
+                            </div>
+                            <div class="card-answer">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-red-500 to-rose-500 rounded-full mx-auto mb-6 shadow-lg">
+                                    <span class="text-3xl" role="img" aria-label="Building">🏗️</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">My Approach</h3>
+                                <ul class="text-gray-300 text-sm space-y-2 text-left">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-red-400 mt-1"></i>
+                                        <span>Circuit breakers & graceful degradation</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-red-400 mt-1"></i>
+                                        <span>Multi-region failover strategies</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-red-400 mt-1"></i>
+                                        <span>50% reduction in deployment failures</span>
+                                    </li>
+                                </ul>
+                                <div class="text-center mt-6">
+                                    <span class="text-accent text-xs font-medium cursor-pointer">Click to go back</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 7: Cloud Architecture -->
+                    <div class="carousel-card qa-card" data-index="6" data-category="cloud" role="button" tabindex="0" aria-label="Cloud Architecture flashcard">
+                        <div class="card-inner">
+                            <div class="card-symbol">
+                                <div class="flex items-center justify-center w-28 h-28 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full mx-auto shadow-lg">
+                                    <span class="text-6xl" role="img" aria-label="Cloud">☁️</span>
+                                </div>
+                                <div class="text-center mt-8">
+                                    <span class="text-accent text-sm font-medium">Click to reveal question</span>
+                                </div>
+                            </div>
+                            <div class="card-question">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full mx-auto mb-6 shadow-lg">
+                                    <span class="text-3xl" role="img" aria-label="Cloud">☁️</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">Cloud Architecture</h3>
+                                <p class="text-gray-300 text-center mb-6">How do you design scalable cloud-native systems?</p>
+                                <div class="text-center">
+                                    <span class="text-accent text-xs font-medium">Click to reveal answer</span>
+                                </div>
+                            </div>
+                            <div class="card-answer">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full mx-auto mb-6 shadow-lg">
+                                    <span class="text-3xl" role="img" aria-label="Cloud">☁️</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">My Approach</h3>
+                                <ul class="text-gray-300 text-sm space-y-2 text-left">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-orange-400 mt-1"></i>
+                                        <span>AWS-first: S3, EMR, Redshift, Lambda, K8s</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-orange-400 mt-1"></i>
+                                        <span>Serverless & containerized microservices</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-orange-400 mt-1"></i>
+                                        <span>Multi-region deployment strategies</span>
+                                    </li>
+                                </ul>
+                                <div class="text-center mt-6">
+                                    <span class="text-accent text-xs font-medium cursor-pointer">Click to go back</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 8: Real-time Streaming -->
+                    <div class="carousel-card qa-card" data-index="7" data-category="data" role="button" tabindex="0" aria-label="Real-time Streaming flashcard">
+                        <div class="card-inner">
+                            <div class="card-symbol">
+                                <div class="flex items-center justify-center w-28 h-28 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full mx-auto shadow-lg">
+                                    <span class="text-6xl" role="img" aria-label="Stream">🌊</span>
+                                </div>
+                                <div class="text-center mt-8">
+                                    <span class="text-accent text-sm font-medium">Click to reveal question</span>
+                                </div>
+                            </div>
+                            <div class="card-question">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full mx-auto mb-6 shadow-lg">
+                                    <span class="text-3xl" role="img" aria-label="Stream">🌊</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">Real-time Streaming</h3>
+                                <p class="text-gray-300 text-center mb-6">How do you handle real-time data processing?</p>
+                                <div class="text-center">
+                                    <span class="text-accent text-xs font-medium">Click to reveal answer</span>
+                                </div>
+                            </div>
+                            <div class="card-answer">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full mx-auto mb-6 shadow-lg">
+                                    <span class="text-3xl" role="img" aria-label="Stream">🌊</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">My Approach</h3>
+                                <ul class="text-gray-300 text-sm space-y-2 text-left">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-teal-400 mt-1"></i>
+                                        <span>Kafka/Kinesis for event streaming</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-teal-400 mt-1"></i>
+                                        <span>Sub-second latency analytics</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-teal-400 mt-1"></i>
+                                        <span>Exactly-once processing guarantees</span>
+                                    </li>
+                                </ul>
+                                <div class="text-center mt-6">
+                                    <span class="text-accent text-xs font-medium cursor-pointer">Click to go back</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 9: Data Governance -->
+                    <div class="carousel-card qa-card" data-index="8" data-category="data" role="button" tabindex="0" aria-label="Data Governance flashcard">
+                        <div class="card-inner">
+                            <div class="card-symbol">
+                                <div class="flex items-center justify-center w-28 h-28 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full mx-auto shadow-lg">
+                                    <span class="text-6xl" role="img" aria-label="Shield">🛡️</span>
+                                </div>
+                                <div class="text-center mt-8">
+                                    <span class="text-accent text-sm font-medium">Click to reveal question</span>
+                                </div>
+                            </div>
+                            <div class="card-question">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full mx-auto mb-6 shadow-lg">
+                                    <span class="text-3xl" role="img" aria-label="Shield">🛡️</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">Data Governance</h3>
+                                <p class="text-gray-300 text-center mb-6">How do you ensure data security and compliance?</p>
+                                <div class="text-center">
+                                    <span class="text-accent text-xs font-medium">Click to reveal answer</span>
+                                </div>
+                            </div>
+                            <div class="card-answer">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full mx-auto mb-6 shadow-lg">
+                                    <span class="text-3xl" role="img" aria-label="Shield">🛡️</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">My Approach</h3>
+                                <ul class="text-gray-300 text-sm space-y-2 text-left">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-violet-400 mt-1"></i>
+                                        <span>Encryption at rest & in transit</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-violet-400 mt-1"></i>
+                                        <span>Access control & audit logging</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-violet-400 mt-1"></i>
+                                        <span>GDPR/CCPA compliance frameworks</span>
+                                    </li>
+                                </ul>
+                                <div class="text-center mt-6">
+                                    <span class="text-accent text-xs font-medium cursor-pointer">Click to go back</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carousel Indicators - Enhanced -->
+                <div class="flex justify-center mt-10 space-x-2 flex-wrap">
+                    <div class="indicator active" data-index="0" onclick="goToCard(0)" aria-label="Go to card 1"></div>
+                    <div class="indicator" data-index="1" onclick="goToCard(1)" aria-label="Go to card 2"></div>
+                    <div class="indicator" data-index="2" onclick="goToCard(2)" aria-label="Go to card 3"></div>
+                    <div class="indicator" data-index="3" onclick="goToCard(3)" aria-label="Go to card 4"></div>
+                    <div class="indicator" data-index="4" onclick="goToCard(4)" aria-label="Go to card 5"></div>
+                    <div class="indicator" data-index="5" onclick="goToCard(5)" aria-label="Go to card 6"></div>
+                    <div class="indicator" data-index="6" onclick="goToCard(6)" aria-label="Go to card 7"></div>
+                    <div class="indicator" data-index="7" onclick="goToCard(7)" aria-label="Go to card 8"></div>
+                    <div class="indicator" data-index="8" onclick="goToCard(8)" aria-label="Go to card 9"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Side Projects Section - Restructured -->
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
+                    Side Projects & Interests
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Beyond engineering, I explore various creative and technical pursuits
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-all duration-300 hover:shadow-xl">
+                    <div class="w-20 h-20 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <i class="fab fa-github text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Open Source</h3>
+                    <p class="text-gray-300 text-center leading-relaxed">Contributing to open source projects and building tools for the developer community.</p>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-all duration-300 hover:shadow-xl">
+                    <div class="w-20 h-20 bg-gradient-to-r from-accent2 to-accent rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <i class="fas fa-camera text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Photography</h3>
+                    <p class="text-gray-300 text-center leading-relaxed">Capturing moments and exploring the world through the lens of a camera.</p>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-8 hover:scale-105 transition-all duration-300 hover:shadow-xl">
+                    <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-accent rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <i class="fas fa-microphone text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Tech Talks</h3>
+                    <p class="text-gray-300 text-center leading-relaxed">Sharing knowledge through presentations and workshops on data engineering topics.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hobbies & Interests - Restructured -->
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
+                    Hobbies & Interests
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-book text-4xl text-accent mb-4"></i>
+                    <h3 class="font-bold text-white mb-2">Reading</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">Tech books, sci-fi novels, and industry publications</p>
+                </div>
+                
+                <div class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-hiking text-4xl text-accent2 mb-4"></i>
+                    <h3 class="font-bold text-white mb-2">Hiking</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">Exploring nature trails and mountain paths</p>
+                </div>
+                
+                <div class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-chess text-4xl text-green-500 mb-4"></i>
+                    <h3 class="font-bold text-white mb-2">Chess</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">Strategic thinking and problem-solving</p>
+                </div>
+                
+                <div class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-music text-4xl text-purple-500 mb-4"></i>
+                    <h3 class="font-bold text-white mb-2">Music</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">Listening to music and discovering new artists like John Mayer, Ed Sheeran, and acoustic indie bands</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fun Facts - Restructured -->
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
+                    Fun Facts & Current Obsessions
+                </h2>
+            </div>
+            <div class="glass-card rounded-2xl p-8 md:p-12 shadow-xl">
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                            <i class="fas fa-lightbulb text-accent"></i>
+                            Did You Know?
+                        </h3>
+                        <ul class="space-y-4 text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-coffee text-accent mt-1.5"></i>
+                                <span>I drink an average of 6 cups of coffee per day while coding</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-code text-accent2 mt-1.5"></i>
+                                <span>I've written over 1,000,000 lines of code across various projects</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-globe text-green-500 mt-1.5"></i>
+                                <span>I've worked with teams across 5 different countries</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-rocket text-purple-500 mt-1.5"></i>
+                                <span>I once debugged a production issue while on a hiking trail</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-database text-blue-500 mt-1.5"></i>
+                                <span>I've processed over 50TB of data in production systems</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-clock text-orange-500 mt-1.5"></i>
+                                <span>I once optimized a query that was taking 8 hours to run it in under 2 minutes</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-users text-pink-500 mt-1.5"></i>
+                                <span>I've mentored over 15+ junior developers in my career</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                            <i class="fas fa-fire text-accent2"></i>
+                            Current Obsessions
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="glass-card rounded-lg p-5 hover:scale-105 transition-all duration-300">
+                                <h4 class="font-semibold text-white mb-2 flex items-center gap-2">
+                                    <i class="fas fa-brain text-purple-400"></i>
+                                    Generative AI & LLMs
+                                </h4>
+                                <p class="text-gray-300 text-sm leading-relaxed">Building intelligent applications with GPT, Claude, and custom fine-tuned models for enterprise solutions</p>
+                            </div>
+                            <div class="glass-card rounded-lg p-5 hover:scale-105 transition-all duration-300">
+                                <h4 class="font-semibold text-white mb-2 flex items-center gap-2">
+                                    <i class="fas fa-robot text-blue-400"></i>
+                                    AI-Powered Data Engineering
+                                </h4>
+                                <p class="text-gray-300 text-sm leading-relaxed">Automating data pipelines, intelligent data quality checks, and AI-driven ETL optimization</p>
+                            </div>
+                            <div class="glass-card rounded-lg p-5 hover:scale-105 transition-all duration-300">
+                                <h4 class="font-semibold text-white mb-2 flex items-center gap-2">
+                                    <i class="fas fa-cogs text-green-400"></i>
+                                    MLOps & AI Infrastructure
+                                </h4>
+                                <p class="text-gray-300 text-sm leading-relaxed">Designing scalable AI model deployment pipelines and monitoring systems for production ML</p>
+                            </div>
+                            <div class="glass-card rounded-lg p-5 hover:scale-105 transition-all duration-300">
+                                <h4 class="font-semibold text-white mb-2 flex items-center gap-2">
+                                    <i class="fas fa-atom text-indigo-400"></i>
+                                    Quantum Computing
+                                </h4>
+                                <p class="text-gray-300 text-sm leading-relaxed">Exploring quantum algorithms for optimization problems and quantum machine learning applications</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Code Snippets Showcase -->
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
+                    Code Snippets Showcase
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Real-world code examples demonstrating optimization techniques, resilience patterns, and AI integration
+                </p>
+            </div>
+            
+            <!-- Code Carousel Container -->
+            <div class="relative max-w-5xl mx-auto">
+                <!-- Code Snippets Carousel -->
+                <div id="codeCarouselContainer" class="overflow-hidden relative">
+                    <div id="codeCarouselTrack" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- Snippet 1: Spark Optimization -->
+                        <div class="code-snippet-card min-w-full px-4">
+                            <div class="glass-card rounded-xl p-6">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <i class="fas fa-code text-accent text-xl"></i>
+                                    <h3 class="text-xl font-bold text-white">Spark Optimization</h3>
+                                </div>
+                                <pre class="bg-gray-900 rounded-lg p-4 overflow-x-auto text-sm"><code class="text-gray-300">from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
+
+def optimize_spark_query(df, date_filter, target_partitions=4):
+    """Optimizes Spark DataFrame query with partition pruning and caching.
+    
+    Applies predicate pushdown, reduces partitions, and caches intermediate
+    results to minimize shuffle operations and improve performance.
+    
+    Args:
+        df: Input Spark DataFrame containing date and transaction columns.
+        date_filter: Date string in 'YYYY-MM-DD' format for filtering.
+        target_partitions: Number of partitions after coalescing. Defaults to 4.
+    
+    Returns:
+        Spark DataFrame: Optimized DataFrame ready for further processing.
+    
+    Example:
+        >>> spark = SparkSession.builder.appName("ETL").getOrCreate()
+        >>> df = spark.read.parquet("s3://bucket/transactions/")
+        >>> optimized_df = optimize_spark_query(df, "2024-01-01", target_partitions=4)
+        >>> optimized_df.write.parquet("s3://bucket/output/")
+    """
+    return (df
+        .filter(col("date") >= date_filter)  # Predicate pushdown
+        .select("id", "amount")                # Column pruning
+        .coalesce(target_partitions)           # Reduce partitions
+        .cache())                              # Cache for reuse</code></pre>
+                                <p class="text-gray-400 text-sm mt-3">Reduces shuffle operations and improves query performance by 40%</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Snippet 2: Cost-Effective ETL -->
+                        <div class="code-snippet-card min-w-full px-4">
+                            <div class="glass-card rounded-xl p-6">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <i class="fas fa-database text-accent2 text-xl"></i>
+                                    <h3 class="text-xl font-bold text-white">Cost-Effective ETL</h3>
+                                </div>
+                                <pre class="bg-gray-900 rounded-lg p-4 overflow-x-auto text-sm"><code class="text-gray-300">def get_instance_type(record_count):
+    """Determines optimal EC2 instance type based on record count.
+    
+    **Real-Life Use Case:**
+    In production ETL pipelines, data volumes vary significantly between jobs:
+    - Daily incremental loads: 100K-500K records (small instance)
+    - Weekly aggregations: 2M-5M records (medium instance)
+    - Monthly full refreshes: 20M+ records (large instance)
+    
+    Instead of provisioning expensive large instances for all jobs, this function
+    dynamically selects the right-sized instance based on actual workload,
+    reducing AWS costs by 25-30% while maintaining performance.
+    
+    **When to Use:**
+    - Auto-scaling EMR clusters or EC2-based ETL jobs
+    - Cost optimization in data pipelines with variable workloads
+    - Resource allocation in multi-tenant data processing systems
+    
+    Args:
+        record_count (int): Number of records to process in the ETL job.
+    
+    Returns:
+        str: Recommended EC2 instance type (e.g., 'm5.large', 'm5.xlarge').
+    
+    Example:
+        # Real-world scenario: Daily ETL pipeline
+        >>> from pyspark.sql import SparkSession
+        >>> 
+        >>> # Count records before processing
+        >>> df = spark.read.parquet("s3://data-lake/raw/transactions/")
+        >>> record_count = df.count()
+        >>> 
+        >>> # Dynamically select instance type
+        >>> instance_type = get_instance_type(record_count)
+        >>> print(f"Processing {record_count:,} records on {instance_type}")
+        Processing 3,500,000 records on m5.xlarge
+        >>> 
+        >>> # Launch EMR cluster with right-sized instance
+        >>> emr_client.create_cluster(
+        ...     Instances={
+        ...         'InstanceGroups': [{
+        ...             'InstanceType': instance_type,
+        ...             'InstanceCount': 1
+        ...         }]
+        ...     }
+        ... )
+    """
+    if record_count < 1_000_000:
+        return "m5.large"
+    elif record_count < 10_000_000:
+        return "m5.xlarge"
+    else:
+        return "m5.2xlarge"</code></pre>
+                                <p class="text-gray-400 text-sm mt-3">Dynamically scales resources based on workload, saving 25-30% on AWS costs</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Snippet 3: Exponential Backoff -->
+                        <div class="code-snippet-card min-w-full px-4">
+                            <div class="glass-card rounded-xl p-6">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <i class="fas fa-redo text-yellow-500 text-xl"></i>
+                                    <h3 class="text-xl font-bold text-white">Exponential Backoff</h3>
+                                </div>
+                                <pre class="bg-gray-900 rounded-lg p-4 overflow-x-auto text-sm"><code class="text-gray-300">import time
+import random
+from typing import Callable, Any, Optional
+
+def exponential_backoff_retry(
+    func: Callable[[], Any],
+    max_retries: int = 5,
+    base_delay: float = 1.0
+) -> Optional[Any]:
+    """Retries a function with exponential backoff on failure.
+    
+    Implements exponential backoff with jitter to handle transient failures
+    in distributed systems, preventing thundering herd problems.
+    
+    Args:
+        func: Callable function to execute. Should raise an exception on failure.
+        max_retries: Maximum number of retry attempts. Defaults to 5.
+        base_delay: Base delay in seconds for exponential calculation. Defaults to 1.0.
+    
+    Returns:
+        Result of func() if successful, None if all retries exhausted.
+    
+    Raises:
+        Exception: The last exception raised by func() if all retries fail.
+    
+    Example:
+        >>> def api_call():
+        ...     response = requests.get("https://api.example.com/data")
+        ...     response.raise_for_status()
+        ...     return response.json()
+        ...
+        >>> result = exponential_backoff_retry(api_call, max_retries=3)
+        >>> print(result)
+        {'data': '...'}
+    """
+    for attempt in range(max_retries):
+        try:
+            return func()
+        except Exception as e:
+            if attempt == max_retries - 1:
+                raise
+            # Exponential backoff: 2^attempt * base_delay + jitter
+            wait_time = (2 ** attempt) * base_delay + random.uniform(0, 1)
+            time.sleep(wait_time)
+    return None</code></pre>
+                                <p class="text-gray-400 text-sm mt-3">Handles transient failures with exponential delay, improving system resilience</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Snippet 4: Dead Letter Queue (DLQ) -->
+                        <div class="code-snippet-card min-w-full px-4">
+                            <div class="glass-card rounded-xl p-6">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <i class="fas fa-exclamation-triangle text-red-500 text-xl"></i>
+                                    <h3 class="text-xl font-bold text-white">Dead Letter Queue Pattern</h3>
+                                </div>
+                                <pre class="bg-gray-900 rounded-lg p-4 overflow-x-auto text-sm"><code class="text-gray-300">import pika
+import json
+import logging
+from typing import Dict, Any, Callable
+
+def setup_dlq_exchange_and_queue(
+    channel: pika.channel.Channel,
+    main_queue: str = "orders_queue",
+    dlq_name: str = "orders_dlq"
+) -> None:
+    """Sets up RabbitMQ exchange and queues with DLQ configuration.
+    
+    Configures a main queue with message TTL and dead letter exchange
+    routing failed messages to DLQ after max retries.
+    
+    Args:
+        channel: RabbitMQ channel object.
+        main_queue: Name of the main processing queue. Defaults to "orders_queue".
+        dlq_name: Name of the dead letter queue. Defaults to "orders_dlq".
+    
+    Example:
+        >>> connection = pika.BlockingConnection(
+        ...     pika.ConnectionParameters('localhost')
+        ... )
+        >>> channel = connection.channel()
+        >>> setup_dlq_exchange_and_queue(channel, "orders_queue", "orders_dlq")
+    """
+    # Declare DLQ
+    channel.queue_declare(queue=dlq_name, durable=True)
+    
+    # Declare DLX (Dead Letter Exchange)
+    dlx_name = f"{main_queue}_dlx"
+    channel.exchange_declare(exchange=dlx_name, exchange_type='direct')
+    channel.queue_bind(exchange=dlx_name, queue=dlq_name, routing_key=dlq_name)
+    
+    # Declare main queue with DLQ configuration
+    channel.queue_declare(
+        queue=main_queue,
+        durable=True,
+        arguments={
+            'x-message-ttl': 300000,  # 5 minutes TTL
+            'x-dead-letter-exchange': dlx_name,
+            'x-dead-letter-routing-key': dlq_name,
+            'x-max-retries': 3  # Max retry attempts
+        }
+    )
+
+def process_message_with_dlq(
+    channel: pika.channel.Channel,
+    method: pika.spec.Basic.Deliver,
+    properties: pika.spec.BasicProperties,
+    body: bytes,
+    process_func: Callable[[Dict[str, Any]], None],
+    dlq_name: str = "orders_dlq"
+) -> None:
+    """Processes a RabbitMQ message with retry logic and DLQ fallback.
+    
+    Attempts to process a message with exponential backoff retries.
+    If all retries fail, the message is automatically routed to DLQ
+    via RabbitMQ's built-in dead letter exchange mechanism.
+    
+    Args:
+        channel: RabbitMQ channel object.
+        method: Delivery method from pika callback.
+        properties: Message properties from pika callback.
+        body: Message body bytes.
+        process_func: Function that processes the message. Raises exception on failure.
+        dlq_name: Name of the dead letter queue. Defaults to "orders_dlq".
+    
+    Example:
+        >>> def process_order(order_data):
+        ...     if order_data['amount'] < 0:
+        ...         raise ValueError("Invalid order amount")
+        ...     # Process order logic
+        ...     print(f"Processing order {order_data['order_id']}")
+        ...
+        >>> def callback(ch, method, properties, body):
+        ...     message = json.loads(body)
+        ...     process_message_with_dlq(
+        ...         ch, method, properties, body, process_order
+        ...     )
+        ...
+        >>> channel.basic_consume(
+        ...     queue='orders_queue',
+        ...     on_message_callback=callback,
+        ...     auto_ack=False
+        ... )
+    """
+    try:
+        message = json.loads(body)
+        process_func(message)
+        # Acknowledge successful processing
+        channel.basic_ack(delivery_tag=method.delivery_tag)
+        logging.info(f"Message processed successfully: {message.get('order_id')}")
+    except Exception as e:
+        # Get retry count from message headers
+        retry_count = properties.headers.get('x-retry-count', 0) if properties.headers else 0
+        max_retries = 3
+        
+        if retry_count < max_retries:
+            # Reject and requeue with retry count increment
+            new_headers = properties.headers.copy() if properties.headers else {}
+            new_headers['x-retry-count'] = retry_count + 1
+            
+            channel.basic_publish(
+                exchange='',
+                routing_key=method.routing_key,
+                body=body,
+                properties=pika.BasicProperties(
+                    headers=new_headers,
+                    delivery_mode=2  # Make message persistent
+                )
+            )
+            channel.basic_ack(delivery_tag=method.delivery_tag)
+            logging.warning(f"Message requeued (retry {retry_count + 1}/{max_retries}): {e}")
+        else:
+            # Max retries exceeded - reject without requeue
+            # RabbitMQ will route to DLQ via dead letter exchange
+            channel.basic_nack(delivery_tag=method.delivery_tag, requeue=False)
+            logging.error(f"Message sent to DLQ after {max_retries} retries: {e}")</code></pre>
+                                <p class="text-gray-400 text-sm mt-3">Ensures failed messages are captured for analysis without blocking the pipeline</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Snippet 5: RAG Implementation -->
+                        <div class="code-snippet-card min-w-full px-4">
+                            <div class="glass-card rounded-xl p-6">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <i class="fas fa-brain text-purple-500 text-xl"></i>
+                                    <h3 class="text-xl font-bold text-white">RAG (Retrieval-Augmented Generation)</h3>
+                                </div>
+                                <pre class="bg-gray-900 rounded-lg p-4 overflow-x-auto text-sm"><code class="text-gray-300">from langchain.vectorstores import Chroma
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.chains import RetrievalQA
+from langchain.chat_models import ChatOpenAI
+from langchain.schema import Document
+from typing import List
+
+def setup_rag_chain(
+    documents: List[Document],
+    top_k: int = 3,
+    model_name: str = "gpt-3.5-turbo"
+) -> RetrievalQA:
+    """Sets up a RAG (Retrieval-Augmented Generation) chain for Q&A.
+    
+    Creates a vector store from documents and configures a retrieval-augmented
+    generation chain that enhances LLM responses with relevant context from
+    the document database, significantly improving answer accuracy.
+    
+    Args:
+        documents: List of Document objects to index in the vector store.
+        top_k: Number of top documents to retrieve for context. Defaults to 3.
+        model_name: OpenAI model name to use. Defaults to "gpt-3.5-turbo".
+    
+    Returns:
+        RetrievalQA: Configured RAG chain ready for question answering.
+    
+    Example:
+        >>> from langchain.schema import Document
+        >>> docs = [
+        ...     Document(page_content="Python is a programming language"),
+        ...     Document(page_content="Data engineering involves ETL processes")
+        ... ]
+        >>> qa_chain = setup_rag_chain(docs, top_k=3)
+        >>> result = qa_chain.run("What is Python?")
+        >>> print(result)
+        'Python is a programming language...'
+    """
+    # Create embeddings and vector store
+    embeddings = OpenAIEmbeddings()
+    vectorstore = Chroma.from_documents(documents, embeddings)
+    
+    # Create RAG chain with retrieval
+    qa_chain = RetrievalQA.from_chain_type(
+        llm=ChatOpenAI(model_name=model_name, temperature=0),
+        retriever=vectorstore.as_retriever(
+            search_kwargs={"k": top_k}
+        ),
+        return_source_documents=True
+    )
+    return qa_chain</code></pre>
+                                <p class="text-gray-400 text-sm mt-3">Enhances LLM responses with context from vector database, improving accuracy</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Snippet 6: Delay Queue Pattern -->
+                        <div class="code-snippet-card min-w-full px-4">
+                            <div class="glass-card rounded-xl p-6">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <i class="fas fa-clock text-blue-500 text-xl"></i>
+                                    <h3 class="text-xl font-bold text-white">Delay Queue Pattern</h3>
+                                </div>
+                                <pre class="bg-gray-900 rounded-lg p-4 overflow-x-auto text-sm"><code class="text-gray-300">import pika
+import json
+from typing import Dict, Any, Optional
+from datetime import datetime, timedelta
+
+def setup_delayed_queue(
+    channel: pika.channel.Channel,
+    delay_queue: str = "delayed_queue",
+    target_queue: str = "processing_queue"
+) -> None:
+    """Sets up RabbitMQ delayed message queue using TTL and DLX.
+    
+    Creates a delay queue with message TTL that routes expired messages
+    to the target queue after the delay period, implementing delayed processing.
+    
+    Args:
+        channel: RabbitMQ channel object.
+        delay_queue: Name of the delay queue. Defaults to "delayed_queue".
+        target_queue: Name of the target processing queue. Defaults to "processing_queue".
+    
+    Example:
+        >>> connection = pika.BlockingConnection(
+        ...     pika.ConnectionParameters('localhost')
+        ... )
+        >>> channel = connection.channel()
+        >>> setup_delayed_queue(channel, "delayed_queue", "processing_queue")
+    """
+    # Declare target queue
+    channel.queue_declare(queue=target_queue, durable=True)
+    
+    # Declare delay exchange (acts as DLX)
+    delay_exchange = f"{delay_queue}_exchange"
+    channel.exchange_declare(exchange=delay_exchange, exchange_type='direct')
+    channel.queue_bind(
+        exchange=delay_exchange,
+        queue=target_queue,
+        routing_key=target_queue
+    )
+    
+    # Declare delay queue with TTL and DLX
+    channel.queue_declare(
+        queue=delay_queue,
+        durable=True,
+        arguments={
+            'x-message-ttl': 60000,  # Default 60 seconds TTL
+            'x-dead-letter-exchange': delay_exchange,
+            'x-dead-letter-routing-key': target_queue
+        }
+    )
+
+def send_delayed_message(
+    channel: pika.channel.Channel,
+    message: Dict[str, Any],
+    delay_milliseconds: int,
+    delay_queue: str = "delayed_queue"
+) -> None:
+    """Sends a message to RabbitMQ delay queue with specified delay.
+    
+    Implements delayed message processing pattern for rate limiting,
+    scheduled tasks, or exponential backoff retries in distributed systems.
+    Uses RabbitMQ's TTL and Dead Letter Exchange to achieve delays.
+    
+    Args:
+        channel: RabbitMQ channel object.
+        message: Message payload as dictionary (will be JSON serialized).
+        delay_milliseconds: Delay in milliseconds before message is delivered.
+                           Must be between 0 and 86400000 (24 hours).
+        delay_queue: Name of the delay queue. Defaults to "delayed_queue".
+    
+    Raises:
+        pika.exceptions.AMQPConnectionError: If RabbitMQ connection fails.
+    
+    Example:
+        >>> connection = pika.BlockingConnection(
+        ...     pika.ConnectionParameters('localhost')
+        ... )
+        >>> channel = connection.channel()
+        >>> setup_delayed_queue(channel)
+        >>> 
+        >>> # Send message with 5 minute delay
+        >>> message = {"task": "process_report", "report_id": "12345"}
+        >>> send_delayed_message(channel, message, delay_milliseconds=300000)
+        >>> print("Message scheduled for processing in 5 minutes")
+        Message scheduled for processing in 5 minutes
+        >>> 
+        >>> # Send message with 1 hour delay for scheduled task
+        >>> scheduled_task = {"action": "generate_daily_summary", "date": "2024-01-15"}
+        >>> send_delayed_message(channel, scheduled_task, delay_milliseconds=3600000)
+    """
+    # Clamp delay between 0 and 24 hours (in milliseconds)
+    delay_ms = max(0, min(delay_milliseconds, 86400000))
+    
+    channel.basic_publish(
+        exchange='',
+        routing_key=delay_queue,
+        body=json.dumps(message),
+        properties=pika.BasicProperties(
+            delivery_mode=2,  # Make message persistent
+            expiration=str(delay_ms)  # Set TTL for delay
+        )
+    )
+    logging.info(f"Message scheduled with {delay_ms}ms delay: {message}")
+
+def send_delayed_message_with_exchange(
+    channel: pika.channel.Channel,
+    message: Dict[str, Any],
+    delay_seconds: int,
+    target_queue: str = "processing_queue"
+) -> None:
+    """Alternative: Send delayed message using delayed message plugin.
+    
+    Requires rabbitmq-delayed-message-exchange plugin.
+    More efficient for precise delays without TTL overhead.
+    
+    Args:
+        channel: RabbitMQ channel object.
+        message: Message payload as dictionary.
+        delay_seconds: Delay in seconds before delivery.
+        target_queue: Target queue name. Defaults to "processing_queue".
+    
+    Example:
+        >>> channel.exchange_declare(
+        ...     exchange='delayed_exchange',
+        ...     exchange_type='x-delayed-message',
+        ...     arguments={'x-delayed-type': 'direct'}
+        ... )
+        >>> send_delayed_message_with_exchange(
+        ...     channel, {"task": "cleanup"}, delay_seconds=3600
+        ... )
+    """
+    channel.exchange_declare(
+        exchange='delayed_exchange',
+        exchange_type='x-delayed-message',
+        arguments={'x-delayed-type': 'direct'}
+    )
+    
+    channel.queue_declare(queue=target_queue, durable=True)
+    channel.queue_bind(
+        exchange='delayed_exchange',
+        queue=target_queue,
+        routing_key=target_queue
+    )
+    
+    channel.basic_publish(
+        exchange='delayed_exchange',
+        routing_key=target_queue,
+        body=json.dumps(message),
+        properties=pika.BasicProperties(
+            headers={'x-delay': delay_seconds * 1000}  # Convert to milliseconds
+        )
+    )</code></pre>
+                                <p class="text-gray-400 text-sm mt-3">Implements delayed message processing for rate limiting and scheduled workflows</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Arrows - Positioned at bottom of code snippet -->
+                    <button id="codePrevBtn" class="absolute left-2 md:left-4 z-30 w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-lg rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110 shadow-lg" onclick="navigateCodeCarousel(-1)" aria-label="Previous code snippet">
+                        <i class="fas fa-chevron-left text-sm md:text-base"></i>
+                    </button>
+                    <button id="codeNextBtn" class="absolute right-2 md:right-4 z-30 w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-lg rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110 shadow-lg" onclick="navigateCodeCarousel(1)" aria-label="Next code snippet">
+                        <i class="fas fa-chevron-right text-sm md:text-base"></i>
+                    </button>
+                </div>
+                
+                <!-- Code Carousel Indicators -->
+                <div class="flex justify-center mt-6 space-x-2">
+                    <div class="code-indicator active" data-index="0" onclick="goToCodeSnippet(0)"></div>
+                    <div class="code-indicator" data-index="1" onclick="goToCodeSnippet(1)"></div>
+                    <div class="code-indicator" data-index="2" onclick="goToCodeSnippet(2)"></div>
+                    <div class="code-indicator" data-index="3" onclick="goToCodeSnippet(3)"></div>
+                    <div class="code-indicator" data-index="4" onclick="goToCodeSnippet(4)"></div>
+                    <div class="code-indicator" data-index="5" onclick="goToCodeSnippet(5)"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem-Solving Framework -->
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
+                    Problem-Solving Framework
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    My systematic approach to tackling complex engineering challenges
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
+                        1
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Understand</h3>
+                    <p class="text-gray-300 text-sm">Deep dive into requirements, constraints, and business context</p>
+                </div>
+                
+                <div class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
+                        2
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Design</h3>
+                    <p class="text-gray-300 text-sm">Architect scalable solutions with fault tolerance and cost optimization</p>
+                </div>
+                
+                <div class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
+                        3
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Implement</h3>
+                    <p class="text-gray-300 text-sm">Build with best practices, testing, and incremental delivery</p>
+                </div>
+                
+                <div class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
+                        4
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Optimize</h3>
+                    <p class="text-gray-300 text-sm">Monitor, measure, and continuously improve performance and costs</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Resources -->
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
+                    Learning Resources
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Curated resources that have shaped my engineering journey
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Books -->
+                <div class="glass-card rounded-xl p-6 hover:scale-105 transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-book text-accent text-2xl"></i>
+                        <h3 class="text-xl font-bold text-white">Books</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-300 text-sm">
+                        <li>
+                            <a href="https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 hover:text-accent transition-colors group">
+                                <i class="fas fa-external-link-alt text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                <span>"Designing Data-Intensive Applications" - Martin Kleppmann</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.amazon.com/Data-Warehouse-Toolkit-Definitive-Dimensional/dp/1118530802" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 hover:text-accent transition-colors group">
+                                <i class="fas fa-external-link-alt text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                <span>"The Data Warehouse Toolkit" - Ralph Kimball</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.amazon.com/Building-Machine-Learning-Pipelines-Automating/dp/1492053198" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 hover:text-accent transition-colors group">
+                                <i class="fas fa-external-link-alt text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                <span>"Building Machine Learning Pipelines" - Hapke & Nelson</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.amazon.com/Fundamentals-Data-Engineering-Robust-Systems/dp/1098108302" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 hover:text-accent transition-colors group">
+                                <i class="fas fa-external-link-alt text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                <span>"Fundamentals of Data Engineering" - Joe Reis & Matt Housley</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Courses -->
+                <div class="glass-card rounded-xl p-6 hover:scale-105 transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-graduation-cap text-accent2 text-2xl"></i>
+                        <h3 class="text-xl font-bold text-white">Courses</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-300 text-sm">
+                        <li>
+                            <a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate-hands-on/" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 hover:text-accent2 transition-colors group">
+                                <i class="fas fa-external-link-alt text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                <span>AWS Certified Solutions Architect - Associate (Udemy)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.udemy.com/course/pyspark-end-to-end-developer-course-spark-with-python/" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 hover:text-accent2 transition-colors group">
+                                <i class="fas fa-external-link-alt text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                <span>Apache Spark with Python - PySpark (Udemy)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.udemy.com/course/comprehensive-mlops-bootcamp-from-basics-to-advanced-tools/" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 hover:text-accent2 transition-colors group">
+                                <i class="fas fa-external-link-alt text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                <span>MLOps - Machine Learning Operations (Udemy)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.udemy.com/course/spark-and-python-for-big-data-with-pyspark/" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 hover:text-accent2 transition-colors group">
+                                <i class="fas fa-external-link-alt text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                <span>Python and Spark for Big Data with PySpark (Udemy)</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Communities -->
+                <div class="glass-card rounded-xl p-6 hover:scale-105 transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-globe text-green-500 text-2xl"></i>
+                        <h3 class="text-xl font-bold text-white">Communities</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-300 text-sm">
+                        <li>
+                            <a href="https://www.dataengineeringpodcast.com/" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 hover:text-green-400 transition-colors group">
+                                <i class="fas fa-external-link-alt text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                <span>Data Engineering Podcast</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://spark.apache.org/community.html" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 hover:text-green-400 transition-colors group">
+                                <i class="fas fa-external-link-alt text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                <span>Apache Spark Community</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://aws.amazon.com/blogs/architecture/" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 hover:text-green-400 transition-colors group">
+                                <i class="fas fa-external-link-alt text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                <span>AWS Architecture Blog</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.reddit.com/r/dataengineering/" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 hover:text-green-400 transition-colors group">
+                                <i class="fas fa-external-link-alt text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                <span>r/dataengineering - Reddit Community</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-gray-900/95 backdrop-blur-lg border-t border-gray-800 mt-16">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4">
+                        Nitender Kumar
+                    </h3>
+                    <p class="text-gray-400 mb-4 max-w-md">
+                        Principal Data Engineer & Solution Architect passionate about building scalable data solutions that drive business impact.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://linkedin.com/in/nitender-kumar" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                            <i class="fab fa-linkedin text-white"></i>
+                        </a>
+                        <a href="https://github.com/nitender-kumar" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                            <i class="fab fa-github text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-accent transition-colors">About Me</a></li>
+                        <li><a href="../index.html#projects" class="text-gray-400 hover:text-accent transition-colors">Projects</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-accent transition-colors">Contact</a></li>
+                        <li><a href="tech-playground.html" class="text-gray-400 hover:text-accent transition-colors">Tech Playground</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Get In Touch</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-envelope"></i>
+                            <a href="#" onclick="openContactModal(); return false;" class="hover:text-accent transition-colors">
+                                nitender.kumar11@gmail.com
+                            </a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+917899911081" class="hover:text-accent transition-colors">
+                                +91-7899911081
+                            </a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bangalore, India</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-800 pt-8 mt-8 text-center">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm">
+                        © 2025 Nitender Kumar. Built with ❤️ using modern web technologies.
+                    </p>
+                    <div class="flex gap-4 mt-4 md:mt-0">
+                        <a href="../assets/NITENDER_KUMAR_DL_V4_2025.pdf" download class="text-accent hover:text-accent2 text-sm transition-colors">
+                            <i class="fas fa-download mr-1"></i>Download Resume
+                        </a>
+                        <span class="text-gray-600">|</span>
+                        <button id="scroll-to-top" class="text-accent hover:text-accent2 text-sm transition-colors">
+                            <i class="fas fa-arrow-up mr-1"></i>Back to Top
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scroll to top
+            const scrollToTopBtn = document.getElementById('scroll-to-top');
+            if (scrollToTopBtn) {
+                scrollToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+
+        // Carousel state
+        let currentIndex = 0;
+        let cards = [];
+        let cardStates = {}; // 0: symbol, 1: question, 2: answer
+        let viewedCards = new Set();
+        let totalFlips = 0;
+        let currentCategory = 'all';
+
+        // Initialize carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            cards = document.querySelectorAll('.carousel-card');
+            initializeCarousel();
+            addCarouselStyles();
+            addKeyboardNavigation();
+            initializeSearchFilter();
+            initializeProgressTracking();
+            updateProgress();
+        });
+
+        // Search and Filter functionality
+        function initializeSearchFilter() {
+            const searchInput = document.getElementById('cardSearch');
+            const categoryFilters = document.querySelectorAll('.category-filter');
+
+            // Search functionality
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const searchTerm = e.target.value.toLowerCase();
+                    filterCards(searchTerm, currentCategory);
+                });
+            }
+
+            // Category filter functionality
+            categoryFilters.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    categoryFilters.forEach(b => {
+                        b.classList.remove('active', 'bg-accent/20', 'text-accent');
+                        b.classList.add('bg-white/10', 'text-gray-300');
+                    });
+                    btn.classList.add('active', 'bg-accent/20', 'text-accent');
+                    btn.classList.remove('bg-white/10', 'text-gray-300');
+                    currentCategory = btn.dataset.category;
+                    const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+                    filterCards(searchTerm, currentCategory);
+                });
+            });
+        }
+
+        function filterCards(searchTerm, category) {
+            let needsNavigation = false;
+            cards.forEach((card, index) => {
+                const cardText = card.textContent.toLowerCase();
+                const cardCategory = card.dataset.category || '';
+                const matchesSearch = !searchTerm || cardText.includes(searchTerm);
+                const matchesCategory = category === 'all' || cardCategory === category;
+
+                if (matchesSearch && matchesCategory) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                    if (index === currentIndex) {
+                        needsNavigation = true;
+                    }
+                }
+            });
+            
+            if (needsNavigation) {
+                // Find next visible card
+                const visibleCards = Array.from(cards).filter((c) => {
+                    const cText = c.textContent.toLowerCase();
+                    const cCategory = c.dataset.category || '';
+                    return c.style.display !== 'none' && 
+                           (!searchTerm || cText.includes(searchTerm)) && 
+                           (category === 'all' || cCategory === category);
+                });
+                if (visibleCards.length > 0) {
+                    const nextIndex = Array.from(cards).indexOf(visibleCards[0]);
+                    goToCard(nextIndex);
+                } else {
+                    updateCarousel();
+                }
+            } else {
+                updateCarousel();
+            }
+        }
+
+        // Progress Tracking
+        function initializeProgressTracking() {
+            // Load saved progress from localStorage
+            const savedViewed = localStorage.getItem('viewedCards');
+            const savedFlips = localStorage.getItem('totalFlips');
+            if (savedViewed) {
+                viewedCards = new Set(JSON.parse(savedViewed));
+            }
+            if (savedFlips) {
+                totalFlips = parseInt(savedFlips);
+            }
+        }
+
+        function updateProgress() {
+            const totalCards = cards.length;
+            const viewedCount = viewedCards.size;
+            const percentage = totalCards > 0 ? Math.round((viewedCount / totalCards) * 100) : 0;
+
+            // Update progress bar
+            const progressBar = document.getElementById('progressBar');
+            const progressPercentage = document.getElementById('progressPercentage');
+            const cardsViewed = document.getElementById('cardsViewed');
+            const totalCardsEl = document.getElementById('totalCards');
+            const totalFlipsEl = document.getElementById('totalFlips');
+
+            if (progressBar) progressBar.style.width = percentage + '%';
+            if (progressPercentage) progressPercentage.textContent = percentage + '%';
+            if (cardsViewed) cardsViewed.textContent = viewedCount;
+            if (totalCardsEl) totalCardsEl.textContent = totalCards;
+            if (totalFlipsEl) totalFlipsEl.textContent = totalFlips;
+
+            // Save to localStorage
+            localStorage.setItem('viewedCards', JSON.stringify(Array.from(viewedCards)));
+            localStorage.setItem('totalFlips', totalFlips.toString());
+        }
+
+        function initializeCarousel() {
+            cards.forEach((card, index) => {
+                cardStates[index] = 0; // Start with symbol
+                card.addEventListener('click', () => {
+                    if (index === currentIndex) {
+                        cycleCardState(index);
+                    } else {
+                        goToCard(index);
+                    }
+                });
+            });
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            cards.forEach((card, index) => {
+                card.classList.remove('center', 'left', 'right', 'hidden');
+                
+                if (index === currentIndex) {
+                    card.classList.add('center');
+                } else if (index === (currentIndex - 1 + cards.length) % cards.length) {
+                    card.classList.add('left');
+                } else if (index === (currentIndex + 1) % cards.length) {
+                    card.classList.add('right');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            
+            // Update indicators
+            document.querySelectorAll('.indicator').forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function navigateCarousel(direction) {
+            // Find next visible card
+            let nextIndex = currentIndex;
+            let attempts = 0;
+            do {
+                nextIndex = (nextIndex + direction + cards.length) % cards.length;
+                attempts++;
+                if (attempts > cards.length) break; // Prevent infinite loop
+            } while (cards[nextIndex].style.display === 'none' && attempts < cards.length);
+            
+            currentIndex = nextIndex;
+            
+            // Reset all cards to symbol state when navigating
+            cards.forEach((card, cardIndex) => {
+                cardStates[cardIndex] = 0;
+                const symbol = card.querySelector('.card-symbol');
+                const question = card.querySelector('.card-question');
+                const answer = card.querySelector('.card-answer');
+                
+                symbol.style.display = 'block';
+                question.style.display = 'none';
+                answer.style.display = 'none';
+                
+                symbol.style.opacity = '1';
+                question.style.opacity = '0';
+                answer.style.opacity = '0';
+            });
+            
+            updateCarousel();
+            updateProgress();
+        }
+
+        function goToCard(index) {
+            if (cards[index].style.display === 'none') return; // Don't navigate to hidden cards
+            
+            currentIndex = index;
+            
+            // Reset all cards to symbol state when navigating
+            cards.forEach((card, cardIndex) => {
+                cardStates[cardIndex] = 0;
+                const symbol = card.querySelector('.card-symbol');
+                const question = card.querySelector('.card-question');
+                const answer = card.querySelector('.card-answer');
+                
+                symbol.style.display = 'block';
+                question.style.display = 'none';
+                answer.style.display = 'none';
+                
+                symbol.style.opacity = '1';
+                question.style.opacity = '0';
+                answer.style.opacity = '0';
+            });
+            
+            updateCarousel();
+            updateProgress();
+        }
+
+        function shuffleCards() {
+            const shuffleBtn = document.getElementById('shuffleBtn');
+            shuffleBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Shuffling...';
+            shuffleBtn.disabled = true;
+            
+            // Get visible cards only
+            const visibleCards = Array.from(cards).filter(card => card.style.display !== 'none');
+            if (visibleCards.length === 0) {
+                shuffleBtn.innerHTML = '<i class="fas fa-random"></i> Shuffle Cards';
+                shuffleBtn.disabled = false;
+                return;
+            }
+            
+            // Animate shuffle
+            cards.forEach((card, index) => {
+                card.style.transform += ' scale(0.8)';
+                card.style.filter = 'blur(4px)';
+                card.style.opacity = '0.5';
+                
+                setTimeout(() => {
+                    card.style.transform += ' translateY(-20px)';
+                }, index * 100);
+            });
+            
+            setTimeout(() => {
+                // Pick a random visible card to be the center
+                const randomVisibleIndex = Math.floor(Math.random() * visibleCards.length);
+                const randomCard = visibleCards[randomVisibleIndex];
+                currentIndex = Array.from(cards).indexOf(randomCard);
+                
+                // Reset ALL card states to symbol (state 0)
+                cards.forEach((card, index) => {
+                    cardStates[index] = 0;
+                    const symbol = card.querySelector('.card-symbol');
+                    const question = card.querySelector('.card-question');
+                    const answer = card.querySelector('.card-answer');
+                    
+                    symbol.style.display = 'block';
+                    question.style.display = 'none';
+                    answer.style.display = 'none';
+                    
+                    symbol.style.opacity = '1';
+                    question.style.opacity = '0';
+                    answer.style.opacity = '0';
+                    
+                    // Reset any shuffle animation transforms
+                    card.style.transform = card.style.transform
+                        .replace(' scale(0.8)', '')
+                        .replace(' translateY(-20px)', '');
+                    card.style.filter = '';
+                    card.style.opacity = '';
+                });
+                
+                updateCarousel();
+                updateProgress();
+                
+                shuffleBtn.innerHTML = '<i class="fas fa-random"></i> Shuffle Cards';
+                shuffleBtn.disabled = false;
+            }, 800);
+        }
+
+        function cycleCardState(index) {
+            // Only allow state changes for the center card
+            if (index !== currentIndex) return;
+            
+            const card = cards[index];
+            const symbol = card.querySelector('.card-symbol');
+            const question = card.querySelector('.card-question');
+            const answer = card.querySelector('.card-answer');
+            
+            // Track progress
+            totalFlips++;
+            if (cardStates[index] === 0) {
+                // Moving from symbol to question - mark as viewed
+                viewedCards.add(index);
+            }
+            
+            // Cycle through states: symbol (0) → question (1) → answer (2) → symbol (0)
+            cardStates[index] = (cardStates[index] + 1) % 3;
+            
+            // Fade out current content
+            [symbol, question, answer].forEach(element => {
+                if (element.style.display !== 'none') {
+                    element.style.opacity = '0';
+                }
+            });
+            
+            setTimeout(() => {
+                // Hide all content elements
+                symbol.style.display = 'none';
+                question.style.display = 'none';
+                answer.style.display = 'none';
+                
+                // Show the new state
+                if (cardStates[index] === 0) {
+                    symbol.style.display = 'block';
+                    setTimeout(() => symbol.style.opacity = '1', 50);
+                } else if (cardStates[index] === 1) {
+                    question.style.display = 'block';
+                    setTimeout(() => question.style.opacity = '1', 50);
+                } else if (cardStates[index] === 2) {
+                    answer.style.display = 'block';
+                    setTimeout(() => answer.style.opacity = '1', 50);
+                }
+                
+                // Update progress after state change
+                updateProgress();
+            }, 150);
+        }
+
+        function addKeyboardNavigation() {
+            document.addEventListener('keydown', (e) => {
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        navigateCarousel(-1);
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        navigateCarousel(1);
+                        break;
+                    case 'Enter':
+                    case ' ':
+                        e.preventDefault();
+                        cycleCardState(currentIndex);
+                        break;
+                    case 'r':
+                    case 'R':
+                        if (e.ctrlKey || e.metaKey) return;
+                        e.preventDefault();
+                        shuffleCards();
+                        break;
+                }
+            });
+        }
+
+        // Code Carousel functionality
+        let currentCodeIndex = 0;
+        let totalCodeSnippets = 6; // Will be updated on init
+
+        function navigateCodeCarousel(direction) {
+            const codeSnippets = document.querySelectorAll('.code-snippet-card');
+            totalCodeSnippets = codeSnippets.length;
+            if (totalCodeSnippets === 0) return;
+            currentCodeIndex = (currentCodeIndex + direction + totalCodeSnippets) % totalCodeSnippets;
+            updateCodeCarousel();
+        }
+
+        function goToCodeSnippet(index) {
+            currentCodeIndex = index;
+            updateCodeCarousel();
+        }
+
+        function updateCodeCarousel() {
+            const track = document.getElementById('codeCarouselTrack');
+            const container = document.getElementById('codeCarouselContainer');
+            const codeSnippets = document.querySelectorAll('.code-snippet-card');
+            const prevBtn = document.getElementById('codePrevBtn');
+            const nextBtn = document.getElementById('codeNextBtn');
+            
+            if (track) {
+                track.style.transform = `translateX(-${currentCodeIndex * 100}%)`;
+            }
+            
+            // Update indicators
+            document.querySelectorAll('.code-indicator').forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentCodeIndex);
+            });
+            
+            // Adjust container height and button positions based on active snippet
+            if (container && codeSnippets[currentCodeIndex]) {
+                const activeSnippet = codeSnippets[currentCodeIndex];
+                const activeCard = activeSnippet.querySelector('.glass-card');
+                
+                if (activeCard) {
+                    // Use requestAnimationFrame to ensure layout is complete
+                    requestAnimationFrame(() => {
+                        // Get the actual height including padding
+                        const cardRect = activeCard.getBoundingClientRect();
+                        const snippetRect = activeSnippet.getBoundingClientRect();
+                        const cardHeight = Math.max(cardRect.height, snippetRect.height);
+                        
+                        // Find the description text below the card
+                        const descriptionText = activeCard.querySelector('p.text-gray-400');
+                        let descriptionHeight = 0;
+                        if (descriptionText) {
+                            descriptionHeight = descriptionText.getBoundingClientRect().height + 12; // Add margin
+                        }
+                        
+                        // Total height = card height + description height + button space
+                        const buttonHeight = 48; // Button height (h-12 = 48px)
+                        const buttonMargin = 16; // Space between button and content
+                        const totalHeight = cardHeight + descriptionHeight + buttonHeight + buttonMargin;
+                        
+                        // Set container height with smooth transition
+                        container.style.transition = 'height 0.5s ease-in-out';
+                        container.style.height = totalHeight + 'px';
+                        
+                        // Position navigation buttons above the description text
+                        // Position them at: card height + description height + margin
+                        const buttonBottom = descriptionHeight + buttonMargin;
+                        
+                        if (prevBtn) {
+                            prevBtn.style.bottom = buttonBottom + 'px';
+                            prevBtn.style.top = 'auto';
+                        }
+                        if (nextBtn) {
+                            nextBtn.style.bottom = buttonBottom + 'px';
+                            nextBtn.style.top = 'auto';
+                        }
+                    });
+                }
+            }
+        }
+        
+        // Initialize height on page load
+        function initializeCodeCarouselHeight() {
+            const container = document.getElementById('codeCarouselContainer');
+            const codeSnippets = document.querySelectorAll('.code-snippet-card');
+            const prevBtn = document.getElementById('codePrevBtn');
+            const nextBtn = document.getElementById('codeNextBtn');
+            
+            if (container && codeSnippets.length > 0 && codeSnippets[currentCodeIndex]) {
+                const activeSnippet = codeSnippets[currentCodeIndex];
+                const activeCard = activeSnippet.querySelector('.glass-card');
+                
+                if (activeCard) {
+                    // Wait for layout to settle, then measure
+                    setTimeout(() => {
+                        requestAnimationFrame(() => {
+                            const cardRect = activeCard.getBoundingClientRect();
+                            const snippetRect = activeSnippet.getBoundingClientRect();
+                            const cardHeight = Math.max(cardRect.height, snippetRect.height);
+                            
+                            // Find the description text below the card
+                            const descriptionText = activeCard.querySelector('p.text-gray-400');
+                            let descriptionHeight = 0;
+                            if (descriptionText) {
+                                descriptionHeight = descriptionText.getBoundingClientRect().height + 12;
+                            }
+                            
+                            // Total height = card height + description height + button space
+                            const buttonHeight = 48;
+                            const buttonMargin = 16;
+                            const totalHeight = cardHeight + descriptionHeight + buttonHeight + buttonMargin;
+                            
+                            container.style.height = totalHeight + 'px';
+                            
+                            // Position buttons above the description text
+                            const buttonBottom = descriptionHeight + buttonMargin;
+                            if (prevBtn) {
+                                prevBtn.style.bottom = buttonBottom + 'px';
+                                prevBtn.style.top = 'auto';
+                            }
+                            if (nextBtn) {
+                                nextBtn.style.bottom = buttonBottom + 'px';
+                                nextBtn.style.top = 'auto';
+                            }
+                        });
+                    }, 150);
+                }
+            }
+        }
+
+        // Initialize code carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            const codeSnippets = document.querySelectorAll('.code-snippet-card');
+            totalCodeSnippets = codeSnippets.length;
+            if (codeSnippets.length > 0) {
+                // Initialize height first
+                initializeCodeCarouselHeight();
+                // Then update carousel
+                updateCodeCarousel();
+            }
+        });
+        
+        // Also adjust height on window resize
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                updateCodeCarousel();
+            }, 250);
+        });
+
+        function addCarouselStyles() {
+            const style = document.createElement('style');
+            style.textContent = `
+                .carousel-card {
+                    position: absolute;
+                    width: 320px;
+                    height: 420px;
+                    background: rgba(255, 255, 255, 0.08);
+                    backdrop-filter: blur(12px);
+                    border-radius: 20px;
+                    padding: 32px;
+                    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+                    cursor: pointer;
+                    transform-style: preserve-3d;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                }
+                
+                #codeCarouselContainer {
+                    position: relative;
+                    width: 100%;
+                    overflow: hidden;
+                    transition: height 0.5s ease-in-out;
+                }
+                
+                #codeCarouselTrack {
+                    display: flex;
+                    width: 600%;
+                    transition: transform 0.5s ease-in-out;
+                    align-items: flex-start;
+                }
+                
+                .code-snippet-card {
+                    width: 16.666%;
+                    flex-shrink: 0;
+                    display: flex;
+                    align-items: flex-start;
+                    padding: 0 0.5rem;
+                }
+                
+                .code-snippet-card .glass-card {
+                    width: 100%;
+                    min-height: fit-content;
+                }
+                
+                #codePrevBtn, #codeNextBtn {
+                    transition: bottom 0.5s ease-in-out;
+                }
+                
+                .code-indicator {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.3);
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
+                
+                .code-indicator.active {
+                    background: linear-gradient(135deg, #06b6d4, #6366f1);
+                    transform: scale(1.3);
+                    box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+                }
+                
+                .code-indicator:hover {
+                    background: rgba(255, 255, 255, 0.5);
+                    transform: scale(1.2);
+                }
+                
+                pre code {
+                    font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
+                    line-height: 1.6;
+                }
+
+                .carousel-card.center {
+                    transform: translateX(0) scale(1) rotateY(0deg);
+                    z-index: 10;
+                    opacity: 1;
+                    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+                }
+
+                .carousel-card.left {
+                    transform: translateX(-360px) scale(0.85) rotateY(15deg);
+                    z-index: 5;
+                    opacity: 0.7;
+                    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+                }
+
+                .carousel-card.right {
+                    transform: translateX(360px) scale(0.85) rotateY(-15deg);
+                    z-index: 5;
+                    opacity: 0.7;
+                    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+                }
+
+                .carousel-card.hidden {
+                    transform: translateX(0) scale(0.5);
+                    opacity: 0;
+                    z-index: 1;
+                }
+
+                .carousel-card:hover.center {
+                    transform: translateX(0) scale(1.05) rotateY(0deg);
+                }
+
+                .card-inner {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    transition: transform 0.3s ease-in-out;
+                }
+
+                .card-symbol, .card-question, .card-answer {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    transition: opacity 0.3s ease-in-out;
+                }
+                
+                .card-question, .card-answer {
+                    display: none;
+                    opacity: 0;
+                }
+
+                .indicator {
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.3);
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
+
+                .indicator.active {
+                    background: linear-gradient(135deg, #06b6d4, #6366f1);
+                    transform: scale(1.3);
+                    box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+                }
+
+                .indicator:hover {
+                    background: rgba(255, 255, 255, 0.5);
+                    transform: scale(1.2);
+                }
+                
+                @media (max-width: 768px) {
+                    #carouselContainer {
+                        padding: 0 60px;
+                        overflow-x: auto;
+                    }
+                    
+                    .carousel-card {
+                        width: 280px;
+                        height: 380px;
+                    }
+                    
+                    .carousel-card.left {
+                        transform: translateX(-320px) scale(0.85) rotateY(12deg);
+                    }
+                    
+                    .carousel-card.right {
+                        transform: translateX(320px) scale(0.85) rotateY(-12deg);
+                    }
+                }
+                
+                @media (max-width: 640px) {
+                    #carouselContainer {
+                        padding: 0 40px;
+                        overflow-x: auto;
+                    }
+                    
+                    .carousel-card {
+                        width: 260px;
+                        height: 360px;
+                    }
+                    
+                    .carousel-card.left {
+                        transform: translateX(-300px) scale(0.8) rotateY(15deg);
+                    }
+                    
+                    .carousel-card.right {
+                        transform: translateX(300px) scale(0.8) rotateY(-15deg);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Contact Modal Functions
+        function openContactModal() {
+            const modal = document.getElementById('contactModal');
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeContactModal() {
+            const modal = document.getElementById('contactModal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function copyEmailToClipboard() {
+            navigator.clipboard.writeText('nitender.kumar11@gmail.com').then(() => {
+                alert('Email copied to clipboard!');
+            });
+        }
+
+        function openEmailClient() {
+            window.location.href = 'mailto:nitender.kumar11@gmail.com';
+        }
+
+        function openLinkedIn() {
+            window.open('https://linkedin.com/in/nitender-kumar', '_blank');
+        }
+    </script>
+    
+    <!-- Contact Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-white">Get in Touch</h3>
+                <button onclick="closeContactModal()" class="text-gray-400 hover:text-gray-200">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div class="text-center">
+                    <p class="text-gray-300 mb-4">Choose your preferred way to contact me:</p>
+                </div>
+                <div class="space-y-3">
+                    <button onclick="copyEmailToClipboard()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        <i class="fas fa-copy"></i>
+                        Copy Email Address
+                    </button>
+                    <button onclick="openEmailClient()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                        <i class="fas fa-envelope"></i>
+                        Open Email Client
+                    </button>
+                    <button onclick="openLinkedIn()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                        Connect on LinkedIn
+                    </button>
+                </div>
+                <div class="text-center text-sm text-gray-400">
+                    <p>Email: nitender.kumar11@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

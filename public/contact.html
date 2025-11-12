@@ -126,11 +126,9 @@
         <a class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text hover:scale-105 transition-transform" href="../index.html">Nitender Kumar</a>
         <div class="flex items-center gap-2 md:gap-4">
             <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="about.html">About Me</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="../index.html#projects">Projects</a>
             <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="contact.html">Contact</a>
-            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="fun-zone.html">Tech Playground</a>
-            <button id="globalThemeToggle" class="ml-2 px-3 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-white text-sm transition-colors" title="Toggle Light/Dark Mode">
-                <i class="fas fa-moon"></i>
-            </button>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="tech-playground.html">Tech Playground</a>
             <a class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all text-sm md:text-base" href="https://www.linkedin.com/in/nitender-kumar" target="_blank" rel="noopener">
                 <i class="fab fa-linkedin"></i>
                 LinkedIn
@@ -255,7 +253,7 @@
                         <li><a href="about.html" class="text-gray-400 hover:text-accent">About Me</a></li>
                         <li><a href="../index.html#projects" class="text-gray-400 hover:text-accent">Projects</a></li>
                         <li><a href="contact.html" class="text-gray-400 hover:text-accent">Contact</a></li>
-                        <li><a href="fun-zone.html" class="text-gray-400 hover:text-accent">Tech Playground</a></li>
+                        <li><a href="tech-playground.html" class="text-gray-400 hover:text-accent">Tech Playground</a></li>
                     </ul>
                 </div>
                 <div>
@@ -281,16 +279,6 @@
     </footer>
 
     <script>
-        // Theme management
-        function applyTheme(theme) {
-            const body = document.body;
-            const btn = document.getElementById('globalThemeToggle');
-            if (theme === 'light') { body.classList.remove('dark'); body.classList.add('light'); if (btn) btn.innerHTML = '<i class="fas fa-sun"></i>'; }
-            else { body.classList.remove('light'); body.classList.add('dark'); if (btn) btn.innerHTML = '<i class="fas fa-moon"></i>'; }
-            localStorage.setItem('theme', theme);
-        }
-        (function() { const saved = localStorage.getItem('theme'); applyTheme(saved === 'light' ? 'light' : 'dark'); })();
-
         // Contact form submission
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -327,10 +315,8 @@
             }
         });
 
-        // Theme toggle and utilities
+        // Utilities
         document.addEventListener('DOMContentLoaded', function() {
-            const themeBtn = document.getElementById('globalThemeToggle');
-            if (themeBtn) themeBtn.addEventListener('click', () => applyTheme(document.body.classList.contains('dark') ? 'light' : 'dark'));
             const scrollToTopBtn = document.getElementById('scroll-to-top');
             if (scrollToTopBtn) scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
         });

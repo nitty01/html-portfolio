@@ -238,15 +238,11 @@
             <i class="fas fa-bars"></i>
         </button>
         <div id="nav-links" class="hidden md:flex items-center gap-2 md:gap-4">
-            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="public/about.html">About</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="public/about.html">About Me</a>
             <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="#projects">Projects</a>
             <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="#experience">Experience</a>
             <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="public/contact.html">Contact</a>
-            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="public/fun-zone.html">Tech Playground</a>
-            <button id="globalThemeToggle" class="ml-2 px-3 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-white text-sm transition-colors" title="Toggle Light/Dark Mode" aria-label="Toggle theme">
-                <i class="fas fa-moon dark:hidden"></i>
-                <i class="fas fa-sun hidden dark:inline"></i>
-            </button>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="public/tech-playground.html">Tech Playground</a>
             <a class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all text-sm md:text-base" href="https://www.linkedin.com/in/nitender-kumar" target="_blank" rel="noopener" data-gtm="linkedin">
                 <i class="fab fa-linkedin"></i>
                 LinkedIn
@@ -305,7 +301,7 @@
                 </div>
             </div>
             <!-- Stats -->
-            <div id="stats-section" class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 animate-fadeInUp" style="animation-delay: 0.5s;">
+            <div id="stats-section" class="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 animate-fadeInUp" style="animation-delay: 0.5s;">
                 <div class="text-center">
                     <div class="text-3xl font-bold text-accent" data-count="13">0</div>
                     <div class="text-gray-400">Years Experience</div>
@@ -313,6 +309,10 @@
                 <div class="text-center">
                     <div class="text-3xl font-bold text-accent2" data-count="15">0</div>
                     <div class="text-gray-400">Projects Completed</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-green-500" data-count="30" data-suffix="%">0</div>
+                    <div class="text-gray-400">AWS Cost Savings</div>
                 </div>
                 <div class="text-center">
                     <div class="text-3xl font-bold text-accent" data-count="5">0</div>
@@ -874,6 +874,86 @@
         </div>
     </section>
 
+    <!-- Tech Stack Evolution Section -->
+    <section class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
+                Tech Stack Evolution
+            </h2>
+            <div class="glass rounded-2xl p-8 md:p-12">
+                <div class="relative">
+                    <div class="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-accent via-accent2 to-accent"></div>
+                    <div class="space-y-8">
+                        <div class="flex gap-6 items-start">
+                            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 relative z-10 shadow-lg">
+                                2012-14
+                            </div>
+                            <div class="flex-1 glass rounded-lg p-6">
+                                <h3 class="text-xl font-bold text-white mb-2">Early Career</h3>
+                                <p class="text-gray-300 mb-3">Started with C# .NET and Java, building enterprise applications and learning software engineering fundamentals</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full">C# .NET</span>
+                                    <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-sm rounded-full">Java</span>
+                                    <span class="px-3 py-1 bg-green-500/20 text-green-300 text-sm rounded-full">SQL Server</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-6 items-start">
+                            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 relative z-10 shadow-lg">
+                                2014-18
+                            </div>
+                            <div class="flex-1 glass rounded-lg p-6">
+                                <h3 class="text-xl font-bold text-white mb-2">Entry into Data Science & Big Data</h3>
+                                <p class="text-gray-300 mb-3">Transitioned to data engineering with Hadoop ecosystem, PySpark, NiFi, and HDP (Hortonworks Data Platform)</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-sm rounded-full">PySpark</span>
+                                    <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full">Hadoop</span>
+                                    <span class="px-3 py-1 bg-green-500/20 text-green-300 text-sm rounded-full">HDP</span>
+                                    <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-sm rounded-full">NiFi</span>
+                                    <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 text-sm rounded-full">Kafka</span>
+                                    <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 text-sm rounded-full">Python</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-6 items-start">
+                            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 relative z-10 shadow-lg">
+                                2019-22
+                            </div>
+                            <div class="flex-1 glass rounded-lg p-6">
+                                <h3 class="text-xl font-bold text-white mb-2">Cloud-Native</h3>
+                                <p class="text-gray-300 mb-3">Full cloud migration with serverless and containerization</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-sm rounded-full">Lambda</span>
+                                    <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full">K8s</span>
+                                    <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 text-sm rounded-full">FastAPI</span>
+                                    <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 text-sm rounded-full">AWS</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-6 items-start">
+                            <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 relative z-10 shadow-lg">
+                                2023+
+                            </div>
+                            <div class="flex-1 glass rounded-lg p-6">
+                                <h3 class="text-xl font-bold text-white mb-2">AI-Powered</h3>
+                                <p class="text-gray-300 mb-3">Integrating Generative AI and MLOps into data platforms</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-sm rounded-full">LangChain</span>
+                                    <span class="px-3 py-1 bg-pink-500/20 text-pink-300 text-sm rounded-full">RAG</span>
+                                    <span class="px-3 py-1 bg-violet-500/20 text-violet-300 text-sm rounded-full">MLOps</span>
+                                    <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full">HuggingFace</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Education Section -->
     <section class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800">
         <div class="max-w-6xl mx-auto">
@@ -944,7 +1024,7 @@
                         <li><a href="public/about.html" class="text-gray-400 hover:text-accent transition-colors">About Me</a></li>
                         <li><a href="#projects" class="text-gray-400 hover:text-accent transition-colors">Projects</a></li>
                         <li><a href="public/contact.html" class="text-gray-400 hover:text-accent transition-colors">Contact</a></li>
-                        <li><a href="public/fun-zone.html" class="text-gray-400 hover:text-accent transition-colors">Tech Playground</a></li>
+                        <li><a href="public/tech-playground.html" class="text-gray-400 hover:text-accent transition-colors">Tech Playground</a></li>
                     </ul>
                 </div>
                 
@@ -1009,85 +1089,6 @@
 
     <!-- Enhanced JavaScript -->
     <script>
-        // Unified Theme Management
-        (function() {
-            'use strict';
-            
-            // Local variable to track current theme
-            let currentTheme = 'dark';
-            
-            // Theme configuration
-            const themeConfig = {
-                light: {
-                    bodyClass: 'light',
-                    icon: 'fas fa-moon',
-                    nextTheme: 'dark'
-                },
-                dark: {
-                    bodyClass: 'dark', 
-                    icon: 'fas fa-sun',
-                    nextTheme: 'light'
-                }
-            };
-            
-            // Apply theme function
-            function applyTheme(theme) {
-                if (!themeConfig[theme]) return;
-                
-                const body = document.body;
-                const btn = document.getElementById('globalThemeToggle');
-                
-                // Remove all theme classes
-                Object.values(themeConfig).forEach(config => {
-                    body.classList.remove(config.bodyClass);
-                });
-                
-                // Apply new theme
-                body.classList.add(themeConfig[theme].bodyClass);
-                currentTheme = theme;
-                
-                // Update button icon
-                if (btn) {
-                    btn.innerHTML = `<i class="${themeConfig[theme].icon}"></i>`;
-                }
-                
-                // Save to localStorage
-                localStorage.setItem('theme', theme);
-            }
-            
-            // Toggle theme function
-            function toggleTheme() {
-                const newTheme = themeConfig[currentTheme].nextTheme;
-                applyTheme(newTheme);
-            }
-            
-            // Initialize theme
-            function initTheme() {
-                const savedTheme = localStorage.getItem('theme') || 'dark';
-                applyTheme(savedTheme);
-                
-                // Add click listener to theme button
-                const themeBtn = document.getElementById('globalThemeToggle');
-                if (themeBtn) {
-                    themeBtn.addEventListener('click', toggleTheme);
-                }
-            }
-            
-            // Initialize when DOM is ready
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', initTheme);
-            } else {
-                initTheme();
-            }
-            
-            // Make functions globally available for debugging
-            window.themeManager = {
-                applyTheme,
-                toggleTheme,
-                getCurrentTheme: () => currentTheme
-            };
-        })();
-
         document.addEventListener('DOMContentLoaded', function() {
             // Animated counters with improved logic
             let countersAnimated = false;
@@ -1099,6 +1100,7 @@
                 const counters = document.querySelectorAll('[data-count]');
                 counters.forEach(counter => {
                     const target = parseInt(counter.dataset.count);
+                    const suffix = counter.dataset.suffix || ''; // Get suffix if exists
                     const duration = 2000; // 2 seconds
                     const startTime = performance.now();
                     
@@ -1110,12 +1112,12 @@
                         const easeOutQuart = 1 - Math.pow(1 - progress, 4);
                         const current = Math.floor(target * easeOutQuart);
                         
-                        counter.textContent = current;
+                        counter.textContent = current + suffix;
                         
                         if (progress < 1) {
                             requestAnimationFrame(updateCounter);
                         } else {
-                            counter.textContent = target; // Ensure final value is exact
+                            counter.textContent = target + suffix; // Ensure final value is exact
                         }
                     }
                     
