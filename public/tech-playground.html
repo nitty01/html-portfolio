@@ -167,23 +167,42 @@
         <!-- Tech Playground Q&A Carousel Section - Restructured -->
         <section class="mb-20">
             <div class="text-center mb-12">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-layer-group mr-2"></i>Interactive Learning
+                    </span>
+                </div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
                     Engineering Expertise Flashcards
                 </h2>
-                <p class="text-lg text-gray-400 max-w-3xl mx-auto">
-                    Navigate through interactive cards using arrow keys or buttons. Click the center card to cycle through symbol → question → answer.
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    Explore my problem-solving approach through interactive flashcards. Click cards to reveal insights, or browse all cards at once in grid view.
                 </p>
             </div>
             
-            <!-- Controls Section -->
+            <!-- Controls Section - Enhanced -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                <div class="flex items-center gap-3 bg-white/5 backdrop-blur-lg rounded-xl p-2 border border-white/10">
+                    <button id="carouselViewBtn" class="view-toggle-btn active px-4 py-2 rounded-lg font-medium transition-all duration-300 flex items-center gap-2" onclick="switchView('carousel')">
+                        <i class="fas fa-images"></i>
+                        <span class="hidden sm:inline">Carousel</span>
+                    </button>
+                    <button id="gridViewBtn" class="view-toggle-btn px-4 py-2 rounded-lg font-medium transition-all duration-300 flex items-center gap-2" onclick="switchView('grid')">
+                        <i class="fas fa-th"></i>
+                        <span class="hidden sm:inline">Grid</span>
+                    </button>
+                </div>
                 <button id="shuffleBtn" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent to-accent2 text-white rounded-xl font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 pulse-glow" onclick="shuffleCards()">
                     <i class="fas fa-random"></i>
-                    Shuffle Cards
+                    <span class="hidden sm:inline">Shuffle</span>
                 </button>
-                <div class="text-gray-400 text-sm">
-                    <i class="fas fa-keyboard mr-2"></i>
-                    Use ← → arrows to navigate, Space/Enter to flip
+                <button id="resetAllBtn" class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-lg text-white rounded-xl font-medium hover:bg-white/20 transition-all duration-300" onclick="resetAllCards()">
+                    <i class="fas fa-redo"></i>
+                    <span class="hidden sm:inline">Reset All</span>
+                </button>
+                <div class="text-gray-400 text-sm hidden md:flex items-center gap-2">
+                    <i class="fas fa-keyboard"></i>
+                    <span>← → navigate, Space/Enter flip</span>
                 </div>
             </div>
             
@@ -219,8 +238,15 @@
                 </div>
             </div>
             
+            <!-- Grid View Container -->
+            <div id="gridViewContainer" class="hidden max-w-7xl mx-auto mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="gridCardsContainer">
+                    <!-- Grid cards will be populated here -->
+                </div>
+            </div>
+            
             <!-- Carousel Container -->
-            <div class="relative max-w-6xl mx-auto mb-8">
+            <div id="carouselViewContainer" class="relative max-w-6xl mx-auto mb-8">
                 <!-- Navigation Arrows - Enhanced -->
                 <button id="prevBtn" class="absolute left-0 md:-left-12 top-1/2 transform -translate-y-1/2 z-20 w-14 h-14 bg-white/10 backdrop-blur-lg rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110 shadow-lg" onclick="navigateCarousel(-1)" aria-label="Previous card">
                     <i class="fas fa-chevron-left text-xl"></i>
@@ -232,9 +258,12 @@
                 <!-- Carousel Cards -->
                 <div id="carouselContainer" class="flex items-center justify-center min-h-[450px] px-16 md:px-24">
                     <!-- Card 1: Data Pipeline Optimization -->
-                    <div class="carousel-card qa-card" data-index="0" data-category="data" role="button" tabindex="0" aria-label="Data Pipeline Optimization flashcard">
+                    <div class="carousel-card qa-card" data-index="0" data-category="data" data-title="Data Pipeline Optimization" role="button" tabindex="0" aria-label="Data Pipeline Optimization flashcard">
                         <div class="card-inner">
                             <div class="card-symbol">
+                                <div class="absolute top-3 right-3">
+                                    <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full border border-blue-500/30">Data</span>
+                                </div>
                                 <div class="flex items-center justify-center w-28 h-28 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto shadow-lg">
                                     <span class="text-6xl" role="img" aria-label="Lightning bolt">⚡</span>
                                 </div>
@@ -243,6 +272,9 @@
                                 </div>
                             </div>
                             <div class="card-question">
+                                <div class="absolute top-3 right-3">
+                                    <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full border border-blue-500/30">Data</span>
+                                </div>
                                 <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-6 shadow-lg">
                                     <span class="text-3xl" role="img" aria-label="Lightning bolt">⚡</span>
                                 </div>
@@ -253,6 +285,9 @@
                                 </div>
                             </div>
                             <div class="card-answer">
+                                <div class="absolute top-3 right-3">
+                                    <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full border border-blue-500/30">Data</span>
+                                </div>
                                 <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-6 shadow-lg">
                                     <span class="text-3xl" role="img" aria-label="Lightning bolt">⚡</span>
                                 </div>
@@ -1380,44 +1415,189 @@ def send_delayed_message_with_exchange(
         <!-- Problem-Solving Framework -->
         <section class="mb-20">
             <div class="text-center mb-12">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-lightbulb mr-2"></i>Systematic Approach
+                    </span>
+                </div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
                     Problem-Solving Framework
                 </h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">
-                    My systematic approach to tackling complex engineering challenges
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    A proven methodology refined over 13+ years of architecting data solutions. This framework has guided me through complex challenges—from processing 10M+ daily events to reducing pipeline costs by 30%—ensuring every solution is both technically sound and business-aligned.
                 </p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300">
-                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
-                        1
+            
+            <!-- Framework Cards -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Step 1: Understand -->
+                <div class="glass-card rounded-xl p-6 hover:scale-105 transition-all duration-300 hover:shadow-xl group">
+                    <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-search text-3xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-3">Understand</h3>
-                    <p class="text-gray-300 text-sm">Deep dive into requirements, constraints, and business context</p>
+                    <div class="text-center mb-4">
+                        <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-2">Step 1</span>
+                        <h3 class="text-xl font-bold text-white mb-3">Understand</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4 text-center leading-relaxed">
+                        Deep dive into requirements, constraints, and business context
+                    </p>
+                    <div class="border-t border-gray-700 pt-4 mt-4">
+                        <p class="text-xs text-gray-400 font-semibold mb-2 text-center">Key Activities:</p>
+                        <ul class="text-gray-300 text-xs space-y-2 text-left">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-blue-400 mt-1 text-xs"></i>
+                                <span>Stakeholder interviews & requirement gathering</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-blue-400 mt-1 text-xs"></i>
+                                <span>Data volume, velocity & variety analysis</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-blue-400 mt-1 text-xs"></i>
+                                <span>Performance SLAs & cost constraints</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-blue-400 mt-1 text-xs"></i>
+                                <span>Existing infrastructure assessment</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <div class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300">
-                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
-                        2
+                <!-- Step 2: Design -->
+                <div class="glass-card rounded-xl p-6 hover:scale-105 transition-all duration-300 hover:shadow-xl group">
+                    <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-drafting-compass text-3xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-3">Design</h3>
-                    <p class="text-gray-300 text-sm">Architect scalable solutions with fault tolerance and cost optimization</p>
+                    <div class="text-center mb-4">
+                        <span class="inline-block px-3 py-1 bg-green-500/20 text-green-400 text-xs font-semibold rounded-full mb-2">Step 2</span>
+                        <h3 class="text-xl font-bold text-white mb-3">Design</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4 text-center leading-relaxed">
+                        Architect scalable solutions with fault tolerance and cost optimization
+                    </p>
+                    <div class="border-t border-gray-700 pt-4 mt-4">
+                        <p class="text-xs text-gray-400 font-semibold mb-2 text-center">Key Activities:</p>
+                        <ul class="text-gray-300 text-xs space-y-2 text-left">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-green-400 mt-1 text-xs"></i>
+                                <span>Data architecture & pipeline design</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-green-400 mt-1 text-xs"></i>
+                                <span>Scalability patterns (auto-scaling, partitioning)</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-green-400 mt-1 text-xs"></i>
+                                <span>Fault tolerance & disaster recovery</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-green-400 mt-1 text-xs"></i>
+                                <span>Cost optimization strategies</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <div class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300">
-                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
-                        3
+                <!-- Step 3: Implement -->
+                <div class="glass-card rounded-xl p-6 hover:scale-105 transition-all duration-300 hover:shadow-xl group">
+                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-code text-3xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-3">Implement</h3>
-                    <p class="text-gray-300 text-sm">Build with best practices, testing, and incremental delivery</p>
+                    <div class="text-center mb-4">
+                        <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-2">Step 3</span>
+                        <h3 class="text-xl font-bold text-white mb-3">Implement</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4 text-center leading-relaxed">
+                        Build with best practices, testing, and incremental delivery
+                    </p>
+                    <div class="border-t border-gray-700 pt-4 mt-4">
+                        <p class="text-xs text-gray-400 font-semibold mb-2 text-center">Key Activities:</p>
+                        <ul class="text-gray-300 text-xs space-y-2 text-left">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-purple-400 mt-1 text-xs"></i>
+                                <span>Agile development & CI/CD pipelines</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-purple-400 mt-1 text-xs"></i>
+                                <span>Unit, integration & performance testing</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-purple-400 mt-1 text-xs"></i>
+                                <span>Code reviews & documentation</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-purple-400 mt-1 text-xs"></i>
+                                <span>Incremental rollout & feature flags</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <div class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300">
-                    <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
-                        4
+                <!-- Step 4: Optimize -->
+                <div class="glass-card rounded-xl p-6 hover:scale-105 transition-all duration-300 hover:shadow-xl group">
+                    <div class="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-chart-line text-3xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-3">Optimize</h3>
-                    <p class="text-gray-300 text-sm">Monitor, measure, and continuously improve performance and costs</p>
+                    <div class="text-center mb-4">
+                        <span class="inline-block px-3 py-1 bg-orange-500/20 text-orange-400 text-xs font-semibold rounded-full mb-2">Step 4</span>
+                        <h3 class="text-xl font-bold text-white mb-3">Optimize</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4 text-center leading-relaxed">
+                        Monitor, measure, and continuously improve performance and costs
+                    </p>
+                    <div class="border-t border-gray-700 pt-4 mt-4">
+                        <p class="text-xs text-gray-400 font-semibold mb-2 text-center">Key Activities:</p>
+                        <ul class="text-gray-300 text-xs space-y-2 text-left">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-orange-400 mt-1 text-xs"></i>
+                                <span>Real-time monitoring & alerting</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-orange-400 mt-1 text-xs"></i>
+                                <span>Performance profiling & bottleneck analysis</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-orange-400 mt-1 text-xs"></i>
+                                <span>Cost analysis & resource optimization</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-orange-400 mt-1 text-xs"></i>
+                                <span>Iterative improvements & A/B testing</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Framework Principles -->
+            <div class="glass-card rounded-2xl p-8 mt-8">
+                <h3 class="text-2xl font-bold text-white mb-6 text-center bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
+                    Core Principles
+                </h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-balance-scale text-2xl text-accent"></i>
+                        </div>
+                        <h4 class="font-bold text-white mb-2">Balance</h4>
+                        <p class="text-gray-300 text-sm">Striking the right balance between performance, cost, and maintainability</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-sync-alt text-2xl text-accent2"></i>
+                        </div>
+                        <h4 class="font-bold text-white mb-2">Iteration</h4>
+                        <p class="text-gray-300 text-sm">Continuous improvement through feedback loops and data-driven decisions</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-2xl text-accent"></i>
+                        </div>
+                        <h4 class="font-bold text-white mb-2">Collaboration</h4>
+                        <p class="text-gray-300 text-sm">Working closely with stakeholders to ensure alignment and value delivery</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1704,6 +1884,11 @@ def send_delayed_message_with_exchange(
                 }
             });
             
+            // Update grid view if active
+            if (currentView === 'grid') {
+                initializeGridView();
+            }
+            
             if (needsNavigation) {
                 // Find next visible card
                 const visibleCards = Array.from(cards).filter((c) => {
@@ -1913,14 +2098,26 @@ def send_delayed_message_with_exchange(
             }, 800);
         }
 
-        function cycleCardState(index) {
-            // Only allow state changes for the center card
-            if (index !== currentIndex) return;
+        function cycleCardState(index, isGrid = false) {
+            // Only allow state changes for the center card in carousel view
+            if (!isGrid && index !== currentIndex) return;
             
-            const card = cards[index];
+            let card;
+            if (isGrid) {
+                const gridCards = document.querySelectorAll('.grid-card');
+                card = Array.from(gridCards).find(c => c.dataset.originalIndex == index);
+                if (!card) return;
+            } else {
+                card = cards[index];
+            }
+            
+            if (!card) return;
+            
             const symbol = card.querySelector('.card-symbol');
             const question = card.querySelector('.card-question');
             const answer = card.querySelector('.card-answer');
+            
+            if (!symbol || !question || !answer) return;
             
             // Track progress
             totalFlips++;
@@ -1934,7 +2131,7 @@ def send_delayed_message_with_exchange(
             
             // Fade out current content
             [symbol, question, answer].forEach(element => {
-                if (element.style.display !== 'none') {
+                if (element && element.style.display !== 'none') {
                     element.style.opacity = '0';
                 }
             });
@@ -1964,6 +2161,11 @@ def send_delayed_message_with_exchange(
 
         function addKeyboardNavigation() {
             document.addEventListener('keydown', (e) => {
+                // Only handle carousel navigation in carousel view
+                if (document.getElementById('carouselViewContainer').classList.contains('hidden')) {
+                    return;
+                }
+                
                 switch(e.key) {
                     case 'ArrowLeft':
                         e.preventDefault();
@@ -1986,6 +2188,107 @@ def send_delayed_message_with_exchange(
                         break;
                 }
             });
+        }
+
+        // View switching functionality
+        let currentView = 'carousel';
+        
+        function switchView(view) {
+            currentView = view;
+            const carouselContainer = document.getElementById('carouselViewContainer');
+            const gridContainer = document.getElementById('gridViewContainer');
+            const carouselBtn = document.getElementById('carouselViewBtn');
+            const gridBtn = document.getElementById('gridViewBtn');
+            
+            if (view === 'carousel') {
+                carouselContainer.classList.remove('hidden');
+                gridContainer.classList.add('hidden');
+                carouselBtn.classList.add('active', 'bg-gradient-to-r', 'from-accent', 'to-accent2', 'text-white');
+                carouselBtn.classList.remove('text-gray-300');
+                gridBtn.classList.remove('active', 'bg-gradient-to-r', 'from-accent', 'to-accent2', 'text-white');
+                gridBtn.classList.add('text-gray-300');
+                updateCarousel();
+            } else {
+                carouselContainer.classList.add('hidden');
+                gridContainer.classList.remove('hidden');
+                gridBtn.classList.add('active', 'bg-gradient-to-r', 'from-accent', 'to-accent2', 'text-white');
+                gridBtn.classList.remove('text-gray-300');
+                carouselBtn.classList.remove('active', 'bg-gradient-to-r', 'from-accent', 'to-accent2', 'text-white');
+                carouselBtn.classList.add('text-gray-300');
+                initializeGridView();
+            }
+        }
+        
+        function initializeGridView() {
+            const gridContainer = document.getElementById('gridCardsContainer');
+            if (!gridContainer) return;
+            
+            gridContainer.innerHTML = '';
+            
+            let gridIndex = 0;
+            cards.forEach((card, index) => {
+                if (card.style.display === 'none') return;
+                
+                const cardClone = card.cloneNode(true);
+                cardClone.classList.remove('carousel-card', 'center', 'left', 'right', 'hidden');
+                cardClone.classList.add('grid-card');
+                cardClone.style.position = 'relative';
+                cardClone.style.width = '100%';
+                cardClone.style.height = 'auto';
+                cardClone.style.minHeight = '400px';
+                cardClone.style.opacity = '1';
+                cardClone.style.transform = 'none';
+                cardClone.removeAttribute('tabindex');
+                cardClone.removeAttribute('role');
+                
+                // Store original index for state tracking
+                cardClone.dataset.originalIndex = index;
+                
+                // Add click handler
+                cardClone.addEventListener('click', function() {
+                    cycleCardState(index, true);
+                });
+                
+                gridContainer.appendChild(cardClone);
+                gridIndex++;
+            });
+        }
+        
+        function resetAllCards() {
+            cards.forEach((card, index) => {
+                cardStates[index] = 0;
+                const symbol = card.querySelector('.card-symbol');
+                const question = card.querySelector('.card-question');
+                const answer = card.querySelector('.card-answer');
+                
+                symbol.style.display = 'block';
+                symbol.style.opacity = '1';
+                question.style.display = 'none';
+                question.style.opacity = '0';
+                answer.style.display = 'none';
+                answer.style.opacity = '0';
+            });
+            
+            // Reset grid cards if in grid view
+            if (currentView === 'grid') {
+                const gridCards = document.querySelectorAll('.grid-card');
+                gridCards.forEach((card, index) => {
+                    const symbol = card.querySelector('.card-symbol');
+                    const question = card.querySelector('.card-question');
+                    const answer = card.querySelector('.card-answer');
+                    
+                    symbol.style.display = 'block';
+                    symbol.style.opacity = '1';
+                    question.style.display = 'none';
+                    question.style.opacity = '0';
+                    answer.style.display = 'none';
+                    answer.style.opacity = '0';
+                });
+            }
+            
+            viewedCards.clear();
+            totalFlips = 0;
+            updateProgress();
         }
 
         // Code Carousel functionality
@@ -2283,6 +2586,64 @@ def send_delayed_message_with_exchange(
                 .indicator:hover {
                     background: rgba(255, 255, 255, 0.5);
                     transform: scale(1.2);
+                }
+
+                /* Grid View Styles */
+                .grid-card {
+                    background: rgba(255, 255, 255, 0.08);
+                    backdrop-filter: blur(12px);
+                    border-radius: 20px;
+                    padding: 32px;
+                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                    cursor: pointer;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .grid-card::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 4px;
+                    background: linear-gradient(90deg, var(--accent), var(--accent2));
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+
+                .grid-card:hover {
+                    transform: translateY(-8px) scale(1.02);
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+                    border-color: rgba(6, 182, 212, 0.3);
+                }
+
+                .grid-card:hover::before {
+                    opacity: 1;
+                }
+
+                .grid-card .card-inner {
+                    position: relative;
+                    width: 100%;
+                    min-height: 400px;
+                }
+
+                /* View Toggle Button Styles */
+                .view-toggle-btn {
+                    color: rgba(255, 255, 255, 0.6);
+                    transition: all 0.3s ease;
+                }
+
+                .view-toggle-btn.active {
+                    background: linear-gradient(135deg, #06b6d4, #6366f1);
+                    color: white;
+                    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+                }
+
+                .view-toggle-btn:hover:not(.active) {
+                    background: rgba(255, 255, 255, 0.1);
+                    color: white;
                 }
                 
                 @media (max-width: 768px) {
