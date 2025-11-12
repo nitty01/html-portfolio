@@ -207,6 +207,60 @@
             transition-duration: 0.01ms !important;
           }
         }
+
+        /* Section Separators */
+        .section-separator {
+          position: relative;
+          margin: 4rem 0;
+        }
+        
+        .section-separator::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100px;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        /* Background Animation */
+        @keyframes floatBackground {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          33% { transform: translate(30px, -30px) rotate(120deg); }
+          66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        .animated-bg-element {
+          animation: floatBackground 20s ease-in-out infinite;
+        }
+
+        /* Loading States */
+        .skeleton {
+          background: linear-gradient(90deg, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 75%);
+          background-size: 200% 100%;
+          animation: loading 1.5s ease-in-out infinite;
+        }
+
+        @keyframes loading {
+          0% { background-position: 200% 0; }
+          100% { background-position: -200% 0; }
+        }
+
+        /* Project Card Enhancements */
+        .project-card {
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card:hover {
+          transform: translateY(-8px);
+        }
+
+        /* Stat Card Tooltip Positioning */
+        .stat-card .group:hover .absolute {
+          z-index: 50;
+        }
         
         /* Custom scrollbar */
         ::-webkit-scrollbar {
@@ -255,11 +309,20 @@
         <!-- Animated background pattern -->
         <div class="absolute inset-0">
             <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%236366f1\" fill-opacity=\"0.08\"%3E%3Ccircle cx=\"7\" cy=\"7\" r=\"1\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+            <!-- Floating background elements -->
+            <div class="absolute top-20 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl animated-bg-element"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-accent2/10 rounded-full blur-3xl animated-bg-element" style="animation-delay: -10s;"></div>
         </div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 w-full">
             <div class="grid lg:grid-cols-2 gap-10 items-center">
                 <!-- Left: Copy -->
                 <div class="hero-copy text-center lg:text-left">
+                    <div class="inline-block mb-4 animate-fadeInUp" style="animation-delay: 0.05s;">
+                        <span class="px-4 py-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-full text-green-400 text-sm font-semibold border border-green-500/30 flex items-center gap-2">
+                            <i class="fas fa-circle text-[6px] animate-pulse"></i>
+                            Available for Opportunities
+                        </span>
+                    </div>
                     <h1 id="hero-headline" class="text-5xl md:text-6xl font-extrabold mb-4 animate-fadeInUp" style="animation-delay: 0.1s;">
                         Principal Data Engineer — Building scalable data platforms
                     </h1>
@@ -301,64 +364,188 @@
                 </div>
             </div>
             <!-- Stats -->
-            <div id="stats-section" class="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 animate-fadeInUp" style="animation-delay: 0.5s;">
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-accent" data-count="13">0</div>
-                    <div class="text-gray-400">Years Experience</div>
+            <div id="stats-section" class="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 animate-fadeInUp" style="animation-delay: 0.5s;">
+                <div class="stat-card glass rounded-xl p-6 text-center hover:scale-105 transition-all duration-300 cursor-pointer group relative">
+                    <div class="w-12 h-12 bg-gradient-to-r from-accent/20 to-accent/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-calendar-alt text-accent text-xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-accent mb-1" data-count="13">0</div>
+                    <div class="text-gray-400 text-sm">Years Experience</div>
+                    <div class="absolute inset-0 bg-accent/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                        13+ years in data engineering
+                    </div>
                 </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-accent2" data-count="15">0</div>
-                    <div class="text-gray-400">Projects Completed</div>
+                <div class="stat-card glass rounded-xl p-6 text-center hover:scale-105 transition-all duration-300 cursor-pointer group relative">
+                    <div class="w-12 h-12 bg-gradient-to-r from-accent2/20 to-accent2/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-project-diagram text-accent2 text-xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-accent2 mb-1" data-count="15">0</div>
+                    <div class="text-gray-400 text-sm">Projects Completed</div>
+                    <div class="absolute inset-0 bg-accent2/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                        Across multiple domains
+                    </div>
                 </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-green-500" data-count="30" data-suffix="%">0</div>
-                    <div class="text-gray-400">AWS Cost Savings</div>
+                <div class="stat-card glass rounded-xl p-6 text-center hover:scale-105 transition-all duration-300 cursor-pointer group relative">
+                    <div class="w-12 h-12 bg-gradient-to-r from-green-500/20 to-green-500/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-dollar-sign text-green-500 text-xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-green-500 mb-1" data-count="30" data-suffix="%">0</div>
+                    <div class="text-gray-400 text-sm">AWS Cost Savings</div>
+                    <div class="absolute inset-0 bg-green-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                        $36k annual savings
+                    </div>
                 </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-accent" data-count="5">0</div>
-                    <div class="text-gray-400">Major Platforms</div>
+                <div class="stat-card glass rounded-xl p-6 text-center hover:scale-105 transition-all duration-300 cursor-pointer group relative">
+                    <div class="w-12 h-12 bg-gradient-to-r from-accent/20 to-accent/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-server text-accent text-xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-accent mb-1" data-count="5">0</div>
+                    <div class="text-gray-400 text-sm">Major Platforms</div>
+                    <div class="absolute inset-0 bg-accent/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                        Production systems
+                    </div>
                 </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-accent2" data-count="10">0</div>
-                    <div class="text-gray-400">TB Data Processed</div>
+                <div class="stat-card glass rounded-xl p-6 text-center hover:scale-105 transition-all duration-300 cursor-pointer group relative">
+                    <div class="w-12 h-12 bg-gradient-to-r from-accent2/20 to-accent2/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-database text-accent2 text-xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-accent2 mb-1" data-count="10">0</div>
+                    <div class="text-gray-400 text-sm">TB Data Processed</div>
+                    <div class="absolute inset-0 bg-accent2/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                        Daily processing
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Currently Working On -->
-    <section class="py-10 px-4 bg-gradient-to-b from-gray-800 to-gray-900">
-        <div class="max-w-6xl mx-auto">
-            <div class="glass rounded-2xl p-6 flex flex-col md:flex-row items-start md:items-center gap-6">
-                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 text-white flex items-center justify-center text-2xl">
-                    <i class="fas fa-leaf"></i>
-                </div>
-                <div class="flex-1">
-                    <h3 class="text-xl font-bold text-white mb-1">Currently Working On: c6insights</h3>
-                    <p class="text-gray-300 text-sm leading-relaxed">
-                        A sustainability-focused product helping fleets and vehicle owners track and reduce carbon emissions. Integrating AI/ML for predictive analytics, anomaly detection, and optimization. Exploring Generative AI (ChatGPT, Gemini, Claude, Mixtral, HuggingFace, LangChain, LlamaIndex, RAG) to deliver interactive insights, sustainability recommendations, and phased fleet transformation strategies.
-                    </p>
+    <section class="py-10 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-emerald-500 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-teal-500 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="glass rounded-2xl p-6 md:p-8 border border-emerald-500/20 hover:border-emerald-500/40 transition-all duration-300">
+                <div class="flex flex-col md:flex-row items-start gap-6">
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 text-white flex items-center justify-center text-2xl shadow-lg flex-shrink-0 animate-pulse">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-3 flex-wrap">
+                            <h3 class="text-2xl font-bold text-white">Currently Working On: <span class="text-emerald-400">c6insights</span></h3>
+                            <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs font-semibold border border-emerald-500/30">
+                                <i class="fas fa-circle text-[6px] mr-2 animate-pulse"></i>Active
+                            </span>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            A sustainability-focused product helping fleets and vehicle owners track and reduce carbon emissions. Integrating AI/ML for predictive analytics, anomaly detection, and optimization.
+                        </p>
+                        
+                        <div class="mb-4">
+                            <p class="text-sm font-semibold text-white mb-2 flex items-center gap-2">
+                                <i class="fas fa-brain text-emerald-400"></i>
+                                Generative AI Integration
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full border border-purple-500/30">ChatGPT</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full border border-purple-500/30">Gemini</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full border border-purple-500/30">Claude</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full border border-purple-500/30">LangChain</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full border border-purple-500/30">RAG</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full border border-purple-500/30">HuggingFace</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4 pt-2 border-t border-gray-700">
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i class="fas fa-chart-line text-emerald-400"></i>
+                                <span>Predictive Analytics</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i class="fas fa-shield-alt text-emerald-400"></i>
+                                <span>Anomaly Detection</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i class="fas fa-lightbulb text-emerald-400"></i>
+                                <span>AI Recommendations</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Professional Summary Section -->
-    <section class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900">
+    <section class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
-                Professional Summary
-            </h2>
-            <div class="glass rounded-2xl p-8 max-w-4xl mx-auto">
-                <p class="text-lg text-gray-300 leading-relaxed text-center">
-                    Principal Data Engineer with 13+ years of experience architecting cloud-native data platforms processing 10M+ daily events across automotive, marketing, and sustainability domains. Proven ability to reduce pipeline costs by 30%, deliver sub-second streaming analytics, and lead teams of up to 12 engineers. Skilled in scalable, high-availability platforms with measurable business impact.
-                </p>
+            <div class="text-center mb-12">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-user-tie mr-2"></i>About My Expertise
+                    </span>
+                </div>
+                <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
+                    Professional Summary
+                </h2>
+            </div>
+            
+            <div class="glass rounded-2xl p-8 md:p-10 max-w-4xl mx-auto border border-white/10">
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-xl flex-shrink-0">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        Principal Data Engineer with <span class="text-accent font-semibold">13+ years</span> of experience architecting cloud-native data platforms processing <span class="text-accent2 font-semibold">10M+ daily events</span> across automotive, marketing, and sustainability domains. Proven ability to <span class="text-green-400 font-semibold">reduce pipeline costs by 30%</span>, deliver sub-second streaming analytics, and lead teams of up to 12 engineers. Skilled in scalable, high-availability platforms with measurable business impact.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 mt-8 pt-8 border-t border-gray-700">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent/20 to-accent/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-rocket text-accent text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-white mb-2">Scalable Platforms</h4>
+                        <p class="text-gray-400 text-sm">Architecting systems that grow with your business</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent2/20 to-accent2/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-dollar-sign text-accent2 text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-white mb-2">Cost Optimization</h4>
+                        <p class="text-gray-400 text-sm">Proven track record of reducing infrastructure costs</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-500/20 to-green-500/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-users text-green-400 text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-white mb-2">Team Leadership</h4>
+                        <p class="text-gray-400 text-sm">Scaling teams and mentoring engineers</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <a href="assets/NITENDER_KUMAR_DL_V4_2025.pdf" download class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent to-accent2 text-white rounded-xl font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300" data-gtm="download_resume_summary">
+                        <i class="fas fa-file-pdf"></i>
+                        View Full Resume
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Core Competencies Section -->
-    <section class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800">
+    <section class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800 relative">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent2/50 to-transparent"></div>
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
                 Core Competencies
@@ -488,7 +675,8 @@
     </section>
 
     <!-- Leadership Highlights Section -->
-    <section class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900">
+    <section class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
         <div class="max-w-6xl mx-auto">
             <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
                 Leadership Highlights
@@ -539,7 +727,8 @@
     </section>
 
     <!-- Highlights Section -->
-    <section class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800">
+    <section class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800 relative">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Highlights</h2>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -576,15 +765,56 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800">
+    <section id="projects" class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800 relative">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent2/50 to-transparent"></div>
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
-                Featured Projects
-            </h2>
+            <div class="text-center mb-12">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-code-branch mr-2"></i>Portfolio Showcase
+                    </span>
+                </div>
+                <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
+                    Featured Projects
+                </h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">
+                    Explore my work across data engineering, AI/ML, and cloud architecture
+                </p>
+            </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Search and Filter Controls -->
+            <div class="mb-8">
+                <div class="max-w-md mx-auto mb-6">
+                    <div class="relative">
+                        <input type="text" id="projectSearch" placeholder="Search projects..." class="w-full px-4 py-3 pl-12 bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent">
+                        <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3 justify-center" id="projectFilters">
+                    <button class="project-filter active px-4 py-2 bg-accent/20 text-accent rounded-lg text-sm font-medium hover:bg-accent/30 transition-all" data-category="all">
+                        <i class="fas fa-th mr-2"></i>All Projects
+                    </button>
+                    <button class="project-filter px-4 py-2 bg-white/10 text-gray-300 rounded-lg text-sm font-medium hover:bg-white/20 transition-all" data-category="data">
+                        <i class="fas fa-database mr-2"></i>Data Engineering
+                    </button>
+                    <button class="project-filter px-4 py-2 bg-white/10 text-gray-300 rounded-lg text-sm font-medium hover:bg-white/20 transition-all" data-category="ai">
+                        <i class="fas fa-brain mr-2"></i>AI/ML
+                    </button>
+                    <button class="project-filter px-4 py-2 bg-white/10 text-gray-300 rounded-lg text-sm font-medium hover:bg-white/20 transition-all" data-category="cloud">
+                        <i class="fas fa-cloud mr-2"></i>Cloud
+                    </button>
+                    <button class="project-filter px-4 py-2 bg-white/10 text-gray-300 rounded-lg text-sm font-medium hover:bg-white/20 transition-all" data-category="analytics">
+                        <i class="fas fa-chart-line mr-2"></i>Analytics
+                    </button>
+                </div>
+                <div class="text-center mt-4">
+                    <span id="projectCount" class="text-gray-400 text-sm">Showing <span class="text-accent font-semibold">5</span> projects</span>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid">
                 <!-- Deep View Analytics Project Card -->
-                <div class="group relative bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer" data-project="deepview">
+                <div class="group relative bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer project-card" data-project="deepview" data-category="data analytics cloud" data-title="Deep View Analytics" data-description="Real-time analytics platform processing 10M+ data points">
                     <div class="relative h-48 overflow-hidden">
                         <img src="assets/images/diagrams/deep-view-analytics/deep-view-analytics-architecture-2025-07-v1.png" loading="lazy" decoding="async"
                              alt="Deep View Analytics" 
@@ -600,14 +830,22 @@
                     </div>
                     
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Deep View Analytics</h3>
+                        <div class="flex items-start justify-between mb-2">
+                            <h3 class="text-xl font-bold text-white">Deep View Analytics</h3>
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full font-semibold">10M+ Events</span>
+                        </div>
                         <p class="text-gray-300 text-sm mb-4">
                             Real-time analytics platform processing 10M+ data points for automotive and marketing insights.
                         </p>
                         
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-accent/20 text-accent text-xs rounded-full">30% Cost Reduction</span>
+                            <span class="px-2 py-1 bg-accent2/20 text-accent2 text-xs rounded-full">Sub-second Analytics</span>
+                        </div>
+                        
                         <div class="flex justify-between items-center text-xs text-gray-400 mb-4">
-                            <span>Role: Principal Data Engineer</span>
-                            <span>Duration: 2 years</span>
+                            <span><i class="fas fa-user-tie mr-1"></i>Principal Data Engineer</span>
+                            <span><i class="fas fa-clock mr-1"></i>2 years</span>
                         </div>
                         
                         <div class="flex gap-2">
@@ -624,7 +862,7 @@
                 </div>
                 
                 <!-- QLM Project Card -->
-                <div class="group relative bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer" data-project="qlm">
+                <div class="group relative bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer project-card" data-project="qlm" data-category="ai analytics" data-title="QLM Platform" data-description="AI-powered video analytics system">
                     <div class="relative h-48 overflow-hidden">
                         <img src="assets/images/diagrams/qlm/qlm-architecture-2025-07-12-v1.png" loading="lazy" decoding="async"
                              alt="QLM Platform" 
@@ -661,7 +899,7 @@
                 </div>
                 
                 <!-- Self Analytics Project Card -->
-                <div class="group relative bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer" data-project="selfanalytics">
+                <div class="group relative bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer project-card" data-project="selfanalytics" data-category="data analytics ai" data-title="Self Analytics" data-description="Web-based application for automated feature engineering">
                     <div class="relative h-48 overflow-hidden">
                         <img src="assets/images/diagrams/self-analytics/self-analytics-architecture-2025-07-12-v1.png" loading="lazy" decoding="async"
                              alt="Self Analytics" 
@@ -698,7 +936,7 @@
                 </div>
                 
                 <!-- NEC IoT Big Data Project Card -->
-                <div class="group relative bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer" data-project="iotbigdata">
+                <div class="group relative bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer project-card" data-project="iotbigdata" data-category="data cloud" data-title="NEC IoT Big Data" data-description="Large-scale IoT data processing platform">
                     <div class="relative h-48 overflow-hidden">
                         <img src="assets/images/diagrams/nec-iot-big-data/nec-iot-architecture-2025-07-12-v1.png" loading="lazy" decoding="async"
                              alt="NEC IoT Big Data" 
@@ -735,7 +973,7 @@
                 </div>
                 
                 <!-- PAOS Project Card -->
-                <div class="group relative bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer" data-project="paos">
+                <div class="group relative bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer project-card" data-project="paos" data-category="ai analytics" data-title="PAOS" data-description="Predictive auto ordering system">
                     <div class="relative h-48 overflow-hidden">
                         <img src="assets/images/diagrams/paos/paos-architecture-2025-07-12-v1.png" loading="lazy" decoding="async"
                              alt="PAOS (Predictive Auto Ordering System)" 
@@ -775,21 +1013,91 @@
     </section>
 
     <!-- Experience Snapshot -->
-    <section id="experience" class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900">
+    <section id="experience" class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
+        <!-- Section Separator -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
+        
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Experience Snapshot</h2>
-            <ol class="relative border-l border-gray-700">
-                <li class="mb-10 ml-6">
-                    <span class="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-accent text-white"><i class="fas fa-briefcase text-xs"></i></span>
-                    <h3 class="text-xl font-semibold text-white">Principal Data Engineer — Darby Telematics India Pvt Ltd & Danlaw Inc</h3>
-                    <time class="mb-1 text-sm text-gray-400">Mar 2019 – Present</time>
-                    <p class="text-gray-300 text-sm">Led architecture and development of Deep View Analytics to process high-frequency OBD-II, marketing, and carbon data. Built scalable ETL and streaming using PySpark, FastAPI, PostgreSQL, MongoDB, RabbitMQ; managed Docker/Kubernetes; custom-built Deep View Analytics platform usage layer; CI/CD via Jenkins. Integrated GenAI (ChatGPT, Claude, Gemini) for sustainability insights and mentored engineers.</p>
+            <div class="text-center mb-16">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-briefcase mr-2"></i>Career Journey
+                    </span>
+                </div>
+                <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Experience Snapshot</h2>
+            </div>
+            <ol class="relative border-l-2 border-gradient-to-b from-accent to-accent2">
+                <li class="mb-12 ml-8 group">
+                    <div class="absolute -left-4 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-accent to-accent2 text-white shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fas fa-briefcase text-sm"></i>
+                    </div>
+                    <div class="glass rounded-xl p-6 hover:scale-[1.02] transition-all duration-300">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-3">
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">Principal Data Engineer</h3>
+                                <p class="text-accent font-medium">Darby Telematics India Pvt Ltd & Danlaw Inc</p>
+                            </div>
+                            <time class="px-3 py-1 bg-accent/20 text-accent rounded-full text-sm font-semibold whitespace-nowrap">
+                                <i class="fas fa-calendar-alt mr-1"></i>Mar 2019 – Present
+                            </time>
+                        </div>
+                        <p class="text-gray-300 mb-4 leading-relaxed">Led architecture and development of Deep View Analytics to process high-frequency OBD-II, marketing, and carbon data. Built scalable ETL and streaming using PySpark, FastAPI, PostgreSQL, MongoDB, RabbitMQ; managed Docker/Kubernetes; custom-built Deep View Analytics platform usage layer; CI/CD via Jenkins. Integrated GenAI (ChatGPT, Claude, Gemini) for sustainability insights and mentored engineers.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full">PySpark</span>
+                            <span class="px-2 py-1 bg-green-500/20 text-green-300 text-xs rounded-full">FastAPI</span>
+                            <span class="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full">GenAI</span>
+                            <span class="px-2 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">Kubernetes</span>
+                            <span class="px-2 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded-full">CI/CD</span>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-700 flex flex-wrap gap-4 text-sm">
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <i class="fas fa-users text-accent"></i>
+                                <span>Led team of 12 engineers</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <i class="fas fa-chart-line text-green-400"></i>
+                                <span>30% cost reduction</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <i class="fas fa-bolt text-yellow-400"></i>
+                                <span>10M+ daily events</span>
+                            </div>
+                        </div>
+                    </div>
                 </li>
-                <li class="mb-10 ml-6">
-                    <span class="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-accent2 text-white"><i class="fas fa-building text-xs"></i></span>
-                    <h3 class="text-xl font-semibold text-white">Senior Software Engineer — NEC India Pvt Ltd</h3>
-                    <time class="mb-1 text-sm text-gray-400">Aug 2012 – Feb 2019</time>
-                    <p class="text-gray-300 text-sm">Developed Spark/Hadoop pipelines and core modules (data profilers, refactor engines) for large-scale processing. Contributed to QLM (AI video analytics), Self Analytics (feature engineering), and PAOS (predictive inventory). Deployed big data platforms on IoT edge servers, built internal DevOps, supported Spark, and collaborated with NEC Labs USA on ML integration.</p>
+                <li class="mb-12 ml-8 group">
+                    <div class="absolute -left-4 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-accent2 to-purple-500 text-white shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fas fa-building text-sm"></i>
+                    </div>
+                    <div class="glass rounded-xl p-6 hover:scale-[1.02] transition-all duration-300">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-3">
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">Senior Software Engineer</h3>
+                                <p class="text-accent2 font-medium">NEC India Pvt Ltd</p>
+                            </div>
+                            <time class="px-3 py-1 bg-accent2/20 text-accent2 rounded-full text-sm font-semibold whitespace-nowrap">
+                                <i class="fas fa-calendar-alt mr-1"></i>Aug 2012 – Feb 2019
+                            </time>
+                        </div>
+                        <p class="text-gray-300 mb-4 leading-relaxed">Developed Spark/Hadoop pipelines and core modules (data profilers, refactor engines) for large-scale processing. Contributed to QLM (AI video analytics), Self Analytics (feature engineering), and PAOS (predictive inventory). Deployed big data platforms on IoT edge servers, built internal DevOps, supported Spark, and collaborated with NEC Labs USA on ML integration.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full">Spark</span>
+                            <span class="px-2 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">Hadoop</span>
+                            <span class="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full">TensorFlow</span>
+                            <span class="px-2 py-1 bg-green-500/20 text-green-300 text-xs rounded-full">Python</span>
+                            <span class="px-2 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded-full">DevOps</span>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-700 flex flex-wrap gap-4 text-sm">
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <i class="fas fa-project-diagram text-accent2"></i>
+                                <span>3 major projects</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <i class="fas fa-globe text-blue-400"></i>
+                                <span>International collaboration</span>
+                            </div>
+                        </div>
+                    </div>
                 </li>
             </ol>
         </div>
@@ -856,76 +1164,128 @@
     </section>
 
     <!-- Tech Stack Evolution Section -->
-    <section class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
-                Tech Stack Evolution
-            </h2>
-            <div class="glass rounded-2xl p-8 md:p-12">
-                <div class="relative">
-                    <div class="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-accent via-accent2 to-accent"></div>
-                    <div class="space-y-8">
-                        <div class="flex gap-6 items-start">
-                            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 relative z-10 shadow-lg">
-                                2012-14
+    <section class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-accent2 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-code-branch mr-2"></i>Technology Journey
+                    </span>
+                </div>
+                <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
+                    Tech Stack Evolution
+                </h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">
+                    A journey from enterprise applications to AI-powered data platforms
+                </p>
+            </div>
+            
+            <div class="relative">
+                <!-- Subtle connecting line between timeline items -->
+                <div class="absolute left-6 top-12 bottom-12 w-0.5 bg-gradient-to-b from-blue-500/20 via-purple-500/20 via-green-500/20 to-accent/20"></div>
+                
+                <div class="space-y-8">
+                    <!-- 2012-14: Early Career -->
+                    <div class="flex gap-6 items-start group relative">
+                        <div class="flex-shrink-0 w-12 flex flex-col items-center">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform duration-300 relative z-10">
+                                <i class="fas fa-code text-sm"></i>
                             </div>
-                            <div class="flex-1 glass rounded-lg p-6">
-                                <h3 class="text-xl font-bold text-white mb-2">Early Career</h3>
-                                <p class="text-gray-300 mb-3">Started with C# .NET and Java, building enterprise applications and learning software engineering fundamentals</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full">C# .NET</span>
-                                    <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-sm rounded-full">Java</span>
-                                    <span class="px-3 py-1 bg-green-500/20 text-green-300 text-sm rounded-full">SQL Server</span>
-                                </div>
+                            <div class="text-xs text-gray-400 font-medium mt-2 text-center">2012-14</div>
+                        </div>
+                        <div class="flex-1 glass rounded-xl p-6 hover:shadow-xl transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-3">
+                                <h3 class="text-xl font-bold text-white">Early Career</h3>
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full font-semibold">Foundation</span>
+                            </div>
+                            <p class="text-gray-300 mb-4 leading-relaxed">Started with enterprise application development, learning core software engineering principles and building scalable systems</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-blue-500/20 text-blue-300 text-sm rounded-full border border-blue-500/30 font-medium">C# .NET</span>
+                                <span class="px-3 py-1.5 bg-orange-500/20 text-orange-300 text-sm rounded-full border border-orange-500/30 font-medium">Java</span>
+                                <span class="px-3 py-1.5 bg-green-500/20 text-green-300 text-sm rounded-full border border-green-500/30 font-medium">SQL Server</span>
                             </div>
                         </div>
-                        
-                        <div class="flex gap-6 items-start">
-                            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 relative z-10 shadow-lg">
-                                2014-18
+                    </div>
+                    
+                    <!-- 2014-18: Big Data -->
+                    <div class="flex gap-6 items-start group relative">
+                        <div class="flex-shrink-0 w-12 flex flex-col items-center">
+                            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform duration-300 relative z-10">
+                                <i class="fas fa-database text-sm"></i>
                             </div>
-                            <div class="flex-1 glass rounded-lg p-6">
-                                <h3 class="text-xl font-bold text-white mb-2">Entry into Data Science & Big Data</h3>
-                                <p class="text-gray-300 mb-3">Transitioned to data engineering with Hadoop ecosystem, PySpark, NiFi, and HDP (Hortonworks Data Platform)</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-sm rounded-full">PySpark</span>
-                                    <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full">Hadoop</span>
-                                    <span class="px-3 py-1 bg-green-500/20 text-green-300 text-sm rounded-full">HDP</span>
-                                    <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-sm rounded-full">NiFi</span>
-                                    <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 text-sm rounded-full">Kafka</span>
-                                    <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 text-sm rounded-full">Python</span>
-                                </div>
+                            <div class="text-xs text-gray-400 font-medium mt-2 text-center">2014-18</div>
+                        </div>
+                        <div class="flex-1 glass rounded-xl p-6 hover:shadow-xl transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-3">
+                                <h3 class="text-xl font-bold text-white">Big Data & Analytics</h3>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full font-semibold">Transition</span>
+                            </div>
+                            <p class="text-gray-300 mb-4 leading-relaxed">Entered data engineering with Hadoop ecosystem, building scalable pipelines for large-scale data processing</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-orange-500/20 text-orange-300 text-sm rounded-full border border-orange-500/30 font-medium">PySpark</span>
+                                <span class="px-3 py-1.5 bg-blue-500/20 text-blue-300 text-sm rounded-full border border-blue-500/30 font-medium">Hadoop</span>
+                                <span class="px-3 py-1.5 bg-green-500/20 text-green-300 text-sm rounded-full border border-green-500/30 font-medium">HDP</span>
+                                <span class="px-3 py-1.5 bg-cyan-500/20 text-cyan-300 text-sm rounded-full border border-cyan-500/30 font-medium">NiFi</span>
+                                <span class="px-3 py-1.5 bg-yellow-500/20 text-yellow-300 text-sm rounded-full border border-yellow-500/30 font-medium">Kafka</span>
+                                <span class="px-3 py-1.5 bg-indigo-500/20 text-indigo-300 text-sm rounded-full border border-indigo-500/30 font-medium">Python</span>
                             </div>
                         </div>
-                        
-                        <div class="flex gap-6 items-start">
-                            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 relative z-10 shadow-lg">
-                                2019-22
+                    </div>
+                    
+                    <!-- 2019-22: Cloud-Native -->
+                    <div class="flex gap-6 items-start group relative">
+                        <div class="flex-shrink-0 w-12 flex flex-col items-center">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform duration-300 relative z-10">
+                                <i class="fas fa-cloud text-sm"></i>
                             </div>
-                            <div class="flex-1 glass rounded-lg p-6">
-                                <h3 class="text-xl font-bold text-white mb-2">Cloud-Native</h3>
-                                <p class="text-gray-300 mb-3">Full cloud migration with serverless and containerization</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-sm rounded-full">Lambda</span>
-                                    <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full">K8s</span>
-                                    <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 text-sm rounded-full">FastAPI</span>
-                                    <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 text-sm rounded-full">AWS</span>
-                                </div>
+                            <div class="text-xs text-gray-400 font-medium mt-2 text-center">2019-22</div>
+                        </div>
+                        <div class="flex-1 glass rounded-xl p-6 hover:shadow-xl transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-3">
+                                <h3 class="text-xl font-bold text-white">Cloud-Native Architecture</h3>
+                                <span class="px-2 py-1 bg-green-500/20 text-green-300 text-xs rounded-full font-semibold">Scale</span>
+                            </div>
+                            <p class="text-gray-300 mb-4 leading-relaxed">Migrated to cloud-native architectures with serverless computing and containerization for scalable, cost-effective solutions</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-cyan-500/20 text-cyan-300 text-sm rounded-full border border-cyan-500/30 font-medium">Lambda</span>
+                                <span class="px-3 py-1.5 bg-blue-500/20 text-blue-300 text-sm rounded-full border border-blue-500/30 font-medium">K8s</span>
+                                <span class="px-3 py-1.5 bg-indigo-500/20 text-indigo-300 text-sm rounded-full border border-indigo-500/30 font-medium">FastAPI</span>
+                                <span class="px-3 py-1.5 bg-yellow-500/20 text-yellow-300 text-sm rounded-full border border-yellow-500/30 font-medium">AWS</span>
                             </div>
                         </div>
-                        
-                        <div class="flex gap-6 items-start">
-                            <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 relative z-10 shadow-lg">
-                                2023+
+                    </div>
+                    
+                    <!-- 2023+: AI-Powered -->
+                    <div class="flex gap-6 items-start group relative">
+                        <div class="flex-shrink-0 w-12 flex flex-col items-center">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform duration-300 relative z-10">
+                                <i class="fas fa-brain text-sm"></i>
                             </div>
-                            <div class="flex-1 glass rounded-lg p-6">
-                                <h3 class="text-xl font-bold text-white mb-2">AI-Powered</h3>
-                                <p class="text-gray-300 mb-3">Integrating Generative AI and MLOps into data platforms</p>
+                            <div class="text-xs text-accent font-semibold mt-2 text-center">2023+</div>
+                        </div>
+                        <div class="flex-1 glass rounded-xl p-6 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-2xl"></div>
+                            <div class="relative z-10">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <h3 class="text-xl font-bold text-white">AI-Powered Platforms</h3>
+                                    <span class="px-2 py-1 bg-accent/20 text-accent rounded-full text-xs font-semibold border border-accent/40">
+                                        <i class="fas fa-circle text-[6px] mr-1"></i>Current
+                                    </span>
+                                </div>
+                                <p class="text-gray-300 mb-4 leading-relaxed">Integrating Generative AI, advanced orchestration, and MLOps to build intelligent, autonomous data platforms</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-sm rounded-full">LangChain</span>
-                                    <span class="px-3 py-1 bg-pink-500/20 text-pink-300 text-sm rounded-full">RAG</span>
-                                    <span class="px-3 py-1 bg-violet-500/20 text-violet-300 text-sm rounded-full">MLOps</span>
-                                    <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full">HuggingFace</span>
+                                    <span class="px-3 py-1.5 bg-purple-500/20 text-purple-300 text-sm rounded-full border border-purple-500/30 font-medium">LangChain</span>
+                                    <span class="px-3 py-1.5 bg-indigo-500/20 text-indigo-300 text-sm rounded-full border border-indigo-500/30 font-medium">LangGraph</span>
+                                    <span class="px-3 py-1.5 bg-pink-500/20 text-pink-300 text-sm rounded-full border border-pink-500/30 font-medium">RAG</span>
+                                    <span class="px-3 py-1.5 bg-violet-500/20 text-violet-300 text-sm rounded-full border border-violet-500/30 font-medium">MLOps</span>
+                                    <span class="px-3 py-1.5 bg-blue-500/20 text-blue-300 text-sm rounded-full border border-blue-500/30 font-medium">HuggingFace</span>
+                                    <span class="px-3 py-1.5 bg-cyan-500/20 text-cyan-300 text-sm rounded-full border border-cyan-500/30 font-medium">MCP</span>
                                 </div>
                             </div>
                         </div>
@@ -987,20 +1347,60 @@
     </section>
 
     <!-- Let's Connect CTA -->
-    <section class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Let's Connect</h2>
-            <p class="text-gray-300 mb-8">Open to principal/lead data engineering and architecture roles. Happy to chat.</p>
-            <div class="flex items-center justify-center gap-4">
-                <a href="mailto:nitender.kumar11@gmail.com" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-accent text-white font-semibold hover:opacity-90 transition" data-gtm="email_cta" aria-label="Email">
-                    <i class="fas fa-envelope"></i> Email
+    <section class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800 relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-accent2 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="inline-block mb-6">
+                <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                    <i class="fas fa-handshake mr-2"></i>Get In Touch
+                </span>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Let's Connect</h2>
+            <p class="text-gray-300 mb-2 text-lg">Open to principal/lead data engineering and architecture roles.</p>
+            <p class="text-gray-400 mb-8">Happy to discuss opportunities, collaborations, or just chat about data engineering!</p>
+            
+            <div class="flex flex-wrap items-center justify-center gap-4 mb-8">
+                <a href="mailto:nitender.kumar11@gmail.com" class="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-accent to-accent2 text-white font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300" data-gtm="email_cta" aria-label="Email">
+                    <i class="fas fa-envelope"></i> 
+                    <span>Email</span>
+                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                 </a>
-                <a href="https://linkedin.com/in/nitender-kumar" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-white font-semibold transition hover:bg-[#005885]" style="background-color: #0077b5;" data-gtm="linkedin_cta" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i> LinkedIn
+                <a href="https://linkedin.com/in/nitender-kumar" target="_blank" rel="noopener" class="group inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold transition hover:shadow-xl hover:scale-105" style="background-color: #0077b5;" data-gtm="linkedin_cta" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i> 
+                    <span>LinkedIn</span>
+                    <i class="fas fa-external-link-alt text-xs opacity-70 group-hover:opacity-100 transition-opacity"></i>
                 </a>
-                <a href="https://github.com/nitender-kumar" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gray-800 text-white font-semibold hover:bg-gray-700 transition" data-gtm="github_cta" aria-label="GitHub">
-                    <i class="fab fa-github"></i> GitHub
+                <a href="https://github.com/nitender-kumar" target="_blank" rel="noopener" class="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-800 text-white font-semibold hover:bg-gray-700 hover:shadow-xl hover:scale-105 transition-all duration-300" data-gtm="github_cta" aria-label="GitHub">
+                    <i class="fab fa-github"></i> 
+                    <span>GitHub</span>
+                    <i class="fas fa-external-link-alt text-xs opacity-70 group-hover:opacity-100 transition-opacity"></i>
                 </a>
+            </div>
+            
+            <div class="glass rounded-xl p-6 max-w-2xl mx-auto">
+                <p class="text-gray-300 text-sm mb-4">
+                    <i class="fas fa-info-circle text-accent mr-2"></i>
+                    <strong>Quick Response:</strong> I typically respond within 24-48 hours
+                </p>
+                <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-briefcase text-accent"></i>
+                        <span>Open to Opportunities</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-comments text-accent2"></i>
+                        <span>Open to Collaborations</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-graduation-cap text-green-400"></i>
+                        <span>Open to Mentoring</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1649,6 +2049,60 @@
                         setInterval(() => { idx = (idx + 1) % roles.length; setRole(); }, 2500);
                     }
                 }
+            } catch (_) {}
+
+            // Project filtering and search functionality
+            try {
+                const projectSearch = document.getElementById('projectSearch');
+                const projectFilters = document.querySelectorAll('.project-filter');
+                const projectCards = document.querySelectorAll('.project-card');
+                const projectCount = document.getElementById('projectCount');
+                let currentCategory = 'all';
+                let searchTerm = '';
+
+                function filterProjects() {
+                    let visibleCount = 0;
+                    projectCards.forEach(card => {
+                        const cardCategory = card.dataset.category || '';
+                        const cardTitle = (card.dataset.title || '').toLowerCase();
+                        const cardDescription = (card.dataset.description || '').toLowerCase();
+                        const cardText = cardTitle + ' ' + cardDescription;
+                        
+                        const matchesCategory = currentCategory === 'all' || cardCategory.includes(currentCategory);
+                        const matchesSearch = !searchTerm || cardText.includes(searchTerm.toLowerCase());
+                        
+                        if (matchesCategory && matchesSearch) {
+                            card.style.display = '';
+                            visibleCount++;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    
+                    if (projectCount) {
+                        projectCount.innerHTML = `Showing <span class="text-accent font-semibold">${visibleCount}</span> project${visibleCount !== 1 ? 's' : ''}`;
+                    }
+                }
+
+                if (projectSearch) {
+                    projectSearch.addEventListener('input', (e) => {
+                        searchTerm = e.target.value;
+                        filterProjects();
+                    });
+                }
+
+                projectFilters.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        projectFilters.forEach(b => {
+                            b.classList.remove('active', 'bg-accent/20', 'text-accent');
+                            b.classList.add('bg-white/10', 'text-gray-300');
+                        });
+                        btn.classList.add('active', 'bg-accent/20', 'text-accent');
+                        btn.classList.remove('bg-white/10', 'text-gray-300');
+                        currentCategory = btn.dataset.category;
+                        filterProjects();
+                    });
+                });
             } catch (_) {}
         });
     </script>

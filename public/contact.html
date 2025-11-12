@@ -110,13 +110,81 @@
         .form-input { transition: all 0.2s ease; }
         .form-input:focus { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(6, 182, 212, 0.25); }
 
-        .message { display:none; }
-        .message.show { display:block; }
+        .message { display:none !important; }
+        .message.show { display:flex !important; }
 
         /* Strict, predictable two-column alignment */
         .contact-grid { display:grid; grid-template-columns: 1fr; gap: 2rem; }
         @media (min-width: 1024px) { .contact-grid { grid-template-columns: 1fr 1fr; gap: 3rem; align-items:start; } }
         .contact-col { min-width:0; }
+
+        /* Glass morphism */
+        .glass {
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Floating background elements */
+        .animated-bg-element {
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.1;
+          animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          33% { transform: translate(30px, -30px) rotate(120deg); }
+          66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        /* Contact card hover effects */
+        .contact-card {
+          transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 30px rgba(6, 182, 212, 0.2);
+          border-color: rgba(6, 182, 212, 0.4);
+        }
+
+        .contact-card:hover .contact-icon {
+          transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Form input enhancements */
+        .form-input-group {
+          position: relative;
+        }
+
+        .form-input-group i {
+          position: absolute;
+          left: 1rem;
+          top: 50%;
+          transform: translateY(-50%);
+          color: rgba(6, 182, 212, 0.6);
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        .form-input-group .textarea-icon {
+          top: 0.75rem;
+          transform: none;
+        }
+
+        .form-input-group input,
+        .form-input-group textarea {
+          padding-left: 2.75rem;
+        }
+
+        /* Section separator */
+        .section-separator {
+          height: 1px;
+          background: linear-gradient(to right, transparent, rgba(6, 182, 212, 0.3), rgba(99, 102, 241, 0.3), transparent);
+          margin: 3rem 0;
+        }
     </style>
 </head>
 
@@ -137,98 +205,169 @@
     </nav>
 
     <!-- Main -->
-    <main class="mx-auto max-w-7xl px-4 py-10">
+    <main class="mx-auto max-w-7xl px-4 py-10 relative">
+        <!-- Background decorations -->
+        <div class="absolute inset-0 opacity-5 pointer-events-none overflow-hidden">
+            <div class="animated-bg-element w-64 h-64 bg-accent top-10 left-10"></div>
+            <div class="animated-bg-element w-48 h-48 bg-accent2 bottom-20 right-20" style="animation-delay: -5s;"></div>
+            <div class="animated-bg-element w-32 h-32 bg-accent top-1/2 right-1/4" style="animation-delay: -10s;"></div>
+        </div>
+
         <!-- Hero -->
-        <section class="text-center mb-14">
-            <h1 class="text-5xl md:text-6xl font-extrabold mb-4"><span class="bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Get In Touch</span></h1>
-            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">Ready to discuss your next project? I'd love to hear from you and explore how we can work together.</p>
+        <section class="text-center mb-16 relative z-10">
+            <div class="inline-block mb-6">
+                <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                    <i class="fas fa-envelope-open-text mr-2"></i>Let's Connect
+                </span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4">
+                <span class="bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Get In Touch</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                Ready to discuss your next project? I'd love to hear from you and explore how we can work together.
+            </p>
         </section>
 
+        <!-- Section Separator -->
+        <div class="section-separator"></div>
+
         <!-- Contact grid -->
-        <div class="contact-grid">
+        <div class="contact-grid relative z-10">
             <!-- Left: Contact details -->
             <div class="contact-col">
+                <div class="inline-block mb-4">
+                    <span class="px-3 py-1 bg-accent/20 text-accent text-xs font-semibold rounded-full border border-accent/30">
+                        <i class="fas fa-address-card mr-1"></i>Contact Details
+                    </span>
+                </div>
                 <h2 class="text-3xl font-bold mb-8 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Contact Information</h2>
-                <div class="space-y-6">
-                    <div class="flex items-center gap-4 p-4 bg-white/10 rounded-xl shadow-glass">
-                        <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center"><i class="fas fa-envelope text-white text-xl"></i></div>
-                        <div>
-                            <h3 class="font-semibold text-white">Email</h3>
-                            <a href="#" onclick="openContactModal(); return false;" class="text-gray-300 hover:text-accent">nitender.kumar11@gmail.com</a>
+                <div class="space-y-4">
+                    <div class="contact-card flex items-center gap-4 p-5 glass rounded-xl border border-white/20 group">
+                        <div class="w-14 h-14 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center contact-icon transition-transform duration-300">
+                            <i class="fas fa-envelope text-white text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-white mb-1">Email</h3>
+                            <a href="#" onclick="openContactModal(); return false;" class="text-gray-300 hover:text-accent transition-colors">nitender.kumar11@gmail.com</a>
                         </div>
                     </div>
-                    <div class="flex items-center gap-4 p-4 bg-white/10 rounded-xl shadow-glass">
-                        <div class="w-12 h-12 bg-gradient-to-r from-accent2 to-accent rounded-full flex items-center justify-center"><i class="fas fa-phone text-white text-xl"></i></div>
-                        <div>
-                            <h3 class="font-semibold text-white">Phone</h3>
-                            <a href="tel:+917899911081" class="text-gray-300 hover:text-accent">+91-7899911081</a>
+                    <div class="contact-card flex items-center gap-4 p-5 glass rounded-xl border border-white/20 group">
+                        <div class="w-14 h-14 bg-gradient-to-r from-accent2 to-accent rounded-full flex items-center justify-center contact-icon transition-transform duration-300">
+                            <i class="fas fa-phone text-white text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-white mb-1">Phone</h3>
+                            <a href="tel:+917899911081" class="text-gray-300 hover:text-accent transition-colors">+91-7899911081</a>
                         </div>
                     </div>
-                    <div class="flex items-center gap-4 p-4 bg-white/10 rounded-xl shadow-glass">
-                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-accent rounded-full flex items-center justify-center"><i class="fas fa-map-marker-alt text-white text-xl"></i></div>
-                        <div>
-                            <h3 class="font-semibold text-white">Location</h3>
+                    <div class="contact-card flex items-center gap-4 p-5 glass rounded-xl border border-white/20 group">
+                        <div class="w-14 h-14 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center contact-icon transition-transform duration-300">
+                            <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-white mb-1">Location</h3>
                             <p class="text-gray-300">Bangalore, India</p>
                         </div>
                     </div>
-                    <div class="flex items-center gap-4 p-4 bg-white/10 rounded-xl shadow-glass">
-                        <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background-color: #0077b5;"><i class="fab fa-linkedin text-white text-xl"></i></div>
-                        <div>
-                            <h3 class="font-semibold text-white">LinkedIn</h3>
-                            <a href="https://linkedin.com/in/nitender-kumar" target="_blank" class="text-gray-300 hover:text-accent">linkedin.com/in/nitender-kumar</a>
+                    <div class="contact-card flex items-center gap-4 p-5 glass rounded-xl border border-white/20 group">
+                        <div class="w-14 h-14 rounded-full flex items-center justify-center contact-icon transition-transform duration-300" style="background: linear-gradient(135deg, #0077b5, #005885);">
+                            <i class="fab fa-linkedin text-white text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-white mb-1">LinkedIn</h3>
+                            <a href="https://linkedin.com/in/nitender-kumar" target="_blank" class="text-gray-300 hover:text-accent transition-colors">linkedin.com/in/nitender-kumar</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="mt-8 bg-white/10 rounded-xl p-6 shadow-glass">
-                    <h3 class="text-xl font-bold text-white mb-3">Download Resume</h3>
+                <div class="mt-8 glass rounded-xl p-6 border border-white/20 hover:border-accent/40 transition-all duration-300 hover:shadow-xl">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-file-pdf text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Download Resume</h3>
+                    </div>
                     <p class="text-gray-300 mb-4">Get a copy of my detailed resume with complete work experience and technical skills.</p>
-                    <a href="../assets/NITENDER_KUMAR_DL_V4_2025.pdf" download class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all"><i class="fas fa-download"></i>Download PDF</a>
+                    <a href="../assets/NITENDER_KUMAR_DL_V4_2025.pdf" download class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all">
+                        <i class="fas fa-download"></i>Download PDF
+                    </a>
                 </div>
             </div>
 
             <!-- Right: Form -->
             <div class="contact-col">
+                <div class="inline-block mb-4">
+                    <span class="px-3 py-1 bg-accent2/20 text-accent2 text-xs font-semibold rounded-full border border-accent2/30">
+                        <i class="fas fa-paper-plane mr-1"></i>Send Message
+                    </span>
+                </div>
                 <h2 class="text-3xl font-bold mb-8 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Send a Message</h2>
 
-                <div id="successMessage" class="message mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-300">
-                    <i class="fas fa-check-circle mr-2"></i>
-                    <span class="font-semibold">Message sent successfully!</span>
-                </div>
-                <div id="errorMessage" class="message mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-300">
-                    <i class="fas fa-exclamation-circle mr-2"></i>
-                    <span class="font-semibold">Failed to send message. Please try again.</span>
+                <div id="messageContainer" class="glass rounded-xl p-6 border border-white/20 mb-6 hidden">
+                    <div id="successMessage" class="message p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-300 flex items-center gap-2">
+                        <i class="fas fa-check-circle"></i>
+                        <span class="font-semibold">Message sent successfully!</span>
+                    </div>
+                    <div id="errorMessage" class="message p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-300 flex items-center gap-2">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span class="font-semibold">Failed to send message. Please try again.</span>
+                    </div>
                 </div>
 
-                <form id="contactForm" class="space-y-6" action="https://formspree.io/f/xpwjkqyp" method="POST">
+                <form id="contactForm" class="glass rounded-xl p-6 border border-white/20 space-y-5" action="https://formspree.io/f/xpwjkqyp" method="POST">
                     <div>
                         <label for="name" class="block text-gray-300 text-sm font-bold mb-2">Full Name *</label>
-                        <input type="text" id="name" name="name" required class="form-input w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent" placeholder="Your full name">
+                        <div class="form-input-group relative">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="name" name="name" required class="form-input w-full px-4 py-3 pl-10 rounded-lg bg-white/10 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all" placeholder="Your full name">
+                        </div>
                     </div>
                     <div>
                         <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Email Address *</label>
-                        <input type="email" id="email" name="email" required class="form-input w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent" placeholder="your.email@example.com">
+                        <div class="form-input-group relative">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" required class="form-input w-full px-4 py-3 pl-10 rounded-lg bg-white/10 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all" placeholder="your.email@example.com">
+                        </div>
                     </div>
                     <div>
                         <label for="subject" class="block text-gray-300 text-sm font-bold mb-2">Subject *</label>
-                        <input type="text" id="subject" name="subject" required class="form-input w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent" placeholder="What's this about?">
+                        <div class="form-input-group relative">
+                            <i class="fas fa-tag"></i>
+                            <input type="text" id="subject" name="subject" required class="form-input w-full px-4 py-3 pl-10 rounded-lg bg-white/10 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all" placeholder="What's this about?">
+                        </div>
                     </div>
                     <div>
                         <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Message *</label>
-                        <textarea id="message" name="message" rows="6" required class="form-input w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent resize-none" placeholder="Tell me about your project or how I can help..."></textarea>
+                        <div class="form-input-group relative">
+                            <i class="fas fa-comment-alt textarea-icon"></i>
+                            <textarea id="message" name="message" rows="6" required class="form-input w-full px-4 py-3 pl-10 pt-3 rounded-lg bg-white/10 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent resize-none transition-all" placeholder="Tell me about your project or how I can help..."></textarea>
+                        </div>
                     </div>
-                    <button type="submit" id="submitBtn" class="w-full px-8 py-4 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-accent2">
-                        <span class="button-text"><i class="fas fa-paper-plane mr-2"></i>Send Message</span>
-                        <span class="spinner hidden"><i class="fas fa-spinner fa-spin mr-2"></i>Sending...</span>
+                    <button type="submit" id="submitBtn" class="w-full px-8 py-4 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-accent2 relative overflow-hidden group">
+                        <span class="button-text relative z-10"><i class="fas fa-paper-plane mr-2"></i>Send Message</span>
+                        <span class="spinner hidden relative z-10"><i class="fas fa-spinner fa-spin mr-2"></i>Sending...</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-accent2 to-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </button>
                 </form>
 
-                <div class="mt-8 p-6 bg-white/5 rounded-xl border border-white/10">
-                    <h3 class="text-lg font-semibold text-white mb-3">Prefer other ways to connect?</h3>
+                <div class="mt-8 glass rounded-xl p-6 border border-white/20 hover:border-accent/40 transition-all duration-300">
+                    <h3 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                        <i class="fas fa-link text-accent"></i>
+                        Prefer other ways to connect?
+                    </h3>
                     <div class="grid sm:grid-cols-3 gap-3">
-                        <a href="#" onclick="openContactModal(); return false;" class="flex items-center justify-center gap-2 px-4 py-2 bg-white/10 text-white rounded-lg hover:bg-white/20 transition-all"><i class="fas fa-envelope"></i>Email</a>
-                        <a href="https://linkedin.com/in/nitender-kumar" target="_blank" class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg transition-all hover:bg-[#005885]/30" style="background-color: rgba(0, 119, 181, 0.2); color: #70b5e0;"><i class="fab fa-linkedin"></i>LinkedIn</a>
-                        <a href="tel:+917899911081" class="flex items-center justify-center gap-2 px-4 py-2 bg-green-600/20 text-green-300 rounded-lg hover:bg-green-600/30 transition-all"><i class="fas fa-phone"></i>Call</a>
+                        <a href="#" onclick="openContactModal(); return false;" class="flex items-center justify-center gap-2 px-4 py-3 bg-white/10 text-white rounded-lg hover:bg-white/20 hover:scale-105 transition-all border border-white/10 hover:border-accent/40">
+                            <i class="fas fa-envelope"></i>
+                            <span class="text-sm font-medium">Email</span>
+                        </a>
+                        <a href="https://linkedin.com/in/nitender-kumar" target="_blank" class="flex items-center justify-center gap-2 px-4 py-3 rounded-lg transition-all hover:scale-105 border border-[#0077b5]/30 hover:border-[#0077b5]/60" style="background-color: rgba(0, 119, 181, 0.2); color: #70b5e0;">
+                            <i class="fab fa-linkedin"></i>
+                            <span class="text-sm font-medium">LinkedIn</span>
+                        </a>
+                        <a href="tel:+917899911081" class="flex items-center justify-center gap-2 px-4 py-3 bg-green-600/20 text-green-300 rounded-lg hover:bg-green-600/30 hover:scale-105 transition-all border border-green-500/30 hover:border-green-500/60">
+                            <i class="fas fa-phone"></i>
+                            <span class="text-sm font-medium">Call</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -285,8 +424,22 @@
             const btn = document.getElementById('submitBtn');
             const spinner = btn.querySelector('.spinner');
             const text = btn.querySelector('.button-text');
-            spinner.classList.remove('hidden'); text.classList.add('hidden');
+            const messageContainer = document.getElementById('messageContainer');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Hide container and all messages first
+            messageContainer.classList.add('hidden');
+            successMessage.classList.remove('show');
+            errorMessage.classList.remove('show');
+            
+            spinner.classList.remove('hidden'); 
+            text.classList.add('hidden');
+            
             const fd = new FormData(this);
+            let showSuccess = false;
+            let showError = false;
+            
             try {
                 const resp = await fetch('https://formspree.io/f/xpwjkqyp', {
                     method:'POST',
@@ -299,19 +452,34 @@
                     })
                 });
                 if (resp.ok) {
-                    document.getElementById('successMessage').classList.add('show');
+                    showSuccess = true;
                     this.reset();
                 } else {
-                    // Fallback to mailto on any non-OK response
-                    const mailto = `mailto:nitender.kumar11@gmail.com?subject=${encodeURIComponent(fd.get('subject'))}&body=${encodeURIComponent(`Name: ${fd.get('name')}\nEmail: ${fd.get('email')}\n\nMessage:\n${fd.get('message')}`)}`;
-                    window.location.href = mailto;
+                    showError = true;
                 }
             } catch(_) { 
-                const mailto = `mailto:nitender.kumar11@gmail.com?subject=${encodeURIComponent(fd.get('subject'))}&body=${encodeURIComponent(`Name: ${fd.get('name')}\nEmail: ${fd.get('email')}\n\nMessage:\n${fd.get('message')}`)}`;
-                window.location.href = mailto;
+                showError = true;
             } finally {
-                spinner.classList.add('hidden'); text.classList.remove('hidden');
-                setTimeout(()=>{ document.getElementById('successMessage').classList.remove('show'); document.getElementById('errorMessage').classList.remove('show'); }, 4000);
+                spinner.classList.add('hidden'); 
+                text.classList.remove('hidden');
+                
+                // Show only the appropriate message
+                if (showSuccess) {
+                    successMessage.classList.add('show');
+                    errorMessage.classList.remove('show');
+                    messageContainer.classList.remove('hidden');
+                } else if (showError) {
+                    successMessage.classList.remove('show');
+                    errorMessage.classList.add('show');
+                    messageContainer.classList.remove('hidden');
+                }
+                
+                // Hide messages after 5 seconds
+                setTimeout(()=>{ 
+                    messageContainer.classList.add('hidden');
+                    successMessage.classList.remove('show'); 
+                    errorMessage.classList.remove('show'); 
+                }, 5000);
             }
         });
 

@@ -280,6 +280,62 @@
           height: 300px;
         }
 
+        /* Section separators */
+        .section-separator {
+          height: 1px;
+          background: linear-gradient(to right, transparent, rgba(6, 182, 212, 0.3), rgba(99, 102, 241, 0.3), transparent);
+          margin: 4rem 0;
+        }
+
+        /* Floating background elements */
+        .animated-bg-element {
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.1;
+          animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          33% { transform: translate(30px, -30px) rotate(120deg); }
+          66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        /* Scroll progress indicator */
+        .scroll-progress {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 0%;
+          height: 3px;
+          background: linear-gradient(to right, var(--accent), var(--accent2));
+          z-index: 9999;
+          transition: width 0.1s ease-out;
+        }
+
+        /* Profile picture hover effect */
+        .profile-pic-container {
+          transition: transform 0.3s ease;
+        }
+
+        .profile-pic-container:hover {
+          transform: scale(1.05);
+        }
+
+        .profile-pic-container:hover .profile-badge {
+          transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Metric cards */
+        .metric-card {
+          transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 30px rgba(6, 182, 212, 0.2);
+        }
+
     </style>
 </head>
 
@@ -301,28 +357,76 @@
         </div>
     </nav>
 
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
         <!-- Hero Section -->
-        <section class="text-center mb-16 fade-in-up">
-            <div class="relative inline-block mb-8">
-                <img src="../assets/images/profile_pic.jpg" alt="Nitender Kumar" class="w-48 h-48 rounded-full mx-auto shadow-2xl border-4 border-accent/20 object-cover">
-                <div class="absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg">
-                    <i class="fas fa-code"></i>
+        <section class="text-center mb-16 fade-in-up relative overflow-hidden">
+            <!-- Background decorations -->
+            <div class="absolute inset-0 opacity-5 pointer-events-none">
+                <div class="animated-bg-element w-64 h-64 bg-accent top-10 left-10"></div>
+                <div class="animated-bg-element w-48 h-48 bg-accent2 bottom-20 right-20" style="animation-delay: -5s;"></div>
+                <div class="animated-bg-element w-32 h-32 bg-accent top-1/2 right-1/4" style="animation-delay: -10s;"></div>
+            </div>
+
+            <div class="relative z-10">
+                <!-- Experience Badge -->
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-award mr-2"></i>13+ Years Experience
+                    </span>
+                </div>
+
+                <div class="relative inline-block mb-8 profile-pic-container">
+                    <img src="../assets/images/profile_pic.jpg" alt="Nitender Kumar" class="w-48 h-48 rounded-full mx-auto shadow-2xl border-4 border-accent/20 object-cover">
+                    <div class="absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg profile-badge transition-transform duration-300">
+                        <i class="fas fa-code"></i>
+                    </div>
+                </div>
+
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-6">
+                    <span class="gradient-text">About Me</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
+                    Principal Data Engineer & AI Solution Architect passionate about building scalable data solutions that drive business impact.
+                </p>
+
+                <!-- Key Metrics -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-12">
+                    <div class="metric-card glass rounded-xl p-4 border border-accent/20">
+                        <div class="text-2xl md:text-3xl font-bold gradient-text mb-1">10M+</div>
+                        <div class="text-sm text-gray-400">Daily Events</div>
+                    </div>
+                    <div class="metric-card glass rounded-xl p-4 border border-accent/20">
+                        <div class="text-2xl md:text-3xl font-bold gradient-text mb-1">30%</div>
+                        <div class="text-sm text-gray-400">Cost Reduction</div>
+                    </div>
+                    <div class="metric-card glass rounded-xl p-4 border border-accent/20">
+                        <div class="text-2xl md:text-3xl font-bold gradient-text mb-1">12+</div>
+                        <div class="text-sm text-gray-400">Team Members</div>
+                    </div>
+                    <div class="metric-card glass rounded-xl p-4 border border-accent/20">
+                        <div class="text-2xl md:text-3xl font-bold gradient-text mb-1">50+</div>
+                        <div class="text-sm text-gray-400">Projects Delivered</div>
+                    </div>
                 </div>
             </div>
-            <h1 class="text-5xl md:text-6xl font-extrabold mb-6">
-                <span class="gradient-text">About Me</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                Principal Data Engineer & AI Solution Architect passionate about building scalable data solutions that drive business impact.
-            </p>
         </section>
+
+        <!-- Section Separator -->
+        <div class="section-separator"></div>
 
         <!-- About Content -->
         <section class="grid lg:grid-cols-2 gap-12 mb-16">
             <!-- Personal Story -->
-            <div class="glass rounded-2xl p-8 fade-in-up">
+            <div class="glass rounded-2xl p-8 fade-in-up hover:shadow-xl transition-all duration-300">
+                <div class="inline-block mb-4">
+                    <span class="px-3 py-1 bg-accent/20 text-accent text-xs font-semibold rounded-full border border-accent/30">
+                        <i class="fas fa-book-open mr-1"></i>Personal Journey
+                    </span>
+                </div>
                 <h2 class="text-3xl font-bold text-accent2 mb-6 flex items-center gap-3">
                     <i class="fas fa-user-circle"></i>
                     My Story
@@ -341,14 +445,19 @@
             </div>
 
             <!-- Core Values -->
-            <div class="glass rounded-2xl p-8 fade-in-up">
+            <div class="glass rounded-2xl p-8 fade-in-up hover:shadow-xl transition-all duration-300">
+                <div class="inline-block mb-4">
+                    <span class="px-3 py-1 bg-accent2/20 text-accent2 text-xs font-semibold rounded-full border border-accent2/30">
+                        <i class="fas fa-gem mr-1"></i>What Drives Me
+                    </span>
+                </div>
                 <h2 class="text-3xl font-bold text-accent2 mb-6 flex items-center gap-3">
                     <i class="fas fa-heart"></i>
                     Core Values
                 </h2>
                 <div class="space-y-6">
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0">
+                    <div class="flex items-start gap-4 group hover:bg-white/5 p-3 rounded-lg transition-all duration-300">
+                        <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0 group-hover:scale-110 transition-transform">
                             <i class="fas fa-lightbulb"></i>
                         </div>
                         <div>
@@ -356,8 +465,8 @@
                             <p class="text-gray-300">Continuously exploring new technologies and approaches to solve complex problems creatively.</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0">
+                    <div class="flex items-start gap-4 group hover:bg-white/5 p-3 rounded-lg transition-all duration-300">
+                        <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0 group-hover:scale-110 transition-transform">
                             <i class="fas fa-users"></i>
                         </div>
                         <div>
@@ -365,8 +474,8 @@
                             <p class="text-gray-300">Building strong relationships and fostering teamwork to achieve shared goals.</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0">
+                    <div class="flex items-start gap-4 group hover:bg-white/5 p-3 rounded-lg transition-all duration-300">
+                        <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0 group-hover:scale-110 transition-transform">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
                         <div>
@@ -374,8 +483,8 @@
                             <p class="text-gray-300">Embracing new challenges and staying current with evolving technologies and best practices.</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0">
+                    <div class="flex items-start gap-4 group hover:bg-white/5 p-3 rounded-lg transition-all duration-300">
+                        <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0 group-hover:scale-110 transition-transform">
                             <i class="fas fa-star"></i>
                         </div>
                         <div>
@@ -386,13 +495,23 @@
                 </div>
             </div>
         </section>
+
+        <!-- Section Separator -->
+        <div class="section-separator"></div>
         <!-- Industries of Interest -->
         <section class="mb-16">
-            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Industries of Interest</h2>
-            <div class="glass rounded-2xl p-8 fade-in-up">
-                <p class="text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto mb-12 text-center">
+            <div class="text-center mb-8">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-industry mr-2"></i>Industry Focus
+                    </span>
+                </div>
+                <h2 class="text-4xl font-bold mb-4 gradient-text">Industries of Interest</h2>
+                <p class="text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
                     I am passionate about applying my expertise in data engineering, cloud platforms, and scalable systems to industries where data can drive innovation and impact.
                 </p>
+            </div>
+            <div class="glass rounded-2xl p-8 fade-in-up">
                 
                 <!-- Industry Cards Grid -->
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -540,19 +659,27 @@
                 </div>
             </div>
         </section>
+        <!-- Section Separator -->
+        <div class="section-separator"></div>
+
         <!-- Design Philosophy Section -->
         <section class="mb-16">
-            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Design Philosophy</h2>
-            <div class="glass rounded-2xl p-8 fade-in-up">
-                <div class="text-center mb-8">
-                    <p class="text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
-                        I believe great engineering is not just about writing code — it's about creating systems that are scalable, resilient, and human-centered. My design philosophy is shaped by a blend of engineering rigor, business alignment, and empathy for end users.
-                    </p>
+            <div class="text-center mb-8">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-palette mr-2"></i>Engineering Approach
+                    </span>
                 </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <h2 class="text-4xl font-bold mb-4 gradient-text">Design Philosophy</h2>
+                <p class="text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
+                    I believe great engineering is not just about writing code — it's about creating systems that are scalable, resilient, and human-centered. My design philosophy is shaped by a blend of engineering rigor, business alignment, and empathy for end users.
+                </p>
+            </div>
+            <div class="glass rounded-2xl p-8 fade-in-up">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0">
+                        <div class="flex items-start gap-4 group hover:bg-white/5 p-4 rounded-xl transition-all duration-300">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0 group-hover:scale-110 transition-transform">
                                 <i class="fas fa-leaf"></i>
                             </div>
                             <div>
@@ -560,8 +687,8 @@
                                 <p class="text-gray-300 text-sm">I strive to design solutions that are elegant and easy to maintain. The best architecture is the one that solves today's problem while being flexible enough for tomorrow.</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0">
+                        <div class="flex items-start gap-4 group hover:bg-white/5 p-4 rounded-xl transition-all duration-300">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0 group-hover:scale-110 transition-transform">
                                 <i class="fas fa-database"></i>
                             </div>
                             <div>
@@ -571,8 +698,8 @@
                         </div>
                     </div>
                     <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0">
+                        <div class="flex items-start gap-4 group hover:bg-white/5 p-4 rounded-xl transition-all duration-300">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0 group-hover:scale-110 transition-transform">
                                 <i class="fas fa-expand-arrows-alt"></i>
                             </div>
                             <div>
@@ -580,8 +707,8 @@
                                 <p class="text-gray-300 text-sm">From batch processing to real-time analytics, my solutions are built with scalability in mind — ensuring systems perform smoothly even as data grows exponentially.</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0">
+                        <div class="flex items-start gap-4 group hover:bg-white/5 p-4 rounded-xl transition-all duration-300">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0 group-hover:scale-110 transition-transform">
                                 <i class="fas fa-users"></i>
                             </div>
                             <div>
@@ -591,8 +718,8 @@
                         </div>
                     </div>
                     <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0">
+                        <div class="flex items-start gap-4 group hover:bg-white/5 p-4 rounded-xl transition-all duration-300">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0 group-hover:scale-110 transition-transform">
                                 <i class="fas fa-heart"></i>
                             </div>
                             <div>
@@ -600,8 +727,8 @@
                                 <p class="text-gray-300 text-sm">Whether it's a data scientist training models or a business user reading dashboards, I believe every technical decision should ultimately empower the end user.</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0">
+                        <div class="flex items-start gap-4 group hover:bg-white/5 p-4 rounded-xl transition-all duration-300">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center text-white text-xl flex-shrink-0 group-hover:scale-110 transition-transform">
                                 <i class="fas fa-shield-alt"></i>
                             </div>
                             <div>
@@ -613,51 +740,97 @@
                 </div>
             </div>
         </section>
+        <!-- Section Separator -->
+        <div class="section-separator"></div>
+
         <!-- S.O.L.I.D. Design Principles Section -->
         <section class="mb-16">
-            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">S.O.L.I.D. Design Principles</h2>
-            <div class="glass rounded-2xl p-8 fade-in-up">
-                <div class="text-center mb-8">
-                    <p class="text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
-                        My technical approach is grounded in proven software design principles that ensure maintainable, scalable, and robust systems.
-                    </p>
+            <div class="text-center mb-8">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-code mr-2"></i>Technical Foundation
+                    </span>
                 </div>
+                <h2 class="text-4xl font-bold mb-4 gradient-text">S.O.L.I.D. Design Principles</h2>
+                <p class="text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
+                    My technical approach is grounded in proven software design principles that ensure maintainable, scalable, and robust systems.
+                </p>
+            </div>
+            <div class="glass rounded-2xl p-8 fade-in-up">
                 <div class="grid md:grid-cols-2 gap-8">
                     <div class="space-y-6">
-                        <div class="border-l-4 border-accent pl-4">
-                            <h3 class="text-xl font-semibold text-white mb-2">Single Responsibility</h3>
+                        <div class="border-l-4 border-accent pl-4 group hover:bg-white/5 p-3 rounded-r-lg transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                                    <span class="text-accent font-bold text-sm">S</span>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white">Single Responsibility</h3>
+                            </div>
                             <p class="text-gray-300 text-sm">Each module has one reason to change, ensuring clarity and maintainability in complex systems.</p>
                         </div>
-                        <div class="border-l-4 border-accent2 pl-4">
-                            <h3 class="text-xl font-semibold text-white mb-2">Open/Closed Principle</h3>
+                        <div class="border-l-4 border-accent2 pl-4 group hover:bg-white/5 p-3 rounded-r-lg transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 bg-accent2/20 rounded-full flex items-center justify-center">
+                                    <span class="text-accent2 font-bold text-sm">O</span>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white">Open/Closed Principle</h3>
+                            </div>
                             <p class="text-gray-300 text-sm">Systems are open for extension but closed for modification, enabling easy feature additions.</p>
                         </div>
-                        <div class="border-l-4 border-accent pl-4">
-                            <h3 class="text-xl font-semibold text-white mb-2">Liskov Substitution</h3>
+                        <div class="border-l-4 border-accent pl-4 group hover:bg-white/5 p-3 rounded-r-lg transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                                    <span class="text-accent font-bold text-sm">L</span>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white">Liskov Substitution</h3>
+                            </div>
                             <p class="text-gray-300 text-sm">Objects can be replaced with instances of their subtypes without altering system correctness.</p>
                         </div>
                     </div>
                     <div class="space-y-6">
-                        <div class="border-l-4 border-accent2 pl-4">
-                            <h3 class="text-xl font-semibold text-white mb-2">Interface Segregation</h3>
+                        <div class="border-l-4 border-accent2 pl-4 group hover:bg-white/5 p-3 rounded-r-lg transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 bg-accent2/20 rounded-full flex items-center justify-center">
+                                    <span class="text-accent2 font-bold text-sm">I</span>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white">Interface Segregation</h3>
+                            </div>
                             <p class="text-gray-300 text-sm">Clients should not depend on interfaces they don't use, promoting focused and lean APIs.</p>
                         </div>
-                        <div class="border-l-4 border-accent pl-4">
-                            <h3 class="text-xl font-semibold text-white mb-2">Dependency Inversion</h3>
+                        <div class="border-l-4 border-accent pl-4 group hover:bg-white/5 p-3 rounded-r-lg transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                                    <span class="text-accent font-bold text-sm">D</span>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white">Dependency Inversion</h3>
+                            </div>
                             <p class="text-gray-300 text-sm">High-level modules don't depend on low-level modules; both depend on abstractions.</p>
                         </div>
-                        <div class="mt-8 p-4 bg-gradient-to-r from-accent/10 to-accent2/10 rounded-lg border border-accent/20">
-                            <p class="text-gray-300 text-sm italic">
-                                "These principles guide every architectural decision I make, ensuring that systems are not just functional, but truly maintainable and extensible."
-                            </p>
+                        <div class="mt-8 p-6 bg-gradient-to-r from-accent/10 to-accent2/10 rounded-lg border border-accent/20 hover:border-accent/40 transition-all duration-300">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-quote-left text-accent text-xl"></i>
+                                <p class="text-gray-300 text-sm italic">
+                                    "These principles guide every architectural decision I make, ensuring that systems are not just functional, but truly maintainable and extensible."
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-                <!-- What People Say Section -->
+        <!-- Section Separator -->
+        <div class="section-separator"></div>
+
+        <!-- What People Say Section -->
         <section class="mb-16">
-            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">What People Say</h2>
+            <div class="text-center mb-8">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-quote-left mr-2"></i>Testimonials
+                    </span>
+                </div>
+                <h2 class="text-4xl font-bold mb-4 gradient-text">What People Say</h2>
+            </div>
             <div class="marquee" id="testimonialsMarquee" tabindex="0" aria-label="Testimonials carousel (auto-scroll, hover or tap to pause)">
                 <div class="marquee-track" id="testimonialsTrack">
                     <!-- row 1 -->
@@ -795,56 +968,157 @@
             </div>
         </section>
 
+        <!-- Section Separator -->
+        <div class="section-separator"></div>
+
         <!-- Skills & Expertise -->
-        <section class="glass rounded-2xl p-8 mb-16 fade-in-up">
-            <h2 class="text-3xl font-bold text-accent2 mb-8 text-center">
-                Skills & Expertise
-            </h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">Data Engineering & AI</h3>
-                    <p class="text-gray-400 text-sm">Building scalable data pipelines, AI/ML models, and architectures</p>
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-tools mr-2"></i>Technical Skills
+                    </span>
                 </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
-                        <i class="fas fa-cloud"></i>
+                <h2 class="text-4xl font-bold mb-4 gradient-text">Skills & Expertise</h2>
+            </div>
+            <div class="glass rounded-2xl p-8 fade-in-up">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="text-center group hover:bg-white/5 p-6 rounded-xl transition-all duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Data Engineering & AI</h3>
+                        <p class="text-gray-400 text-sm mb-3">Building scalable data pipelines, AI/ML models, and architectures</p>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="px-2 py-1 bg-accent/20 text-accent text-xs rounded-full">PySpark</span>
+                            <span class="px-2 py-1 bg-accent/20 text-accent text-xs rounded-full">LangChain</span>
+                            <span class="px-2 py-1 bg-accent/20 text-accent text-xs rounded-full">RAG</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">Cloud Architecture</h3>
-                    <p class="text-gray-400 text-sm">Designing and implementing cloud-native solutions</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
-                        <i class="fas fa-users-cog"></i>
+                    <div class="text-center group hover:bg-white/5 p-6 rounded-xl transition-all duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Cloud Architecture</h3>
+                        <p class="text-gray-400 text-sm mb-3">Designing and implementing cloud-native solutions</p>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="px-2 py-1 bg-accent/20 text-accent text-xs rounded-full">AWS</span>
+                            <span class="px-2 py-1 bg-accent/20 text-accent text-xs rounded-full">Lambda</span>
+                            <span class="px-2 py-1 bg-accent/20 text-accent text-xs rounded-full">K8s</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">Team Leadership</h3>
-                    <p class="text-gray-400 text-sm">Mentoring and leading technical teams</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
-                        <i class="fas fa-chart-line"></i>
+                    <div class="text-center group hover:bg-white/5 p-6 rounded-xl transition-all duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Team Leadership</h3>
+                        <p class="text-gray-400 text-sm mb-3">Mentoring and leading technical teams</p>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="px-2 py-1 bg-accent/20 text-accent text-xs rounded-full">Mentoring</span>
+                            <span class="px-2 py-1 bg-accent/20 text-accent text-xs rounded-full">Agile</span>
+                            <span class="px-2 py-1 bg-accent/20 text-accent text-xs rounded-full">Strategy</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">Analytics</h3>
-                    <p class="text-gray-400 text-sm">Transforming data into actionable insights using AI and ML</p>
+                    <div class="text-center group hover:bg-white/5 p-6 rounded-xl transition-all duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Analytics</h3>
+                        <p class="text-gray-400 text-sm mb-3">Transforming data into actionable insights using AI and ML</p>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="px-2 py-1 bg-accent/20 text-accent text-xs rounded-full">MLOps</span>
+                            <span class="px-2 py-1 bg-accent/20 text-accent text-xs rounded-full">Real-time</span>
+                            <span class="px-2 py-1 bg-accent/20 text-accent text-xs rounded-full">Predictive</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Section Separator -->
+        <div class="section-separator"></div>
+
+        <!-- Fun Facts / Outside Work Section -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-lightbulb mr-2"></i>Beyond Work
+                    </span>
+                </div>
+                <h2 class="text-4xl font-bold mb-4 gradient-text">Fun Facts & Interests</h2>
+            </div>
+            <div class="glass rounded-2xl p-8 fade-in-up">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center p-6 hover:bg-white/5 rounded-xl transition-all duration-300 group">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Continuous Learner</h3>
+                        <p class="text-gray-400 text-sm">Always exploring new technologies, reading technical blogs, and staying updated with industry trends</p>
+                    </div>
+                    <div class="text-center p-6 hover:bg-white/5 rounded-xl transition-all duration-300 group">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Mentoring</h3>
+                        <p class="text-gray-400 text-sm">Passionate about sharing knowledge and helping others grow in their data engineering journey</p>
+                    </div>
+                    <div class="text-center p-6 hover:bg-white/5 rounded-xl transition-all duration-300 group">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Problem Solving</h3>
+                        <p class="text-gray-400 text-sm">Enjoy tackling complex challenges and finding elegant solutions to real-world problems</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Separator -->
+        <div class="section-separator"></div>
+
         <!-- Call to Action -->
-        <section class="text-center fade-in-up">
-            <div class="glass rounded-2xl p-8">
-                <h2 class="text-3xl font-bold text-accent2 mb-4">Let's Work Together</h2>
-                <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
+        <section class="text-center fade-in-up relative overflow-hidden">
+            <!-- Background decorations -->
+            <div class="absolute inset-0 opacity-5 pointer-events-none">
+                <div class="animated-bg-element w-64 h-64 bg-accent top-10 right-10"></div>
+                <div class="animated-bg-element w-48 h-48 bg-accent2 bottom-20 left-20" style="animation-delay: -7s;"></div>
+            </div>
+
+            <div class="glass rounded-2xl p-8 md:p-12 relative z-10">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-handshake mr-2"></i>Let's Connect
+                    </span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4">Let's Work Together</h2>
+                <p class="text-gray-300 mb-8 max-w-2xl mx-auto text-lg">
                     I'm always interested in new opportunities and exciting projects. Whether you're looking for a data engineering solution or want to discuss potential collaboration, I'd love to hear from you.
                 </p>
+                
+                <!-- Quick Info -->
+                <div class="grid md:grid-cols-3 gap-4 mb-8 max-w-3xl mx-auto">
+                    <div class="glass rounded-lg p-4 border border-accent/20">
+                        <i class="fas fa-briefcase text-accent text-xl mb-2"></i>
+                        <p class="text-sm text-gray-300">Open to Opportunities</p>
+                    </div>
+                    <div class="glass rounded-lg p-4 border border-accent/20">
+                        <i class="fas fa-users text-accent text-xl mb-2"></i>
+                        <p class="text-sm text-gray-300">Open to Collaborations</p>
+                    </div>
+                    <div class="glass rounded-lg p-4 border border-accent/20">
+                        <i class="fas fa-chalkboard-teacher text-accent text-xl mb-2"></i>
+                        <p class="text-sm text-gray-300">Open to Mentoring</p>
+                    </div>
+                </div>
+
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all cta-button">
                         <i class="fas fa-envelope"></i>
                         Get In Touch
                     </a>
-                    <a href="../assets/NITENDER_KUMAR_DL_V4_2025.pdf" download="Nitender_Kumar_Principal_Data_Engineer_Resume.pdf" class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all border border-white/20">
+                    <a href="../assets/NITENDER_KUMAR_DL_V4_2025.pdf" download="Nitender_Kumar_Principal_Data_Engineer_Resume.pdf" class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all border border-white/20 hover:border-accent/40">
                         <i class="fas fa-download"></i>
                         Download Resume
                     </a>
@@ -978,6 +1252,16 @@
     <script>
         // Theme management
         document.addEventListener('DOMContentLoaded', function() {
+            // Scroll progress indicator
+            const scrollProgress = document.getElementById('scrollProgress');
+            if (scrollProgress) {
+                window.addEventListener('scroll', () => {
+                    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrolled = (window.scrollY / windowHeight) * 100;
+                    scrollProgress.style.width = scrolled + '%';
+                });
+            }
+
             // Scroll to top
             const scrollToTopBtn = document.getElementById('scroll-to-top');
             if (scrollToTopBtn) {
