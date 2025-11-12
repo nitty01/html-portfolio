@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nitender Kumar | Principal Data Engineer Portfolio</title>
+    <meta name="description" content="Principal Data Engineer & Solution Architect. I build scalable, cloud-native data platforms, ML pipelines, and realtime analytics that drive business impact.">
+    <link rel="canonical" href="https://nitty01.github.io/html-portfolio/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nitender Kumar | Principal Data Engineer Portfolio">
+    <meta property="og:description" content="Scalable data platforms, ML pipelines, realtime analytics. Explore projects, experience, and resume.">
+    <meta property="og:url" content="https://nitty01.github.io/html-portfolio/">
+    <meta property="og:image" content="https://nitty01.github.io/html-portfolio/assets/images/profile_pic.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <meta name="theme-color" content="#06b6d4">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Y1JBT1EXB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6Y1JBT1EXB', {
+        debug_mode: true  // Enable debug mode for localhost testing
+      });
+    </script>
+    
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "t8hxb4v0kn");
+    </script>
+    
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'Poppins', 'Space Grotesk', 'ui-sans-serif', 'system-ui'],
+            },
+            colors: {
+              accent: '#06b6d4',
+              accent2: '#6366f1',
+            },
+            boxShadow: {
+              glass: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+            },
+            backdropBlur: {
+              sm: '4px',
+              md: '8px',
+              lg: '16px',
+            },
+          },
+        },
+      }
+    </script>
+    
+    <!-- Additional Libraries -->
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        /* Enhanced CSS Variables */
+        :root {
+          --accent: #06b6d4;
+          --accent2: #6366f1;
+          --bg-dark: #0f172a;
+          --bg-light: #f8fafc;
+          --text-light: #f1f5f9;
+          --text-dark: #1e293b;
+        }
+        
+        /* Smooth scrolling */
+        html { 
+          scroll-behavior: smooth; 
+        }
+        
+        /* Theme transitions */
+        body {
+          background: var(--bg-dark);
+          color: var(--text-light);
+          transition: background 0.3s, color 0.3s;
+        }
+        
+        body.light {
+          background: var(--bg-light);
+          color: var(--text-dark);
+        }
+        
+        body.dark {
+          background: var(--bg-dark);
+          color: var(--text-light);
+        }
+        
+        /* Enhanced animations */
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes scaleIn {
+          from {
+            opacity: 0;
+            transform: scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        
+        .animate-fadeInUp {
+          animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .animate-scaleIn {
+          animation: scaleIn 0.4s ease-out;
+        }
+        
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+
+        /* Blinking green border animation */
+        @keyframes blinkBorder {
+          0%, 50% { border-color: #10b981; box-shadow: 0 0 0 4px #10b981, 0 0 20px #10b981; }
+          51%, 100% { border-color: #06b6d4; box-shadow: 0 0 0 4px #06b6d4, 0 0 20px #06b6d4; }
+        }
+        
+        .profile-pic-blink {
+          box-sizing: border-box;
+          width: 12rem;
+          height: 12rem;
+          animation: blinkBorder 2s infinite;
+        }
+        
+        /* Loading states */
+
+        /* Ensure proper page scaling */
+        html {
+          zoom: 1;
+          -webkit-text-size-adjust: 100%;
+          -ms-text-size-adjust: 100%;
+        }
+        
+        body {
+          zoom: 1;
+          -webkit-text-size-adjust: 100%;
+          -ms-text-size-adjust: 100%;
+        }
+        .loading {
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .loading::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+          animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+          0% { left: -100%; }
+          100% { left: 100%; }
+        }
+        
+        /* Accessibility improvements */
+        .focus-visible:focus {
+          outline: 2px solid #06b6d4;
+          outline-offset: 2px;
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+          *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+          }
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+          width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+          background: linear-gradient(to bottom, var(--accent), var(--accent2));
+          border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(to bottom, var(--accent2), var(--accent));
+        }
+    </style>
+</head>
+
+<body class="dark min-h-screen font-sans text-gray-200">
+    <!-- Enhanced Navigation -->
+    <nav class="site-nav w-full flex items-center justify-between py-4 px-4 bg-gray-900/95 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-gray-800/50">
+        <a class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text hover:scale-105 transition-transform" href="./index.html" aria-label="Home">
+            Nitender Kumar
+        </a>
+        <button id="nav-toggle" class="md:hidden px-3 py-2 rounded-lg bg-gray-800 text-white" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div id="nav-links" class="hidden md:flex items-center gap-2 md:gap-4">
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="public/about.html">About</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="#projects">Projects</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="#experience">Experience</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="public/contact.html">Contact</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="public/fun-zone.html">Tech Playground</a>
+            <button id="globalThemeToggle" class="ml-2 px-3 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-white text-sm transition-colors" title="Toggle Light/Dark Mode" aria-label="Toggle theme">
+                <i class="fas fa-moon dark:hidden"></i>
+                <i class="fas fa-sun hidden dark:inline"></i>
+            </button>
+            <a class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all text-sm md:text-base" href="https://www.linkedin.com/in/nitender-kumar" target="_blank" rel="noopener" data-gtm="linkedin">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+            </a>
+        </div>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <section class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" id="hero-section">
+        <!-- Animated background pattern -->
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%236366f1\" fill-opacity=\"0.08\"%3E%3Ccircle cx=\"7\" cy=\"7\" r=\"1\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 w-full">
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
+                <!-- Left: Copy -->
+                <div class="hero-copy text-center lg:text-left">
+                    <h1 id="hero-headline" class="text-5xl md:text-6xl font-extrabold mb-4 animate-fadeInUp" style="animation-delay: 0.1s;">
+                        Principal Data Engineer — Building scalable data platforms
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-300 mb-6 animate-fadeInUp" style="animation-delay: 0.25s;">
+                        I architect cloud-native data systems, ML pipelines, and streaming analytics that turn raw data into decisions.
+                    </p>
+                    <div class="text-accent2 text-lg mb-6" aria-live="polite">
+                        <span class="mr-2">Roles:</span>
+                        <span id="role-rotator" class="font-semibold"></span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center animate-fadeInUp" style="animation-delay: 0.35s;">
+                        <button id="view-work-btn" class="group px-6 py-3 bg-gradient-to-r from-accent to-accent2 text-white rounded-xl font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300" data-gtm="see_my_projects">
+                            <span class="flex items-center gap-2">
+                                See My Projects
+                                <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </span>
+                        </button>
+                        <a href="assets/NITENDER_KUMAR_DL_V4_2025.pdf" download="Nitender_Kumar_Principal_Data_Engineer_Resume.pdf" class="px-6 py-3 border-2 border-accent text-accent rounded-xl font-bold hover:bg-accent hover:text-white transition-all duration-300" data-gtm="download_resume">
+                            <i class="fas fa-download mr-2"></i>
+                            Download Resume
+                        </a>
+                    </div>
+                    <!-- Skill tags -->
+                    <div class="mt-6 flex flex-wrap gap-2 justify-center lg:justify-start" aria-label="Skills">
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-sm">Data Architecture</span>
+                        <span class="px-3 py-1 bg-accent2/20 text-accent2 rounded-full text-sm">Cloud (AWS)</span>
+                        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">ML Pipelines</span>
+                        <span class="px-3 py-1 bg-fuchsia-500/20 text-fuchsia-300 rounded-full text-sm">Observability</span>
+                    </div>
+                    <!-- Scroll hint -->
+                    <button id="scroll-hint" class="mt-10 inline-flex items-center gap-2 text-gray-400 hover:text-accent transition-colors" aria-label="Scroll to projects" data-gtm="scroll_hint">
+                        <i class="fas fa-circle-down animate-float"></i>
+                        <span>Scroll to see projects</span>
+                    </button>
+                </div>
+                <!-- Right: Portrait -->
+                <div class="flex justify-center lg:justify-end">
+                    <img src="assets/images/profile_pic.jpg" alt="Portrait of Nitender Kumar" width="384" height="384" loading="eager" fetchpriority="high" decoding="async" class="w-56 h-56 md:w-72 md:h-72 rounded-full border-8 border-accent shadow-2xl object-cover profile-pic-blink" />
+                </div>
+            </div>
+            <!-- Stats -->
+            <div id="stats-section" class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 animate-fadeInUp" style="animation-delay: 0.5s;">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-accent" data-count="13">0</div>
+                    <div class="text-gray-400">Years Experience</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-accent2" data-count="15">0</div>
+                    <div class="text-gray-400">Projects Completed</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-accent" data-count="5">0</div>
+                    <div class="text-gray-400">Major Platforms</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-accent2" data-count="10">0</div>
+                    <div class="text-gray-400">TB Data Processed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Currently Working On -->
+    <section class="py-10 px-4 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="glass rounded-2xl p-6 flex flex-col md:flex-row items-start md:items-center gap-6">
+                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 text-white flex items-center justify-center text-2xl">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="flex-1">
+                    <h3 class="text-xl font-bold text-white mb-1">Currently Working On: c6insights</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        A sustainability-focused product helping fleets and vehicle owners track and reduce carbon emissions. Integrating AI/ML for predictive analytics, anomaly detection, and optimization. Exploring Generative AI (ChatGPT, Gemini, Claude, Mixtral, HuggingFace, LangChain, LlamaIndex, RAG) to deliver interactive insights, sustainability recommendations, and phased fleet transformation strategies.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Summary Section -->
+    <section class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
+                Professional Summary
+            </h2>
+            <div class="glass rounded-2xl p-8 max-w-4xl mx-auto">
+                <p class="text-lg text-gray-300 leading-relaxed text-center">
+                    Principal Data Engineer with 13+ years of experience architecting cloud-native data platforms processing 10M+ daily events across automotive, marketing, and sustainability domains. Proven ability to reduce pipeline costs by 30%, deliver sub-second streaming analytics, and lead teams of up to 12 engineers. Skilled in scalable, high-availability platforms with measurable business impact.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Competencies Section -->
+    <section class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
+                Core Competencies
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Big Data & Cloud -->
+                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center text-white text-2xl mr-4">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Big Data & Cloud</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full">Spark</span>
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full">Hadoop</span>
+                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-sm rounded-full">AWS S3</span>
+                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-sm rounded-full">EMR</span>
+                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-sm rounded-full">Redshift</span>
+                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-sm rounded-full">Lambda</span>
+                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-sm rounded-full">Glue</span>
+                    </div>
+                </div>
+
+                <!-- Data Engineering -->
+                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center text-white text-2xl mr-4">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Data Engineering</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-green-500/20 text-green-300 text-sm rounded-full">ETL</span>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-300 text-sm rounded-full">Kafka</span>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-300 text-sm rounded-full">RabbitMQ</span>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-300 text-sm rounded-full">Data Warehousing</span>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-300 text-sm rounded-full">Lakehouse Architecture</span>
+                    </div>
+                </div>
+
+                <!-- Programming Languages -->
+                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center text-white text-2xl mr-4">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Programming Languages</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 text-sm rounded-full">Python (OOPs)</span>
+                        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 text-sm rounded-full">Pandas</span>
+                        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 text-sm rounded-full">NumPy</span>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg flex items-center justify-center text-white text-2xl mr-4">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Databases</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-sm rounded-full">SQL (Postgres)</span>
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-sm rounded-full">NoSQL (MongoDB)</span>
+                    </div>
+                </div>
+
+                <!-- ML & AI -->
+                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-rose-500 rounded-lg flex items-center justify-center text-white text-2xl mr-4">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">ML & AI</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-pink-500/20 text-pink-300 text-sm rounded-full">TensorFlow</span>
+                        <span class="px-3 py-1 bg-pink-500/20 text-pink-300 text-sm rounded-full">PyTorch</span>
+                        <span class="px-3 py-1 bg-pink-500/20 text-pink-300 text-sm rounded-full">Feature Engineering</span>
+                        <span class="px-3 py-1 bg-pink-500/20 text-pink-300 text-sm rounded-full">Predictive Analytics</span>
+                        <span class="px-3 py-1 bg-pink-500/20 text-pink-300 text-sm rounded-full">LangChain</span>
+                        <span class="px-3 py-1 bg-pink-500/20 text-pink-300 text-sm rounded-full">HuggingFace</span>
+                        <span class="px-3 py-1 bg-pink-500/20 text-pink-300 text-sm rounded-full">RAG</span>
+                    </div>
+                </div>
+
+                <!-- DevOps & Orchestration -->
+                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center text-white text-2xl mr-4">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">DevOps & Orchestration</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-teal-500/20 text-teal-300 text-sm rounded-full">Docker</span>
+                        <span class="px-3 py-1 bg-teal-500/20 text-teal-300 text-sm rounded-full">Kubernetes</span>
+                        <span class="px-3 py-1 bg-teal-500/20 text-teal-300 text-sm rounded-full">Jenkins</span>
+                        <span class="px-3 py-1 bg-teal-500/20 text-teal-300 text-sm rounded-full">GitHub Actions</span>
+                        <span class="px-3 py-1 bg-teal-500/20 text-teal-300 text-sm rounded-full">FastAPI</span>
+                        <span class="px-3 py-1 bg-teal-500/20 text-teal-300 text-sm rounded-full">Flask</span>
+                        <span class="px-3 py-1 bg-teal-500/20 text-teal-300 text-sm rounded-full">Django</span>
+                    </div>
+                </div>
+
+                <!-- Leadership -->
+                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 md:col-span-2 lg:col-span-3">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-lg flex items-center justify-center text-white text-2xl mr-4">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Leadership</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-red-500/20 text-red-300 text-sm rounded-full">Mentoring</span>
+                        <span class="px-3 py-1 bg-red-500/20 text-red-300 text-sm rounded-full">Team Scaling</span>
+                        <span class="px-3 py-1 bg-red-500/20 text-red-300 text-sm rounded-full">Agile/Scrum Practices</span>
+                        <span class="px-3 py-1 bg-red-500/20 text-red-300 text-sm rounded-full">Stakeholder Collaboration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Highlights Section -->
+    <section class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
+                Leadership Highlights
+            </h2>
+            
+            <div class="space-y-8">
+                <div class="glass rounded-2xl p-6 flex items-start gap-6">
+                    <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl flex-shrink-0">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">Team Scaling & Development</h3>
+                        <p class="text-gray-300">Scaled engineering team from 3 → 12 members across multiple domains and geographies. Mentored and coached 8 engineers, with 3 promotions to senior roles under direct guidance.</p>
+                    </div>
+                </div>
+
+                <div class="glass rounded-2xl p-6 flex items-start gap-6">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white text-2xl flex-shrink-0">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">Cost Optimization</h3>
+                        <p class="text-gray-300">Drove AWS cost optimization, reducing annual spend by $36k (25–30%).</p>
+                    </div>
+                </div>
+
+                <div class="glass rounded-2xl p-6 flex items-start gap-6">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white text-2xl flex-shrink-0">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">Engineering Best Practices</h3>
+                        <p class="text-gray-300">Instituted engineering best practices (CI/CD, coding standards, DevOps automation), reducing deployment failures by 50%.</p>
+                    </div>
+                </div>
+
+                <div class="glass rounded-2xl p-6 flex items-start gap-6">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center text-white text-2xl flex-shrink-0">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">Data Pipeline Excellence</h3>
+                        <p class="text-gray-300">Built robust ETL pipelines for digital marketing data sources, reducing reporting errors by 40%.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Highlights</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass rounded-2xl p-6">
+                    <div class="w-12 h-12 rounded-lg bg-accent/20 text-accent flex items-center justify-center mb-3">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3 class="font-semibold text-white mb-2">Data Architecture</h3>
+                    <p class="text-sm text-gray-300">Lakehouse, streaming, microservices for analytics at scale.</p>
+                </div>
+                <div class="glass rounded-2xl p-6">
+                    <div class="w-12 h-12 rounded-lg bg-accent2/20 text-accent2 flex items-center justify-center mb-3">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="font-semibold text-white mb-2">Cloud</h3>
+                    <p class="text-sm text-gray-300">AWS-first designs: S3, EMR, Redshift, Lambda, K8s.</p>
+                </div>
+                <div class="glass rounded-2xl p-6">
+                    <div class="w-12 h-12 rounded-lg bg-emerald-500/20 text-emerald-300 flex items-center justify-center mb-3">
+                        <i class="fas fa-diagram-project"></i>
+                    </div>
+                    <h3 class="font-semibold text-white mb-2">ML Pipelines</h3>
+                    <p class="text-sm text-gray-300">Feature stores, model ops, and realtime inference.</p>
+                </div>
+                <div class="glass rounded-2xl p-6">
+                    <div class="w-12 h-12 rounded-lg bg-fuchsia-500/20 text-fuchsia-300 flex items-center justify-center mb-3">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="font-semibold text-white mb-2">Observability</h3>
+                    <p class="text-sm text-gray-300">SLIs/SLOs, tracing, and cost visibility across stacks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
+                Featured Projects
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Deep View Analytics Project Card -->
+                <div class="group relative bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer" data-project="deepview">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="assets/images/diagrams/deep-view-analytics/deep-view-analytics-architecture-2025-07-v1.png" loading="lazy" decoding="async"
+                             alt="Deep View Analytics" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        
+                        <!-- Tech Stack Badges -->
+                        <div class="absolute top-4 right-4 flex flex-wrap gap-1">
+                            <span class="px-2 py-1 bg-accent text-white text-xs rounded-full">Python</span>
+                            <span class="px-2 py-1 bg-accent2 text-white text-xs rounded-full">FastAPI</span>
+                            <span class="px-2 py-1 bg-green-500 text-white text-xs rounded-full">MongoDB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Deep View Analytics</h3>
+                        <p class="text-gray-300 text-sm mb-4">
+                            Real-time analytics platform processing 10M+ data points for automotive and marketing insights.
+                        </p>
+                        
+                        <div class="flex justify-between items-center text-xs text-gray-400 mb-4">
+                            <span>Role: Principal Data Engineer</span>
+                            <span>Duration: 2 years</span>
+                        </div>
+                        
+                        <div class="flex gap-2">
+                            <button class="flex-1 py-2 bg-accent/20 text-accent rounded-lg hover:bg-accent hover:text-white transition-colors" onclick="openProjectModal('deepview')">
+                                View Details
+                            </button>
+                            <button class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors" onclick="window.location.href='public/project-deep-view-analytics.html'">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                </div>
+                
+                <!-- QLM Project Card -->
+                <div class="group relative bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer" data-project="qlm">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="assets/images/diagrams/qlm/qlm-architecture-2025-07-12-v1.png" loading="lazy" decoding="async"
+                             alt="QLM Platform" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        
+                        <div class="absolute top-4 right-4 flex flex-wrap gap-1">
+                            <span class="px-2 py-1 bg-orange-500 text-white text-xs rounded-full">TensorFlow</span>
+                            <span class="px-2 py-1 bg-blue-500 text-white text-xs rounded-full">Python</span>
+                            <span class="px-2 py-1 bg-green-500 text-white text-xs rounded-full">OpenCV</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">QLM Platform</h3>
+                        <p class="text-gray-300 text-sm mb-4">
+                            AI-powered video analytics system for queue length management in retail environments.
+                        </p>
+                        
+                        <div class="flex justify-between items-center text-xs text-gray-400 mb-4">
+                            <span>Role: Lead Architect</span>
+                            <span>Duration: 8 months</span>
+                        </div>
+                        
+                        <div class="flex gap-2">
+                            <button class="flex-1 py-2 bg-accent/20 text-accent rounded-lg hover:bg-accent hover:text-white transition-colors" onclick="openProjectModal('qlm')">
+                                View Details
+                            </button>
+                            <button class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors" onclick="window.location.href='public/project-qlm.html'">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Self Analytics Project Card -->
+                <div class="group relative bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer" data-project="selfanalytics">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="assets/images/diagrams/self-analytics/self-analytics-architecture-2025-07-12-v1.png" loading="lazy" decoding="async"
+                             alt="Self Analytics" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        
+                        <div class="absolute top-4 right-4 flex flex-wrap gap-1">
+                            <span class="px-2 py-1 bg-red-500 text-white text-xs rounded-full">Django</span>
+                            <span class="px-2 py-1 bg-yellow-500 text-white text-xs rounded-full">Python</span>
+                            <span class="px-2 py-1 bg-green-500 text-white text-xs rounded-full">PostgreSQL</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Self Analytics</h3>
+                        <p class="text-gray-300 text-sm mb-4">
+                            Web-based application for automated feature engineering over NEC-LABS analytical engine.
+                        </p>
+                        
+                        <div class="flex justify-between items-center text-xs text-gray-400 mb-4">
+                            <span>Role: Principal Engineer</span>
+                            <span>Duration: 2 years</span>
+                        </div>
+                        
+                        <div class="flex gap-2">
+                            <button class="flex-1 py-2 bg-accent/20 text-accent rounded-lg hover:bg-accent hover:text-white transition-colors" onclick="openProjectModal('selfanalytics')">
+                                View Details
+                            </button>
+                            <button class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors" onclick="window.location.href='public/project-self-analytics.html'">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- NEC IoT Big Data Project Card -->
+                <div class="group relative bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer" data-project="iotbigdata">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="assets/images/diagrams/nec-iot-big-data/nec-iot-architecture-2025-07-12-v1.png" loading="lazy" decoding="async"
+                             alt="NEC IoT Big Data" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        
+                        <div class="absolute top-4 right-4 flex flex-wrap gap-1">
+                            <span class="px-2 py-1 bg-blue-600 text-white text-xs rounded-full">Spark</span>
+                            <span class="px-2 py-1 bg-orange-500 text-white text-xs rounded-full">Kafka</span>
+                            <span class="px-2 py-1 bg-green-500 text-white text-xs rounded-full">K8s</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">NEC IoT Big Data</h3>
+                        <p class="text-gray-300 text-sm mb-4">
+                            Large-scale IoT data processing platform handling millions of sensor data points in real-time.
+                        </p>
+                        
+                        <div class="flex justify-between items-center text-xs text-gray-400 mb-4">
+                            <span>Role: Senior Data Engineer</span>
+                            <span>Duration: 12 months</span>
+                        </div>
+                        
+                        <div class="flex gap-2">
+                            <button class="flex-1 py-2 bg-accent/20 text-accent rounded-lg hover:bg-accent hover:text-white transition-colors" onclick="openProjectModal('iotbigdata')">
+                                View Details
+                            </button>
+                            <button class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors" onclick="window.location.href='public/project-nec-iot-big-data.html'">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PAOS Project Card -->
+                <div class="group relative bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer" data-project="paos">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="assets/images/diagrams/paos/paos-architecture-2025-07-12-v1.png" loading="lazy" decoding="async"
+                             alt="PAOS (Predictive Auto Ordering System)" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        
+                        <div class="absolute top-4 right-4 flex flex-wrap gap-1">
+                            <span class="px-2 py-1 bg-blue-500 text-white text-xs rounded-full">Django</span>
+                            <span class="px-2 py-1 bg-green-500 text-white text-xs rounded-full">PostgreSQL</span>
+                            <span class="px-2 py-1 bg-purple-500 text-white text-xs rounded-full">Redis</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">PAOS (Predictive Auto Ordering System)</h3>
+                        <p class="text-gray-300 text-sm mb-4">
+                            Predictive auto ordering system for intelligent inventory management and automated procurement.
+                        </p>
+                        
+                        <div class="flex justify-between items-center text-xs text-gray-400 mb-4">
+                            <span>Role: Lead Developer</span>
+                            <span>Duration: 2 years</span>
+                        </div>
+                        
+                        <div class="flex gap-2">
+                            <button class="flex-1 py-2 bg-accent/20 text-accent rounded-lg hover:bg-accent hover:text-white transition-colors" onclick="openProjectModal('paos')">
+                                View Details
+                            </button>
+                            <button class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors" onclick="window.location.href='public/project-paos.html'">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Snapshot -->
+    <section id="experience" class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Experience Snapshot</h2>
+            <ol class="relative border-l border-gray-700">
+                <li class="mb-10 ml-6">
+                    <span class="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-accent text-white"><i class="fas fa-briefcase text-xs"></i></span>
+                    <h3 class="text-xl font-semibold text-white">Principal Data Engineer — Darby Telematics India Pvt Ltd & Danlaw Inc</h3>
+                    <time class="mb-1 text-sm text-gray-400">Mar 2019 – Present</time>
+                    <p class="text-gray-300 text-sm">Led architecture and development of Deep View Analytics to process high-frequency OBD-II, marketing, and carbon data. Built scalable ETL and streaming using PySpark, FastAPI, PostgreSQL, MongoDB, RabbitMQ; managed Docker/Kubernetes; custom-built Deep View Analytics platform usage layer; CI/CD via Jenkins. Integrated GenAI (ChatGPT, Claude, Gemini) for sustainability insights and mentored engineers.</p>
+                </li>
+                <li class="mb-10 ml-6">
+                    <span class="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-accent2 text-white"><i class="fas fa-building text-xs"></i></span>
+                    <h3 class="text-xl font-semibold text-white">Senior Software Engineer — NEC India Pvt Ltd</h3>
+                    <time class="mb-1 text-sm text-gray-400">Aug 2012 – Feb 2019</time>
+                    <p class="text-gray-300 text-sm">Developed Spark/Hadoop pipelines and core modules (data profilers, refactor engines) for large-scale processing. Contributed to QLM (AI video analytics), Self Analytics (feature engineering), and PAOS (predictive inventory). Deployed big data platforms on IoT edge servers, built internal DevOps, supported Spark, and collaborated with NEC Labs USA on ML integration.</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Let's Connect CTA -->
+    <section class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Let's Connect</h2>
+            <p class="text-gray-300 mb-8">Open to principal/lead data engineering and architecture roles. Happy to chat.</p>
+            <div class="flex items-center justify-center gap-4">
+                <a href="mailto:nitender.kumar11@gmail.com" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-accent text-white font-semibold hover:opacity-90 transition" data-gtm="email_cta" aria-label="Email">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="https://linkedin.com/in/nitender-kumar" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-accent2 text-white font-semibold hover:opacity-90 transition" data-gtm="linkedin_cta" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/nitender-kumar" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gray-800 text-white font-semibold hover:bg-gray-700 transition" data-gtm="github_cta" aria-label="GitHub">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI & ML Initiatives Subsection -->
+    <section class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
+                AI & ML Initiatives
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Generative AI -->
+                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-white text-2xl mr-4">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Generative AI</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-sm rounded-full">LangChain</span>
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-sm rounded-full">HuggingFace</span>
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-sm rounded-full">RAG</span>
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-sm rounded-full">ChatGPT</span>
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-sm rounded-full">Claude</span>
+                    </div>
+                </div>
+
+                <!-- Predictive Analytics -->
+                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center text-white text-2xl mr-4">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Predictive Analytics</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full">Vehicle Health</span>
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full">Inventory Optimization</span>
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full">Driver Behavior</span>
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full">Anomaly Detection</span>
+                    </div>
+                </div>
+
+                <!-- Deep Learning -->
+                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center text-white text-2xl mr-4">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Deep Learning</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-green-500/20 text-green-300 text-sm rounded-full">TensorFlow</span>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-300 text-sm rounded-full">PyTorch</span>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-300 text-sm rounded-full">Computer Vision</span>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-300 text-sm rounded-full">OpenCV</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
+                Education
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Master's Degree -->
+                <div class="glass rounded-2xl p-8 hover:scale-105 transition-all duration-300">
+                    <div class="flex items-start gap-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl flex-shrink-0">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">M.Tech, Data Science & Engineering</h3>
+                            <p class="text-accent font-semibold mb-2">BITS Pilani</p>
+                            <p class="text-gray-300 mb-2">2020 – 2022</p>
+                            <p class="text-gray-400 text-sm">Advanced studies in data science, machine learning, and engineering principles.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bachelor's Degree -->
+                <div class="glass rounded-2xl p-8 hover:scale-105 transition-all duration-300">
+                    <div class="flex items-start gap-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white text-2xl flex-shrink-0">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">B.Tech, Electronics & Communication</h3>
+                            <p class="text-green-400 font-semibold mb-2">GEIT, Dehradun</p>
+                            <p class="text-gray-300 mb-2">2007 – 2011</p>
+                            <p class="text-gray-400 text-sm">Foundation in electronics, communication systems, and engineering fundamentals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-gray-900/95 backdrop-blur-lg border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4">
+                        Nitender Kumar
+                    </h3>
+                    <p class="text-gray-400 mb-4 max-w-md">
+                        Principal Data Engineer & Solution Architect passionate about building scalable data solutions that drive business impact.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://linkedin.com/in/nitender-kumar" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                            <i class="fab fa-linkedin text-white"></i>
+                        </a>
+                        <a href="https://github.com/nitender-kumar" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                            <i class="fab fa-github text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="public/about.html" class="text-gray-400 hover:text-accent transition-colors">About Me</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-accent transition-colors">Projects</a></li>
+                        <li><a href="public/contact.html" class="text-gray-400 hover:text-accent transition-colors">Contact</a></li>
+                        <li><a href="public/fun-zone.html" class="text-gray-400 hover:text-accent transition-colors">Tech Playground</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Get In Touch</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:nitender.kumar11@gmail.com" class="hover:text-accent transition-colors">
+                                nitender.kumar11@gmail.com
+                            </a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+917899911081" class="hover:text-accent transition-colors">
+                                +91-7899911081
+                            </a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bangalore, India</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-800 pt-8 mt-8 text-center">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm">
+                        © 2025 Nitender Kumar. Built with ❤️ using modern web technologies.
+                    </p>
+                    <div class="flex gap-4 mt-4 md:mt-0">
+                        <a href="assets/NITENDER_KUMAR_DL_V4_2025.pdf" download="Nitender_Kumar_Principal_Data_Engineer_Resume.pdf" class="text-accent hover:text-accent2 text-sm transition-colors" data-gtm="download_resume_footer">
+                            <i class="fas fa-download mr-1"></i>Download Resume
+                        </a>
+                        <span class="text-gray-600">|</span>
+                        <button id="scroll-to-top" class="text-accent hover:text-accent2 text-sm transition-colors">
+                            <i class="fas fa-arrow-up mr-1"></i>Back to Top
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm hidden">
+        <div class="bg-gray-900 rounded-2xl max-w-4xl max-h-[90vh] overflow-y-auto p-8 m-4 w-full">
+            <div class="flex justify-between items-center mb-6">
+                <h2 id="modal-title" class="text-2xl font-bold text-white">Project Details</h2>
+                <button id="close-modal" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div id="modal-content" class="text-white">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced JavaScript -->
+    <script>
+        // Unified Theme Management
+        (function() {
+            'use strict';
+            
+            // Local variable to track current theme
+            let currentTheme = 'dark';
+            
+            // Theme configuration
+            const themeConfig = {
+                light: {
+                    bodyClass: 'light',
+                    icon: 'fas fa-moon',
+                    nextTheme: 'dark'
+                },
+                dark: {
+                    bodyClass: 'dark', 
+                    icon: 'fas fa-sun',
+                    nextTheme: 'light'
+                }
+            };
+            
+            // Apply theme function
+            function applyTheme(theme) {
+                if (!themeConfig[theme]) return;
+                
+                const body = document.body;
+                const btn = document.getElementById('globalThemeToggle');
+                
+                // Remove all theme classes
+                Object.values(themeConfig).forEach(config => {
+                    body.classList.remove(config.bodyClass);
+                });
+                
+                // Apply new theme
+                body.classList.add(themeConfig[theme].bodyClass);
+                currentTheme = theme;
+                
+                // Update button icon
+                if (btn) {
+                    btn.innerHTML = `<i class="${themeConfig[theme].icon}"></i>`;
+                }
+                
+                // Save to localStorage
+                localStorage.setItem('theme', theme);
+            }
+            
+            // Toggle theme function
+            function toggleTheme() {
+                const newTheme = themeConfig[currentTheme].nextTheme;
+                applyTheme(newTheme);
+            }
+            
+            // Initialize theme
+            function initTheme() {
+                const savedTheme = localStorage.getItem('theme') || 'dark';
+                applyTheme(savedTheme);
+                
+                // Add click listener to theme button
+                const themeBtn = document.getElementById('globalThemeToggle');
+                if (themeBtn) {
+                    themeBtn.addEventListener('click', toggleTheme);
+                }
+            }
+            
+            // Initialize when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initTheme);
+            } else {
+                initTheme();
+            }
+            
+            // Make functions globally available for debugging
+            window.themeManager = {
+                applyTheme,
+                toggleTheme,
+                getCurrentTheme: () => currentTheme
+            };
+        })();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animated counters with improved logic
+            let countersAnimated = false;
+
+            function animateCounters() {
+                if (countersAnimated) return; // Prevent multiple animations
+                countersAnimated = true;
+                
+                const counters = document.querySelectorAll('[data-count]');
+                counters.forEach(counter => {
+                    const target = parseInt(counter.dataset.count);
+                    const duration = 2000; // 2 seconds
+                    const startTime = performance.now();
+                    
+                    function updateCounter(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        
+                        // Easing function for smooth animation
+                        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                        const current = Math.floor(target * easeOutQuart);
+                        
+                        counter.textContent = current;
+                        
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target; // Ensure final value is exact
+                        }
+                    }
+                    
+                    requestAnimationFrame(updateCounter);
+                });
+            }
+
+            // Intersection Observer for stats section
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !countersAnimated) {
+                        animateCounters();
+                    }
+                });
+            }, { threshold: 0.5 }); // Trigger when 50% of the element is visible
+
+            // Observe the stats section
+            const statsSection = document.getElementById('stats-section');
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+
+            // Keep the existing general observer for other animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fadeInUp');
+                    }
+                });
+            });
+
+            // Observe elements for animation
+            document.querySelectorAll('[data-animate]').forEach(el => {
+                observer.observe(el);
+            });
+            // Observe elements for animation
+            document.querySelectorAll('[data-animate]').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Project card interactions
+            document.querySelectorAll('[data-project]').forEach(card => {
+                card.addEventListener('click', function() {
+                    const project = this.dataset.project;
+                    openProjectModal(project);
+                });
+            });
+
+            // View work button -> scroll to projects
+            const viewWorkBtn = document.getElementById('view-work-btn');
+            const projectsAnchor = document.getElementById('projects');
+            if (viewWorkBtn && projectsAnchor) {
+                viewWorkBtn.addEventListener('click', function() {
+                    projectsAnchor.scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+
+            // Scroll to top
+            const scrollToTopBtn = document.getElementById('scroll-to-top');
+            if (scrollToTopBtn) {
+                scrollToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Project data for modals
+            function getProjectData(projectId) {
+                const projects = {
+                    deepview: {
+                        title: "Deep View Analytics",
+                        content: `
+                            <div class="space-y-6">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <img src="assets/images/diagrams/deep-view-analytics/deep-view-analytics-architecture-2025-07-v1.png" 
+                                         alt="Deep View Analytics" 
+                                         class="w-32 h-32 rounded-lg object-cover">
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-white mb-2">Deep View Analytics</h3>
+                                        <p class="text-gray-300 mb-2">Real-time analytics platform processing 10M+ data points</p>
+                                        <div class="flex gap-2">
+                                            <span class="px-3 py-1 bg-accent text-white text-sm rounded-full">Python</span>
+                                            <span class="px-3 py-1 bg-accent2 text-white text-sm rounded-full">FastAPI</span>
+                                            <span class="px-3 py-1 bg-green-500 text-white text-sm rounded-full">MongoDB</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-accent mb-3">Project Overview</h4>
+                                        <p class="text-gray-300 mb-4">A comprehensive analytics platform designed to process and analyze massive amounts of data in real-time. The system handles over 10 million data points daily, providing insights for automotive and marketing sectors.</p>
+                                        <h4 class="text-lg font-semibold text-accent mb-3">Key Features</h4>
+                                        <ul class="text-gray-300 space-y-2">
+                                            <li>• Real-time data processing pipeline</li>
+                                            <li>• Advanced analytics and reporting</li>
+                                            <li>• Scalable microservices architecture</li>
+                                            <li>• Interactive dashboards and visualizations</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-accent mb-3">Technical Details</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <span class="text-gray-400">Role:</span>
+                                                <span class="text-white ml-2">Principal Data Engineer</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Duration:</span>
+                                                <span class="text-white ml-2">2 years</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Team Size:</span>
+                                                <span class="text-white ml-2">1 engineer</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Data Volume:</span>
+                                                <span class="text-white ml-2">10M+ points/day</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-6">
+                                            <a href="public/project-deep-view-analytics.html" 
+                                               class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold hover:shadow-xl transition-all">
+                                                <i class="fas fa-external-link-alt"></i>
+                                                View Full Project
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                    },
+                    qlm: {
+                        title: "QLM Platform",
+                        content: `
+                            <div class="space-y-6">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <img src="assets/images/diagrams/qlm/qlm-architecture-2025-07-12-v1.png" 
+                                         alt="QLM Platform" 
+                                         class="w-32 h-32 rounded-lg object-cover">
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-white mb-2">QLM Platform</h3>
+                                        <p class="text-gray-300 mb-2">Queue Length Management for Hypermarkets</p>
+                                        <div class="flex gap-2">
+                                            <span class="px-3 py-1 bg-orange-500 text-white text-sm rounded-full">TensorFlow</span>
+                                            <span class="px-3 py-1 bg-green-500 text-white text-sm rounded-full">Python</span>
+                                            <span class="px-3 py-1 bg-green-500 text-white text-sm rounded-full">OpenCV</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-accent mb-3">Project Overview</h4>
+                                        <p class="text-gray-300 mb-4">An AI-powered application designed to monitor live video feeds of queues in hypermarkets. The system automatically counts the number of people in a queue and sends alerts to supervisors when the queue length exceeds predetermined thresholds, prompting them to open additional service counters.</p>
+                                        <h4 class="text-lg font-semibold text-accent mb-3">Key Features</h4>
+                                        <ul class="text-gray-300 space-y-2">
+                                            <li>• Real-time video feed monitoring</li>
+                                            <li>• Automated people counting in queues</li>
+                                            <li>• Smart alert system for supervisors</li>
+                                            <li>• POC for MORE hypermarkets</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-accent mb-3">Technical Details</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <span class="text-gray-400">Role:</span>
+                                                <span class="text-white ml-2">Lead Developer</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Duration:</span>
+                                                <span class="text-white ml-2">8 months</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Team Size:</span>
+                                                <span class="text-white ml-2">2 engineers</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Client:</span>
+                                                <span class="text-white ml-2">MORE Hypermarkets</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-6">
+                                            <a href="public/project-qlm.html" 
+                                               class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold hover:shadow-xl transition-all">
+                                                <i class="fas fa-external-link-alt"></i>
+                                                View Full Project
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                    },
+                    selfanalytics: {
+                        title: "Self Analytics",
+                        content: `
+                            <div class="space-y-6">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <img src="assets/images/diagrams/self-analytics/self-analytics-architecture-2025-07-12-v1.png" 
+                                         alt="Self Analytics" 
+                                         class="w-32 h-32 rounded-lg object-cover">
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-white mb-2">Self Analytics</h3>
+                                        <p class="text-gray-300 mb-2">Self-service analytics platform with automated insights</p>
+                                        <div class="flex gap-2">
+                                            <span class="px-3 py-1 bg-orange-500 text-white text-sm rounded-full">TensorFlow</span>
+                                            <span class="px-3 py-1 bg-yellow-500 text-white text-sm rounded-full">Python</span>
+                                            <span class="px-3 py-1 bg-green-500 text-white text-sm rounded-full">PostgreSQL</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-accent mb-3">Project Overview</h4>
+                                        <p class="text-gray-300 mb-4">A web-based application developed for in-house data scientists using the NEC-LABS analytical engine. The application creates valuable resources for machine learning models and provides automated feature selection capabilities.</p>
+                                        <h4 class="text-lg font-semibold text-accent mb-3">Key Features</h4>
+                                        <ul class="text-gray-300 space-y-2">
+                                            <li>• Automated feature engineering</li>
+                                            <li>• Data profiling and analysis</li>
+                                            <li>• SQL data source integration</li>
+                                            <li>• ML model optimization</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-accent mb-3">Technical Details</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <span class="text-gray-400">Role:</span>
+                                                <span class="text-white ml-2">Principal Engineer</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Duration:</span>
+                                                <span class="text-white ml-2">2 years</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Team Size:</span>
+                                                <span class="text-white ml-2">8 engineers</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Data Sources:</span>
+                                                <span class="text-white ml-2">SQL Databases</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-6">
+                                            <a href="public/project-self-analytics.html" 
+                                               class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold hover:shadow-xl transition-all">
+                                                <i class="fas fa-external-link-alt"></i>
+                                                View Full Project
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                    },
+                    iotbigdata: {
+                        title: "NEC IoT Big Data",
+                        content: `
+                            <div class="space-y-6">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <img src="assets/images/diagrams/nec-iot-big-data/nec-iot-architecture-2025-07-12-v1.png" 
+                                         alt="NEC IoT Big Data" 
+                                         class="w-32 h-32 rounded-lg object-cover">
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-white mb-2">NEC IoT Big Data</h3>
+                                        <p class="text-gray-300 mb-2">Large-scale IoT data processing platform</p>
+                                        <div class="flex gap-2">
+                                            <span class="px-3 py-1 bg-blue-600 text-white text-sm rounded-full">Spark</span>
+                                            <span class="px-3 py-1 bg-orange-500 text-white text-sm rounded-full">Kafka</span>
+                                            <span class="px-3 py-1 bg-green-500 text-white text-sm rounded-full">K8s</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-accent mb-3">Project Overview</h4>
+                                        <p class="text-gray-300 mb-4">A comprehensive IoT data processing platform designed to handle millions of sensor data points in real-time, providing scalable analytics and insights for industrial IoT applications.</p>
+                                        <h4 class="text-lg font-semibold text-accent mb-3">Key Features</h4>
+                                        <ul class="text-gray-300 space-y-2">
+                                            <li>• Real-time stream processing</li>
+                                            <li>• Scalable data ingestion</li>
+                                            <li>• Containerized microservices</li>
+                                            <li>• Advanced analytics pipeline</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-accent mb-3">Technical Details</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <span class="text-gray-400">Role:</span>
+                                                <span class="text-white ml-2">Senior Data Engineer</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Duration:</span>
+                                                <span class="text-white ml-2">12 months</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Team Size:</span>
+                                                <span class="text-white ml-2">1 engineer</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Data Volume:</span>
+                                                <span class="text-white ml-2">Millions of points</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-6">
+                                            <a href="public/project-nec-iot-big-data.html" 
+                                               class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold hover:shadow-xl transition-all">
+                                                <i class="fas fa-external-link-alt"></i>
+                                                View Full Project
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                    },
+                    paos: {
+                        title: "PAOS (Predictive Auto Ordering System)",
+                        content: `
+                            <div class="space-y-6">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <img src="assets/images/diagrams/paos/paos-architecture-2025-07-12-v1.png" 
+                                         alt="PAOS (Predictive Auto Ordering System)" 
+                                         class="w-32 h-32 rounded-lg object-cover">
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-white mb-2">PAOS (Predictive Auto Ordering System)</h3>
+                                        <p class="text-gray-300 mb-2">Predictive auto ordering system</p>
+                                        <div class="flex gap-2">
+                                            <span class="px-3 py-1 bg-green-500 text-white text-sm rounded-full">OpenCV</span>
+                                            <span class="px-3 py-1 bg-green-500 text-white text-sm rounded-full">PostgreSQL</span>
+                                            <span class="px-3 py-1 bg-purple-500 text-white text-sm rounded-full">Redis</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-accent mb-3">Project Overview</h4>
+                                        <p class="text-gray-300 mb-4">A recommendation engine using sales data to predict optimal inventory levels. Optimized proprietary ML framework (SAMPO) for better scalability and performance.</p>
+                                        <h4 class="text-lg font-semibold text-accent mb-3">Key Features</h4>
+                                        <ul class="text-gray-300 space-y-2">
+                                            <li>• Reduced inventory wastage and stockouts by accurate demand prediction</li>
+                                            <li>• Increased operational efficiency in retail supply chain planning</li>
+                                            <li>• Improved training performance through framework parallelization</li>
+                                            <li>• Overcame framework limitations with re-engineering approach</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-accent mb-3">Technical Details</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <span class="text-gray-400">Role:</span>
+                                                <span class="text-white ml-2">Lead Developer</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Duration:</span>
+                                                <span class="text-white ml-2">2 years</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Team Size:</span>
+                                                <span class="text-white ml-2">6 engineers</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Database:</span>
+                                                <span class="text-white ml-2">PostgreSQL</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-6">
+                                            <a href="public/project-paos.html" 
+                                               class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold hover:shadow-xl transition-all">
+                                                <i class="fas fa-external-link-alt"></i>
+                                                View Full Project
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                    }
+                };
+                return projects[projectId] || { title: "Project Not Found", content: "<p>Project details not available.</p>" };
+            }
+
+            // Modal functionality
+            const modalContent = document.getElementById("modal-content");
+            const modal = document.getElementById('project-modal');
+            const closeModal = document.getElementById('close-modal');
+            function openProjectModal(projectId) {
+                console.log("Opening modal for project:", projectId);
+                const projectData = getProjectData(projectId);
+                document.getElementById("modal-title").textContent = projectData.title;
+                modalContent.innerHTML = projectData.content;
+                modal.classList.remove("hidden");
+                document.body.style.overflow = "hidden";
+            }
+
+            function closeProjectModal() {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+
+            if (closeModal) {
+                closeModal.addEventListener('click', closeProjectModal);
+            }
+
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        closeProjectModal();
+                    }
+                });
+            }
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeProjectModal();
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Mobile navigation toggle
+            const navToggle = document.getElementById('nav-toggle');
+            const navLinks = document.getElementById('nav-links');
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', () => {
+                    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+                    navToggle.setAttribute('aria-expanded', String(!expanded));
+                    navLinks.classList.toggle('hidden');
+                });
+                // Close on Esc when open
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && !navLinks.classList.contains('hidden')) {
+                        navLinks.classList.add('hidden');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+
+            // Scroll hint -> scroll to projects
+            const scrollHint = document.getElementById('scroll-hint');
+            if (scrollHint && projectsAnchor) {
+                scrollHint.addEventListener('click', () => projectsAnchor.scrollIntoView({ behavior: 'smooth' }));
+                let hintVisible = true;
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 100 && hintVisible) {
+                        scrollHint.style.opacity = '0';
+                        hintVisible = false;
+                    }
+                });
+            }
+
+            // Sticky nav shadow on scroll
+            const siteNav = document.querySelector('.site-nav');
+            if (siteNav) {
+                const onScroll = () => {
+                    if (window.scrollY > 10) {
+                        siteNav.classList.add('shadow-2xl');
+                    } else {
+                        siteNav.classList.remove('shadow-2xl');
+                    }
+                };
+                window.addEventListener('scroll', onScroll);
+                onScroll();
+            }
+
+            // CTA analytics using data-gtm
+            document.querySelectorAll('[data-gtm]').forEach(el => {
+                el.addEventListener('click', () => {
+                    const label = el.getAttribute('data-gtm');
+                    if (window.gtag) {
+                        gtag('event', 'cta_click', { event_category: 'engagement', label });
+                    }
+                    // console fallback
+                    try { console.log('CTA Click', label); } catch (_) {}
+                });
+            });
+
+            // A/B testing for hero headline
+            const heroHeadline = document.getElementById('hero-headline');
+            try {
+                if (heroHeadline) {
+                    const abKey = 'heroVariant';
+                    let variant = localStorage.getItem(abKey);
+                    if (!variant) {
+                        variant = Math.random() < 0.5 ? 'A' : 'B';
+                        localStorage.setItem(abKey, variant);
+                    }
+                    if (variant === 'A') {
+                        heroHeadline.textContent = 'Principal Data Engineer — Turning raw data into real-world intelligence';
+                    } else {
+                        heroHeadline.textContent = 'I build scalable data platforms that power AI-driven decisions';
+                    }
+                    if (window.gtag) {
+                        gtag('event', 'hero_variant_shown', { event_category: 'ab_testing', label: variant });
+                    }
+                }
+            } catch (_) {}
+
+            // Rotating role titles (respect reduced motion)
+            try {
+                const roleTarget = document.getElementById('role-rotator');
+                const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (roleTarget) {
+                    const roles = ['Data Engineer', 'Cloud Architect', 'ML Pipelines', 'Solution Architect'];
+                    let idx = 0;
+                    const setRole = () => { roleTarget.textContent = roles[idx]; };
+                    setRole();
+                    if (!reduceMotion) {
+                        setInterval(() => { idx = (idx + 1) % roles.length; setRole(); }, 2500);
+                    }
+                }
+            } catch (_) {}
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nec-iot-big-data | Nitender Kumar Portfolio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.svg">
+    <meta name="theme-color" content="#06b6d4">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Y1JBT1EXB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6Y1JBT1EXB', {
+        debug_mode: true  // Enable debug mode for localhost testing
+      });
+    </script>
+    
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "t8hxb4v0kn");
+    </script>
+    
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'Poppins', 'Space Grotesk', 'ui-sans-serif', 'system-ui'],
+            },
+            colors: {
+              accent: '#06b6d4',
+              accent2: '#6366f1',
+            },
+            boxShadow: {
+              glass: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+            },
+            backdropBlur: {
+              sm: '4px',
+              md: '8px',
+              lg: '16px',
+            },
+          },
+        },
+      }
+    </script>
+    
+    <!-- Additional Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    
+    <style>
+        /* Enhanced CSS Variables */
+        :root {
+          --accent: #06b6d4;
+          --accent2: #6366f1;
+          --bg-dark: #0f172a;
+          --bg-light: #f8fafc;
+          --text-light: #f1f5f9;
+          --text-dark: #1e293b;
+        }
+        
+        /* Smooth scrolling */
+        html { 
+          scroll-behavior: smooth; 
+        }
+        
+        /* Theme transitions */
+        body {
+          background: var(--bg-dark);
+          color: var(--text-light);
+          transition: background 0.3s, color 0.3s;
+        }
+        
+        body.light {
+          background: var(--bg-light);
+          color: var(--text-dark);
+        }
+        
+        body.dark {
+          background: var(--bg-dark);
+          color: var(--text-light);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+          width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+          background: linear-gradient(to bottom, var(--accent), var(--accent2));
+          border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(to bottom, var(--accent2), var(--accent));
+        }
+        
+        /* Mermaid diagram styling */
+        .mermaid {
+          background: transparent !important;
+          border: none !important;
+          border-radius: 0 !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          min-height: auto;
+          width: 100%;
+          overflow: visible;
+        }
+        .mermaid svg { display:block; margin:0 auto; height:auto; max-width:100%; }
+        
+        .diagram-container {
+          position: relative;
+          background: transparent;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 8px;
+          padding: 20px;
+          margin: 20px 0;
+          min-height: auto;
+          overflow: auto;
+          display:flex; justify-content:center; align-items:flex-start;
+        }
+        
+        .diagram-loading {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 400px;
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 12px;
+          margin: 20px 0;
+        }
+        
+        .diagram-controls {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          display: flex;
+          gap: 8px;
+          z-index: 10;
+        }
+        
+        .diagram-control-btn {
+          background: rgba(0, 0, 0, 0.7);
+          color: white;
+          border: none;
+          border-radius: 6px;
+          padding: 8px 12px;
+          cursor: pointer;
+          font-size: 14px;
+          transition: all 0.3s ease;
+          backdrop-filter: blur(10px);
+        }
+        
+        .diagram-control-btn:hover {
+          background: rgba(6, 182, 212, 0.8);
+          transform: scale(1.05);
+        }
+        
+        .diagram-control-btn.active {
+          background: rgba(6, 182, 212, 0.9);
+        }
+        
+        .diagram-zoom {
+          transform-origin: top left;
+          transition: transform 0.3s ease;
+          display:inline-block;
+        }
+        
+        .diagram-fullscreen {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.95);
+          z-index: 1000;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 20px;
+        }
+        
+        .diagram-fullscreen .mermaid {
+          max-width: 90vw;
+          max-height: 90vh;
+          background: transparent !important;
+          padding: 0 !important;
+        }
+        
+        .diagram-fullscreen .diagram-controls {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+        }
+        
+        .close-fullscreen {
+          position: fixed;
+          top: 20px;
+          left: 20px;
+          background: rgba(239, 68, 68, 0.8);
+          color: white;
+          border: none;
+          border-radius: 6px;
+          padding: 10px 15px;
+          cursor: pointer;
+          font-size: 16px;
+          z-index: 1001;
+        }
+        
+        .close-fullscreen:hover {
+          background: rgba(239, 68, 68, 1);
+        }
+        
+        .diagram-toggle {
+          display: flex;
+          gap: 8px;
+          margin-bottom: 20px;
+          justify-content: center;
+        }
+        
+        .toggle-btn {
+          background: rgba(255, 255, 255, 0.1);
+          color: white;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 8px;
+          padding: 10px 20px;
+          cursor: pointer;
+          font-size: 14px;
+          font-weight: 500;
+          transition: all 0.3s ease;
+        }
+        
+        .toggle-btn:hover {
+          background: rgba(255, 255, 255, 0.2);
+          transform: translateY(-2px);
+        }
+        
+        .toggle-btn.active {
+          background: linear-gradient(135deg, var(--accent), var(--accent2));
+          border-color: var(--accent);
+          box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+        }
+
+        /* Override Mermaid's built-in styling to remove container boundaries only */
+        .mermaid svg {
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
+
+        /* Keep subgraph styling but remove outer borders */
+        .mermaid .cluster rect {
+            stroke-width: 1px !important;
+            stroke: rgba(255, 255, 255, 0.3) !important;
+        }
+
+        /* Keep node styling but make backgrounds subtle */
+        .mermaid .node rect,
+        .mermaid .node circle,
+        .mermaid .node ellipse,
+        .mermaid .node polygon,
+        .mermaid .node path {
+            stroke-width: 1px !important;
+            stroke: rgba(255, 255, 255, 0.4) !important;
+        }
+
+        /* Keep edge labels visible */
+        .mermaid .edgeLabel rect {
+            fill: rgba(0, 0, 0, 0.1) !important;
+            background: rgba(0, 0, 0, 0.1) !important;
+            stroke: rgba(255, 255, 255, 0.2) !important;
+        }
+
+        .mermaid .labelBkg {
+            background: rgba(0, 0, 0, 0.1) !important;
+            fill: rgba(0, 0, 0, 0.1) !important;
+        }
+    </style>
+</head>
+
+<body class="dark min-h-screen font-sans text-gray-200">
+    <!-- Enhanced Navigation -->
+    <nav class="w-full flex items-center justify-between py-4 px-4 bg-gray-900/95 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-gray-800/50">
+        <a class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text hover:scale-105 transition-transform" href="../index.html">
+            Nitender Kumar
+        </a>
+        <div class="flex items-center gap-2 md:gap-4">
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="about.html">About Me</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="contact.html">Contact</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="fun-zone.html">Tech Playground</a>
+            <button id="globalThemeToggle" class="ml-2 px-3 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-white text-sm transition-colors" title="Toggle Light/Dark Mode">
+                <i class="fas fa-moon dark:hidden"></i>
+                <i class="fas fa-sun hidden dark:inline"></i>
+            </button>
+            <a class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all text-sm md:text-base" href="https://www.linkedin.com/in/nitender-kumar" target="_blank" rel="noopener">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <section class="mb-10">
+            <h1 class="text-4xl md:text-5xl font-extrabold uppercase bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4 drop-shadow-lg">NEC-IOT-BIG-DATA</h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl project-description hero-desc">A large-scale IoT data processing platform for NEC that handles massive volumes of sensor data from smart devices, implements edge computing, and provides real-time analytics and predictive insights for industrial IoT applications.</p>
+        </section>
+        <section class="grid md:grid-cols-2 gap-10 mb-10 items-start">
+            <div>
+                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Designation</h2>
+                <div class="inline-block bg-gradient-to-r from-accent to-accent2 text-white px-4 py-2 rounded-lg font-semibold shadow-glass">Senior Data Engineer</div>
+            </div>
+            <div>
+                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Technologies</h2>
+                <div class="flex flex-wrap gap-3 mb-2">
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Apache Spark</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Hadoop</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Kafka</span>
+                </div>
+            </div>
+            <div>
+                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Role</h2>
+                <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base">
+                    <li>Architected big data processing pipeline for IoT sensor data ingestion</li>
+                    <li>Implemented edge computing solutions for real-time data preprocessing</li>
+                    <li>Developed stream processing workflows using Apache Spark and Flink</li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Key Contributions & Impact</h2>
+                <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base">
+                    <li>Processed 10TB+ of IoT data daily with 99.9% uptime</li>
+                    <li>Reduced data processing time by 70% through optimized Spark jobs</li>
+                    <li>Implemented edge computing reducing latency by 80%</li>
+                </ul>
+            </div>
+        </section>
+        <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
+            <details class="group">
+                <summary class="cursor-pointer text-xl font-bold text-accent2 mb-4 select-none flex items-center gap-2">
+                    <span class="inline-block transition-transform duration-300 group-open:rotate-90">
+                        <svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </span>
+                    Architecture Diagrams & Technical Details
+                </summary>
+                <style>summary::-webkit-details-marker { display:none; }</style>
+                <div class="mt-4">
+                    <!-- Diagram Toggle -->
+                    <div class="diagram-toggle">
+                        <button class="toggle-btn active" id="overview-btn" onclick="switchDiagram('overview')">
+                            <i class="fas fa-eye mr-2"></i>Overview
+                        </button>
+                        <button class="toggle-btn" id="detailed-btn" onclick="switchDiagram('detailed')">
+                            <i class="fas fa-sitemap mr-2"></i>Detailed Architecture
+                        </button>
+                    </div>
+                    
+                    <h3 class="text-accent2 font-bold text-lg mb-4" id="diagram-title">Architecture Overview</h3>
+                    <div id="diagram-container" class="diagram-container">
+                        <div class="diagram-loading">
+                            <div class="text-center">
+                                <i class="fas fa-spinner fa-spin text-2xl text-accent mb-2"></i>
+                                <p class="text-gray-400">Loading architecture diagram...</p>
+                            </div>
+                        </div>
+                        <div class="diagram-controls" style="display: none;">
+                            <button class="diagram-control-btn" onclick="zoomIn()" title="Zoom In">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                            <button class="diagram-control-btn" onclick="zoomOut()" title="Zoom Out">
+                                <i class="fas fa-search-minus"></i>
+                            </button>
+                            <button class="diagram-control-btn" onclick="resetZoom()" title="Reset Zoom">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                            </button>
+                            <button class="diagram-control-btn" onclick="toggleFullscreen()" title="Fullscreen">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8">
+                    <h4 class="text-accent font-bold text-base mb-2">Technical Architecture</h4>
+                    <ul class="list-disc list-inside space-y-1 text-gray-300">
+                        <li><strong>Data Flow:</strong> Raw data ingestion from IoT sensors → MMS processing → Big data stack transformation → User-accessible analytics dashboard</li>
+                        <li><strong>Components:</strong> NEC MMS (Micro Modular Server), Hadoop ecosystem, Apache Spark, Kafka streaming, MongoDB/PostgreSQL databases</li>
+                        <li><strong>Integration:</strong> MMS serves as the core platform hosting all big data services, with seamless integration between data ingestion, processing, and storage layers</li>
+                        <li><strong>Scalability:</strong> MMS modular architecture allows horizontal scaling of big data components based on workload demands and user requirements</li>
+                        <li><strong>Monitoring:</strong> Built-in MMS monitoring capabilities combined with big data stack observability tools for system health and performance tracking</li>
+                    </ul>
+                </div>
+            </details>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-gray-900/95 backdrop-blur-lg border-t border-gray-800 mt-16">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4">
+                        Nitender Kumar
+                    </h3>
+                    <p class="text-gray-400 mb-4 max-w-md">
+                        Principal Data Engineer & Solution Architect passionate about building scalable data solutions that drive business impact.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://linkedin.com/in/nitender-kumar" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                            <i class="fab fa-linkedin text-white"></i>
+                        </a>
+                        <a href="https://github.com/nitender-kumar" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                            <i class="fab fa-github text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-accent transition-colors">About Me</a></li>
+                        <li><a href="../index.html#projects" class="text-gray-400 hover:text-accent transition-colors">Projects</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-accent transition-colors">Contact</a></li>
+                        <li><a href="fun-zone.html" class="text-gray-400 hover:text-accent transition-colors">Tech Playground</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Get In Touch</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-envelope"></i>
+                            <a href="#" onclick="openContactModal(); return false;" class="hover:text-accent transition-colors">
+                                nitender.kumar11@gmail.com
+                            </a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+917899911081" class="hover:text-accent transition-colors">
+                                +91-7899911081
+                            </a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bangalore, India</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-800 pt-8 mt-8 text-center">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm">
+                        © 2025 Nitender Kumar. Built with ❤️ using modern web technologies.
+                    </p>
+                    <div class="flex gap-4 mt-4 md:mt-0">
+                        <a href="../assets/NITENDER_KUMAR_DL_V4_2025.pdf" download class="text-accent hover:text-accent2 text-sm transition-colors">
+                            <i class="fas fa-download mr-1"></i>Download Resume
+                        </a>
+                        <span class="text-gray-600">|</span>
+                        <button id="scroll-to-top" class="text-accent hover:text-accent2 text-sm transition-colors">
+                            <i class="fas fa-arrow-up mr-1"></i>Back to Top
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let mermaidConfig = {
+            startOnLoad: false,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#06b6d4',
+                primaryTextColor: '#f1f5f9',
+                primaryBorderColor: 'transparent',
+                lineColor: '#6366f1',
+                secondaryColor: 'transparent',
+                tertiaryColor: 'transparent',
+                background: 'transparent',
+                mainBkg: 'transparent',
+                secondBkg: 'transparent',
+                tertiaryBkg: 'transparent'
+            },
+            flowchart: {
+                useMaxWidth: false,
+                htmlLabels: true,
+                curve: 'basis',
+                diagramPadding: 0
+            },
+            graph: {
+                useMaxWidth: false,
+                htmlLabels: true,
+                diagramPadding: 0
+            }
+        };
+
+        let currentZoom = 1;
+        let isFullscreen = false;
+        let currentDiagramType = 'overview';
+
+        // Initialize Mermaid
+        mermaid.initialize(mermaidConfig);
+
+        // Diagram file paths
+        const diagramFiles = {
+            overview: '../assets/images/diagrams/nec-iot-big-data/nec-iot-big-data-architecture_overview.mmd',
+            detailed: '../assets/images/diagrams/nec-iot-big-data/nec-iot-big-data-architecture_detailed.mmd'
+        };
+
+        // Extract YAML-like front matter and convert to Mermaid init
+        function preprocessMermaid(text) {
+            const fmMatch = text.startsWith('---') ? text.match(/^---[\s\S]*?---\s*/m) : null;
+            let renderer = null;
+            if (fmMatch) {
+                const fm = fmMatch[0];
+                const layoutMatch = fm.match(/layout:\s*(elk|dagre)/i);
+                if (layoutMatch) renderer = layoutMatch[1].toLowerCase();
+                text = text.slice(fm.length);
+            }
+            const lines = text.split('\n');
+            for (let i = 0; i < lines.length; i++) {
+                const ln = lines[i].trim();
+                if (!ln) continue;
+                lines[i] = lines[i].replace(/^graph\s+/i, 'flowchart ');
+                break;
+            }
+            const normalized = lines.join('\n');
+            return { text: normalized, renderer };
+        }
+
+        // Load and render diagram from .mmd file
+        async function loadDiagram(type = 'overview') {
+            try {
+                const filePath = diagramFiles[type];
+                const response = await fetch(filePath);
+                const diagramText = await response.text();
+                const pre = preprocessMermaid(diagramText);
+                const finalText = pre.text;
+                if (pre.renderer) {
+                    mermaidConfig.flowchart = Object.assign({}, mermaidConfig.flowchart, { defaultRenderer: pre.renderer });
+                }
+                
+                const diagramContainer = document.getElementById('diagram-container');
+                diagramContainer.innerHTML = `
+                    <div class="diagram-zoom" id="diagram-zoom" style="transform: scale(${currentZoom});">
+                        <div class="mermaid">${finalText}</div>
+                    </div>
+                    <div class="diagram-controls">
+                        <button class="diagram-control-btn" onclick="zoomIn()" title="Zoom In">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                        <button class="diagram-control-btn" onclick="zoomOut()" title="Zoom Out">
+                            <i class="fas fa-search-minus"></i>
+                        </button>
+                        <button class="diagram-control-btn" onclick="resetZoom()" title="Reset Zoom">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                        </button>
+                        <button class="diagram-control-btn" onclick="toggleFullscreen()" title="Fullscreen">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
+                `;
+                
+                // Re-initialize Mermaid for the new content
+                mermaid.initialize(mermaidConfig);
+                await mermaid.init();
+            } catch (error) {
+                console.error('Error loading diagram:', error);
+                document.getElementById('diagram-container').innerHTML = `
+                    <div class="text-center text-red-400">
+                        <i class="fas fa-exclamation-triangle text-2xl mb-2"></i>
+                        <p>Error loading architecture diagram</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Switch between overview and detailed diagrams
+        function switchDiagram(type) {
+            currentDiagramType = type;
+            
+            // Update button states
+            document.getElementById('overview-btn').classList.toggle('active', type === 'overview');
+            document.getElementById('detailed-btn').classList.toggle('active', type === 'detailed');
+            
+            // Update title
+            const title = document.getElementById('diagram-title');
+            title.textContent = type === 'overview' ? 'Architecture Overview' : 'Detailed Architecture';
+            
+            // Load the new diagram
+            loadDiagram(type);
+        }
+
+        // Zoom functions
+        function zoomIn() {
+            currentZoom = Math.min(currentZoom * 1.2, 3);
+            updateZoom();
+        }
+
+        function zoomOut() {
+            currentZoom = Math.max(currentZoom / 1.2, 0.5);
+            updateZoom();
+        }
+
+        function resetZoom() {
+            currentZoom = 1;
+            updateZoom();
+        }
+
+        function updateZoom() {
+            const diagramZoom = document.getElementById('diagram-zoom');
+            if (diagramZoom) {
+                diagramZoom.style.transform = `scale(${currentZoom})`;
+            }
+        }
+
+        function toggleFullscreen() {
+            const diagramContainer = document.getElementById('diagram-container');
+            const diagramZoom = document.getElementById('diagram-zoom');
+            
+            if (!isFullscreen) {
+                // Enter fullscreen
+                isFullscreen = true;
+                diagramContainer.classList.add('diagram-fullscreen');
+                diagramZoom.style.transform = 'scale(1)';
+                currentZoom = 1;
+                
+                // Add close button
+                const closeBtn = document.createElement('button');
+                closeBtn.className = 'close-fullscreen';
+                closeBtn.innerHTML = '<i class="fas fa-times"></i> Close';
+                closeBtn.onclick = () => toggleFullscreen();
+                document.body.appendChild(closeBtn);
+            } else {
+                // Exit fullscreen
+                isFullscreen = false;
+                diagramContainer.classList.remove('diagram-fullscreen');
+                diagramZoom.style.transform = `scale(${currentZoom})`;
+                
+                // Remove close button
+                const closeBtn = document.querySelector('.close-fullscreen');
+                if (closeBtn) {
+                    closeBtn.remove();
+                }
+            }
+        }
+
+        // Theme management
+        function applyTheme(theme) {
+            const body = document.body;
+            const btn = document.getElementById('globalThemeToggle');
+            if (theme === 'light') {
+                body.classList.remove('dark');
+                body.classList.add('light');
+                if (btn) {
+                    btn.innerHTML = '<i class="fas fa-sun"></i>';
+                }
+                // Update Mermaid theme
+                mermaidConfig.theme = 'light';
+                mermaidConfig.themeVariables = {
+                    primaryColor: '#06b6d4',
+                    primaryTextColor: '#1e293b',
+                    primaryBorderColor: '#6366f1',
+                    lineColor: '#6366f1',
+                    secondaryColor: '#f8fafc',
+                    tertiaryColor: '#ffffff'
+                };
+            } else {
+                body.classList.remove('light');
+                body.classList.add('dark');
+                if (btn) {
+                    btn.innerHTML = '<i class="fas fa-moon"></i>';
+                }
+                // Update Mermaid theme
+                mermaidConfig.theme = 'dark';
+                mermaidConfig.themeVariables = {
+                    primaryColor: '#06b6d4',
+                    primaryTextColor: '#f1f5f9',
+                    primaryBorderColor: '#6366f1',
+                    lineColor: '#6366f1',
+                    secondaryColor: '#1e293b',
+                    tertiaryColor: '#0f172a'
+                };
+            }
+            localStorage.setItem('theme', theme);
+            // Re-render Mermaid diagrams
+            mermaid.initialize(mermaidConfig);
+            mermaid.init();
+        }
+
+        // Initialize theme
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            applyTheme(savedTheme === 'light' ? 'light' : 'dark');
+        })();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load initial diagram when page loads
+            loadDiagram('overview');
+
+            // Theme toggle
+            const themeBtn = document.getElementById('globalThemeToggle');
+            if (themeBtn) {
+                themeBtn.addEventListener('click', function() {
+                    if (document.body.classList.contains('dark')) {
+                        applyTheme('light');
+                    } else {
+                        applyTheme('dark');
+                    }
+                });
+            }
+
+            // Scroll to top
+            const scrollToTopBtn = document.getElementById('scroll-to-top');
+            if (scrollToTopBtn) {
+                scrollToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
+    <!-- Contact Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Get in Touch</h3>
+                <button onclick="closeContactModal()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div class="text-center">
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Choose your preferred way to contact me:</p>
+                </div>
+                <div class="space-y-3">
+                    <button onclick="copyEmailToClipboard()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        <i class="fas fa-copy"></i>
+                        Copy Email Address
+                    </button>
+                    <button onclick="openEmailClient()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                        <i class="fas fa-envelope"></i>
+                        Open Email Client
+                    </button>
+                    <button onclick="openLinkedIn()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                        Connect on LinkedIn
+                    </button>
+                </div>
+                <div class="text-center text-sm text-gray-500 dark:text-gray-400">
+                    <p>Email: nitender.kumar11@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

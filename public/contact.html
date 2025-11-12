@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function openContactModal() {
+            document.getElementById("contactModal").classList.remove("hidden");
+            document.body.style.overflow = "hidden";
+        }
+        function closeContactModal() {
+            document.getElementById("contactModal").classList.add("hidden");
+            document.body.style.overflow = "auto";
+        }
+        function copyEmailToClipboard() {
+            const email = "nitender.kumar11@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                alert("Email address copied to clipboard: " + email);
+                closeContactModal();
+            }).catch(() => {
+                const textArea = document.createElement("textarea");
+                textArea.value = email;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand("copy");
+                document.body.removeChild(textArea);
+                alert("Email address copied to clipboard: " + email);
+                closeContactModal();
+            });
+        }
+        function openEmailClient() {
+            copyEmailToClipboard();
+        }
+        function openLinkedIn() {
+            window.open("https://www.linkedin.com/in/nitender-kumar/", "_blank");
+            closeContactModal();
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Nitender Kumar Portfolio</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.svg">
+    <meta name="theme-color" content="#06b6d4">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Y1JBT1EXB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6Y1JBT1EXB', {
+        debug_mode: true  // Enable debug mode for localhost testing
+      });
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "t8hxb4v0kn");
+    </script>
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'Poppins', 'Space Grotesk', 'ui-sans-serif', 'system-ui'],
+            },
+            colors: {
+              accent: '#06b6d4',
+              accent2: '#6366f1',
+            },
+            boxShadow: {
+              glass: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+            },
+          },
+        },
+      }
+    </script>
+
+    <!-- Additional Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+          --accent: #06b6d4;
+          --accent2: #6366f1;
+          --bg-dark: #0f172a;
+          --bg-light: #f8fafc;
+          --text-light: #f1f5f9;
+          --text-dark: #1e293b;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body { background: var(--bg-dark); color: var(--text-light); transition: background 0.3s, color 0.3s; }
+        body.light { background: var(--bg-light); color: var(--text-dark); }
+        body.dark { background: var(--bg-dark); color: var(--text-light); }
+
+        .form-input { transition: all 0.2s ease; }
+        .form-input:focus { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(6, 182, 212, 0.25); }
+
+        .message { display:none; }
+        .message.show { display:block; }
+
+        /* Strict, predictable two-column alignment */
+        .contact-grid { display:grid; grid-template-columns: 1fr; gap: 2rem; }
+        @media (min-width: 1024px) { .contact-grid { grid-template-columns: 1fr 1fr; gap: 3rem; align-items:start; } }
+        .contact-col { min-width:0; }
+    </style>
+</head>
+
+<body class="dark min-h-screen font-sans text-gray-200">
+    <!-- Navigation (kept consistent with site) -->
+    <nav class="w-full flex items-center justify-between py-4 px-4 bg-gray-900/95 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-gray-800/50">
+        <a class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text hover:scale-105 transition-transform" href="../index.html">Nitender Kumar</a>
+        <div class="flex items-center gap-2 md:gap-4">
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="about.html">About Me</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="contact.html">Contact</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="fun-zone.html">Tech Playground</a>
+            <button id="globalThemeToggle" class="ml-2 px-3 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-white text-sm transition-colors" title="Toggle Light/Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <a class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all text-sm md:text-base" href="https://www.linkedin.com/in/nitender-kumar" target="_blank" rel="noopener">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main -->
+    <main class="mx-auto max-w-7xl px-4 py-10">
+        <!-- Hero -->
+        <section class="text-center mb-14">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4"><span class="bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Get In Touch</span></h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">Ready to discuss your next project? I'd love to hear from you and explore how we can work together.</p>
+        </section>
+
+        <!-- Contact grid -->
+        <div class="contact-grid">
+            <!-- Left: Contact details -->
+            <div class="contact-col">
+                <h2 class="text-3xl font-bold mb-8 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Contact Information</h2>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4 p-4 bg-white/10 rounded-xl shadow-glass">
+                        <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center"><i class="fas fa-envelope text-white text-xl"></i></div>
+                        <div>
+                            <h3 class="font-semibold text-white">Email</h3>
+                            <a href="#" onclick="openContactModal(); return false;" class="text-gray-300 hover:text-accent">nitender.kumar11@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 bg-white/10 rounded-xl shadow-glass">
+                        <div class="w-12 h-12 bg-gradient-to-r from-accent2 to-accent rounded-full flex items-center justify-center"><i class="fas fa-phone text-white text-xl"></i></div>
+                        <div>
+                            <h3 class="font-semibold text-white">Phone</h3>
+                            <a href="tel:+917899911081" class="text-gray-300 hover:text-accent">+91-7899911081</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 bg-white/10 rounded-xl shadow-glass">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-accent rounded-full flex items-center justify-center"><i class="fas fa-map-marker-alt text-white text-xl"></i></div>
+                        <div>
+                            <h3 class="font-semibold text-white">Location</h3>
+                            <p class="text-gray-300">Bangalore, India</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 bg-white/10 rounded-xl shadow-glass">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-accent2 rounded-full flex items-center justify-center"><i class="fab fa-linkedin text-white text-xl"></i></div>
+                        <div>
+                            <h3 class="font-semibold text-white">LinkedIn</h3>
+                            <a href="https://linkedin.com/in/nitender-kumar" target="_blank" class="text-gray-300 hover:text-accent">linkedin.com/in/nitender-kumar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-white/10 rounded-xl p-6 shadow-glass">
+                    <h3 class="text-xl font-bold text-white mb-3">Download Resume</h3>
+                    <p class="text-gray-300 mb-4">Get a copy of my detailed resume with complete work experience and technical skills.</p>
+                    <a href="../assets/NITENDER_KUMAR_DL_V4_2025.pdf" download class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all"><i class="fas fa-download"></i>Download PDF</a>
+                </div>
+            </div>
+
+            <!-- Right: Form -->
+            <div class="contact-col">
+                <h2 class="text-3xl font-bold mb-8 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Send a Message</h2>
+
+                <div id="successMessage" class="message mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-300">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    <span class="font-semibold">Message sent successfully!</span>
+                </div>
+                <div id="errorMessage" class="message mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-300">
+                    <i class="fas fa-exclamation-circle mr-2"></i>
+                    <span class="font-semibold">Failed to send message. Please try again.</span>
+                </div>
+
+                <form id="contactForm" class="space-y-6" action="https://formspree.io/f/xpwjkqyp" method="POST">
+                    <div>
+                        <label for="name" class="block text-gray-300 text-sm font-bold mb-2">Full Name *</label>
+                        <input type="text" id="name" name="name" required class="form-input w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent" placeholder="Your full name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Email Address *</label>
+                        <input type="email" id="email" name="email" required class="form-input w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent" placeholder="your.email@example.com">
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-gray-300 text-sm font-bold mb-2">Subject *</label>
+                        <input type="text" id="subject" name="subject" required class="form-input w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent" placeholder="What's this about?">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Message *</label>
+                        <textarea id="message" name="message" rows="6" required class="form-input w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent resize-none" placeholder="Tell me about your project or how I can help..."></textarea>
+                    </div>
+                    <button type="submit" id="submitBtn" class="w-full px-8 py-4 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-accent2">
+                        <span class="button-text"><i class="fas fa-paper-plane mr-2"></i>Send Message</span>
+                        <span class="spinner hidden"><i class="fas fa-spinner fa-spin mr-2"></i>Sending...</span>
+                    </button>
+                </form>
+
+                <div class="mt-8 p-6 bg-white/5 rounded-xl border border-white/10">
+                    <h3 class="text-lg font-semibold text-white mb-3">Prefer other ways to connect?</h3>
+                    <div class="grid sm:grid-cols-3 gap-3">
+                        <a href="#" onclick="openContactModal(); return false;" class="flex items-center justify-center gap-2 px-4 py-2 bg-white/10 text-white rounded-lg hover:bg-white/20 transition-all"><i class="fas fa-envelope"></i>Email</a>
+                        <a href="https://linkedin.com/in/nitender-kumar" target="_blank" class="flex items-center justify-center gap-2 px-4 py-2 bg-blue-600/20 text-blue-300 rounded-lg hover:bg-blue-600/30 transition-all"><i class="fab fa-linkedin"></i>LinkedIn</a>
+                        <a href="tel:+917899911081" class="flex items-center justify-center gap-2 px-4 py-2 bg-green-600/20 text-green-300 rounded-lg hover:bg-green-600/30 transition-all"><i class="fas fa-phone"></i>Call</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900/95 backdrop-blur-lg border-t border-gray-800 mt-16">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4">Nitender Kumar</h3>
+                    <p class="text-gray-400 mb-4 max-w-md">Principal Data Engineer & AI Solution Architect passionate about building scalable data and AI solutions that drive business impact.</p>
+                    <div class="flex gap-4">
+                        <a href="https://linkedin.com/in/nitender-kumar" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform"><i class="fab fa-linkedin text-white"></i></a>
+                        <a href="https://github.com/nitender-kumar" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:scale-110 transition-transform"><i class="fab fa-github text-white"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-accent">About Me</a></li>
+                        <li><a href="../index.html#projects" class="text-gray-400 hover:text-accent">Projects</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-accent">Contact</a></li>
+                        <li><a href="fun-zone.html" class="text-gray-400 hover:text-accent">Tech Playground</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Get In Touch</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center gap-2"><i class="fas fa-envelope"></i><a href="#" onclick="openContactModal(); return false;" class="hover:text-accent">nitender.kumar11@gmail.com</a></li>
+                        <li class="flex items-center gap-2"><i class="fas fa-phone"></i><a href="tel:+917899911081" class="hover:text-accent">+91-7899911081</a></li>
+                        <li class="flex items-center gap-2"><i class="fas fa-map-marker-alt"></i><span>Bangalore, India</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 mt-8 text-center">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm">© 2025 Nitender Kumar. Built with ❤️ using modern web technologies.</p>
+                    <div class="flex gap-4 mt-4 md:mt-0">
+                        <a href="../assets/NITENDER_KUMAR_DL_V4_2025.pdf" download class="text-accent hover:text-accent2 text-sm"><i class="fas fa-download mr-1"></i>Download Resume</a>
+                        <span class="text-gray-600">|</span>
+                        <button id="scroll-to-top" class="text-accent hover:text-accent2 text-sm"><i class="fas fa-arrow-up mr-1"></i>Back to Top</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme management
+        function applyTheme(theme) {
+            const body = document.body;
+            const btn = document.getElementById('globalThemeToggle');
+            if (theme === 'light') { body.classList.remove('dark'); body.classList.add('light'); if (btn) btn.innerHTML = '<i class="fas fa-sun"></i>'; }
+            else { body.classList.remove('light'); body.classList.add('dark'); if (btn) btn.innerHTML = '<i class="fas fa-moon"></i>'; }
+            localStorage.setItem('theme', theme);
+        }
+        (function() { const saved = localStorage.getItem('theme'); applyTheme(saved === 'light' ? 'light' : 'dark'); })();
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const spinner = btn.querySelector('.spinner');
+            const text = btn.querySelector('.button-text');
+            spinner.classList.remove('hidden'); text.classList.add('hidden');
+            const fd = new FormData(this);
+            try {
+                const resp = await fetch('https://formspree.io/f/xpwjkqyp', {
+                    method:'POST',
+                    headers: { 'Accept':'application/json', 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: fd.get('name'),
+                        email: fd.get('email'),
+                        subject: fd.get('subject'),
+                        message: fd.get('message')
+                    })
+                });
+                if (resp.ok) {
+                    document.getElementById('successMessage').classList.add('show');
+                    this.reset();
+                } else {
+                    // Fallback to mailto on any non-OK response
+                    const mailto = `mailto:nitender.kumar11@gmail.com?subject=${encodeURIComponent(fd.get('subject'))}&body=${encodeURIComponent(`Name: ${fd.get('name')}\nEmail: ${fd.get('email')}\n\nMessage:\n${fd.get('message')}`)}`;
+                    window.location.href = mailto;
+                }
+            } catch(_) { 
+                const mailto = `mailto:nitender.kumar11@gmail.com?subject=${encodeURIComponent(fd.get('subject'))}&body=${encodeURIComponent(`Name: ${fd.get('name')}\nEmail: ${fd.get('email')}\n\nMessage:\n${fd.get('message')}`)}`;
+                window.location.href = mailto;
+            } finally {
+                spinner.classList.add('hidden'); text.classList.remove('hidden');
+                setTimeout(()=>{ document.getElementById('successMessage').classList.remove('show'); document.getElementById('errorMessage').classList.remove('show'); }, 4000);
+            }
+        });
+
+        // Theme toggle and utilities
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeBtn = document.getElementById('globalThemeToggle');
+            if (themeBtn) themeBtn.addEventListener('click', () => applyTheme(document.body.classList.contains('dark') ? 'light' : 'dark'));
+            const scrollToTopBtn = document.getElementById('scroll-to-top');
+            if (scrollToTopBtn) scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+        });
+    </script>
+    <!-- Contact Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Get in Touch</h3>
+                <button onclick="closeContactModal()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div class="text-center">
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Choose your preferred way to contact me:</p>
+                </div>
+                <div class="space-y-3">
+                    <button onclick="copyEmailToClipboard()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        <i class="fas fa-copy"></i>
+                        Copy Email Address
+                    </button>
+                    <button onclick="openEmailClient()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                        <i class="fas fa-envelope"></i>
+                        Open Email Client
+                    </button>
+                    <button onclick="openLinkedIn()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                        Connect on LinkedIn
+                    </button>
+                </div>
+                <div class="text-center text-sm text-gray-500 dark:text-gray-400">
+                    <p>Email: nitender.kumar11@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
