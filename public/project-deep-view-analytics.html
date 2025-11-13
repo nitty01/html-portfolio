@@ -33,87 +33,30 @@
         })(window, document, "clarity", "script", "t8hxb4v0kn");
     </script>
     
+    <!-- Centralized Theme Configuration -->
+    <script src="../js/theme-config.js"></script>
+    
     <!-- TailwindCSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'Poppins', 'Space Grotesk', 'ui-sans-serif', 'system-ui'],
-            },
-            colors: {
-              accent: '#06b6d4',
-              accent2: '#6366f1',
-            },
-            boxShadow: {
-              glass: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
-            },
-            backdropBlur: {
-              sm: '4px',
-              md: '8px',
-              lg: '16px',
-            },
-          },
-        },
-      }
+      tailwind.config = window.tailwindConfig;
     </script>
+    
+    <!-- Centralized Styles -->
+    <link rel="stylesheet" href="../css/main.css">
+    
+    <!-- Theme Switcher Script -->
+    <script src="../js/theme-switcher.js"></script>
+    
+    <!-- Project Navigation Script -->
+    <script src="../js/project-navigation.js"></script>
     
     <!-- Additional Libraries -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
     
+    <!-- Page-specific styles for project pages -->
     <style>
-        /* Enhanced CSS Variables */
-        :root {
-          --accent: #06b6d4;
-          --accent2: #6366f1;
-          --bg-dark: #0f172a;
-          --bg-light: #f8fafc;
-          --text-light: #f1f5f9;
-          --text-dark: #1e293b;
-        }
-        
-        /* Smooth scrolling */
-        html { 
-          scroll-behavior: smooth; 
-        }
-        
-        /* Theme transitions */
-        body {
-          background: var(--bg-dark);
-          color: var(--text-light);
-          transition: background 0.3s, color 0.3s;
-        }
-        
-        body.light {
-          background: var(--bg-light);
-          color: var(--text-dark);
-        }
-        
-        body.dark {
-          background: var(--bg-dark);
-          color: var(--text-light);
-        }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-          width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-          background: rgba(255, 255, 255, 0.1);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, var(--accent), var(--accent2));
-          border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(to bottom, var(--accent2), var(--accent));
-        }
         
         /* Mermaid diagram styling */
         .mermaid {
@@ -286,6 +229,25 @@
                 <i class="fab fa-linkedin"></i>
                 LinkedIn
             </a>
+            <!-- Theme Switcher -->
+            <div class="theme-switcher">
+                <button id="theme-switcher-btn" class="theme-switcher-btn" aria-label="Change theme" aria-expanded="false" aria-haspopup="true" onclick="toggleThemeDropdown()">
+                    <i id="current-theme-icon" class="fas fa-palette"></i>
+                    <span id="current-theme-indicator" class="hidden sm:inline">Theme</span>
+                    <i class="fas fa-chevron-down text-xs"></i>
+                </button>
+                <div id="theme-dropdown" class="theme-dropdown" role="menu" aria-label="Theme selection">
+                    <div class="theme-grid">
+                        <button data-theme-option="ocean" class="theme-option" onclick="switchTheme('ocean')" role="menuitem"><div class="theme-color-preview" style="background: linear-gradient(135deg, #06b6d4, #6366f1);"></div><div class="theme-name">Ocean</div></button>
+                        <button data-theme-option="sunrise" class="theme-option" onclick="switchTheme('sunrise')" role="menuitem"><div class="theme-color-preview" style="background: linear-gradient(135deg, #0891b2, #4f46e5);"></div><div class="theme-name">Sunrise</div></button>
+                        <button data-theme-option="midnight" class="theme-option" onclick="switchTheme('midnight')" role="menuitem"><div class="theme-color-preview" style="background: linear-gradient(135deg, #3b82f6, #2563eb);"></div><div class="theme-name">Midnight</div></button>
+                        <button data-theme-option="royal" class="theme-option" onclick="switchTheme('royal')" role="menuitem"><div class="theme-color-preview" style="background: linear-gradient(135deg, #a855f7, #9333ea);"></div><div class="theme-name">Royal</div></button>
+                        <button data-theme-option="forest" class="theme-option" onclick="switchTheme('forest')" role="menuitem"><div class="theme-color-preview" style="background: linear-gradient(135deg, #10b981, #059669);"></div><div class="theme-name">Forest</div></button>
+                        <button data-theme-option="sunset" class="theme-option" onclick="switchTheme('sunset')" role="menuitem"><div class="theme-color-preview" style="background: linear-gradient(135deg, #f97316, #ea580c);"></div><div class="theme-name">Sunset</div></button>
+                        <button data-theme-option="blossom" class="theme-option" onclick="switchTheme('blossom')" role="menuitem"><div class="theme-color-preview" style="background: linear-gradient(135deg, #ec4899, #db2777);"></div><div class="theme-name">Blossom</div></button>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 

@@ -1,0 +1,78 @@
+/**
+ * THEME CONFIGURATION
+ * ===================
+ * This is the MAIN file to modify for theme changes.
+ * All color variables, theme settings, and design tokens are defined here.
+ * 
+ * To change the theme:
+ * 1. Modify the CSS variables in :root below
+ * 2. Optionally update the TailwindCSS config in js/theme-config.js
+ */
+
+:root {
+  /* Primary Accent Colors */
+  --accent: #06b6d4;        /* Cyan - Primary accent color */
+  --accent2: #6366f1;       /* Indigo - Secondary accent color */
+  
+  /* Background Colors */
+  --bg-dark: #0f172a;       /* Dark background (default) */
+  --bg-light: #f8fafc;      /* Light background */
+  --bg-dark-secondary: #1e293b; /* Dark secondary background */
+  
+  /* Text Colors */
+  --text-light: #f1f5f9;    /* Light text (for dark backgrounds) */
+  --text-dark: #1e293b;     /* Dark text (for light backgrounds) */
+  --text-muted: #94a3b8;   /* Muted text color */
+  
+  /* Glass Morphism */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-blur: 10px;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  
+  /* Border Radius */
+  --radius-sm: 0.375rem;    /* 6px */
+  --radius-md: 0.5rem;      /* 8px */
+  --radius-lg: 0.75rem;     /* 12px */
+  --radius-xl: 1rem;        /* 16px */
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;    /* 4px */
+  --spacing-sm: 0.5rem;     /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;     /* 24px */
+  --spacing-xl: 2rem;       /* 32px */
+  --spacing-2xl: 3rem;      /* 48px */
+  
+  /* Z-Index Layers */
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 300;
+  --z-tooltip: 400;
+}
+
+/* Light Theme Overrides (if needed) */
+body.light {
+  --bg-dark: var(--bg-light);
+  --text-light: var(--text-dark);
+}
+
+/* Dark Theme (default) */
+body.dark {
+  --bg-dark: #0f172a;
+  --text-light: #f1f5f9;
+}
+
