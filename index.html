@@ -145,6 +145,37 @@
           animation: float 3s ease-in-out infinite;
         }
 
+        /* Testimonial card hover effect */
+        .testimonial-card {
+          transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Horizontal marquee for testimonials */
+        .marquee { overflow-x: hidden; }
+        .marquee.paused { overflow-x: auto; cursor: ew-resize; }
+        .marquee-track {
+          display: flex;
+          gap: 2rem;
+          width: max-content;
+          animation: marquee-left 80s linear infinite;
+        }
+        .marquee:hover .marquee-track { animation-play-state: paused; }
+        @keyframes marquee-left {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .marquee-track { animation: none; }
+        }
+        /* Clamp long quotes but allow expand on hover/click */
+        .testimonial-text { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .marquee .testimonial-card:hover .testimonial-text, .testimonial-card.expanded .testimonial-text { -webkit-line-clamp: unset; -webkit-box-orient: unset; overflow: visible; }
+
         /* Blinking green border animation */
         @keyframes blinkBorder {
           0%, 50% { border-color: #10b981; box-shadow: 0 0 0 4px #10b981, 0 0 20px #10b981; }
@@ -538,6 +569,156 @@
                         <i class="fas fa-file-pdf"></i>
                         View Full Resume
                     </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What People Say Section -->
+    <section class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent2/50 to-transparent"></div>
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-8">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-quote-left mr-2"></i>Testimonials
+                    </span>
+                </div>
+                <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">What People Say</h2>
+            </div>
+            <div class="marquee" id="testimonialsMarquee" tabindex="0" aria-label="Testimonials carousel (auto-scroll, hover or tap to pause)">
+                <div class="marquee-track" id="testimonialsTrack">
+                    <!-- row 1 -->
+                    <div class="testimonial-card bg-white/10 backdrop-blur-md rounded-xl shadow-glass p-6 md:p-8 min-w-[320px] max-w-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">RM</div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Ram Madhavan</h4>
+                                <p class="text-gray-400 text-sm">Manager & Mentor</p>
+                                <a href="https://www.linkedin.com/in/ram-madhavan-2885825/" target="_blank" rel="noopener" class="text-accent hover:text-accent2 text-sm transition-colors"><i class="fab fa-linkedin mr-1"></i>LinkedIn</a>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic testimonial-text">"Nitender has consistently impressed me with his ability to bridge deep technical expertise with strong leadership skills. Under my mentorship, he quickly grew into a go-to person for designing scalable data solutions and mentoring junior team members. His proactive approach, clarity of thought, and ability to translate business problems into data-driven solutions make him an invaluable asset to any team."</p>
+                    </div>
+
+                    <div class="testimonial-card bg-white/10 backdrop-blur-md rounded-xl shadow-glass p-6 md:p-8 min-w-[320px] max-w-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">RR</div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Rupesh Ravi</h4>
+                                <p class="text-gray-400 text-sm">Product Owner & Colleague</p>
+                                <a href="https://www.linkedin.com/in/rupeshravi/" target="_blank" rel="noopener" class="text-accent hover:text-accent2 text-sm transition-colors"><i class="fab fa-linkedin mr-1"></i>LinkedIn</a>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic testimonial-text">"Working with Nitender has been a seamless experience. As a product owner, I could always rely on him to understand business requirements deeply and convert them into reliable, high-performing solutions. He not only delivered on time but also challenged assumptions, ensuring that the final product created long-term value. His collaborative spirit and technical acumen made him one of the key drivers of our project's success."</p>
+                    </div>
+
+                    <div class="testimonial-card bg-white/10 backdrop-blur-md rounded-xl shadow-glass p-6 md:p-8 min-w-[320px] max-w-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">AS</div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Ashwin Sabapathy</h4>
+                                <p class="text-gray-400 text-sm">Director</p>
+                                <a href="https://www.linkedin.com/in/ashwin-sabapathy/" target="_blank" rel="noopener" class="text-accent hover:text-accent2 text-sm transition-colors"><i class="fab fa-linkedin mr-1"></i>LinkedIn</a>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic testimonial-text">"Nitender is a standout professional who consistently demonstrates ownership and accountability. At the leadership level, I have seen him take on complex challenges, whether it was streamlining large-scale data pipelines or optimizing performance for critical analytics workloads. His ability to align technical execution with business strategy sets him apart. He brings both depth in engineering and breadth in vision, which makes him an exceptional asset to any organization."</p>
+                    </div>
+
+                    <div class="testimonial-card bg-white/10 backdrop-blur-md rounded-xl shadow-glass p-6 md:p-8 min-w-[320px] max-w-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">AB</div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Avik Biswas</h4>
+                                <p class="text-gray-400 text-sm">Data Scientist & Colleague</p>
+                                <a href="https://www.linkedin.com/in/avik-biswas-stats/" target="_blank" rel="noopener" class="text-accent hover:text-accent2 text-sm transition-colors"><i class="fab fa-linkedin mr-1"></i>LinkedIn</a>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic testimonial-text">"As a data scientist, I found Nitender's partnership invaluable. He built robust, scalable data pipelines that enabled our machine learning models to run efficiently in production. His understanding of both engineering and the nuances of data science meant we could collaborate smoothly and innovate faster. Nitender's work ethic and problem-solving mindset make him a fantastic teammate."</p>
+                    </div>
+
+                    <div class="testimonial-card bg-white/10 backdrop-blur-md rounded-xl shadow-glass p-6 md:p-8 min-w-[320px] max-w-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">SSR</div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Sandeep Singh Rawat</h4>
+                                <p class="text-gray-400 text-sm">Colleague</p>
+                                <a href="https://www.linkedin.com/in/sandeep-singh-rawat-17a52ab1/" target="_blank" rel="noopener" class="text-accent hover:text-accent2 text-sm transition-colors"><i class="fab fa-linkedin mr-1"></i>LinkedIn</a>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic testimonial-text">"Nitender is one of the most reliable colleagues I've worked with. He has a rare mix of strong technical depth and the willingness to support the team. Whether it was troubleshooting critical production issues or brainstorming architectural improvements, he always brought clarity and practical solutions. His collaborative nature makes working with him a pleasure."</p>
+                    </div>
+
+                    <div class="testimonial-card bg-white/10 backdrop-blur-md rounded-xl shadow-glass p-6 md:p-8 min-w-[320px] max-w-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">CR</div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Chaitanya Revalla</h4>
+                                <p class="text-gray-400 text-sm">QA Colleague</p>
+                                <a href="https://www.linkedin.com/in/chaitanyarevalla/" target="_blank" rel="noopener" class="text-accent hover:text-accent2 text-sm transition-colors"><i class="fab fa-linkedin mr-1"></i>LinkedIn</a>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic testimonial-text">"Working with Nitender was a great experience. His structured approach to building scalable data solutions made QA testing much smoother. He always collaborated openly with the QA team, ensuring quality checks were part of the design, not an afterthought. His proactive mindset reduced defects and improved delivery timelines."</p>
+                    </div>
+                    <div class="testimonial-card bg-white/10 backdrop-blur-md rounded-xl shadow-glass p-6 md:p-8 min-w-[320px] max-w-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">RS</div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Ranju Sharma</h4>
+                                <p class="text-gray-400 text-sm">QA Colleague</p>
+                                <a href="https://www.linkedin.com/in/ranju-sharma-315031130/" target="_blank" rel="noopener" class="text-accent hover:text-accent2 text-sm transition-colors"><i class="fab fa-linkedin mr-1"></i>LinkedIn</a>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic testimonial-text">"Nitender is detail-oriented and always ready to support the QA process. He provided clear insights into complex systems, which made our test coverage stronger. His openness to feedback and willingness to collaborate helped the entire team deliver high-quality results consistently."</p>
+                    </div>
+
+                    <div class="testimonial-card bg-white/10 backdrop-blur-md rounded-xl shadow-glass p-6 md:p-8 min-w-[320px] max-w-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">RK</div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Ranjit Krishnamurthy</h4>
+                                <p class="text-gray-400 text-sm">Senior Software Engineer Colleague</p>
+                                <a href="https://www.linkedin.com/in/ranjitklive/" target="_blank" rel="noopener" class="text-accent hover:text-accent2 text-sm transition-colors"><i class="fab fa-linkedin mr-1"></i>LinkedIn</a>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic testimonial-text">"Nitender brings both technical depth and team spirit to every project. I have seen him design and implement robust data pipelines while also mentoring others. His ability to simplify complex problems and propose scalable solutions makes him a trusted engineer to work alongside."</p>
+                    </div>
+
+                    <div class="testimonial-card bg-white/10 backdrop-blur-md rounded-xl shadow-glass p-6 md:p-8 min-w-[320px] max-w-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">AR</div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Amanda Rodrigues</h4>
+                                <p class="text-gray-400 text-sm">Senior Software Engineer Colleague</p>
+                                <a href="https://www.linkedin.com/in/amanda-rodrigues-5013209/" target="_blank" rel="noopener" class="text-accent hover:text-accent2 text-sm transition-colors"><i class="fab fa-linkedin mr-1"></i>LinkedIn</a>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic testimonial-text">"Nitender is an exceptional teammate. His technical expertise in Python and big data engineering consistently stood out, but what I appreciated most was his collaborative approach. He was always approachable, supportive, and committed to helping the team succeed together."</p>
+                    </div>
+
+                    <div class="testimonial-card bg-white/10 backdrop-blur-md rounded-xl shadow-glass p-6 md:p-8 min-w-[320px] max-w-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">RZ</div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Rizwan Shaik</h4>
+                                <p class="text-gray-400 text-sm">Senior Software Engineer Colleague</p>
+                                <a href="https://www.linkedin.com/in/rizwan-shaik-44551b40/" target="_blank" rel="noopener" class="text-accent hover:text-accent2 text-sm transition-colors"><i class="fab fa-linkedin mr-1"></i>LinkedIn</a>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic testimonial-text">"I had the pleasure of working closely with Nitender on challenging projects. His problem-solving mindset and ability to design scalable architectures were invaluable. Beyond his technical strength, he fostered a collaborative environment where everyone could contribute effectively."</p>
+                    </div>
+                    <div class="testimonial-card bg-white/10 backdrop-blur-md rounded-xl shadow-glass p-6 md:p-8 min-w-[320px] max-w-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">AD</div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Arnab Das</h4>
+                                <p class="text-gray-400 text-sm">Product Marketing & GTM Colleague</p>
+                                <a href="https://www.linkedin.com/in/arnab-d-846970192/" target="_blank" rel="noopener" class="text-accent hover:text-accent2 text-sm transition-colors"><i class="fab fa-linkedin mr-1"></i>LinkedIn</a>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic testimonial-text">"Working with Nitender was always easy and rewarding. He listens carefully, keeps the customer's perspective at the center, and builds solutions that make sense not just technically but also for the people who use them. His thoughtful approach made it simple to connect our product and marketing goals with what he delivered."</p>
+                    </div>
+                    <!-- Duplicates removed; JS handles seamless looping by cloning the track at runtime -->
                 </div>
             </div>
         </div>
@@ -2104,6 +2285,48 @@
                     });
                 });
             } catch (_) {}
+
+            // Circular marquee with pause and click-to-expand
+            (function(){
+              const marquee = document.getElementById('testimonialsMarquee');
+              const track = document.getElementById('testimonialsTrack');
+              if (!marquee || !track) return;
+
+              // Duplicate items once for seamless circular loop (only if not already duplicated)
+              if (!track.dataset.duplicated) {
+                track.innerHTML = track.innerHTML + track.innerHTML;
+                track.dataset.duplicated = 'true';
+              }
+
+            const pause = () => { track.style.animationPlayState = 'paused'; marquee.classList.add('paused'); };
+            const resume = () => {
+              // Only resume if no card is expanded
+              const anyExpanded = track.querySelector('.testimonial-card.expanded');
+              if (!anyExpanded) { track.style.animationPlayState = 'running'; marquee.classList.remove('paused'); }
+            };
+
+            marquee.addEventListener('mouseenter', pause);
+            marquee.addEventListener('mouseleave', resume);
+            marquee.addEventListener('touchstart', pause, {passive:true});
+            marquee.addEventListener('touchend', resume);
+            marquee.addEventListener('focusin', pause);
+            marquee.addEventListener('focusout', resume);
+
+            // Click to expand/collapse a card
+            track.addEventListener('click', (e) => {
+              const card = e.target.closest('.testimonial-card');
+              if (!card) return;
+              if (card.classList.contains('expanded')) {
+                card.classList.remove('expanded');
+                resume();
+              } else {
+                // collapse others
+                track.querySelectorAll('.testimonial-card.expanded').forEach(c => c.classList.remove('expanded'));
+                card.classList.add('expanded');
+                pause();
+              }
+            });
+            })();
         });
     </script>
 </body>
