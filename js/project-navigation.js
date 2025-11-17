@@ -11,6 +11,7 @@
   // Project sequence based on timeline (most recent first)
   // Format: { id: 'project-id', name: 'Project Name', file: 'project-filename.html', date: 'YYYY-MM' }
   const projectSequence = [
+    { id: 'c6insights', name: 'C6 Insights', file: 'project-c6insights.html', date: '2024-01' },
     { id: 'deep-view-analytics', name: 'Deep View Analytics', file: 'project-deep-view-analytics.html', date: '2024-01' },
     { id: 'qlm', name: 'QLM Platform', file: 'project-qlm.html', date: '2023-03' },
     { id: 'self-analytics', name: 'Self Analytics', file: 'project-self-analytics.html', date: '2022-01' },
@@ -25,6 +26,7 @@
     
     // Map filename to project ID
     const fileToId = {
+      'project-c6insights.html': 'c6insights',
       'project-deep-view-analytics.html': 'deep-view-analytics',
       'project-paos.html': 'paos',
       'project-qlm.html': 'qlm',

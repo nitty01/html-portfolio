@@ -11,7 +11,7 @@ flowchart TD
   end
   
  subgraph IN["⚡ Ingestion Layer"]
-        E[Apache Kafka]
+        E[RabbitMQ<br>Message Queue]
   end
   
  subgraph PR["🧩 Processing Layer"]
@@ -21,8 +21,8 @@ flowchart TD
   end
   
  subgraph ST["💾 Storage Layer"]
-        I[(MongoDB - Documents)]
-        J[(PostgreSQL - Relational)]
+        I[(MongoDB<br>Raw Data Store)]
+        J[(PostgreSQL<br>Job & Metadata)]
         K[(Time Series DB)]
         L[(S3 Data Lake)]
   end
@@ -43,7 +43,7 @@ flowchart TD
   
  subgraph INF["⚙️ Infrastructure"]
         U[Docker & Kubernetes]
-        V[Monitoring - Prometheus & Grafana]
+        V[Observability - ELK Stack<br>Elasticsearch, Logstash, Kibana]
         W[Security - IAM / RBAC]
         X[AWS Cloud]
   end

@@ -1,0 +1,38 @@
+---
+config:
+  layout: elk
+---
+flowchart LR
+    A["🌍 Climate Data Sources"] --> B["📥 Data Ingestion<br>Apache Kafka"]
+    C["🚗 Vehicle Telemetry"] --> B
+    D["💰 Fuel Price APIs"] --> B
+    E["🌬️ AQI Sensors"] --> B
+    B --> F["⚙️ Processing Layer<br>Deep View Analytics Platform<br>Python + FastAPI"]
+    F --> G[("💾 MongoDB")] & H[("🗄️ PostgreSQL")] & I["🤖 GenAI Engine<br>Ollama LLM + RAG"]
+    I --> J["📊 Analytics Dashboard"] & K["🚗 Vehicle Replacement<br>Recommendations"]
+    J --> L["👥 Fleet Managers"]
+    K --> L
+    M["🐳 Containerized Services<br>Docker + Kubernetes"] --> F
+    N["☁️ AWS Cloud"] --> M
+     A:::source
+     C:::source
+     D:::source
+     E:::source
+     B:::ingestion
+     F:::processing
+     G:::storage
+     H:::storage
+     I:::genai
+     J:::output
+     K:::output
+     L:::output
+     M:::infra
+     N:::infra
+    classDef source fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D1B2A
+    classDef ingestion fill:#B2DFDB,stroke:#00695C,stroke-width:2px,color:#00332E
+    classDef processing fill:#D1C4E9,stroke:#4527A0,stroke-width:2px,color:#1A093F
+    classDef storage fill:#FFE0B2,stroke:#EF6C00,stroke-width:2px,color:#4A2500
+    classDef genai fill:#E1BEE7,stroke:#9C27B0,stroke-width:2px,color:#4A148C
+    classDef output fill:#F8BBD0,stroke:#AD1457,stroke-width:2px,color:#4A0E2E
+    classDef infra fill:#E1BEE7,stroke:#6A1B9A,stroke-width:2px,color:#2D0A3A
+

@@ -6,7 +6,7 @@ flowchart LR
     A["🚗 OBD-II Data"] --> B["📥 Ingestion Service<br>RabbitMQ"]
     C["📊 Google Ads / Analytics / Salesforce"] --> B
     B --> D["⚙️ Processing<br>Python + FastAPI"]
-    D --> E[("💾 MongoDB")] & F[("🗄️ PostgreSQL")] & G["📊 Analytics Engine"]
+    D --> E[("💾 MongoDB<br>Raw Data Store")] & F[("🗄️ PostgreSQL<br>Job & Metadata")] & G["📊 Analytics Engine"]
     G --> H["📈 Insights Dashboard"] & I["🤖 AI / LLM Integration"]
     H --> J["👥 End Users"]
     I --> J

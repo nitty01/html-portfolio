@@ -1,0 +1,96 @@
+---
+config:
+  layout: elk
+---
+flowchart TD
+ subgraph DS["📥 Data Sources"]
+        A[Vehicle Telemetry<br>OBD-II Data]
+        B[Fuel Price Scraper<br>Real-time APIs]
+        C[AQI Data Collector<br>Air Quality Sensors]
+        D[EV Incentives Database<br>RAG Knowledge Base]
+  end
+  
+ subgraph IN["⚡ Ingestion Layer"]
+        E[Apache Kafka<br>Message Queue]
+  end
+  
+ subgraph PR["🧩 Processing Layer"]
+        F[Deep View Analytics<br>Platform]
+        G[Microservices - Python/FastAPI]
+        H[Data Validation]
+        I[Transformation & Enrichment]
+        J[Carbon Emission Calculator]
+        K[Fuel Cost Analyzer]
+  end
+  
+ subgraph ST["💾 Storage Layer"]
+        L[(MongoDB - Documents)]
+        M[(PostgreSQL - Relational)]
+        N[(Time Series DB)]
+        S[(S3 Data Lake)]
+  end
+  
+ subgraph GENAI["🤖 GenAI Layer"]
+        O[Ollama LLM<br>Local Inference]
+        P[RAG Pipeline<br>EV Incentives]
+        Q[MCP Integration<br>Vehicle Data]
+        R[Vehicle Replacement<br>Recommendation Engine]
+  end
+  
+ subgraph API["🌐 API Layer"]
+        T[FastAPI Gateway]
+        U[Analytics API]
+        V[Recommendation API]
+        W[Carbon Reporting API]
+  end
+  
+ subgraph FE["🎨 Frontend Layer"]
+        X[Fleet Management Dashboard]
+        Y[Carbon Emission Reports]
+        Z[Vehicle Replacement UI]
+        AA[ROI Calculator]
+  end
+  
+ subgraph INF["⚙️ Infrastructure"]
+        AB[Docker & Kubernetes]
+        AC[Monitoring - Prometheus & Grafana]
+        AD[Security - IAM / RBAC]
+        AE[AWS Cloud]
+  end
+  
+    DS --> IN
+    IN --> PR
+    PR --> ST
+    ST --> GENAI
+    GENAI --> API
+    API --> FE
+    PR --> INF
+    INF --> ST
+    
+     DS:::sources
+     IN:::ingestion
+     PR:::processing
+     ST:::storage
+     GENAI:::genai
+     API:::api
+     FE:::frontend
+     INF:::infra
+     
+class A,B,C,D sources;
+class E ingestion;
+class F,G,H,I,J,K processing;
+class L,M,N,S storage;
+class O,P,Q,R genai;
+class T,U,V,W api;
+class X,Y,Z,AA frontend;
+class AB,AC,AD,AE infra;
+
+    classDef sources fill:#E8F1F2,stroke:#134074,stroke-width:2px,color:#0B2545
+    classDef ingestion fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef processing fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
+    classDef storage fill:#FFF3E0,stroke:#EF6C00,stroke-width:2px,color:#E65100
+    classDef genai fill:#F3E5F5,stroke:#9C27B0,stroke-width:2px,color:#4A148C
+    classDef api fill:#F3E5F5,stroke:#6A1B9A,stroke-width:2px,color:#4A148C
+    classDef frontend fill:#FFF8E1,stroke:#F57F17,stroke-width:2px,color:#4E342E
+    classDef infra fill:#ECEFF1,stroke:#37474F,stroke-width:2px,color:#263238
+
