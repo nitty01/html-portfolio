@@ -374,8 +374,8 @@
                         </div>
                     </div>
 
-                    <!-- Card 4: AI/ML Integration -->
-                    <div class="carousel-card qa-card" data-index="3" data-category="ai" role="button" tabindex="0" aria-label="AI/ML Integration flashcard">
+                    <!-- Card 4: GenAI Fleet Simulation -->
+                    <div class="carousel-card qa-card" data-index="3" data-category="ai" role="button" tabindex="0" aria-label="GenAI Fleet Simulation flashcard">
                         <div class="card-inner">
                             <div class="card-symbol">
                                 <div class="flex items-center justify-center w-28 h-28 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto shadow-lg">
@@ -389,8 +389,8 @@
                                 <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto mb-6 shadow-lg">
                                     <span class="text-3xl" role="img" aria-label="Robot">🤖</span>
                                 </div>
-                                <h3 class="text-2xl font-bold text-white mb-4 text-center">AI/ML Integration</h3>
-                                <p class="text-gray-300 text-center mb-6">How do you integrate AI/ML into workflows?</p>
+                                <h3 class="text-2xl font-bold text-white mb-4 text-center">GenAI Fleet Simulation</h3>
+                                <p class="text-gray-300 text-center mb-6">How do you use GenAI to drive fleet replacement and transformation decisions?</p>
                                 <div class="text-center">
                                     <span class="text-accent text-xs font-medium">Click to reveal answer</span>
                                 </div>
@@ -403,15 +403,15 @@
                                 <ul class="text-gray-300 text-sm space-y-2 text-left">
                                     <li class="flex items-start gap-2">
                                         <i class="fas fa-check-circle text-purple-400 mt-1"></i>
-                                        <span>Models as first-class pipeline components</span>
+                                        <span>Use RAG over EV incentives, grid emissions, and TCO data so LLM recommendations stay grounded in real numbers</span>
                                     </li>
                                     <li class="flex items-start gap-2">
                                         <i class="fas fa-check-circle text-purple-400 mt-1"></i>
-                                        <span>Real-time inference & monitoring</span>
+                                        <span>Combine vehicle telemetry with LLM reasoning (Ollama + MCP) to rank replacement candidates at vehicle level</span>
                                     </li>
                                     <li class="flex items-start gap-2">
                                         <i class="fas fa-check-circle text-purple-400 mt-1"></i>
-                                        <span>Continuous retraining workflows</span>
+                                        <span>Generate year-on-year fleet transformation roadmaps with ROI & carbon savings scenarios for C6 Insights</span>
                                     </li>
                                 </ul>
                                 <div class="text-center mt-6">
@@ -2118,6 +2118,11 @@ def send_delayed_message_with_exchange(
             const answer = card.querySelector('.card-answer');
             
             if (!symbol || !question || !answer) return;
+            const inner = card.querySelector('.card-inner');
+            if (inner) {
+                inner.style.transition = 'transform 0.25s ease-in-out';
+                inner.style.transform = 'rotateY(18deg) scale(0.97)';
+            }
             
             // Track progress
             totalFlips++;
@@ -2152,6 +2157,12 @@ def send_delayed_message_with_exchange(
                 } else if (cardStates[index] === 2) {
                     answer.style.display = 'block';
                     setTimeout(() => answer.style.opacity = '1', 50);
+                }
+                
+                if (inner) {
+                    setTimeout(() => {
+                        inner.style.transform = 'rotateY(0deg) scale(1)';
+                    }, 50);
                 }
                 
                 // Update progress after state change
@@ -2455,6 +2466,28 @@ def send_delayed_message_with_exchange(
                     cursor: pointer;
                     transform-style: preserve-3d;
                     border: 1px solid rgba(255, 255, 255, 0.1);
+                    overflow: hidden;
+                }
+                
+                #carouselContainer {
+                    perspective: 1200px;
+                }
+                
+                .carousel-card::after {
+                    content: '';
+                    position: absolute;
+                    inset: -2px;
+                    border-radius: 22px;
+                    border: 2px solid transparent;
+                    pointer-events: none;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+
+                .carousel-card.center::after {
+                    opacity: 1;
+                    border-image: linear-gradient(135deg, #06b6d4, #6366f1) 1;
+                    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
                 }
                 
                 #codeCarouselContainer {

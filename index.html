@@ -172,10 +172,10 @@
                         </span>
                     </div>
                     <h1 id="hero-headline" class="text-5xl md:text-6xl font-extrabold mb-4 animate-fadeInUp" style="animation-delay: 0.1s;">
-                        Principal Data Engineer — Building scalable data platforms
+                        Principal Data Engineer & AI / Data Platform Architect
                     </h1>
                     <p class="text-xl md:text-2xl mb-6 animate-fadeInUp" style="animation-delay: 0.25s; color: var(--text-light);">
-                        I architect cloud-native data systems, ML pipelines, and streaming analytics that turn raw data into decisions.
+                        I design and build cloud-native data & GenAI platforms that turn real-world telemetry into decisions on cost, carbon, and risk at scale.
                     </p>
                     <div class="text-accent2 text-lg mb-6" aria-live="polite">
                         <span class="mr-2">Roles:</span>
@@ -200,6 +200,13 @@
                         <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">ML Pipelines</span>
                         <span class="px-3 py-1 bg-fuchsia-500/20 text-fuchsia-300 rounded-full text-sm">Observability</span>
                     </div>
+                    <!-- Quick section links -->
+                    <div class="mt-4 flex flex-wrap gap-3 justify-center lg:justify-start text-sm animate-fadeInUp" style="animation-delay: 0.3s;">
+                        <a href="public/about.html" class="px-3 py-1 rounded-full border border-white/10 text-gray-300 hover:bg-white/10 hover:text-accent transition-colors">About</a>
+                        <a href="#projects" class="px-3 py-1 rounded-full border border-white/10 text-gray-300 hover:bg-white/10 hover:text-accent transition-colors">Projects</a>
+                        <a href="#experience" class="px-3 py-1 rounded-full border border-white/10 text-gray-300 hover:bg-white/10 hover:text-accent transition-colors">Experience</a>
+                        <a href="public/contact.html" class="px-3 py-1 rounded-full border border-white/10 text-gray-300 hover:bg-white/10 hover:text-accent transition-colors">Contact</a>
+                    </div>
                     <!-- Scroll hint -->
                     <button id="scroll-hint" class="mt-10 inline-flex items-center gap-2 hover:text-accent transition-colors" style="color: var(--text-muted);" aria-label="Scroll to projects" data-gtm="scroll_hint">
                         <i class="fas fa-circle-down animate-float"></i>
@@ -208,7 +215,7 @@
                 </div>
                 <!-- Right: Portrait -->
                 <div class="flex justify-center lg:justify-end">
-                    <img src="assets/images/profile_pic.jpg" alt="Portrait of Nitender Kumar" width="384" height="384" loading="eager" fetchpriority="high" decoding="async" class="w-56 h-56 md:w-72 md:h-72 rounded-full border-8 border-accent shadow-2xl object-cover profile-pic-blink" />
+                    <img src="assets/images/profile_pic.jpg" alt="Portrait of Nitender Kumar" width="384" height="384" loading="eager" fetchpriority="high" decoding="async" class="w-56 h-56 md:w-72 md:h-72 rounded-full border-8 border-accent shadow-2xl object-cover profile-pic-blink" style="object-position: center 25%;" />
                 </div>
             </div>
             <!-- Stats -->
@@ -1074,6 +1081,7 @@
                 <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Experience Snapshot</h2>
             </div>
             <ol class="relative border-l-2 border-gradient-to-b from-accent to-accent2">
+                <!-- Darby Telematics -->
                 <li class="mb-12 ml-8 group">
                     <div class="absolute -left-4 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-accent to-accent2 text-white shadow-lg group-hover:scale-110 transition-transform">
                         <i class="fas fa-briefcase text-sm"></i>
@@ -1082,10 +1090,45 @@
                         <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-3">
                             <div>
                                 <h3 class="text-xl font-semibold text-white mb-1">Principal Data Engineer</h3>
-                                <p class="text-accent font-medium">Darby Telematics India Pvt Ltd & Danlaw Inc</p>
+                                <p class="text-accent font-medium">Darby Telematics India Pvt Ltd</p>
                             </div>
                             <time class="px-3 py-1 bg-accent/20 text-accent rounded-full text-sm font-semibold whitespace-nowrap">
-                                <i class="fas fa-calendar-alt mr-1"></i>Mar 2019 – Present
+                                <i class="fas fa-calendar-alt mr-1"></i>Apr 2024 – Present
+                            </time>
+                        </div>
+                        <p class="text-gray-300 mb-4 leading-relaxed">Leading architecture and implementation of C6 Insights, a climate tech and fleet optimization platform built on Deep View Analytics. Driving GenAI-powered simulation workflows (vehicle replacement, fleet transformation roadmap, ROI and carbon modelling) and integrating streaming telemetry, fuel, AQI and incentives data. Partnering with product and business stakeholders while remaining hands-on across PySpark, FastAPI, MongoDB/PostgreSQL, RabbitMQ and Kubernetes.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full">PySpark</span>
+                            <span class="px-2 py-1 bg-green-500/20 text-green-300 text-xs rounded-full">FastAPI</span>
+                            <span class="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full">GenAI</span>
+                            <span class="px-2 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">Kubernetes</span>
+                            <span class="px-2 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded-full">RabbitMQ</span>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-700 flex flex-wrap gap-4 text-sm">
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <i class="fas fa-users text-accent"></i>
+                                <span>Tech lead for cross-functional GenAI & data workstreams</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <i class="fas fa-route text-green-400"></i>
+                                <span>Focused on fleet transformation and climate impact</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!-- Danlaw Inc -->
+                <li class="mb-12 ml-8 group">
+                    <div class="absolute -left-4 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-accent to-accent2 text-white shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fas fa-briefcase text-sm"></i>
+                    </div>
+                    <div class="glass rounded-xl p-6 hover:scale-[1.02] transition-all duration-300">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-3">
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">Principal Data Engineer</h3>
+                                <p class="text-accent font-medium">Danlaw Inc</p>
+                            </div>
+                            <time class="px-3 py-1 bg-accent/20 text-accent rounded-full text-sm font-semibold whitespace-nowrap">
+                                <i class="fas fa-calendar-alt mr-1"></i>Mar 2019 – Mar 2024
                             </time>
                         </div>
                         <p class="text-gray-300 mb-4 leading-relaxed">Led architecture and development of Deep View Analytics to process high-frequency OBD-II, marketing, and carbon data. Built scalable ETL and streaming using PySpark, FastAPI, PostgreSQL, MongoDB, RabbitMQ; managed Docker/Kubernetes; custom-built Deep View Analytics platform usage layer; CI/CD via Jenkins. Integrated GenAI (ChatGPT, Claude, Gemini) for sustainability insights and mentored engineers.</p>
@@ -1698,48 +1741,57 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="text-gray-300 leading-relaxed">
-                                    A climate tech platform that helps customers reduce fuel spend, measure and report carbon emissions, and evaluate ROI on clean technologies to achieve net-zero goals. Built on Deep View Analytics platform with GenAI-powered vehicle replacement recommendations.
-                                </p>
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div class="bg-gray-800/50 rounded-lg p-4">
-                                        <div class="text-accent font-semibold mb-1">Role</div>
-                                        <div class="text-gray-300 text-sm">Principal Data Engineer</div>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-accent mb-3">Project Overview</h4>
+                                        <p class="text-gray-300 mb-4">
+                                            A climate tech and fleet optimization platform that ingests vehicle telemetry, fuel prices, AQI, and incentives data to help customers reduce fuel spend, measure and report carbon emissions, and evaluate ROI on clean technologies. Built on the Deep View Analytics platform with GenAI-powered simulation workflows.
+                                        </p>
+                                        <h4 class="text-lg font-semibold text-accent mb-3">Key Features</h4>
+                                        <ul class="text-gray-300 space-y-2">
+                                            <li>• GenAI-powered vehicle replacement recommendations using Ollama LLM, RAG, and MCP</li>
+                                            <li>• Fleet transformation roadmap generation with year-on-year planning, ROI, and carbon savings</li>
+                                            <li>• AQI data collector for real-time air quality monitoring</li>
+                                            <li>• Fuel price scraper for accurate cost and ROI calculations</li>
+                                            <li>• Carbon emission tracking and net-zero reporting</li>
+                                        </ul>
                                     </div>
-                                    <div class="bg-gray-800/50 rounded-lg p-4">
-                                        <div class="text-accent font-semibold mb-1">Duration</div>
-                                        <div class="text-gray-300 text-sm">2 years <span class="text-green-400">(Ongoing)</span></div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-accent mb-3">Technical Details</h4>
+                                        <div class="space-y-3 text-sm">
+                                            <div>
+                                                <span class="text-gray-400">Role:</span>
+                                                <span class="text-white ml-2">Principal Data Engineer (hands-on)</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Duration:</span>
+                                                <span class="text-white ml-2">2 years <span class="text-green-400">(Ongoing)</span></span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Team Size:</span>
+                                                <span class="text-white ml-2">10 engineers</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Stack:</span>
+                                                <span class="text-white ml-2">PySpark, FastAPI, Kafka, RabbitMQ, MongoDB, PostgreSQL, Kubernetes, AWS (EMR, Lambda, S3)</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">Data Sources:</span>
+                                                <span class="text-white ml-2">Streaming vehicle telemetry, fuel prices, AQI, EV incentives, and reference data</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-400">GenAI:</span>
+                                                <span class="text-white ml-2">Ollama LLM, RAG (Chroma DB), MCP-based vehicle data access</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-6">
+                                            <a href="public/project-c6insights.html" 
+                                               class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold hover:shadow-xl transition-all">
+                                                <i class="fas fa-external-link-alt"></i>
+                                                View Full Project
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-semibold mb-3">Key Features</h4>
-                                    <ul class="space-y-2 text-gray-300">
-                                        <li class="flex items-start gap-2">
-                                            <i class="fas fa-check-circle text-green-400 mt-1"></i>
-                                            <span>GenAI-powered vehicle replacement recommendations using Ollama LLM, RAG, and MCP</span>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <i class="fas fa-check-circle text-green-400 mt-1"></i>
-                                            <span>Fleet transformation roadmap generator with year-on-year planning and ROI analysis</span>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <i class="fas fa-check-circle text-green-400 mt-1"></i>
-                                            <span>AQI data collector for real-time air quality monitoring</span>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <i class="fas fa-check-circle text-green-400 mt-1"></i>
-                                            <span>Fuel price scraper for accurate cost analysis</span>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <i class="fas fa-check-circle text-green-400 mt-1"></i>
-                                            <span>Carbon emission tracking and net-zero reporting</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="flex gap-3">
-                                    <a href="public/project-c6insights.html" class="flex-1 px-4 py-2 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg hover:shadow-lg transition-all text-center">
-                                        View Full Project
-                                    </a>
                                 </div>
                             </div>
                         `
