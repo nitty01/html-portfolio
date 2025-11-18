@@ -4,93 +4,141 @@ config:
 ---
 flowchart TD
  subgraph DS["📥 Data Sources"]
-        A[Vehicle Telemetry<br>OBD-II Data]
-        B[Fuel Price Scraper<br>Real-time APIs]
-        C[AQI Data Collector<br>Air Quality Sensors]
-        D[EV Incentives Database<br>RAG Knowledge Base]
+        A[Vehicle Telemetry<br>Streaming Data]
+        B[Fuel Price APIs]
+        C[AQI APIs]
+        D[Other Sources<br>Monthly Manual<br>Electricity Prices, Grid Emissions, Replacement Vehicles]
+        E[EV Incentives<br>Data]
   end
   
- subgraph IN["⚡ Ingestion Layer"]
-        E[Apache Kafka<br>Message Queue]
+ subgraph ING["⚡ Ingestion Layer"]
+        F[Apache Kafka<br>Message Queue]
+        G[AWS Lambda<br>Fuel Price Scraper<br>Event Triggered]
+        H[API Consumer<br>AQI Data]
   end
   
- subgraph PR["🧩 Processing Layer"]
-        F[Deep View Analytics<br>Platform]
-        G[Microservices - Python/FastAPI]
-        H[Data Validation]
-        I[Transformation & Enrichment]
-        J[Carbon Emission Calculator]
-        K[Fuel Cost Analyzer]
+ subgraph PROC["⚙️ Processing Layer"]
+        I[PySpark Processing<br>AWS EMR]
+        J[Deep View Analytics Platform<br>Master-Slave Architecture<br>Horizontally Scalable]
+        K[Batch Processing<br>Job-based]
+        L[Metadata Enhancement<br>Pod-based Processing]
   end
   
- subgraph ST["💾 Storage Layer"]
-        L[(MongoDB - Documents)]
-        M[(PostgreSQL - Relational)]
-        N[(Time Series DB)]
-        S[(S3 Data Lake)]
+ subgraph MSG["📨 Messaging Layer"]
+        M[RabbitMQ<br>Job Parallelization<br>Delay Queue & DLQ]
   end
   
- subgraph GENAI["🤖 GenAI Layer"]
-        O[Ollama LLM<br>Local Inference]
-        P[RAG Pipeline<br>EV Incentives]
-        Q[MCP Integration<br>Vehicle Data]
-        R[Vehicle Replacement<br>Recommendation Engine]
+ subgraph STOR["💾 Storage Layer"]
+        N[(S3 Data Lake<br>Raw Vehicle Data)]
+        O[(MongoDB<br>Raw Data Store<br>Vehicle, Fuel, AQI, Other)]
+        P[(PostgreSQL<br>Job Metadata)]
+        Q[(Chroma DB<br>Vector Store<br>EV Incentives RAG)]
+  end
+  
+ subgraph GENAI["🤖 GenAI Processing"]
+        R[Ollama LLM<br>Local Inference]
+        S[RAG Pipeline<br>Chroma DB Vector Search]
+        T[MCP Integration<br>Vehicle Data Access]
+        U[Vehicle Replacement<br>Identification Engine<br>Cost, Fuel, Carbon, Travel/Service Area]
+        V[Fleet Roadmap<br>Generation Engine<br>Year-on-Year with ROI & Carbon Savings]
   end
   
  subgraph API["🌐 API Layer"]
-        T[FastAPI Gateway]
-        U[Analytics API]
-        V[Recommendation API]
-        W[Carbon Reporting API]
+        W[FastAPI Gateway<br>Data Serving]
+        X[FastAPI<br>Metadata Enhancement Endpoint]
+        Y[FastAPI<br>Simulation Endpoint]
   end
   
  subgraph FE["🎨 Frontend Layer"]
-        X[Fleet Management Dashboard]
-        Y[Carbon Emission Reports]
-        Z[Vehicle Replacement UI]
-        AA[ROI Calculator]
+        Z[Fleet Management Dashboard]
+        AA[Carbon Emission Reports]
+        AB[Vehicle Replacement UI<br>Simulation Trigger]
+        AC[ROI Calculator]
   end
   
  subgraph INF["⚙️ Infrastructure"]
-        AB[Docker & Kubernetes]
-        AC[Monitoring - Prometheus & Grafana]
-        AD[Security - IAM / RBAC]
-        AE[AWS Cloud]
+        AD[Kubernetes<br>Pod Orchestration]
+        AE[Docker Containers]
+        AF[AWS Cloud Services]
+        AG[Monitoring & Logging]
   end
   
-    DS --> IN
-    IN --> PR
-    PR --> ST
-    ST --> GENAI
-    GENAI --> API
-    API --> FE
-    PR --> INF
-    INF --> ST
+    A --> F
+    F --> I
+    I --> N
+    I --> O
+    
+    B --> G
+    G --> O
+    
+    C --> H
+    H --> O
+    
+    D --> O
+    
+    E --> Q
+    
+    O --> J
+    Q --> J
+    J --> P
+    J --> M
+    J --> O
+    J --> M
+    
+    X --> M
+    M --> L
+    L --> O
+    
+    AB --> Y
+    Y --> R
+    R --> S
+    R --> T
+    S --> Q
+    T --> O
+    R --> U
+    U --> V
+    V --> Y
+    Y --> M
+    M --> W
+    
+    O --> W
+    P --> W
+    W --> Z
+    W --> AA
+    W --> AC
+    
+    J --> AD
+    L --> AD
+    AD --> AE
+    AD --> AF
+    AF --> AG
     
      DS:::sources
-     IN:::ingestion
-     PR:::processing
-     ST:::storage
+     ING:::ingestion
+     PROC:::processing
+     MSG:::messaging
+     STOR:::storage
      GENAI:::genai
      API:::api
      FE:::frontend
      INF:::infra
      
-class A,B,C,D sources;
-class E ingestion;
-class F,G,H,I,J,K processing;
-class L,M,N,S storage;
-class O,P,Q,R genai;
-class T,U,V,W api;
-class X,Y,Z,AA frontend;
-class AB,AC,AD,AE infra;
+class A,B,C,D,E sources;
+class F,G,H ingestion;
+class I,J,K,L processing;
+class M messaging;
+class N,O,P,Q storage;
+class R,S,T,U,V genai;
+class W,X,Y api;
+class Z,AA,AB,AC frontend;
+class AD,AE,AF,AG infra;
 
     classDef sources fill:#E8F1F2,stroke:#134074,stroke-width:2px,color:#0B2545
     classDef ingestion fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef processing fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
+    classDef messaging fill:#F3E5F5,stroke:#9C27B0,stroke-width:2px,color:#4A148C
     classDef storage fill:#FFF3E0,stroke:#EF6C00,stroke-width:2px,color:#E65100
     classDef genai fill:#F3E5F5,stroke:#9C27B0,stroke-width:2px,color:#4A148C
-    classDef api fill:#F3E5F5,stroke:#6A1B9A,stroke-width:2px,color:#4A148C
+    classDef api fill:#C8E6C9,stroke:#4CAF50,stroke-width:2px,color:#1B5E20
     classDef frontend fill:#FFF8E1,stroke:#F57F17,stroke-width:2px,color:#4E342E
     classDef infra fill:#ECEFF1,stroke:#37474F,stroke-width:2px,color:#263238
-

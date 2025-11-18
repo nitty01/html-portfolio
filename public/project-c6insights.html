@@ -269,9 +269,15 @@
                     <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">FastAPI</span>
                     <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">MongoDB</span>
                     <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">PostgreSQL</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Apache Kafka</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">PySpark</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">RabbitMQ</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">AWS EMR</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">AWS Lambda</span>
                     <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Ollama LLM</span>
                     <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">RAG</span>
                     <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">MCP</span>
+                    <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Chroma DB</span>
                 </div>
             </div>
             <div>
@@ -450,13 +456,14 @@
                 <div class="mt-8">
                     <h4 class="text-accent font-bold text-base mb-2">Technical Architecture</h4>
                     <ul class="list-disc list-inside space-y-1 text-gray-300">
-                        <li><strong>Data Sources:</strong> Vehicle telemetry, fuel price APIs, AQI sensors, and EV incentives database</li>
-                        <li><strong>Platform:</strong> Built on Deep View Analytics for scalable data processing</li>
-                        <li><strong>GenAI Integration:</strong> Ollama LLM with RAG pipeline for EV incentives and MCP for vehicle data</li>
-                        <li><strong>GenAI Use Cases:</strong> Vehicle replacement recommendations and fleet transformation roadmap generation with ROI analysis</li>
-                        <li><strong>Components:</strong> AQI Data Collector, Fuel Price Scraper, Carbon Emission Calculator, Vehicle Replacement Engine, Fleet Transformation Planner</li>
-                        <li><strong>Scalability:</strong> Containerized microservices with Kubernetes orchestration</li>
-                        <li><strong>Monitoring:</strong> Comprehensive observability with Prometheus and Grafana</li>
+                        <li><strong>Data Ingestion:</strong> Streaming vehicle data via Kafka → PySpark (AWS EMR) → S3 & MongoDB; Fuel Price Scraper (Lambda); AQI via API; Monthly manual data (Electricity Prices, Grid Emissions, Replacement Vehicles)</li>
+                        <li><strong>Storage:</strong> MongoDB (raw data), PostgreSQL (job metadata), S3 (data lake), Chroma DB (EV incentives vector store for RAG)</li>
+                        <li><strong>Processing Platform:</strong> Deep View Analytics - Master-slave architecture, horizontally scalable, batch-based processing with RabbitMQ for job parallelization (delay queue & DLQ)</li>
+                        <li><strong>GenAI Pipeline:</strong> Ollama LLM with RAG (Chroma DB) for EV incentives and MCP for vehicle data access</li>
+                        <li><strong>GenAI Use Cases:</strong> Vehicle-level replacement identification (cost, fuel, carbon, travel/service area) and fleet transformation roadmap generation (year-on-year with ROI & carbon savings)</li>
+                        <li><strong>API Layer:</strong> FastAPI for data serving, metadata enhancement, and simulation endpoints</li>
+                        <li><strong>Simulation Flow:</strong> UI → FastAPI → LLM processing → Vehicle replacement → Fleet roadmap → API response → RabbitMQ completion notification</li>
+                        <li><strong>Infrastructure:</strong> Kubernetes pod-based processing, Docker containers, AWS Cloud services</li>
                     </ul>
                 </div>
             </details>
