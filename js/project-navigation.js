@@ -11,6 +11,7 @@
   // Project sequence based on timeline (most recent first)
   // Format: { id: 'project-id', name: 'Project Name', file: 'project-filename.html', date: 'YYYY-MM' }
   const projectSequence = [
+    { id: 'tprm-platform', name: 'AI-Driven TPRM Platform', file: 'project-tprm-platform.html', date: '2025-12' },
     { id: 'c6insights', name: 'C6 Insights', file: 'project-c6insights.html', date: '2024-01' },
     { id: 'deep-view-analytics', name: 'Deep View Analytics', file: 'project-deep-view-analytics.html', date: '2024-01' },
     { id: 'qlm', name: 'QLM Platform', file: 'project-qlm.html', date: '2023-03' },
@@ -26,6 +27,7 @@
     
     // Map filename to project ID
     const fileToId = {
+      'project-tprm-platform.html': 'tprm-platform',
       'project-c6insights.html': 'c6insights',
       'project-deep-view-analytics.html': 'deep-view-analytics',
       'project-paos.html': 'paos',
@@ -119,15 +121,10 @@
       </div>
     `;
 
-    // Find insertion point (after main content starts or before first section)
+    // Append to end of main so lead sections (e.g. Executive Summary on TPRM) stay first
     const main = document.querySelector('main');
     if (main) {
-      const firstSection = main.querySelector('section');
-      if (firstSection) {
-        firstSection.insertAdjacentHTML('beforebegin', navHTML);
-      } else {
-        main.insertAdjacentHTML('afterbegin', navHTML);
-      }
+      main.insertAdjacentHTML('beforeend', navHTML);
     }
   }
 

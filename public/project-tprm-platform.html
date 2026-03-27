@@ -2,29 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script>
+        function openContactModal() {
+            document.getElementById("contactModal").classList.remove("hidden");
+            document.body.style.overflow = "hidden";
+        }
+        function closeContactModal() {
+            document.getElementById("contactModal").classList.add("hidden");
+            document.body.style.overflow = "auto";
+        }
+        function copyEmailToClipboard() {
+            const email = "nitender.kumar11@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                alert("Email address copied to clipboard: " + email);
+                closeContactModal();
+            }).catch(() => {
+                const textArea = document.createElement("textarea");
+                textArea.value = email;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand("copy");
+                document.body.removeChild(textArea);
+                alert("Email address copied to clipboard: " + email);
+                closeContactModal();
+            });
+        }
+        function openEmailClient() {
+            window.location.href = "mailto:nitender.kumar11@gmail.com";
+            closeContactModal();
+        }
+        function openLinkedIn() {
+            window.open("https://www.linkedin.com/in/nitender-kumar/", "_blank");
+            closeContactModal();
+        }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QLM Platform | Nitender Kumar Portfolio</title>
+    <title>AI-Driven TPRM Platform | Nitender Kumar Portfolio</title>
     
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.svg">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.svg">
     <meta name="theme-color" content="#06b6d4">
     
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Y1JBT1EXB"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
-      gtag('config', 'G-6Y1JBT1EXB', {
-        debug_mode: true  // Enable debug mode for localhost testing
-      });
+      gtag('config', 'G-6Y1JBT1EXB', { debug_mode: true });
     </script>
     
-    <!-- Microsoft Clarity -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -33,32 +61,18 @@
         })(window, document, "clarity", "script", "t8hxb4v0kn");
     </script>
     
-    <!-- Centralized Theme Configuration -->
     <script src="../js/theme-config.js"></script>
-    
-    <!-- TailwindCSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = window.tailwindConfig;
     </script>
-    
-    <!-- Centralized Styles -->
     <link rel="stylesheet" href="../css/main.css">
-    
-    <!-- Theme Switcher Script -->
     <script src="../js/theme-switcher.js"></script>
-    
-    <!-- Project Navigation Script -->
     <script src="../js/project-navigation.js"></script>
-    
-    <!-- Additional Libraries -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
     
-    <!-- Page-specific styles for project pages -->
     <style>
-        
-        /* Mermaid diagram styling */
         .mermaid {
             background: transparent !important;
             border: none !important;
@@ -80,7 +94,9 @@
             margin: 20px 0;
             min-height: auto;
             overflow: auto;
-            display:flex; justify-content:center; align-items:flex-start;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
         }
         
         .diagram-loading {
@@ -119,14 +135,10 @@
           transform: scale(1.05);
         }
         
-        .diagram-control-btn.active {
-          background: rgba(6, 182, 212, 0.9);
-        }
-        
         .diagram-zoom {
           transform-origin: top left;
           transition: transform 0.3s ease;
-          display:inline-block;
+          display: inline-block;
         }
         
         .diagram-fullscreen {
@@ -155,8 +167,6 @@
           top: 20px;
           right: 20px;
         }
-
-        /* Allow mmd classDef styles to control colors; do not override node/edge styles */
         
         .close-fullscreen {
           position: fixed;
@@ -209,7 +219,6 @@
 </head>
 
 <body class="dark min-h-screen font-sans text-gray-200">
-    <!-- Enhanced Navigation -->
     <nav class="w-full flex items-center justify-between py-4 px-4 bg-gray-900/95 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-gray-800/50">
         <a class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text hover:scale-105 transition-transform" href="../index.html">
             Nitender Kumar
@@ -223,7 +232,6 @@
                 <i class="fab fa-linkedin"></i>
                 LinkedIn
             </a>
-            <!-- Theme Switcher -->
             <div class="theme-switcher">
                 <button id="theme-switcher-btn" class="theme-switcher-btn" aria-label="Change theme" aria-expanded="false" aria-haspopup="true" onclick="toggleThemeDropdown()">
                     <i id="current-theme-icon" class="fas fa-palette"></i>
@@ -245,59 +253,71 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
-        <section class="mb-10">
-            <h1 class="text-4xl md:text-5xl font-extrabold uppercase bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4 drop-shadow-lg">QLM PLATFORM</h1>
-            <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl project-description hero-desc">An AI-powered application designed to monitor live video feeds of queues, automatically counting people and alerting supervisors when queue length exceeds thresholds. Developed as a POC for MORE hypermarkets to optimize service counter management.</p>
+        <!-- Executive Summary (first in main) -->
+        <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Executive Summary</h2>
+            <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
+                <p>Third-party risk assessment in large enterprises is often manual, time-consuming, and difficult to scale across diverse vendor ecosystems.</p>
+                <p>Designed and led the development of an AI-driven, event-based platform leveraging GenAI agents and intelligent document processing to automate risk evaluation workflows.</p>
+                <p>The platform enables faster decision-making, improved compliance visibility, and scalable processing of enterprise risk workflows.</p>
+            </div>
         </section>
+
+        <section class="mb-10">
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">Current Work</span>
+                <span class="text-gray-500 text-sm">|</span>
+                <span class="text-gray-400 text-sm">Global Consulting Firm</span>
+            </div>
+            <h1 class="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-3 leading-tight">AI-Driven Third Party Risk Management (TPRM) Platform</h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-3xl project-description hero-desc">Enterprise GenAI Platform for Risk &amp; Compliance Automation</p>
+        </section>
+
         <section class="grid md:grid-cols-2 gap-10 mb-10 items-start">
             <div>
                 <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Designation</h2>
-                <div class="inline-block bg-gradient-to-r from-accent to-accent2 text-white px-4 py-2 rounded-lg font-semibold shadow-glass">Senior Software Engineer</div>
+                <div class="inline-block bg-gradient-to-r from-accent to-accent2 text-white px-4 py-2 rounded-lg font-semibold shadow-glass">Associate Director, AI Architect</div>
             </div>
             <div>
                 <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Technologies</h2>
+                <p class="text-sm text-gray-300 leading-relaxed mb-3">Azure (Service Bus, Cosmos DB, AI Services, Functions), AWS (S3, Kinesis, Lambda, Redshift)</p>
                 <div class="flex flex-wrap gap-3 mb-2">
-                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">TensorFlow</span>
-                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">OpenCV</span>
-                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Django</span>
-                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Python</span>
-                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Hadoop</span>
-                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Spark</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Azure</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">ServiceNow</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Cosmos DB</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">GenAI</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Service Bus</span>
                 </div>
             </div>
             <div>
                 <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Role</h2>
                 <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base">
-                    <li>Designed and implemented the AI-powered queue monitoring system architecture</li>
-                    <li>Developed computer vision algorithms for real-time people counting</li>
-                    <li>Created alerting mechanisms for queue length threshold management</li>
-                    <li>Integrated system with live video feeds and deployment infrastructure</li>
-                    <li>Collaborated with retail stakeholders to optimize service counter operations</li>
+                    <li>Designed and leading development of a cloud-native AI platform for third-party risk workflows</li>
+                    <li>Built using event-driven architecture integrating ServiceNow, Azure Service Bus, and AI agents</li>
+                    <li>Focused on scalable, reusable AI platform capabilities for enterprise risk and compliance</li>
                 </ul>
             </div>
             <div>
-                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Key Contributions & Impact</h2>
+                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Overview</h2>
                 <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base">
-                    <li>Designed and implemented the AI-powered queue monitoring system using computer vision.</li>
-                    <li>Developed real-time alerting for supervisors to optimize service counter allocation.</li>
-                    <li>Integrated the system with live video feeds and deployed as a proof of concept for retail environments.</li>
-                    <li>Improved customer experience and operational efficiency for hypermarkets.</li>
+                    <li>Enterprise GenAI platform for automating third-party risk assessment</li>
+                    <li>Event-driven architecture with intelligent document processing</li>
+                    <li>Global stakeholder alignment across risk, compliance, and operations</li>
                 </ul>
             </div>
         </section>
+
         <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
-            <details class="group">
+            <details class="group" open>
                 <summary class="cursor-pointer text-xl font-bold text-accent2 mb-4 select-none flex items-center gap-2">
                     <span class="inline-block transition-transform duration-300 group-open:rotate-90">
                         <svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                     </span>
-                    Architecture Diagrams & Technical Details
+                    Architecture Diagrams &amp; Technical Details
                 </summary>
                 <style>summary::-webkit-details-marker { display:none; }</style>
                 <div class="mt-4">
-                    <!-- Diagram Toggle -->
                     <div class="diagram-toggle">
                         <button class="toggle-btn active" id="overview-btn" onclick="switchDiagram('overview')">
                             <i class="fas fa-eye mr-2"></i>Overview
@@ -330,33 +350,75 @@
                             </button>
                         </div>
                     </div>
-                </div>
-                <div class="mt-8">
-                    <h4 class="text-accent font-bold text-base mb-2">Technical Highlights</h4>
-                    <ul class="list-disc list-inside space-y-1 text-gray-300">
-                        <li><strong>Computer Vision:</strong> Real-time video processing using OpenCV for queue detection</li>
-                        <li><strong>Machine Learning:</strong> TensorFlow-based models for accurate people counting</li>
-                        <li><strong>Modular Architecture:</strong> Clean separation of concerns for maintainability</li>
-                        <li><strong>Real-time Processing:</strong> Live video feed analysis with instant alerts</li>
-                        <li><strong>Scalable Design:</strong> Easy integration of new detection models and alerting strategies</li>
-                    </ul>
-                </div>
+                    <p class="text-center text-sm text-gray-400 mt-4 italic max-w-3xl mx-auto">Event-driven AI platform integrating ServiceNow, Azure Service Bus, Agent Runtime, and Document Intelligence.</p>
                 </div>
             </details>
         </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Architecture Decisions</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Event-driven architecture to enable scalability, decoupling, and asynchronous processing of risk workflows</li>
+                <li>Agent-based execution model to dynamically construct AI workflows based on request context instead of static pipelines</li>
+                <li>Asynchronous messaging (Azure Service Bus) to ensure resilience, fault tolerance, and high throughput</li>
+                <li>Cosmos DB for state management to maintain workflow state, enable traceability, and support distributed execution</li>
+            </ul>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-6 tracking-wide">Key Components</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Request Orchestration:</strong> Manages incoming requests, routing, and workflow control</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Agent Runtime:</strong> Dynamically constructs AI agents for context-driven execution</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Document Intelligence:</strong> Extracts and classifies structured and unstructured risk data</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">State Management (Cosmos DB):</strong> Tracks workflow stages and ensures persistence</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Messaging Layer (Service Bus):</strong> Enables asynchronous and scalable communication</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Integration Layer (ServiceNow):</strong> Sends processed results back to enterprise systems</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Business Impact</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Automated manual third-party risk assessment workflows, significantly reducing operational effort and dependency on manual reviews</li>
+                <li>Improved turnaround time for compliance evaluations through AI-driven document analysis and orchestration</li>
+                <li>Enabled scalable processing of enterprise risk workflows using event-driven architecture and asynchronous execution</li>
+                <li>Enhanced auditability and traceability of risk decisions through centralized state management and workflow tracking</li>
+            </ul>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Leadership &amp; Contributions</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Leading architecture design and platform development for enterprise AI-driven risk systems</li>
+                <li>Collaborating with global stakeholders across regions to align technical solutions with business objectives</li>
+                <li>Driving adoption of AI-first architecture and reusable platform capabilities across workflows</li>
+                <li>Ensuring governance, security, and compliance including data privacy, prompt injection safeguards, and multi-tenant design</li>
+            </ul>
+        </section>
     </main>
 
-    <!-- Enhanced Footer -->
     <footer class="bg-gray-900/95 backdrop-blur-lg border-t border-gray-800 mt-16">
         <div class="max-w-7xl mx-auto px-4 py-12">
             <div class="grid md:grid-cols-4 gap-8">
-                <!-- Brand -->
                 <div class="md:col-span-2">
                     <h3 class="text-2xl font-bold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4">
                         Nitender Kumar
                     </h3>
                     <p class="text-gray-400 mb-4 max-w-md">
-                        Principal Data Engineer & Solution Architect passionate about building scalable data solutions that drive business impact.
+                        Principal Data Engineer &amp; Solution Architect passionate about building scalable data solutions that drive business impact.
                     </p>
                     <div class="flex gap-4">
                         <a href="https://linkedin.com/in/nitender-kumar" class="w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition-transform hover:bg-[#005885]" style="background-color: #0077b5;">
@@ -368,7 +430,6 @@
                     </div>
                 </div>
                 
-                <!-- Quick Links -->
                 <div>
                     <h4 class="text-white font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
@@ -379,7 +440,6 @@
                     </ul>
                 </div>
                 
-                <!-- Contact Info -->
                 <div>
                     <h4 class="text-white font-semibold mb-4">Get In Touch</h4>
                     <ul class="space-y-2 text-gray-400">
@@ -403,7 +463,6 @@
                 </div>
             </div>
             
-            <!-- Bottom Bar -->
             <div class="border-t border-gray-800 pt-8 mt-8 text-center">
                 <div class="flex flex-col md:flex-row justify-between items-center">
                     <p class="text-gray-400 text-sm">
@@ -414,7 +473,7 @@
                             <i class="fas fa-download mr-1"></i>Download Resume
                         </a>
                         <span class="text-gray-600">|</span>
-                        <button id="scroll-to-top" class="text-accent hover:text-accent2 text-sm transition-colors">
+                        <button id="scroll-to-top" type="button" class="text-accent hover:text-accent2 text-sm transition-colors">
                             <i class="fas fa-arrow-up mr-1"></i>Back to Top
                         </button>
                     </div>
@@ -423,7 +482,39 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Get in Touch</h3>
+                <button onclick="closeContactModal()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div class="text-center">
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Choose your preferred way to contact me:</p>
+                </div>
+                <div class="space-y-3">
+                    <button onclick="copyEmailToClipboard()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        <i class="fas fa-copy"></i>
+                        Copy Email Address
+                    </button>
+                    <button onclick="openEmailClient()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                        <i class="fas fa-envelope"></i>
+                        Open Email Client
+                    </button>
+                    <button onclick="openLinkedIn()" class="w-full flex items-center justify-center gap-3 px-4 py-3 text-white rounded-lg transition-colors hover:bg-[#005885]" style="background-color: #0077b5;">
+                        <i class="fab fa-linkedin"></i>
+                        Connect on LinkedIn
+                    </button>
+                </div>
+                <div class="text-center text-sm text-gray-500 dark:text-gray-400">
+                    <p>Email: nitender.kumar11@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         let mermaidConfig = {
             startOnLoad: false,
@@ -457,16 +548,13 @@
         let isFullscreen = false;
         let currentDiagramType = 'overview';
 
-        // Initialize Mermaid
         mermaid.initialize(mermaidConfig);
 
-        // Diagram file paths
         const diagramFiles = {
-            overview: '../assets/images/diagrams/qlm/qlm-architecture_overview.mmd',
-            detailed: '../assets/images/diagrams/qlm/qlm-architecture_detailed.mmd'
+            overview: '../assets/images/diagrams/tprm-platform/tprm-platform-architecture_overview.mmd',
+            detailed: '../assets/images/diagrams/tprm-platform/tprm-platform-architecture_detailed.mmd'
         };
 
-        // Extract YAML-like front matter and convert to Mermaid init
         function preprocessMermaid(text) {
             const fmMatch = text.startsWith('---') ? text.match(/^---[\s\S]*?---\s*/m) : null;
             let renderer = null;
@@ -487,22 +575,37 @@
             return { text: normalized, renderer };
         }
 
-        // Load and render diagram from .mmd file
         async function loadDiagram(type = 'overview') {
             try {
                 const filePath = diagramFiles[type];
                 const response = await fetch(filePath);
                 const diagramText = await response.text();
                 const pre = preprocessMermaid(diagramText);
-                const finalText = pre.text;
+                let finalText = pre.text;
                 if (pre.renderer) {
                     mermaidConfig.flowchart = Object.assign({}, mermaidConfig.flowchart, { defaultRenderer: pre.renderer });
                 }
-                
+
+                const safeFlowchart = {
+                    useMaxWidth: mermaidConfig.flowchart && mermaidConfig.flowchart.useMaxWidth,
+                    curve: mermaidConfig.flowchart && mermaidConfig.flowchart.curve,
+                    diagramPadding: mermaidConfig.flowchart && mermaidConfig.flowchart.diagramPadding
+                };
+                const safeInitObj = {
+                    theme: mermaidConfig.theme,
+                    themeVariables: mermaidConfig.themeVariables || {},
+                    flowchart: safeFlowchart
+                };
+                const safeInit = JSON.stringify(safeInitObj);
+                const initDirective = `%%{init: ${safeInit}}%%
+`;
+
+                const finalDiagram = initDirective + finalText;
+
                 const diagramContainer = document.getElementById('diagram-container');
                 diagramContainer.innerHTML = `
                     <div class="diagram-zoom" id="diagram-zoom" style="transform: scale(${currentZoom});">
-                        <div class="mermaid">${finalText}</div>
+                        <div class="mermaid">${finalDiagram}</div>
                     </div>
                     <div class="diagram-controls">
                         <button class="diagram-control-btn" onclick="zoomIn()" title="Zoom In">
@@ -519,8 +622,7 @@
                         </button>
                     </div>
                 `;
-                
-                // Re-initialize Mermaid for the new content
+
                 mermaid.initialize(mermaidConfig);
                 await mermaid.init();
             } catch (error) {
@@ -534,23 +636,15 @@
             }
         }
 
-        // Switch between overview and detailed diagrams
         function switchDiagram(type) {
             currentDiagramType = type;
-            
-            // Update button states
             document.getElementById('overview-btn').classList.toggle('active', type === 'overview');
             document.getElementById('detailed-btn').classList.toggle('active', type === 'detailed');
-            
-            // Update title
             const title = document.getElementById('diagram-title');
             title.textContent = type === 'overview' ? 'Architecture Overview' : 'Detailed Architecture';
-            
-            // Load the new diagram
             loadDiagram(type);
         }
 
-        // Zoom functions
         function zoomIn() {
             currentZoom = Math.min(currentZoom * 1.2, 3);
             updateZoom();
@@ -578,181 +672,39 @@
             const diagramZoom = document.getElementById('diagram-zoom');
             
             if (!isFullscreen) {
-                // Enter fullscreen
                 isFullscreen = true;
                 diagramContainer.classList.add('diagram-fullscreen');
-                diagramZoom.style.transform = 'scale(1)';
+                if (diagramZoom) diagramZoom.style.transform = 'scale(1)';
                 currentZoom = 1;
-                
-                // Add close button
                 const closeBtn = document.createElement('button');
                 closeBtn.className = 'close-fullscreen';
                 closeBtn.innerHTML = '<i class="fas fa-times"></i> Close';
                 closeBtn.onclick = () => toggleFullscreen();
                 document.body.appendChild(closeBtn);
             } else {
-                // Exit fullscreen
                 isFullscreen = false;
                 diagramContainer.classList.remove('diagram-fullscreen');
-                diagramZoom.style.transform = `scale(${currentZoom})`;
-                
-                // Remove close button
+                if (diagramZoom) diagramZoom.style.transform = `scale(${currentZoom})`;
                 const closeBtn = document.querySelector('.close-fullscreen');
-                if (closeBtn) {
-                    closeBtn.remove();
-                }
+                if (closeBtn) closeBtn.remove();
             }
         }
 
-        // Initialize Mermaid with dark theme
         (function() {
             mermaidConfig.theme = 'dark';
-            mermaidConfig.themeVariables = {
-                primaryColor: '#06b6d4',
-                primaryTextColor: '#f1f5f9',
-                primaryBorderColor: '#6366f1',
-                lineColor: '#6366f1',
-                secondaryColor: '#1e293b',
-                tertiaryColor: '#0f172a'
-            };
             mermaid.initialize(mermaidConfig);
         })();
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Load initial diagram when page loads
             loadDiagram('overview');
 
-            // Scroll to top
             const scrollToTopBtn = document.getElementById('scroll-to-top');
             if (scrollToTopBtn) {
                 scrollToTopBtn.addEventListener('click', () => {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
             }
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-            });
         });
     </script>
-    <!-- Contact Modal -->
-    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Get in Touch</h3>
-                <button onclick="closeContactModal()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            <div class="space-y-4">
-                <div class="text-center">
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">Choose your preferred way to contact me:</p>
-                </div>
-                <div class="space-y-3">
-                    <button onclick="copyEmailToClipboard()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                        <i class="fas fa-copy"></i>
-                        Copy Email Address
-                    </button>
-                    <button onclick="openEmailClient()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
-                        <i class="fas fa-envelope"></i>
-                        Open Email Client
-                    </button>
-                    <button onclick="openLinkedIn()" class="w-full flex items-center justify-center gap-3 px-4 py-3 text-white rounded-lg transition-colors hover:bg-[#005885]" style="background-color: #0077b5;">
-                        <i class="fab fa-linkedin"></i>
-                        Connect on LinkedIn
-                    </button>
-                </div>
-                <div class="text-center text-sm text-gray-500 dark:text-gray-400">
-                    <p>Email: nitender.kumar11@gmail.com</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</body>
-</html>
-
-    <script>
-        // Enhanced mailto handling to ensure proper email client opening
-        document.addEventListener('DOMContentLoaded', function() {
-            // Handle all mailto links
-            const mailtoLinks = document.querySelectorAll('a[href^="mailto:"]');
-            
-            mailtoLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Get the mailto URL
-                    const mailtoUrl = this.getAttribute('href');
-                    
-                    // Try multiple methods to open the email client
-                    try {
-                        // Method 1: Direct window.location (most reliable)
-                        window.location.href = mailtoUrl;
-                    } catch (error) {
-                        try {
-                            // Method 2: Create a temporary link and click it
-                            const tempLink = document.createElement('a');
-                            tempLink.href = mailtoUrl;
-                            tempLink.style.display = 'none';
-                            document.body.appendChild(tempLink);
-                            tempLink.click();
-                            document.body.removeChild(tempLink);
-                        } catch (error2) {
-                            try {
-                                // Method 3: Use window.open as fallback
-                                window.open(mailtoUrl, '_self');
-                            } catch (error3) {
-                                // Method 4: Copy to clipboard and show message
-                                navigator.clipboard.writeText(mailtoUrl.replace('mailto:', ''));
-                                alert('Email address copied to clipboard: ' + mailtoUrl.replace('mailto:', ''));
-                            }
-                        }
-                    }
-                });
-            });
-        });
-    </script>
-    <!-- Contact Modal -->
-    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Get in Touch</h3>
-                <button onclick="closeContactModal()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            <div class="space-y-4">
-                <div class="text-center">
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">Choose your preferred way to contact me:</p>
-                </div>
-                <div class="space-y-3">
-                    <button onclick="copyEmailToClipboard()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                        <i class="fas fa-copy"></i>
-                        Copy Email Address
-                    </button>
-                    <button onclick="openEmailClient()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
-                        <i class="fas fa-envelope"></i>
-                        Open Email Client
-                    </button>
-                    <button onclick="openLinkedIn()" class="w-full flex items-center justify-center gap-3 px-4 py-3 text-white rounded-lg transition-colors hover:bg-[#005885]" style="background-color: #0077b5;">
-                        <i class="fab fa-linkedin"></i>
-                        Connect on LinkedIn
-                    </button>
-                </div>
-                <div class="text-center text-sm text-gray-500 dark:text-gray-400">
-                    <p>Email: nitender.kumar11@gmail.com</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </body>
 </html>

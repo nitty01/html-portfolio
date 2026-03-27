@@ -34,3 +34,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+*.tex
+assets/resume-pdf-template.html
+assets/resume-pdf-print-include.html
+*.sh
+scripts/mermaid-export-config.json
+scripts/puppeteer-mmdc.json
