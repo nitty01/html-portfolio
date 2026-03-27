@@ -317,6 +317,7 @@
                     </div>
                     
                     <h3 class="text-accent2 font-bold text-lg mb-4" id="diagram-title">Architecture Overview</h3>
+                    <p id="diagram-arch-label" class="text-sm text-gray-500 mt-2">Overview Architecture (L1)</p>
                     <div id="diagram-container" class="diagram-container">
                         <div class="diagram-loading">
                             <div class="text-center">
@@ -576,6 +577,10 @@
             // Update title
             const title = document.getElementById('diagram-title');
             title.textContent = type === 'overview' ? 'Architecture Overview' : 'Detailed Architecture';
+            const archLabel = document.getElementById('diagram-arch-label');
+            if (archLabel) {
+                archLabel.textContent = type === 'overview' ? 'Overview Architecture (L1)' : 'Detailed Architecture (L2 – Production View)';
+            }
             
             // Load the new diagram
             loadDiagram(type);
