@@ -1,0 +1,199 @@
+/**
+ * Shared Mermaid / diagram chrome for project pages.
+ * Pairs with ../js/mermaid-project-config.js (themeVariables + themeCSS).
+ */
+
+.mermaid {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: auto;
+  width: 100%;
+  overflow: visible;
+}
+
+.mermaid svg {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+  max-width: 100%;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Subgraphs / clusters — visible frame, no pure-black fill */
+.mermaid .cluster rect {
+  fill: rgba(30, 41, 59, 0.55) !important;
+  stroke-width: 1px !important;
+  stroke: rgba(148, 163, 184, 0.45) !important;
+}
+
+.mermaid .cluster text {
+  fill: #e2e8f0 !important;
+}
+
+/* Default node shapes — slate fills (theme may still set per-node classDef) */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node polygon {
+  stroke-width: 1px !important;
+  stroke: rgba(148, 163, 184, 0.55) !important;
+}
+
+/* Edge label text — keep readable without overriding classDef on nodes */
+.mermaid .edgeLabel text {
+  fill: #e2e8f0 !important;
+}
+
+/* Edge label chips */
+.mermaid .edgeLabel rect {
+  fill: rgba(51, 65, 85, 0.92) !important;
+  stroke: rgba(148, 163, 184, 0.35) !important;
+}
+
+.mermaid .labelBkg {
+  fill: rgba(51, 65, 85, 0.92) !important;
+}
+
+.diagram-container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  min-height: auto;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+
+.diagram-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.diagram-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.diagram-control-btn {
+  background: rgba(15, 23, 42, 0.75);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.diagram-control-btn:hover {
+  background: rgba(6, 182, 212, 0.8);
+  transform: scale(1.05);
+}
+
+.diagram-control-btn.active {
+  background: rgba(6, 182, 212, 0.9);
+}
+
+.diagram-zoom {
+  transform-origin: top left;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.diagram-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.92);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.diagram-fullscreen .mermaid {
+  max-width: 90vw;
+  max-height: 90vh;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.diagram-fullscreen .diagram-controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.close-fullscreen {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: rgba(239, 68, 68, 0.85);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 1001;
+}
+
+.close-fullscreen:hover {
+  background: rgba(239, 68, 68, 1);
+}
+
+.diagram-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.toggle-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.toggle-btn.active {
+  background: linear-gradient(135deg, var(--accent, #06b6d4), var(--accent2, #6366f1));
+  border-color: var(--accent, #06b6d4);
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+}

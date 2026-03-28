@@ -44,6 +44,7 @@
     
     <!-- Centralized Styles -->
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/mermaid-diagrams.css">
     
     <!-- Theme Switcher Script -->
     <script src="../js/theme-switcher.js"></script>
@@ -54,158 +55,8 @@
     <!-- Additional Libraries -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="../js/mermaid-project-config.js"></script>
     
-    <!-- Page-specific styles for project pages -->
-    <style>
-        
-        /* Mermaid diagram styling */
-        .mermaid {
-          background: transparent !important;
-          border: none !important;
-          border-radius: 0 !important;
-          padding: 0 !important;
-          margin: 0 !important;
-          min-height: auto;
-          width: 100%;
-          overflow: visible;
-        }
-        .mermaid svg { display:block; margin:0 auto; height:auto; max-width:100%; }
-        
-        .diagram-container {
-          position: relative;
-          background: transparent;
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          border-radius: 8px;
-            padding: 20px;
-          margin: 20px 0;
-          min-height: auto;
-            overflow: auto;
-            display:flex; justify-content:center; align-items:flex-start;
-        }
-        
-        .diagram-loading {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 400px;
-          background: rgba(255, 255, 255, 0.05);
-          border-radius: 12px;
-          margin: 20px 0;
-        }
-        
-        .diagram-controls {
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          display: flex;
-          gap: 8px;
-          z-index: 10;
-        }
-        
-        .diagram-control-btn {
-          background: rgba(0, 0, 0, 0.7);
-          color: white;
-          border: none;
-          border-radius: 6px;
-          padding: 8px 12px;
-          cursor: pointer;
-          font-size: 14px;
-          transition: all 0.3s ease;
-          backdrop-filter: blur(10px);
-        }
-        
-        .diagram-control-btn:hover {
-          background: rgba(6, 182, 212, 0.8);
-          transform: scale(1.05);
-        }
-        
-        .diagram-control-btn.active {
-          background: rgba(6, 182, 212, 0.9);
-        }
-        
-        .diagram-zoom {
-          transform-origin: top left;
-          transition: transform 0.3s ease;
-          display:inline-block;
-        }
-        
-        .diagram-fullscreen {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          background: rgba(0, 0, 0, 0.95);
-          z-index: 1000;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 20px;
-        }
-        
-        .diagram-fullscreen .mermaid {
-          max-width: 90vw;
-          max-height: 90vh;
-          background: transparent !important;
-          padding: 0 !important;
-        }
-        
-        .diagram-fullscreen .diagram-controls {
-          position: fixed;
-          top: 20px;
-          right: 20px;
-        }
-        
-        .close-fullscreen {
-          position: fixed;
-          top: 20px;
-          left: 20px;
-          background: rgba(239, 68, 68, 0.8);
-          color: white;
-          border: none;
-          border-radius: 6px;
-          padding: 10px 15px;
-          cursor: pointer;
-          font-size: 16px;
-          z-index: 1001;
-        }
-        
-        .close-fullscreen:hover {
-          background: rgba(239, 68, 68, 1);
-        }
-        
-        .diagram-toggle {
-          display: flex;
-          gap: 8px;
-          margin-bottom: 20px;
-          justify-content: center;
-        }
-        
-        .toggle-btn {
-          background: rgba(255, 255, 255, 0.1);
-          color: white;
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          border-radius: 8px;
-          padding: 10px 20px;
-          cursor: pointer;
-          font-size: 14px;
-          font-weight: 500;
-          transition: all 0.3s ease;
-        }
-        
-        .toggle-btn:hover {
-          background: rgba(255, 255, 255, 0.2);
-          transform: translateY(-2px);
-        }
-        
-        .toggle-btn.active {
-          background: linear-gradient(135deg, var(--accent), var(--accent2));
-          border-color: var(--accent);
-          box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
-        }
-
-        /* Allow mmd classDef styles to control colors; do not override node/edge styles */
-    </style>
 </head>
 
 <body class="dark min-h-screen font-sans text-gray-200">
@@ -518,33 +369,7 @@
 
     <!-- JavaScript -->
     <script>
-        let mermaidConfig = {
-            startOnLoad: false,
-            theme: 'dark',
-            themeVariables: {
-                primaryColor: '#06b6d4',
-                primaryTextColor: '#f1f5f9',
-                primaryBorderColor: 'transparent',
-                lineColor: '#6366f1',
-                secondaryColor: 'transparent',
-                tertiaryColor: 'transparent',
-                background: 'transparent',
-                mainBkg: 'transparent',
-                secondBkg: 'transparent',
-                tertiaryBkg: 'transparent'
-            },
-            flowchart: {
-                useMaxWidth: false,
-                htmlLabels: true,
-                curve: 'basis',
-                diagramPadding: 0
-            },
-            graph: {
-                useMaxWidth: false,
-                htmlLabels: true,
-                diagramPadding: 0
-            }
-        };
+        let mermaidConfig = window.MermaidPortfolioConfig.getMermaidBaseConfig();
 
         let currentZoom = 1;
         let isFullscreen = false;
@@ -702,19 +527,6 @@
         }
 
         // Initialize Mermaid with dark theme
-        (function() {
-            mermaidConfig.theme = 'dark';
-            mermaidConfig.themeVariables = {
-                primaryColor: '#06b6d4',
-                primaryTextColor: '#f1f5f9',
-                primaryBorderColor: '#6366f1',
-                lineColor: '#6366f1',
-                secondaryColor: '#1e293b',
-                tertiaryColor: '#0f172a'
-            };
-            mermaid.initialize(mermaidConfig);
-        })();
-
         document.addEventListener('DOMContentLoaded', function() {
             // Load initial diagram when page loads
             loadDiagram('overview');
