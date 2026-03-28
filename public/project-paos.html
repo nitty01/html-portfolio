@@ -247,10 +247,20 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
+        <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Executive Summary</h2>
+            <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
+                <p>Retail and supply-chain teams need reliable inventory predictions and recommendations driven by sales signals—not static rules alone.</p>
+                <p>PAOS (Predictive Auto Ordering System) applies the SAMPO ML framework on NEC MMS with a recommendation engine for optimal stock quantities and supporting microservices, CI/CD, and data pipelines.</p>
+                <p>The result: faster releases, high platform availability, and multi-team leverage on a shared prediction stack.</p>
+            </div>
+        </section>
+
         <section class="mb-10">
             <h1 class="text-4xl md:text-5xl font-extrabold uppercase bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4 drop-shadow-lg">PAOS</h1>
-            <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl project-description hero-desc">A comprehensive Platform-as-a-Service (PaaS) solution that provides microservices architecture, API management, and cloud infrastructure for building and deploying scalable applications with automated CI/CD pipelines.</p>
+            <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl project-description hero-desc">Predictive Auto Ordering System—sales-driven ML, inventory recommendations, and platform services on NEC MMS with microservices, automated CI/CD, and PostgreSQL.</p>
         </section>
+
         <section class="grid md:grid-cols-2 gap-10 mb-10 items-start">
             <div>
                 <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Designation</h2>
@@ -273,25 +283,86 @@
                 </ul>
             </div>
             <div>
-                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Key Contributions & Impact</h2>
+                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Overview</h2>
                 <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base">
-                    <li>Reduced application deployment time by 90% through automated CI/CD</li>
-                    <li>Achieved 99.99% platform uptime with comprehensive monitoring</li>
-                    <li>Enabled 8+ development teams to deploy applications independently through self-service platform</li>
+                    <li>Sales ingestion → SAMPO ML training → inventory prediction → recommendation engine for stock quantities</li>
+                    <li>NEC MMS-hosted SAMPO with custom optimizations for throughput and model training</li>
+                    <li>Microservices platform with API gateway, mesh, and PostgreSQL-backed services</li>
                 </ul>
             </div>
         </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Business Impact</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Reduced application deployment time by 90% through automated CI/CD</li>
+                <li>Achieved 99.99% platform uptime with comprehensive monitoring</li>
+                <li>Enabled 8+ development teams to deploy applications independently through self-service platform</li>
+            </ul>
+        </section>
+
+        <section class="bg-gradient-to-br from-slate-900/50 via-emerald-900/20 to-slate-900/50 rounded-2xl shadow-glass p-8 mb-10 border border-emerald-500/20">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center text-white text-2xl">
+                    <i class="fas fa-chart-line" aria-hidden="true"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-emerald-300 to-teal-300 text-transparent bg-clip-text">Platform &amp; Processing Highlights</h2>
+            </div>
+            <p class="text-gray-300 mb-8 max-w-3xl leading-relaxed">ML training, recommendation serving, and platform delivery patterns.</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-emerald-500/20">
+                    <h3 class="text-lg font-bold text-white mb-2">SAMPO on MMS</h3>
+                    <p class="text-gray-300 text-sm">Model training integrated with NEC MMS plus optimization layers for performance where parallelization is constrained.</p>
+                </article>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-emerald-500/20">
+                    <h3 class="text-lg font-bold text-white mb-2">Recommendation loop</h3>
+                    <p class="text-gray-300 text-sm">Sales data through ML to inventory predictions and optimal stock outputs.</p>
+                </article>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-emerald-500/20">
+                    <h3 class="text-lg font-bold text-white mb-2">Platform ops</h3>
+                    <p class="text-gray-300 text-sm">Microservices, gateway/mesh, CI/CD, and monitoring for model and service health.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-6 tracking-wide">Key Components</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">NEC MMS Platform:</strong> Hosts SAMPO and supporting services</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">SAMPO ML framework:</strong> Training and model lifecycle for inventory prediction</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Recommendation engine:</strong> Turns model output into stock-quantity recommendations</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Sales &amp; inventory pipelines:</strong> Data ingestion and integration with inventory management</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Architecture Decisions</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>SAMPO-centric training path on MMS with custom tuning for non-parallel constraints</li>
+                <li>Microservices and gateway/mesh for clear service boundaries and independent deploys</li>
+                <li>PostgreSQL for transactional service state aligned to ordering workflows</li>
+                <li>CI/CD automation to shorten release cycles and support many teams on one platform</li>
+            </ul>
+        </section>
+
         <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
             <details class="group">
                 <summary class="cursor-pointer text-xl font-bold text-accent2 mb-4 select-none flex items-center gap-2">
                     <span class="inline-block transition-transform duration-300 group-open:rotate-90">
                         <svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                     </span>
-                    Architecture Diagrams & Technical Details
+                    Architecture Diagrams &amp; Technical Details
                 </summary>
                 <style>summary::-webkit-details-marker { display:none; }</style>
                 <div class="mt-4">
-                    <!-- Diagram Toggle -->
                     <div class="diagram-toggle">
                         <button class="toggle-btn active" id="overview-btn" onclick="switchDiagram('overview')">
                             <i class="fas fa-eye mr-2"></i>Overview
@@ -325,6 +396,7 @@
                             </button>
                         </div>
                     </div>
+                    <p class="text-center text-sm text-gray-400 mt-4 italic max-w-3xl mx-auto">Sales pipelines through SAMPO on MMS to trained models, recommendation engine, and inventory outcomes.</p>
                 </div>
                 <div class="mt-8">
                     <h4 class="text-accent font-bold text-base mb-2">Technical Architecture</h4>
@@ -337,6 +409,33 @@
                     </ul>
                 </div>
             </details>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Transformation Impact</h2>
+            <ul class="text-gray-300 mt-3 space-y-2">
+                <li><strong>Before:</strong> Slower releases and heavier manual coordination across teams</li>
+                <li><strong>After:</strong> 90% faster deployments via CI/CD, 99.99% uptime target, self-service for 8+ teams</li>
+            </ul>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Platform Capability</h2>
+            <p class="text-gray-300 mt-3">Shared microservices platform with gateway/mesh, automated pipelines, and ML-driven ordering services suitable for multiple product teams.</p>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Scale &amp; Complexity</h2>
+            <p class="text-gray-300 mt-3">Large-scale sales data processing and model training with tuning for SAMPO constraints; monitoring for model accuracy and system performance.</p>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Leadership &amp; Contributions</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Owned platform architecture for microservices, gateway/mesh, and CI/CD enabling many teams</li>
+                <li>Partnered on SAMPO/MMS integration and performance optimizations for training workloads</li>
+                <li>Established monitoring for models and services supporting inventory recommendations</li>
+            </ul>
         </section>
     </main>
 

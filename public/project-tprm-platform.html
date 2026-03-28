@@ -308,65 +308,83 @@
             </div>
         </section>
 
-        <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
-            <details class="group" open>
-                <summary class="cursor-pointer text-xl font-bold text-accent2 mb-4 select-none flex items-center gap-2">
-                    <span class="inline-block transition-transform duration-300 group-open:rotate-90">
-                        <svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                    </span>
-                    Architecture Diagrams &amp; Technical Details
-                </summary>
-                <style>summary::-webkit-details-marker { display:none; }</style>
-                <div class="mt-4">
-                    <div class="diagram-toggle">
-                        <button class="toggle-btn active" id="overview-btn" onclick="switchDiagram('overview')">
-                            <i class="fas fa-eye mr-2"></i>Overview
-                        </button>
-                        <button class="toggle-btn" id="detailed-btn" onclick="switchDiagram('detailed')">
-                            <i class="fas fa-sitemap mr-2"></i>Detailed Architecture
-                        </button>
-                    </div>
-                    
-                    <h3 class="text-accent2 font-bold text-lg mb-4" id="diagram-title">Architecture Overview</h3>
-                    <div class="mt-2 space-y-1">
-                      <p class="text-sm text-gray-500">Overview Architecture (L1)</p>
-                      <p class="text-sm text-gray-500">Detailed Architecture (L2 – Production View)</p>
-                    </div>
-                    <div id="diagram-container" class="diagram-container">
-                        <div class="diagram-loading">
-                            <div class="text-center">
-                                <i class="fas fa-spinner fa-spin text-2xl text-accent mb-2"></i>
-                                <p class="text-gray-400">Loading architecture diagram...</p>
-                            </div>
-                        </div>
-                        <div class="diagram-controls" style="display: none;">
-                            <button class="diagram-control-btn" onclick="zoomIn()" title="Zoom In">
-                                <i class="fas fa-search-plus"></i>
-                            </button>
-                            <button class="diagram-control-btn" onclick="zoomOut()" title="Zoom Out">
-                                <i class="fas fa-search-minus"></i>
-                            </button>
-                            <button class="diagram-control-btn" onclick="resetZoom()" title="Reset Zoom">
-                                <i class="fas fa-expand-arrows-alt"></i>
-                            </button>
-                            <button class="diagram-control-btn" onclick="toggleFullscreen()" title="Fullscreen">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <p class="text-center text-sm text-gray-400 mt-4 italic max-w-3xl mx-auto">Event-driven AI platform integrating ServiceNow, Azure Service Bus, Agent Runtime, and Document Intelligence.</p>
-                </div>
-            </details>
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Business Impact</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Automated manual third-party risk assessment workflows, significantly reducing operational effort and dependency on manual reviews</li>
+                <li>Improved turnaround time for compliance evaluations through AI-driven document analysis and orchestration</li>
+                <li>Enabled scalable processing of enterprise risk workflows using event-driven architecture and asynchronous execution</li>
+                <li>Enhanced auditability and traceability of risk decisions through centralized state management and workflow tracking</li>
+            </ul>
         </section>
 
-        <section class="mb-10">
-            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Architecture Decisions</h2>
-            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
-                <li>Event-driven architecture to enable scalability, decoupling, and asynchronous processing of risk workflows</li>
-                <li>Agent-based execution model to dynamically construct AI workflows based on request context instead of static pipelines</li>
-                <li>Asynchronous messaging (Azure Service Bus) to ensure resilience, fault tolerance, and high throughput</li>
-                <li>Cosmos DB for state management to maintain workflow state, enable traceability, and support distributed execution</li>
-            </ul>
+        <section class="bg-gradient-to-br from-cyan-900/30 via-slate-900/40 to-teal-900/30 rounded-2xl shadow-glass p-8 mb-10 border-2 border-cyan-500/30">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-teal-600 rounded-lg flex items-center justify-center text-white text-2xl">
+                    <i class="fas fa-brain" aria-hidden="true"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-cyan-300 to-teal-300 text-transparent bg-clip-text">Generative AI Use Cases</h2>
+            </div>
+            <p class="text-gray-300 mb-8 max-w-3xl leading-relaxed">
+                Generative AI extends the TPRM platform from structured workflows into intelligent document handling, risk insight, and user-facing interaction patterns. The use cases below map enterprise risk and compliance priorities to AI-driven workflows with clear business value—from faster processing to stronger governance.
+            </p>
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-cyan-500/20 hover:border-cyan-500/40 transition-colors">
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-file-alt text-cyan-400 text-2xl" aria-hidden="true"></i>
+                            <h3 class="text-xl font-bold text-white">Intelligent Document Analysis</h3>
+                        </div>
+                        <span class="shrink-0 px-2 py-1 rounded-full text-xs font-semibold bg-cyan-500/20 text-cyan-200">AI-Powered</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">AI-driven extraction and summarization of third-party documents including contracts, compliance reports, and policies.</p>
+                    <p class="text-sm text-gray-400"><span class="text-cyan-300 font-semibold">Business Value:</span> Reduces manual effort and improves processing speed and accuracy.</p>
+                </article>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-cyan-500/20 hover:border-cyan-500/40 transition-colors">
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-chart-line text-cyan-400 text-2xl" aria-hidden="true"></i>
+                            <h3 class="text-xl font-bold text-white">Risk Insight Generation</h3>
+                        </div>
+                        <span class="shrink-0 px-2 py-1 rounded-full text-xs font-semibold bg-cyan-500/20 text-cyan-200">AI-Powered</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">LLM-based analysis to identify potential risks and generate contextual insights from structured and unstructured data.</p>
+                    <p class="text-sm text-gray-400"><span class="text-cyan-300 font-semibold">Business Value:</span> Enables faster and more informed decision-making for risk teams.</p>
+                </article>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-cyan-500/20 hover:border-cyan-500/40 transition-colors">
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-clipboard-check text-cyan-400 text-2xl" aria-hidden="true"></i>
+                            <h3 class="text-xl font-bold text-white">Automated Compliance Validation</h3>
+                        </div>
+                        <span class="shrink-0 px-2 py-1 rounded-full text-xs font-semibold bg-cyan-500/20 text-cyan-200">AI-Powered</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">AI-driven validation of documents against regulatory and compliance frameworks.</p>
+                    <p class="text-sm text-gray-400"><span class="text-cyan-300 font-semibold">Business Value:</span> Improves compliance accuracy and reduces operational overhead.</p>
+                </article>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-cyan-500/20 hover:border-cyan-500/40 transition-colors">
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-robot text-cyan-400 text-2xl" aria-hidden="true"></i>
+                            <h3 class="text-xl font-bold text-white">Workflow Automation via AI Agents</h3>
+                        </div>
+                        <span class="shrink-0 px-2 py-1 rounded-full text-xs font-semibold bg-cyan-500/20 text-cyan-200">AI-Powered</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">AI agents orchestrate workflows by triggering actions based on document insights and system events.</p>
+                    <p class="text-sm text-gray-400"><span class="text-cyan-300 font-semibold">Business Value:</span> Reduces manual intervention and accelerates end-to-end processing.</p>
+                </article>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-cyan-500/20 hover:border-cyan-500/40 transition-colors">
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-comments text-cyan-400 text-2xl" aria-hidden="true"></i>
+                            <h3 class="text-xl font-bold text-white">Natural Language Query Interface</h3>
+                        </div>
+                        <span class="shrink-0 px-2 py-1 rounded-full text-xs font-semibold bg-cyan-500/20 text-cyan-200">AI-Powered</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">Users interact with the system using natural language to retrieve insights and status updates.</p>
+                    <p class="text-sm text-gray-400"><span class="text-cyan-300 font-semibold">Business Value:</span> Enhances usability and accessibility of enterprise systems.</p>
+                </article>
+            </div>
         </section>
 
         <section class="mb-10">
@@ -394,39 +412,98 @@
         </section>
 
         <section class="mb-10">
-            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Business Impact</h2>
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Architecture Decisions</h2>
             <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
-                <li>Automated manual third-party risk assessment workflows, significantly reducing operational effort and dependency on manual reviews</li>
-                <li>Improved turnaround time for compliance evaluations through AI-driven document analysis and orchestration</li>
-                <li>Enabled scalable processing of enterprise risk workflows using event-driven architecture and asynchronous execution</li>
-                <li>Enhanced auditability and traceability of risk decisions through centralized state management and workflow tracking</li>
+                <li>Event-driven architecture to enable scalability, decoupling, and asynchronous processing of risk workflows</li>
+                <li>Agent-based execution model to dynamically construct AI workflows based on request context instead of static pipelines</li>
+                <li>Asynchronous messaging (Azure Service Bus) to ensure resilience, fault tolerance, and high throughput</li>
+                <li>Cosmos DB for state management to maintain workflow state, enable traceability, and support distributed execution</li>
+            </ul>
+        </section>
+
+        <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
+            <details class="group">
+                <summary class="cursor-pointer text-xl font-bold text-accent2 mb-4 select-none flex items-center gap-2">
+                    <span class="inline-block transition-transform duration-300 group-open:rotate-90">
+                        <svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </span>
+                    View Architecture (L1 &amp; L2)
+                </summary>
+                <style>summary::-webkit-details-marker { display:none; }</style>
+                <div class="mt-4">
+                    <div class="diagram-toggle">
+                        <button class="toggle-btn active" id="overview-btn" onclick="switchDiagram('overview')">
+                            <i class="fas fa-eye mr-2"></i>Overview
+                        </button>
+                        <button class="toggle-btn" id="detailed-btn" onclick="switchDiagram('detailed')">
+                            <i class="fas fa-sitemap mr-2"></i>Detailed Architecture
+                        </button>
+                    </div>
+                    
+                    <h3 class="text-accent2 font-bold text-lg mb-4" id="diagram-title">Architecture Overview</h3>
+                    <p id="diagram-arch-label" class="text-sm text-gray-500 mt-2">Overview Architecture (L1)</p>
+                    <div id="diagram-container" class="diagram-container">
+                        <div class="diagram-loading">
+                            <div class="text-center">
+                                <i class="fas fa-spinner fa-spin text-2xl text-accent mb-2"></i>
+                                <p class="text-gray-400">Loading architecture diagram...</p>
+                            </div>
+                        </div>
+                        <div class="diagram-controls" style="display: none;">
+                            <button class="diagram-control-btn" onclick="zoomIn()" title="Zoom In">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                            <button class="diagram-control-btn" onclick="zoomOut()" title="Zoom Out">
+                                <i class="fas fa-search-minus"></i>
+                            </button>
+                            <button class="diagram-control-btn" onclick="resetZoom()" title="Reset Zoom">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                            </button>
+                            <button class="diagram-control-btn" onclick="toggleFullscreen()" title="Fullscreen">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-center text-sm text-gray-400 mt-4 italic max-w-3xl mx-auto">Event-driven AI platform integrating ServiceNow, Azure Service Bus, Agent Runtime, and Document Intelligence.</p>
+                </div>
+                <div class="mt-8">
+                    <h4 class="text-accent font-bold text-base mb-2">Technical Architecture</h4>
+                    <ul class="list-disc list-inside space-y-1 text-gray-300">
+                        <li><strong>Integration layer:</strong> ServiceNow for request intake and delivery of processed outcomes back into enterprise workflows</li>
+                        <li><strong>Orchestration &amp; agents:</strong> Request Orchestration with Agent Runtime constructing context-driven AI workflows dynamically</li>
+                        <li><strong>Document Intelligence:</strong> Extraction and classification of structured and unstructured risk-related data</li>
+                        <li><strong>Messaging:</strong> Azure Service Bus for asynchronous, decoupled communication between services</li>
+                        <li><strong>State &amp; persistence:</strong> Cosmos DB for workflow state, traceability, and distributed execution</li>
+                        <li><strong>End-to-end flow:</strong> Events and requests propagate through orchestration, agents, messaging, and persistence to integrated downstream systems</li>
+                    </ul>
+                </div>
+            </details>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Transformation Impact</h2>
+
+            <ul class="text-gray-300 mt-3 space-y-2">
+              <li><strong>Before:</strong> Manual workflows, slower processing cycles, limited scalability</li>
+              <li><strong>After:</strong> AI-driven automation, faster decisions, scalable event-driven execution</li>
             </ul>
         </section>
 
         <section class="mb-10">
-            <h3 class="text-xl font-semibold mt-10">Scale & Complexity</h3>
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Platform Capability</h2>
+
+            <p class="text-gray-300 mt-3">
+Designed as a reusable enterprise platform adaptable across compliance, document processing, and workflow automation domains.
+            </p>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Scale &amp; Complexity</h2>
 
             <p class="text-gray-300 mt-3">
                 Designed for high-volume enterprise workflows with asynchronous processing, distributed execution, and fault-tolerant architecture.
             </p>
         </section>
-
-        <section class="mb-10">
-            <h3 class="text-xl font-semibold mt-10">Reusable Platform Capability</h3>
-
-            <p class="text-gray-300 mt-3">
-                The architecture is designed as a reusable platform that can be extended across compliance, document processing, and enterprise workflow automation use cases.
-            </p>
-        </section>
-        <section class="mb-10">
-            <h3 class="text-xl font-semibold mt-10">Transformation Impact</h3>
-
-            <ul class="text-gray-300 mt-3 space-y-2">
-              <li><strong>Before:</strong> Manual risk assessments, slow turnaround, limited scalability</li>
-              <li><strong>After:</strong> AI-driven automation, faster decision cycles, scalable event-driven workflows</li>
-            </ul>
-        </section>
-
 
         <section class="mb-10">
             <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Leadership &amp; Contributions</h2>
@@ -671,6 +748,10 @@
             document.getElementById('detailed-btn').classList.toggle('active', type === 'detailed');
             const title = document.getElementById('diagram-title');
             title.textContent = type === 'overview' ? 'Architecture Overview' : 'Detailed Architecture';
+            const archLabel = document.getElementById('diagram-arch-label');
+            if (archLabel) {
+                archLabel.textContent = type === 'overview' ? 'Overview Architecture (L1)' : 'Detailed Architecture (L2 – Production View)';
+            }
             loadDiagram(type);
         }
 

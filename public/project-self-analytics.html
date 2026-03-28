@@ -296,10 +296,20 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
+        <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Executive Summary</h2>
+            <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
+                <p>Data scientists often spend cycles manually engineering features from raw SQL sources—slowing experimentation and introducing inconsistency.</p>
+                <p>Self Analytics syncs data from end-user SQL systems, profiles it, and uses a refactored NEC-LABS analytical engine to generate candidate ML features automatically.</p>
+                <p>Users select from rich, pre-generated feature sets instead of building every feature from scratch—improving speed and repeatability.</p>
+            </div>
+        </section>
+
         <section class="mb-10">
             <h1 class="text-4xl md:text-5xl font-extrabold uppercase bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4 drop-shadow-lg">SELF ANALYTICS</h1>
             <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl project-description hero-desc">A web-based application that syncs data from SQL sources in end-user systems, processes it through a data profiler, and leverages an analytical engine (refactored from NEC-LABS USA) to generate all possible valuable features for machine learning models. Data scientists can then choose from a variety of pre-generated features suitable for their problem statement instead of manually creating features.</p>
         </section>
+
         <section class="grid md:grid-cols-2 gap-10 mb-10 items-start">
             <div>
                 <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Designation</h2>
@@ -329,26 +339,87 @@
                 </ul>
             </div>
             <div>
-                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Key Contributions & Impact</h2>
+                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Overview</h2>
                 <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base">
-                    <li>Established automated data sync from multiple SQL sources with 99.9% reliability</li>
-                    <li>Implemented comprehensive data profiler reducing data analysis time by 75%</li>
-                    <li>Successfully integrated NEC-LABS analytical engine for automated feature generation</li>
-                    <li>Enabled data scientists to access 100+ pre-generated features from profiled data</li>
+                    <li>ETL from heterogeneous SQL sources into centralized profiling and feature generation</li>
+                    <li>NEC-LABS analytical engine drives automated candidate features for ML workflows</li>
+                    <li>Web app for discovery and selection of 100+ pre-generated features</li>
                 </ul>
             </div>
         </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Business Impact</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Established automated data sync from multiple SQL sources with 99.9% reliability</li>
+                <li>Implemented comprehensive data profiler reducing data analysis time by 75%</li>
+                <li>Successfully integrated NEC-LABS analytical engine for automated feature generation</li>
+                <li>Enabled data scientists to access 100+ pre-generated features from profiled data</li>
+            </ul>
+        </section>
+
+        <section class="bg-gradient-to-br from-slate-900/50 via-blue-900/25 to-slate-900/50 rounded-2xl shadow-glass p-8 mb-10 border border-blue-500/20">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center text-white text-2xl">
+                    <i class="fas fa-flask" aria-hidden="true"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-blue-300 to-indigo-300 text-transparent bg-clip-text">Platform &amp; Processing Highlights</h2>
+            </div>
+            <p class="text-gray-300 mb-8 max-w-3xl leading-relaxed">Profiling, analytical engine integration, and feature discovery for ML practitioners.</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-blue-500/20">
+                    <h3 class="text-lg font-bold text-white mb-2">Sync &amp; profile</h3>
+                    <p class="text-gray-300 text-sm">Reliable SQL synchronization and deep profiling before feature synthesis.</p>
+                </article>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-blue-500/20">
+                    <h3 class="text-lg font-bold text-white mb-2">NEC-LABS engine</h3>
+                    <p class="text-gray-300 text-sm">Refactored analytical engine to enumerate valuable feature candidates.</p>
+                </article>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-blue-500/20">
+                    <h3 class="text-lg font-bold text-white mb-2">Scientist UX</h3>
+                    <p class="text-gray-300 text-sm">Web UI to browse profiled data and select from 100+ generated features.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-6 tracking-wide">Key Components</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">ETL pipeline:</strong> Automated sync from multiple SQL databases</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Data profiler:</strong> Quality, patterns, and characteristics for downstream generation</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Analytical engine:</strong> NEC-LABS-based feature generation logic</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Web application:</strong> Django UI for data scientists</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Architecture Decisions</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Centralized sync and profiling to standardize inputs before feature explosion</li>
+                <li>Reuse and refactor NEC-LABS engine rather than rebuilding analytics from scratch</li>
+                <li>PostgreSQL/SQL Server interoperability for heterogeneous enterprise sources</li>
+                <li>Docker and AWS for scalable deployment across many customer databases</li>
+            </ul>
+        </section>
+
         <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
             <details class="group">
                 <summary class="cursor-pointer text-xl font-bold text-accent2 mb-4 select-none flex items-center gap-2">
                     <span class="inline-block transition-transform duration-300 group-open:rotate-90">
                         <svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                     </span>
-                    Architecture Diagrams & Technical Details
+                    Architecture Diagrams &amp; Technical Details
                 </summary>
                 <style>summary::-webkit-details-marker { display:none; }</style>
                 <div class="mt-4">
-                    <!-- Diagram Toggle -->
                     <div class="diagram-toggle">
                         <button class="toggle-btn active" id="overview-btn" onclick="switchDiagram('overview')">
                             <i class="fas fa-eye mr-2"></i>Overview
@@ -382,6 +453,7 @@
                             </button>
                         </div>
                     </div>
+                    <p class="text-center text-sm text-gray-400 mt-4 italic max-w-3xl mx-auto">SQL sync through profiling and NEC-LABS analytical engine to generated features and Django web access.</p>
                 </div>
                 <div class="mt-8">
                     <h4 class="text-accent font-bold text-base mb-2">Technical Architecture</h4>
@@ -394,6 +466,33 @@
                     </ul>
                 </div>
             </details>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Transformation Impact</h2>
+            <ul class="text-gray-300 mt-3 space-y-2">
+                <li><strong>Before:</strong> Manual feature creation and slower exploratory data analysis</li>
+                <li><strong>After:</strong> 75% faster profiling-driven analysis and 100+ automated candidate features per problem space</li>
+            </ul>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Platform Capability</h2>
+            <p class="text-gray-300 mt-3">Reusable feature-generation platform across customer SQL estates with consistent profiling and NEC-LABS-backed synthesis.</p>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Scale &amp; Complexity</h2>
+            <p class="text-gray-300 mt-3">Multi-database sync with 99.9% reliability target; cloud and container footprint to scale with tenant data volumes.</p>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Leadership &amp; Contributions</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Built sync, profiling, and integration with the NEC-LABS analytical engine</li>
+                <li>Designed feature-generation algorithms and scientist-facing web workflows</li>
+                <li>Owned delivery of automated feature catalog consumed by downstream ML teams</li>
+            </ul>
         </section>
     </main>
 

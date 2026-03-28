@@ -9,9 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Scroll Effects
     initScrollEffects();
 
-    // A/B Testing for Hero Headline
-    initABTesting();
-
     // Role Rotator (respects reduced motion)
     initRoleRotator();
 
@@ -106,35 +103,8 @@ function initScrollEffects() {
     }
 }
 
-// A/B Testing for Hero Headline
-function initABTesting() {
-    const abKey = 'heroVariant';
-    let variant = localStorage.getItem(abKey);
-
-    if (!variant) {
-        variant = (Math.random() < 0.5) ? 'A' : 'B';
-        localStorage.setItem(abKey, variant);
-    }
-
-    const heroHeadline = document.getElementById('hero-headline');
-    if (heroHeadline) {
-        if (variant === 'A') {
-            heroHeadline.textContent = 'Principal Data Engineer — Turning raw data into real-world intelligence';
-        } else {
-            heroHeadline.textContent = 'I build scalable data platforms that power AI-driven decisions';
-        }
-
-        // Log variant for analytics
-        if (window.gtag) {
-            gtag('event', 'hero_variant_shown', {
-                event_category: 'ab_testing',
-                label: variant
-            });
-        }
-
-        console.log(`A/B Test: Showing variant ${variant}`);
-    }
-}
+// Hero headline is authored in HTML (executive positioning); no A/B override.
+function initABTesting() {}
 
 // Role Rotator (respects reduced motion)
 function initRoleRotator() {

@@ -247,10 +247,20 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
+        <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Executive Summary</h2>
+            <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
+                <p>Retail service counters struggle with uneven demand—supervisors need timely signals when queues grow beyond safe or efficient thresholds.</p>
+                <p>QLM is an AI-powered proof of concept that monitors live video, counts people in queues, and alerts staff when thresholds are exceeded—optimizing counter allocation for a hypermarket setting.</p>
+                <p>Computer vision, TensorFlow models, and a modular Django-based architecture support real-time analysis and future model swaps.</p>
+            </div>
+        </section>
+
         <section class="mb-10">
             <h1 class="text-4xl md:text-5xl font-extrabold uppercase bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4 drop-shadow-lg">QLM PLATFORM</h1>
             <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl project-description hero-desc">An AI-powered application designed to monitor live video feeds of queues, automatically counting people and alerting supervisors when queue length exceeds thresholds. Developed as a POC for MORE hypermarkets to optimize service counter management.</p>
         </section>
+
         <section class="grid md:grid-cols-2 gap-10 mb-10 items-start">
             <div>
                 <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Designation</h2>
@@ -278,26 +288,87 @@
                 </ul>
             </div>
             <div>
-                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Key Contributions & Impact</h2>
+                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Overview</h2>
                 <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base">
-                    <li>Designed and implemented the AI-powered queue monitoring system using computer vision.</li>
-                    <li>Developed real-time alerting for supervisors to optimize service counter allocation.</li>
-                    <li>Integrated the system with live video feeds and deployed as a proof of concept for retail environments.</li>
-                    <li>Improved customer experience and operational efficiency for hypermarkets.</li>
+                    <li>Video-in → OpenCV detection → TensorFlow counting → alerts for supervisors</li>
+                    <li>Django application layer with modular components for evolving models</li>
+                    <li>POC deployment focused on hypermarket queue and counter efficiency</li>
                 </ul>
             </div>
         </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Business Impact</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Real-time alerting for supervisors to optimize service counter allocation</li>
+                <li>Integrated live video feeds in a retail POC environment</li>
+                <li>Improved customer experience and operational efficiency for hypermarkets</li>
+                <li>End-to-end AI queue monitoring using computer vision</li>
+            </ul>
+        </section>
+
+        <section class="bg-gradient-to-br from-slate-900/50 via-violet-900/25 to-slate-900/50 rounded-2xl shadow-glass p-8 mb-10 border border-violet-500/20">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-violet-500 to-fuchsia-600 rounded-lg flex items-center justify-center text-white text-2xl">
+                    <i class="fas fa-video" aria-hidden="true"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-violet-300 to-fuchsia-300 text-transparent bg-clip-text">Platform &amp; Processing Highlights</h2>
+            </div>
+            <p class="text-gray-300 mb-8 max-w-3xl leading-relaxed">Vision, ML, and real-time alerting for queue management.</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-violet-500/20">
+                    <h3 class="text-lg font-bold text-white mb-2">Detection path</h3>
+                    <p class="text-gray-300 text-sm">OpenCV processing of live feeds for queue regions and motion.</p>
+                </article>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-violet-500/20">
+                    <h3 class="text-lg font-bold text-white mb-2">ML inference</h3>
+                    <p class="text-gray-300 text-sm">TensorFlow models for accurate people counting with modular updates.</p>
+                </article>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-violet-500/20">
+                    <h3 class="text-lg font-bold text-white mb-2">Alerting</h3>
+                    <p class="text-gray-300 text-sm">Threshold-based signals to supervisors for staffing decisions.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-6 tracking-wide">Key Components</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Video ingestion:</strong> Live feeds integrated with processing pipeline</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">OpenCV layer:</strong> Real-time queue detection and preprocessing</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">TensorFlow models:</strong> People counting and model extensibility</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Django services:</strong> Application APIs and deployment integration</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Architecture Decisions</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Modular separation between capture, inference, and alerting for maintainability</li>
+                <li>TensorFlow for counting accuracy with a path to swap or retrain models</li>
+                <li>Real-time processing path to minimize supervisor response latency</li>
+                <li>Django for rapid POC delivery and integration with retail deployment constraints</li>
+            </ul>
+        </section>
+
         <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
             <details class="group">
                 <summary class="cursor-pointer text-xl font-bold text-accent2 mb-4 select-none flex items-center gap-2">
                     <span class="inline-block transition-transform duration-300 group-open:rotate-90">
                         <svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                     </span>
-                    Architecture Diagrams & Technical Details
+                    Architecture Diagrams &amp; Technical Details
                 </summary>
                 <style>summary::-webkit-details-marker { display:none; }</style>
                 <div class="mt-4">
-                    <!-- Diagram Toggle -->
                     <div class="diagram-toggle">
                         <button class="toggle-btn active" id="overview-btn" onclick="switchDiagram('overview')">
                             <i class="fas fa-eye mr-2"></i>Overview
@@ -331,6 +402,7 @@
                             </button>
                         </div>
                     </div>
+                    <p class="text-center text-sm text-gray-400 mt-4 italic max-w-3xl mx-auto">Live video through OpenCV and TensorFlow to threshold-based supervisor alerts.</p>
                 </div>
                 <div class="mt-8">
                     <h4 class="text-accent font-bold text-base mb-2">Technical Highlights</h4>
@@ -342,8 +414,34 @@
                         <li><strong>Scalable Design:</strong> Easy integration of new detection models and alerting strategies</li>
                     </ul>
                 </div>
-                </div>
             </details>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Transformation Impact</h2>
+            <ul class="text-gray-300 mt-3 space-y-2">
+                <li><strong>Before:</strong> Manual observation of queues and slower counter adjustments</li>
+                <li><strong>After:</strong> Automated counting and alerts for faster staffing response in retail POC</li>
+            </ul>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Platform Capability</h2>
+            <p class="text-gray-300 mt-3">Extensible CV/ML stack for queue analytics with Django delivery and hooks for new models or alert policies.</p>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Scale &amp; Complexity</h2>
+            <p class="text-gray-300 mt-3">Real-time video analysis with Hadoop/Spark noted in stack for broader data processing contexts; POC focused on single-store deployment patterns.</p>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Leadership &amp; Contributions</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Led architecture for queue monitoring, CV pipeline, and alerting</li>
+                <li>Worked with retail stakeholders on counter operations and POC success criteria</li>
+                <li>Delivered integrations for live feeds and deployment infrastructure</li>
+            </ul>
         </section>
     </main>
 
@@ -681,29 +779,17 @@
         </div>
     </div>
 
-</body>
-</html>
-
     <script>
-        // Enhanced mailto handling to ensure proper email client opening
         document.addEventListener('DOMContentLoaded', function() {
-            // Handle all mailto links
             const mailtoLinks = document.querySelectorAll('a[href^="mailto:"]');
-            
             mailtoLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
-                    // Get the mailto URL
                     const mailtoUrl = this.getAttribute('href');
-                    
-                    // Try multiple methods to open the email client
                     try {
-                        // Method 1: Direct window.location (most reliable)
                         window.location.href = mailtoUrl;
                     } catch (error) {
                         try {
-                            // Method 2: Create a temporary link and click it
                             const tempLink = document.createElement('a');
                             tempLink.href = mailtoUrl;
                             tempLink.style.display = 'none';
@@ -712,10 +798,8 @@
                             document.body.removeChild(tempLink);
                         } catch (error2) {
                             try {
-                                // Method 3: Use window.open as fallback
                                 window.open(mailtoUrl, '_self');
                             } catch (error3) {
-                                // Method 4: Copy to clipboard and show message
                                 navigator.clipboard.writeText(mailtoUrl.replace('mailto:', ''));
                                 alert('Email address copied to clipboard: ' + mailtoUrl.replace('mailto:', ''));
                             }
@@ -725,39 +809,5 @@
             });
         });
     </script>
-    <!-- Contact Modal -->
-    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Get in Touch</h3>
-                <button onclick="closeContactModal()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            <div class="space-y-4">
-                <div class="text-center">
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">Choose your preferred way to contact me:</p>
-                </div>
-                <div class="space-y-3">
-                    <button onclick="copyEmailToClipboard()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                        <i class="fas fa-copy"></i>
-                        Copy Email Address
-                    </button>
-                    <button onclick="openEmailClient()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
-                        <i class="fas fa-envelope"></i>
-                        Open Email Client
-                    </button>
-                    <button onclick="openLinkedIn()" class="w-full flex items-center justify-center gap-3 px-4 py-3 text-white rounded-lg transition-colors hover:bg-[#005885]" style="background-color: #0077b5;">
-                        <i class="fab fa-linkedin"></i>
-                        Connect on LinkedIn
-                    </button>
-                </div>
-                <div class="text-center text-sm text-gray-500 dark:text-gray-400">
-                    <p>Email: nitender.kumar11@gmail.com</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </body>
 </html>

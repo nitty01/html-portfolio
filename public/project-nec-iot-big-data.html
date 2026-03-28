@@ -282,10 +282,20 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
+        <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Executive Summary</h2>
+            <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
+                <p>Industrial IoT deployments generate massive sensor volumes where edge preprocessing, reliable ingestion, and timely analytics determine operational value.</p>
+                <p>This NEC platform ingests and transforms IoT data at scale using MMS, Hadoop ecosystem components, Spark, and Kafka—with paths to analytics for industrial use cases.</p>
+                <p>Edge computing and optimized batch/stream jobs improved latency and throughput for downstream consumers.</p>
+            </div>
+        </section>
+
         <section class="mb-10">
             <h1 class="text-4xl md:text-5xl font-extrabold uppercase bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4 drop-shadow-lg">NEC-IOT-BIG-DATA</h1>
             <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl project-description hero-desc">A large-scale IoT data processing platform for NEC that handles massive volumes of sensor data from smart devices, implements edge computing, and provides real-time analytics and predictive insights for industrial IoT applications.</p>
         </section>
+
         <section class="grid md:grid-cols-2 gap-10 mb-10 items-start">
             <div>
                 <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Designation</h2>
@@ -308,25 +318,86 @@
                 </ul>
             </div>
             <div>
-                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Key Contributions & Impact</h2>
+                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Overview</h2>
                 <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base">
-                    <li>Processed 10TB+ of IoT data daily with 99.9% uptime</li>
-                    <li>Reduced data processing time by 70% through optimized Spark jobs</li>
-                    <li>Implemented edge computing reducing latency by 80%</li>
+                    <li>NEC MMS-hosted big data stack for IoT ingestion, transformation, and analytics</li>
+                    <li>Spark and Kafka for scalable stream processing and pipeline throughput</li>
+                    <li>Edge preprocessing to reduce backhaul and improve responsiveness</li>
                 </ul>
             </div>
         </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Business Impact</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Processed 10TB+ of IoT data daily with 99.9% uptime</li>
+                <li>Reduced data processing time by 70% through optimized Spark jobs</li>
+                <li>Implemented edge computing reducing latency by 80%</li>
+            </ul>
+        </section>
+
+        <section class="bg-gradient-to-br from-slate-900/50 via-orange-900/20 to-slate-900/50 rounded-2xl shadow-glass p-8 mb-10 border border-orange-500/20">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-amber-600 rounded-lg flex items-center justify-center text-white text-2xl">
+                    <i class="fas fa-industry" aria-hidden="true"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-orange-300 to-amber-300 text-transparent bg-clip-text">Platform &amp; Processing Highlights</h2>
+            </div>
+            <p class="text-gray-300 mb-8 max-w-3xl leading-relaxed">Industrial IoT ingestion, edge filtering, and big-data scale-out patterns.</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-orange-500/20">
+                    <h3 class="text-lg font-bold text-white mb-2">Edge preprocessing</h3>
+                    <p class="text-gray-300 text-sm">Reduce latency and upstream load before core big-data processing.</p>
+                </article>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-orange-500/20">
+                    <h3 class="text-lg font-bold text-white mb-2">MMS + Hadoop stack</h3>
+                    <p class="text-gray-300 text-sm">Modular platform hosting Spark, Kafka, and storage integrations for industrial workloads.</p>
+                </article>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-orange-500/20">
+                    <h3 class="text-lg font-bold text-white mb-2">Observability</h3>
+                    <p class="text-gray-300 text-sm">MMS and stack-level monitoring for health and performance tracking.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-6 tracking-wide">Key Components</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">NEC MMS:</strong> Core host for big data services and integration between ingestion, processing, and storage</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Kafka streaming:</strong> Durable pipelines for high-volume sensor feeds</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Spark / Flink:</strong> Stream processing and transformation jobs</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Data stores:</strong> MongoDB and PostgreSQL for operational and analytical persistence</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Architecture Decisions</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Edge preprocessing to cut latency and bandwidth before centralized Spark processing</li>
+                <li>MMS modular scaling to add Hadoop/Spark capacity with workload growth</li>
+                <li>Kafka for buffering and decoupling between sensors, processing, and sinks</li>
+                <li>Polyglot persistence (MongoDB/PostgreSQL) aligned to access patterns</li>
+            </ul>
+        </section>
+
         <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
             <details class="group">
                 <summary class="cursor-pointer text-xl font-bold text-accent2 mb-4 select-none flex items-center gap-2">
                     <span class="inline-block transition-transform duration-300 group-open:rotate-90">
                         <svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                     </span>
-                    Architecture Diagrams & Technical Details
+                    Architecture Diagrams &amp; Technical Details
                 </summary>
                 <style>summary::-webkit-details-marker { display:none; }</style>
                 <div class="mt-4">
-                    <!-- Diagram Toggle -->
                     <div class="diagram-toggle">
                         <button class="toggle-btn active" id="overview-btn" onclick="switchDiagram('overview')">
                             <i class="fas fa-eye mr-2"></i>Overview
@@ -360,6 +431,7 @@
                             </button>
                         </div>
                     </div>
+                    <p class="text-center text-sm text-gray-400 mt-4 italic max-w-3xl mx-auto">IoT sensors through MMS and the big-data stack to analytics dashboards with MongoDB/PostgreSQL persistence.</p>
                 </div>
                 <div class="mt-8">
                     <h4 class="text-accent font-bold text-base mb-2">Technical Architecture</h4>
@@ -372,6 +444,33 @@
                     </ul>
                 </div>
             </details>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Transformation Impact</h2>
+            <ul class="text-gray-300 mt-3 space-y-2">
+                <li><strong>Before:</strong> Higher end-to-end latency and heavier batch windows for IoT analytics</li>
+                <li><strong>After:</strong> Edge preprocessing plus optimized Spark jobs—70% faster processing and 80% lower latency at the edge path</li>
+            </ul>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Platform Capability</h2>
+            <p class="text-gray-300 mt-3">Reusable MMS-based big-data platform for industrial IoT: ingestion, stream/batch processing, and dashboard delivery with modular scale-out.</p>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Scale &amp; Complexity</h2>
+            <p class="text-gray-300 mt-3">10TB+ daily IoT volume with 99.9% uptime; horizontally scaled components on MMS to match workload and user demand.</p>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Leadership &amp; Contributions</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Architected ingestion and processing pipelines across edge and centralized tiers</li>
+                <li>Tuned Spark/Flink jobs for throughput and operational stability</li>
+                <li>Collaborated on monitoring and scale-out patterns for production IoT loads</li>
+            </ul>
         </section>
     </main>
 

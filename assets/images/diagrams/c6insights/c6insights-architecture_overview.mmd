@@ -1,69 +1,59 @@
----
-config:
-  layout: elk
----
 flowchart LR
-    A["🚗 Vehicle Telemetry<br>Streaming Data"] --> B["📥 Apache Kafka"]
-    B --> C["⚙️ PySpark Processing<br>AWS EMR"]
-    C --> D[("💾 S3 Data Lake")] & E[("💾 MongoDB<br>Raw Data")]
-    
-    F["💰 Fuel Price APIs"] --> G["⚡ Lambda Function<br>Fuel Price Scraper"]
-    G --> E
-    
-    H["🌬️ AQI APIs"] --> I["📡 API Consumer"]
-    I --> E
-    
-    J["📊 Other Sources<br>Monthly Manual"] --> E
-    K["🔋 EV Incentives"] --> L[("📚 Chroma DB<br>Vector Store")]
-    
-    E --> M["⚙️ Deep View Analytics<br>Master-Slave Architecture<br>Batch Processing"]
-    L --> M
-    M --> N[("🗄️ PostgreSQL<br>Job Metadata")]
-    M --> O["📨 RabbitMQ<br>Job Parallelization<br>Delay & DLQ"]
-    
-    P["🔄 Metadata Enhancement"] --> Q["🌐 FastAPI"]
-    Q --> O
-    
-    R["👤 User UI"] --> S["🌐 FastAPI<br>Simulation Endpoint"]
-    S --> T["🤖 LLM Processing<br>Ollama + RAG + MCP"]
-    T --> U["📊 Vehicle Replacement<br>Fleet Roadmap<br>ROI & Carbon Savings"]
-    U --> S
-    S --> O
-    O --> V["📢 Completion<br>Notification"]
-    
-    W["🐳 Kubernetes<br>Pod-based Processing"] --> M
-    X["☁️ AWS Cloud"] --> W
-    
-     A:::source
-     F:::source
-     H:::source
-     J:::source
-     K:::source
-     B:::ingestion
-     C:::processing
-     G:::lambda
-     I:::api
-     M:::processing
-     O:::messaging
-     Q:::api
-     S:::api
-     T:::genai
-     D:::storage
-     E:::storage
-     L:::storage
-     N:::storage
-     U:::output
-     V:::output
-     W:::infra
-     X:::infra
-     
-    classDef source fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D1B2A
-    classDef ingestion fill:#B2DFDB,stroke:#00695C,stroke-width:2px,color:#00332E
-    classDef processing fill:#D1C4E9,stroke:#4527A0,stroke-width:2px,color:#1A093F
-    classDef lambda fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:#E65100
-    classDef api fill:#81C784,stroke:#4CAF50,stroke-width:2px,color:#1B5E20
-    classDef messaging fill:#BA68C8,stroke:#9C27B0,stroke-width:2px,color:#4A148C
-    classDef storage fill:#FFE0B2,stroke:#EF6C00,stroke-width:2px,color:#4A2500
-    classDef genai fill:#E1BEE7,stroke:#9C27B0,stroke-width:2px,color:#4A148C
-    classDef output fill:#F8BBD0,stroke:#AD1457,stroke-width:2px,color:#4A0E2E
-    classDef infra fill:#E1BEE7,stroke:#6A1B9A,stroke-width:2px,color:#2D0A3A
+
+%% =========================
+%% DATA SOURCES
+%% =========================
+subgraph DS["📥 Data Sources"]
+    A[Vehicle Data]
+    B[External APIs]
+    C[EV & External Inputs]
+end
+
+%% =========================
+%% INGESTION
+%% =========================
+subgraph ING["⚡ Data Ingestion"]
+    D[Streaming & API Ingestion]
+end
+
+%% =========================
+%% PROCESSING
+%% =========================
+subgraph PROC["⚙️ Processing & Analytics"]
+    E[Data Processing & Enrichment]
+end
+
+%% =========================
+%% AI LAYER
+%% =========================
+subgraph AI["🤖 AI & Decision Engine"]
+    F[AI / GenAI Processing]
+    G[Optimization & Simulation]
+end
+
+%% =========================
+%% API
+%% =========================
+subgraph API["🌐 API Layer"]
+    H[Application Services]
+end
+
+%% =========================
+%% OUTPUT
+%% =========================
+subgraph OUT["📊 Business Outputs"]
+    I[Fleet Insights & Recommendations]
+end
+
+%% =========================
+%% FLOW
+%% =========================
+A --> D
+B --> D
+C --> D
+
+D --> E
+E --> F
+F --> G
+G --> H
+H --> I

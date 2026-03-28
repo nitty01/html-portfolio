@@ -253,10 +253,20 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
+        <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Executive Summary</h2>
+            <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
+                <p>Fleet operators need clear visibility into fuel spend, emissions, and ROI on clean technologies to meet net-zero commitments—often across fragmented data sources and complex replacement decisions.</p>
+                <p>C6 Insights is a climate tech and fleet optimization platform built on <a href="project-deep-view-analytics.html" class="text-accent2 hover:text-accent underline">Deep View Analytics</a>, combining streaming data processing with GenAI for vehicle replacement recommendations and multi-year transformation roadmaps.</p>
+                <p>The platform supports data-driven roadmaps, carbon reporting, and ROI analysis so customers can plan fleet transitions with confidence.</p>
+            </div>
+        </section>
+
         <section class="mb-10">
             <h1 class="text-4xl md:text-5xl font-extrabold uppercase bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4 drop-shadow-lg">C6 INSIGHTS</h1>
-            <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl project-description hero-desc">A climate tech and fleet optimization platform that helps customers reduce fuel spend, measure and report carbon emissions, and evaluate ROI on clean technologies to achieve net-zero goals. Built on the <a href="project-deep-view-analytics.html" class="text-accent2 hover:text-accent underline">Deep View Analytics</a> platform.</p>
+            <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl project-description hero-desc">A climate tech and fleet optimization platform that helps customers reduce fuel spend, measure and report carbon emissions, and evaluate ROI on clean technologies to achieve net-zero goals.</p>
         </section>
+
         <section class="grid md:grid-cols-2 gap-10 mb-10 items-start">
             <div>
                 <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Designation</h2>
@@ -292,14 +302,23 @@
                 </ul>
             </div>
             <div>
-                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Key Contributions & Impact</h2>
+                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Overview</h2>
                 <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base">
-                    <li>Enabled data-driven fleet transformation with multi-year roadmaps and ROI projections</li>
-                    <li>Automated strategic vehicle replacement planning reducing fleet carbon footprint</li>
-                    <li>Streamlined carbon emission reporting and net-zero compliance tracking</li>
-                    <li>Delivered comprehensive ROI analysis for clean technology investments</li>
+                    <li>Climate tech platform for fleet optimization, emissions measurement, and clean-technology ROI</li>
+                    <li>Built on Deep View Analytics for ingestion, processing, and scalable batch workloads</li>
+                    <li>GenAI-powered replacement recommendations and year-on-year transformation roadmaps</li>
                 </ul>
             </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Business Impact</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Enabled data-driven fleet transformation with multi-year roadmaps and ROI projections</li>
+                <li>Automated strategic vehicle replacement planning reducing fleet carbon footprint</li>
+                <li>Streamlined carbon emission reporting and net-zero compliance tracking</li>
+                <li>Delivered comprehensive ROI analysis for clean technology investments</li>
+            </ul>
         </section>
         <section class="bg-gradient-to-br from-purple-900/40 via-pink-900/40 to-indigo-900/40 rounded-2xl shadow-glass p-8 mb-10 border-2 border-purple-500/30">
             <div class="flex items-center gap-3 mb-6">
@@ -380,8 +399,8 @@
                 </div>
             </div>
         </section>
-        <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
-            <h2 class="text-2xl font-bold text-accent2 mb-6">Key Components</h2>
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-6 tracking-wide">Key Components</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-gray-900/60 rounded-xl p-6 border border-accent/20">
                     <div class="flex items-center gap-3 mb-3">
@@ -409,13 +428,24 @@
                 </div>
             </div>
         </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Architecture Decisions</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Streaming ingestion and batch processing on Deep View Analytics with RabbitMQ for job orchestration, delay queues, and DLQs</li>
+                <li>RAG over EV incentives (Chroma DB) and MCP for vehicle-level data to ground GenAI recommendations in authoritative context</li>
+                <li>Polyglot storage: MongoDB for raw data, PostgreSQL for job metadata, S3 as data lake—aligned to workload and query patterns</li>
+                <li>FastAPI simulation layer over LLM workflows with asynchronous completion notifications for long-running analyses</li>
+            </ul>
+        </section>
+
         <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
             <details class="group">
                 <summary class="cursor-pointer text-xl font-bold text-accent2 mb-4 select-none flex items-center gap-2">
                     <span class="inline-block transition-transform duration-300 group-open:rotate-90">
                         <svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                     </span>
-                    Architecture Diagrams & Technical Details
+                    Architecture Diagrams &amp; Technical Details
                 </summary>
                 <style>summary::-webkit-details-marker { display:none; }</style>
                 <div class="mt-4">
@@ -453,6 +483,7 @@
                             </button>
                         </div>
                     </div>
+                    <p class="text-center text-sm text-gray-400 mt-4 italic max-w-3xl mx-auto">End-to-end data flow from Kafka and enrichment sources through Deep View Analytics, GenAI simulation, and API responses for fleet insights.</p>
                 </div>
                 <div class="mt-8">
                     <h4 class="text-accent font-bold text-base mb-2">Technical Architecture</h4>
@@ -468,6 +499,33 @@
                     </ul>
                 </div>
             </details>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Transformation Impact</h2>
+            <ul class="text-gray-300 mt-3 space-y-2">
+                <li><strong>Before:</strong> Manual fleet planning, fragmented emissions insight, limited ROI visibility for clean-tech investments</li>
+                <li><strong>After:</strong> GenAI-assisted replacement and roadmaps, consolidated reporting toward net-zero goals, and data-driven ROI on transitions</li>
+            </ul>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Platform Capability</h2>
+            <p class="text-gray-300 mt-3">Extends the Deep View Analytics processing platform with FastAPI services, LLM simulation, and integrations (RAG, MCP) for fleet-specific analytics and compliance-oriented reporting.</p>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Scale &amp; Complexity</h2>
+            <p class="text-gray-300 mt-3">Horizontally scalable batch processing on AWS EMR and Kubernetes-backed workloads; multi-source ingestion via Kafka and PySpark pipelines feeding MongoDB, PostgreSQL, and S3.</p>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Leadership &amp; Contributions</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Owned GenAI architecture for vehicle replacement and fleet roadmap generation aligned to sustainability and ROI objectives</li>
+                <li>Integrated enrichment data (AQI, fuel prices) and incentives knowledge for credible recommendations</li>
+                <li>Partnered with platform engineering on Deep View Analytics reliability, job orchestration, and deployment patterns</li>
+            </ul>
         </section>
     </main>
 

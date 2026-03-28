@@ -253,10 +253,20 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
+        <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Executive Summary</h2>
+            <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
+                <p>Organizations need a single analytics backbone to unify vehicle telemetry, marketing signals, and IoT data without sacrificing latency or data quality at scale.</p>
+                <p>Deep View Analytics is a comprehensive processing platform for real-time and batch analytics, with microservices, Kafka-backed pipelines, and cloud-native operations.</p>
+                <p>The platform powers <a href="project-c6insights.html" class="text-accent2 hover:text-accent underline">C6 Insights</a> for climate tech and fleet optimization—including downstream reporting and decision support.</p>
+            </div>
+        </section>
+
         <section class="mb-10">
             <h1 class="text-4xl md:text-5xl font-extrabold uppercase bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4 drop-shadow-lg">DEEP VIEW ANALYTICS</h1>
-            <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl project-description hero-desc">A comprehensive data analytics platform that processes vehicle telemetry data, marketing data, and IoT sensor data to provide real-time insights and predictive analytics. Powers <a href="project-c6insights.html" class="text-accent2 hover:text-accent underline">C6 Insights</a>, a climate tech platform for fleet optimization and carbon emission tracking.</p>
+            <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl project-description hero-desc">A comprehensive data analytics platform that processes vehicle telemetry data, marketing data, and IoT sensor data to provide real-time insights and predictive analytics.</p>
         </section>
+
         <section class="grid md:grid-cols-2 gap-10 mb-10 items-start">
             <div>
                 <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Designation</h2>
@@ -286,27 +296,88 @@
                 </ul>
             </div>
             <div>
-                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Key Contributions & Impact</h2>
+                <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Overview</h2>
                 <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base">
-                    <li>Built scalable data ingestion pipeline processing 1M+ events per day</li>
-                    <li>Reduced data processing latency by 60% through optimized microservices architecture</li>
-                    <li>Implemented real-time analytics dashboard serving 500+ concurrent users</li>
-                    <li>Established data governance framework ensuring 99.9% data accuracy</li>
-                    <li>Reduced infrastructure costs by 30% using ARM-based container deployments</li>
+                    <li>Unified analytics platform for telemetry, marketing, and IoT streams with real-time and batch paths</li>
+                    <li>APIs, analytics engine, and dashboards for operational and product consumers</li>
+                    <li>Foundational platform for C6 Insights fleet and sustainability workloads</li>
                 </ul>
             </div>
         </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Business Impact</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Built scalable data ingestion pipeline processing 1M+ events per day</li>
+                <li>Reduced data processing latency by 60% through optimized microservices architecture</li>
+                <li>Implemented real-time analytics dashboard serving 500+ concurrent users</li>
+                <li>Established data governance framework ensuring 99.9% data accuracy</li>
+                <li>Reduced infrastructure costs by 30% using ARM-based container deployments</li>
+            </ul>
+        </section>
+
+        <section class="bg-gradient-to-br from-slate-900/50 via-cyan-900/20 to-slate-900/50 rounded-2xl shadow-glass p-8 mb-10 border border-cyan-500/20">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-lg flex items-center justify-center text-white text-2xl">
+                    <i class="fas fa-layer-group" aria-hidden="true"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-cyan-300 to-indigo-300 text-transparent bg-clip-text">Platform &amp; Processing Highlights</h2>
+            </div>
+            <p class="text-gray-300 mb-8 max-w-3xl leading-relaxed">Core processing patterns and integration surfaces for high-volume analytics and downstream products.</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-cyan-500/20">
+                    <h3 class="text-lg font-bold text-white mb-2">Streaming &amp; pipelines</h3>
+                    <p class="text-gray-300 text-sm">Kafka-backed ingestion with microservices for real-time processing and validated delivery to storage layers.</p>
+                </article>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-cyan-500/20">
+                    <h3 class="text-lg font-bold text-white mb-2">Serving &amp; experience</h3>
+                    <p class="text-gray-300 text-sm">REST and WebSocket interfaces plus analytics dashboards for operational and business users.</p>
+                </article>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-cyan-500/20">
+                    <h3 class="text-lg font-bold text-white mb-2">Downstream products</h3>
+                    <p class="text-gray-300 text-sm">Powers C6 Insights for fleet, emissions, and optimization scenarios on shared data foundations.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-6 tracking-wide">Key Components</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">API Gateway:</strong> Entry point for services and streaming clients</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Data Processing Services:</strong> Microservices for validation, transformation, and routing</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Analytics Engine:</strong> Real-time and batch analytics over curated datasets</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Real-time Dashboard:</strong> Operational and product visibility for concurrent users</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Architecture Decisions</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Microservices plus Kafka to decouple producers and consumers and absorb traffic spikes</li>
+                <li>MongoDB and PostgreSQL for document and relational workloads respectively</li>
+                <li>Kubernetes with auto-scaling for elastic compute aligned to pipeline load</li>
+                <li>Prometheus, Grafana, and custom dashboards for observability across stacks</li>
+            </ul>
+        </section>
+
         <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
             <details class="group">
                 <summary class="cursor-pointer text-xl font-bold text-accent2 mb-4 select-none flex items-center gap-2">
                     <span class="inline-block transition-transform duration-300 group-open:rotate-90">
                         <svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                     </span>
-                    Architecture Diagrams & Technical Details
+                    Architecture Diagrams &amp; Technical Details
                 </summary>
                 <style>summary::-webkit-details-marker { display:none; }</style>
                 <div class="mt-4">
-                    <!-- Diagram Toggle -->
                     <div class="diagram-toggle">
                         <button class="toggle-btn active" id="overview-btn" onclick="switchDiagram('overview')">
                             <i class="fas fa-eye mr-2"></i>Overview
@@ -340,6 +411,7 @@
                             </button>
                         </div>
                     </div>
+                    <p class="text-center text-sm text-gray-400 mt-4 italic max-w-3xl mx-auto">Kafka-driven microservices feeding MongoDB and PostgreSQL with real-time APIs and dashboards—including downstream C6 Insights consumption.</p>
                 </div>
                 <div class="mt-8">
                     <h4 class="text-accent font-bold text-base mb-2">Technical Architecture</h4>
@@ -353,6 +425,33 @@
                     </ul>
                 </div>
             </details>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Transformation Impact</h2>
+            <ul class="text-gray-300 mt-3 space-y-2">
+                <li><strong>Before:</strong> Fragmented pipelines, higher latency to insight, limited concurrency for analytics users</li>
+                <li><strong>After:</strong> Unified streaming and batch platform with strong governance, lower latency, and 500+ concurrent dashboard users</li>
+            </ul>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Platform Capability</h2>
+            <p class="text-gray-300 mt-3">Reusable analytics backbone for multi-source ingestion, real-time serving, and productized downstream experiences such as C6 Insights.</p>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Scale &amp; Complexity</h2>
+            <p class="text-gray-300 mt-3">1M+ events per day through Kafka and microservices; ARM-optimized Kubernetes workloads delivering cost efficiency alongside scale.</p>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Leadership &amp; Contributions</h2>
+            <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
+                <li>Led end-to-end architecture for pipelines, quality controls, and production observability</li>
+                <li>Aligned engineering and stakeholders on SLAs, governance (99.9% accuracy target), and operational readiness</li>
+                <li>Drove cost-performance trade-offs including ARM-based deployments</li>
+            </ul>
         </section>
     </main>
 
@@ -712,29 +811,18 @@
         </div>
     </div>
 
-</body>
-</html>
-
     <script>
         // Enhanced mailto handling to ensure proper email client opening
         document.addEventListener('DOMContentLoaded', function() {
-            // Handle all mailto links
             const mailtoLinks = document.querySelectorAll('a[href^="mailto:"]');
-            
             mailtoLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
-                    // Get the mailto URL
                     const mailtoUrl = this.getAttribute('href');
-                    
-                    // Try multiple methods to open the email client
                     try {
-                        // Method 1: Direct window.location (most reliable)
                         window.location.href = mailtoUrl;
                     } catch (error) {
                         try {
-                            // Method 2: Create a temporary link and click it
                             const tempLink = document.createElement('a');
                             tempLink.href = mailtoUrl;
                             tempLink.style.display = 'none';
@@ -743,10 +831,8 @@
                             document.body.removeChild(tempLink);
                         } catch (error2) {
                             try {
-                                // Method 3: Use window.open as fallback
                                 window.open(mailtoUrl, '_self');
                             } catch (error3) {
-                                // Method 4: Copy to clipboard and show message
                                 navigator.clipboard.writeText(mailtoUrl.replace('mailto:', ''));
                                 alert('Email address copied to clipboard: ' + mailtoUrl.replace('mailto:', ''));
                             }
@@ -756,39 +842,5 @@
             });
         });
     </script>
-    <!-- Contact Modal -->
-    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Get in Touch</h3>
-                <button onclick="closeContactModal()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            <div class="space-y-4">
-                <div class="text-center">
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">Choose your preferred way to contact me:</p>
-                </div>
-                <div class="space-y-3">
-                    <button onclick="copyEmailToClipboard()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                        <i class="fas fa-copy"></i>
-                        Copy Email Address
-                    </button>
-                    <button onclick="openEmailClient()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
-                        <i class="fas fa-envelope"></i>
-                        Open Email Client
-                    </button>
-                    <button onclick="openLinkedIn()" class="w-full flex items-center justify-center gap-3 px-4 py-3 text-white rounded-lg transition-colors hover:bg-[#005885]" style="background-color: #0077b5;">
-                        <i class="fab fa-linkedin"></i>
-                        Connect on LinkedIn
-                    </button>
-                </div>
-                <div class="text-center text-sm text-gray-500 dark:text-gray-400">
-                    <p>Email: nitender.kumar11@gmail.com</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </body>
 </html>
