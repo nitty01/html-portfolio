@@ -40,6 +40,9 @@
         })(window, document, "clarity", "script", "w2ujjjjps6");
     </script>
     
+    <!-- Site Mode Configuration -->
+    <script src="js/site-mode.js"></script>
+    
     <!-- Centralized Theme Configuration -->
     <script src="js/theme-config.js"></script>
     
@@ -51,6 +54,7 @@
     
     <!-- Centralized Styles -->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/site-mode.css">
     
     <!-- Theme Switcher Script -->
     <script src="js/theme-switcher.js"></script>
@@ -89,10 +93,11 @@
         </button>
         <div id="nav-links" class="hidden md:flex items-center gap-2 md:gap-4">
             <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="public/about.html">About Me</a>
-            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="#projects">Projects</a>
+            <a data-mode="engineer" class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="#projects">Projects</a>
+            <a data-mode="cto" class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="#case-studies">Case Studies</a>
             <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="#experience">Experience</a>
             <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="public/contact.html">Contact</a>
-            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="public/tech-playground.html">Tech Playground</a>
+            <a data-mode="engineer" class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="public/tech-playground.html">Tech Playground</a>
             <a class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all text-sm md:text-base" href="https://www.linkedin.com/in/nitender-kumar" target="_blank" rel="noopener" data-gtm="linkedin">
                 <i class="fab fa-linkedin"></i>
                 LinkedIn
@@ -152,8 +157,8 @@
         </div>
     </nav>
 
-    <!-- Enhanced Hero Section -->
-    <section class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" id="hero-section">
+    <!-- Enhanced Hero Section (Engineer mode) -->
+    <section data-mode="engineer" class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" id="hero-section">
         <!-- Animated background pattern -->
         <div class="absolute inset-0">
             <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%236366f1\" fill-opacity=\"0.08\"%3E%3Ccircle cx=\"7\" cy=\"7\" r=\"1\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
@@ -194,7 +199,7 @@ Driving enterprise-scale AI transformation through platform thinking, reusable a
                                 <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                             </span>
                         </button>
-                        <a href="assets/NITENDER_KUMAR_DL_V5_2025.pdf" download="Nitender_Kumar_Principal_Data_Engineer_Resume.pdf" class="px-6 py-3 border-2 border-accent text-accent rounded-xl font-bold hover:bg-accent hover:text-white transition-all duration-300" data-gtm="download_resume">
+                        <a href="assets/NITENDER_KUMAR_DL_V5_2025.pdf" download="Nitender_Kumar_Resume.pdf" class="px-6 py-3 border-2 border-accent text-accent rounded-xl font-bold hover:bg-accent hover:text-white transition-all duration-300" data-gtm="download_resume">
                             <i class="fas fa-download mr-2"></i>
                             Download Resume
                         </a>
@@ -285,6 +290,61 @@ Driving enterprise-scale AI transformation through platform thinking, reusable a
         </div>
     </section>
 
+    <!-- Hero Section (CTO mode) -->
+    <section data-mode="cto" class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" id="hero-section-cto">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%236366f1\" fill-opacity=\"0.08\"%3E%3Ccircle cx=\"7\" cy=\"7\" r=\"1\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+            <div class="absolute top-20 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl animated-bg-element"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-accent2/10 rounded-full blur-3xl animated-bg-element" style="animation-delay: -10s;"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 w-full">
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
+                <div class="hero-copy text-center lg:text-left">
+                    <h1 class="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Nitender Kumar</h1>
+
+                    <p class="mt-6 text-xl md:text-2xl text-gray-200 leading-relaxed">
+                        I build the engineering teams and AI platforms that turn enterprise complexity into competitive advantage.
+                    </p>
+
+                    <p class="mt-4 text-lg text-gray-400 leading-relaxed">
+                        Technology leader with 13+ years driving AI platform strategy, team building, and enterprise-scale delivery across risk, climate tech, and data intelligence.
+                    </p>
+
+                    <div class="mt-8 flex flex-wrap gap-6 justify-center lg:justify-start text-sm">
+                        <div class="flex items-center gap-2 text-gray-300">
+                            <i class="fas fa-users text-accent"></i>
+                            <span>Teams up to <strong class="text-white">12 engineers</strong></span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-300">
+                            <i class="fas fa-server text-accent2"></i>
+                            <span><strong class="text-white">5</strong> production platforms</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-300">
+                            <i class="fas fa-chart-line text-green-400"></i>
+                            <span><strong class="text-white">30%</strong> infrastructure cost reduction</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+                        <a href="#case-studies" class="group px-6 py-3 bg-gradient-to-r from-accent to-accent2 text-white rounded-xl font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                            <span class="flex items-center gap-2">
+                                View Case Studies
+                                <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/nitender-kumar/" target="_blank" rel="noopener noreferrer" class="px-6 py-3 border-2 border-accent text-accent rounded-xl font-bold hover:bg-accent hover:text-white transition-all duration-300">
+                            <i class="fab fa-linkedin mr-2"></i>
+                            Connect on LinkedIn
+                        </a>
+                    </div>
+                </div>
+                <div class="flex justify-center lg:justify-end">
+                    <img src="assets/images/profile_pic.jpg" alt="Portrait of Nitender Kumar" width="384" height="384" loading="eager" fetchpriority="high" decoding="async" class="w-56 h-56 md:w-72 md:h-72 rounded-full border-8 border-accent shadow-2xl object-cover profile-pic-blink" style="object-position: center 25%;" />
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Currently Working On -->
     <section class="py-10 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative overflow-hidden">
         <!-- Background decoration -->
@@ -334,8 +394,8 @@ Designed for high-volume enterprise workflows with distributed, fault-tolerant e
         </div>
     </section>
 
-    <!-- Professional Summary Section -->
-    <section class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
+    <!-- Professional Summary Section (Engineer mode) -->
+    <section data-mode="engineer" class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
         <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-12">
@@ -407,8 +467,82 @@ Designed for high-volume enterprise workflows with distributed, fault-tolerant e
         </div>
     </section>
 
-    <!-- What People Say Section -->
-    <section class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
+    <!-- Leadership Thesis (CTO mode) -->
+    <section data-mode="cto" class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-10 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text text-center">Leadership Thesis</h2>
+            <div class="glass rounded-2xl p-8 md:p-10 border border-white/10 space-y-6">
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    I started where most technology leaders start: deep in the code. Over thirteen years I moved from writing data pipelines and ETL jobs to designing the platforms those pipelines run on, and eventually to building and leading the teams that own those platforms end to end. The through-line has always been the same: take a messy, high-stakes enterprise problem and turn it into a system that runs itself.
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    Today I care about three things. First, platforms over projects: every engagement should leave behind reusable infrastructure, not one-off solutions. Second, teams over heroes: a well-structured engineering organization will outperform any individual contributor, and building that organization is the highest-leverage work a technology leader can do. Third, business outcomes over technical elegance: architecture decisions should trace directly to revenue, cost, or risk reduction.
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    I am looking for a CTO or VP Engineering role where I can set technology strategy, build a high-performing engineering culture, and connect platform investments to measurable business results. I am especially drawn to AI-first organizations working in regulated industries where the gap between prototype and production is where the real value is created.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTO Manifesto (CTO mode) -->
+    <section data-mode="cto" class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800 relative">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent2/50 to-transparent"></div>
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-10 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text text-center">How I Think About Technology Leadership</h2>
+            <div class="glass rounded-2xl border border-white/10 divide-y divide-gray-700">
+                <div class="p-8">
+                    <h3 class="text-xl font-bold text-white mb-2">Platforms over projects</h3>
+                    <p class="text-gray-400 leading-relaxed">Every engagement should leave behind reusable infrastructure. I invest in foundations that compound: shared services, standardized patterns, and composable building blocks that the next ten teams can build on without re-inventing the wheel.</p>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-xl font-bold text-white mb-2">Business outcomes over technical elegance</h3>
+                    <p class="text-gray-400 leading-relaxed">Architecture decisions should trace directly to revenue, cost, or risk. I start with the business case, work backward to the simplest system that delivers it, and measure success by what the organization can now do that it could not before.</p>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-xl font-bold text-white mb-2">Teams over heroes</h3>
+                    <p class="text-gray-400 leading-relaxed">A well-structured engineering organization will outperform any single contributor. I focus on hiring, onboarding, and developing engineers who can own entire domains, and then removing the obstacles that slow them down.</p>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-xl font-bold text-white mb-2">Decisions over defaults</h3>
+                    <p class="text-gray-400 leading-relaxed">The most expensive technical debt is the decision nobody made. I document trade-offs explicitly, choose deliberately, and revisit assumptions when the data changes rather than waiting for a crisis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials — Static Pull Quotes (CTO mode) -->
+    <section data-mode="cto" class="py-16 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent2/50 to-transparent"></div>
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+            <div class="glass rounded-2xl p-8 border border-white/10 relative">
+                <i class="fas fa-quote-left text-accent/30 text-3xl absolute top-6 left-6"></i>
+                <p class="text-gray-300 leading-relaxed mt-6 mb-6">"Nitender has consistently impressed me with his ability to bridge deep technical expertise with strong leadership skills. Under my mentorship, he quickly grew into a go-to person for designing scalable data solutions and mentoring junior team members. His proactive approach, clarity of thought, and ability to translate business problems into data-driven solutions make him an invaluable asset to any team."</p>
+                <div class="flex items-center gap-3 pt-4 border-t border-gray-700">
+                    <div class="w-10 h-10 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold text-sm">RM</div>
+                    <div>
+                        <p class="text-white font-semibold text-sm">Ram Madhavan</p>
+                        <p class="text-gray-500 text-xs">Manager &amp; Mentor</p>
+                    </div>
+                </div>
+            </div>
+            <div class="glass rounded-2xl p-8 border border-white/10 relative">
+                <i class="fas fa-quote-left text-accent/30 text-3xl absolute top-6 left-6"></i>
+                <p class="text-gray-300 leading-relaxed mt-6 mb-6">"Nitender is a standout professional who consistently demonstrates ownership and accountability. At the leadership level, I have seen him take on complex challenges, whether it was streamlining large-scale data pipelines or optimizing performance for critical analytics workloads. His ability to align technical execution with business strategy sets him apart. He brings both depth in engineering and breadth in vision, which makes him an exceptional asset to any organization."</p>
+                <div class="flex items-center gap-3 pt-4 border-t border-gray-700">
+                    <div class="w-10 h-10 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold text-sm">AS</div>
+                    <div>
+                        <p class="text-white font-semibold text-sm">Ashwin Sabapathy</p>
+                        <p class="text-gray-500 text-xs">Director</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What People Say Section (Engineer mode) -->
+    <section data-mode="engineer" class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
         <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent2/50 to-transparent"></div>
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-8">
@@ -540,25 +674,14 @@ Designed for high-volume enterprise workflows with distributed, fault-tolerant e
                         </div>
                         <p class="text-gray-300 italic testimonial-text">"I had the pleasure of working closely with Nitender on challenging projects. His problem-solving mindset and ability to design scalable architectures were invaluable. Beyond his technical strength, he fostered a collaborative environment where everyone could contribute effectively."</p>
                     </div>
-                    <div class="testimonial-card bg-white/10 backdrop-blur-md rounded-xl shadow-glass p-6 md:p-8 min-w-[320px] max-w-md">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">AD</div>
-                            <div>
-                                <h4 class="font-bold text-white text-lg">Arnab Das</h4>
-                                <p class="text-gray-400 text-sm">Product Marketing & GTM Colleague</p>
-                                <a href="https://www.linkedin.com/in/arnab-d-846970192/" target="_blank" rel="noopener" class="text-accent hover:text-accent2 text-sm transition-colors"><i class="fab fa-linkedin mr-1"></i>LinkedIn</a>
-                            </div>
-                        </div>
-                        <p class="text-gray-300 italic testimonial-text">"Working with Nitender was always easy and rewarding. He listens carefully, keeps the customer's perspective at the center, and builds solutions that make sense not just technically but also for the people who use them. His thoughtful approach made it simple to connect our product and marketing goals with what he delivered."</p>
-                    </div>
                     <!-- Duplicates removed; JS handles seamless looping by cloning the track at runtime -->
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Core Competencies Section -->
-    <section class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800 relative">
+    <!-- Core Competencies Section (Engineer mode) -->
+    <section data-mode="engineer" class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800 relative">
         <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent2/50 to-transparent"></div>
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
@@ -704,8 +827,8 @@ Designed for high-volume enterprise workflows with distributed, fault-tolerant e
         </div>
     </section>
 
-    <!-- Leadership Highlights Section -->
-    <section class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
+    <!-- Leadership Highlights Section (Engineer mode) -->
+    <section data-mode="engineer" class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
         <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
         <div class="max-w-6xl mx-auto">
             <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
@@ -756,8 +879,8 @@ Designed for high-volume enterprise workflows with distributed, fault-tolerant e
         </div>
     </section>
 
-    <!-- Highlights Section -->
-    <section class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800 relative">
+    <!-- Highlights Section (Engineer mode) -->
+    <section data-mode="engineer" class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800 relative">
         <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Highlights</h2>
@@ -794,8 +917,94 @@ Designed for high-volume enterprise workflows with distributed, fault-tolerant e
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800 relative">
+    <!-- Strategic Impact (CTO mode) -->
+    <section data-mode="cto" class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text text-center">Strategic Impact</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass rounded-2xl p-6 border border-white/10">
+                    <div class="text-accent text-xs font-semibold uppercase tracking-wider mb-3">Risk &amp; Compliance</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Automated third-party risk evaluation at enterprise scale</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Built an AI-driven platform for a global consulting firm that automated end-to-end vendor risk assessment and removed routine manual review from the operating model.</p>
+                    <div class="mt-4 text-xs font-semibold uppercase tracking-wider text-green-400">Result</div>
+                    <p class="text-gray-300 text-sm mt-2">Assessment cycles reduced from weeks to minutes, with auditability and horizontal scale built into the platform.</p>
+                    <a href="public/project-tprm-platform.html" class="mt-4 inline-flex items-center gap-2 text-accent text-sm font-semibold hover:text-accent2 transition-colors">
+                        See case study <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+                <div class="glass rounded-2xl p-6 border border-white/10">
+                    <div class="text-accent text-xs font-semibold uppercase tracking-wider mb-3">Climate Tech</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Fleet electrification planning turned into a repeatable platform capability</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Designed the platform behind C6 Insights so transit agencies could move from slow consultant-led studies to on-demand transformation roadmaps.</p>
+                    <div class="mt-4 text-xs font-semibold uppercase tracking-wider text-green-400">Result</div>
+                    <p class="text-gray-300 text-sm mt-2">Months of analysis compressed into usable decision intelligence, with the same architecture supporting future climate-tech use cases.</p>
+                    <a href="public/project-c6insights.html" class="mt-4 inline-flex items-center gap-2 text-accent text-sm font-semibold hover:text-accent2 transition-colors">
+                        See case study <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+                <div class="glass rounded-2xl p-6 border border-white/10">
+                    <div class="text-accent text-xs font-semibold uppercase tracking-wider mb-3">Data Platform</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Real-time analytics backbone for connected vehicle intelligence</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Architected the core platform that processes high-volume telemetry and supports operational insights across fleet management, driver behavior, and downstream products.</p>
+                    <div class="mt-4 text-xs font-semibold uppercase tracking-wider text-green-400">Result</div>
+                    <p class="text-gray-300 text-sm mt-2">Over 1M daily events processed with a 30% infrastructure cost reduction, creating a reusable platform rather than a one-off analytics solution.</p>
+                    <a href="public/project-deep-view-analytics.html" class="mt-4 inline-flex items-center gap-2 text-accent text-sm font-semibold hover:text-accent2 transition-colors">
+                        See case study <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies (CTO mode) -->
+    <section data-mode="cto" id="case-studies" class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800 relative">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent2/50 to-transparent"></div>
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text text-center">Selected Work</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass rounded-2xl border border-white/10 overflow-hidden hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="p-8">
+                        <div class="text-accent text-xs font-semibold uppercase tracking-wider mb-2">Risk &amp; Compliance</div>
+                        <h3 class="text-xl font-bold text-white mb-3">AI-Driven TPRM Platform</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-3">Enterprise needed to automate third-party risk assessment across thousands of vendors. Manual review took weeks per vendor and couldn't scale.</p>
+                        <div class="text-sm text-gray-500 mb-4"><strong class="text-gray-300">Role:</strong> Architecture Lead &amp; Platform Owner</div>
+                        <div class="text-sm text-green-400 font-semibold mb-6">Reduced vendor risk assessment from weeks to minutes</div>
+                        <a href="public/project-tprm-platform.html" class="inline-flex items-center gap-2 text-accent text-sm font-semibold group-hover:gap-3 transition-all">
+                            Read Case Study <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl border border-white/10 overflow-hidden hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="p-8">
+                        <div class="text-accent text-xs font-semibold uppercase tracking-wider mb-2">Climate Tech</div>
+                        <h3 class="text-xl font-bold text-white mb-3">C6 Insights GenAI Platform</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-3">Transit agencies needed data-driven fleet electrification roadmaps. Consultant-led analysis was slow, expensive, and inconsistent across agencies.</p>
+                        <div class="text-sm text-gray-500 mb-4"><strong class="text-gray-300">Role:</strong> Engineering Lead &amp; AI Platform Architect</div>
+                        <div class="text-sm text-green-400 font-semibold mb-6">Months of analysis replaced with on-demand AI intelligence</div>
+                        <a href="public/project-c6insights.html" class="inline-flex items-center gap-2 text-accent text-sm font-semibold group-hover:gap-3 transition-all">
+                            Read Case Study <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl border border-white/10 overflow-hidden hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="p-8">
+                        <div class="text-accent text-xs font-semibold uppercase tracking-wider mb-2">Data Platform</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Deep View Analytics</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-3">Connected vehicle platform needed real-time analytics across a million daily events. Legacy batch processing couldn't support operational decisions.</p>
+                        <div class="text-sm text-gray-500 mb-4"><strong class="text-gray-300">Role:</strong> Platform Architect &amp; Team Lead</div>
+                        <div class="text-sm text-green-400 font-semibold mb-6">1M+ events/day processed, 30% infrastructure cost reduction</div>
+                        <a href="public/project-deep-view-analytics.html" class="inline-flex items-center gap-2 text-accent text-sm font-semibold group-hover:gap-3 transition-all">
+                            Read Case Study <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section (Engineer mode) -->
+    <section data-mode="engineer" id="projects" class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800 relative">
         <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent2/50 to-transparent"></div>
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-12">
@@ -1134,8 +1343,8 @@ Designed for high-volume enterprise workflows with distributed, fault-tolerant e
         </div>
     </section>
 
-    <!-- Architecture & Platform Thinking -->
-    <section id="architecture-thinking" class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
+    <!-- Architecture & Platform Thinking (Engineer mode) -->
+    <section data-mode="engineer" id="architecture-thinking" class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
         <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent2/50 to-transparent"></div>
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-12">
@@ -1177,8 +1386,34 @@ Designed for high-volume enterprise workflows with distributed, fault-tolerant e
         </div>
     </section>
 
-    <!-- Experience Snapshot -->
-    <section id="experience" class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
+    <!-- Architecture — How I Think About Technology (CTO mode) -->
+    <section data-mode="cto" id="architecture-thinking-cto" class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent2/50 to-transparent"></div>
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text text-center">How I Think About Technology</h2>
+            <div class="glass rounded-2xl p-8 md:p-10 border border-white/10 space-y-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Event-driven over request-driven</h3>
+                    <p class="text-gray-400 leading-relaxed">Every TPRM and analytics platform I have built moved from synchronous API chains to event-driven pipelines. The result was always the same: better fault tolerance, lower coupling, and the ability to scale processing independently of intake. Azure Service Bus and RabbitMQ are the backbones I reach for first.</p>
+                </div>
+                <div class="pt-8 border-t border-gray-700">
+                    <h3 class="text-xl font-semibold text-white mb-3">Build the platform, not just the product</h3>
+                    <p class="text-gray-400 leading-relaxed">C6 Insights started as a fleet electrification tool. By treating it as a platform problem from day one, the same infrastructure now supports sustainability reporting, route optimization, and grant-readiness scoring without rearchitecting a single service.</p>
+                </div>
+                <div class="pt-8 border-t border-gray-700">
+                    <h3 class="text-xl font-semibold text-white mb-3">Observability is a feature, not a bolt-on</h3>
+                    <p class="text-gray-400 leading-relaxed">Deep View Analytics processes over a million events daily. The 30% cost reduction came from instrumenting every pipeline stage with SLIs and cost attribution, then using that data to right-size infrastructure. You cannot optimize what you cannot measure.</p>
+                </div>
+                <div class="pt-8 border-t border-gray-700">
+                    <h3 class="text-xl font-semibold text-white mb-3">Architecture decisions are leadership decisions</h3>
+                    <p class="text-gray-400 leading-relaxed">I document trade-offs as first-class artifacts, not afterthoughts. Every ADR connects a technical choice to a business constraint. This makes technology strategy legible to executives and actionable for engineers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Snapshot (Engineer mode) -->
+    <section data-mode="engineer" id="experience" class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
         <!-- Section Separator -->
         <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
         
@@ -1346,8 +1581,68 @@ Designed for high-volume enterprise workflows with distributed, fault-tolerant e
         </div>
     </section>
 
-    <!-- AI & ML Initiatives Subsection -->
-    <section class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900">
+    <!-- Experience Snapshot (CTO mode) -->
+    <section data-mode="cto" id="experience-cto" class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text text-center">Experience</h2>
+            <ol class="relative border-l-2 border-gradient-to-b from-accent to-accent2">
+                <li class="mb-10 ml-8">
+                    <div class="absolute -left-3 w-6 h-6 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 ring-2 ring-cyan-400/40"></div>
+                    <div class="glass rounded-xl p-6 border border-cyan-500/20">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-3">
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">Associate Director, AI Architect</h3>
+                                <p class="text-cyan-300 text-sm font-medium">Global Consulting Firm</p>
+                            </div>
+                            <time class="text-cyan-200 text-sm whitespace-nowrap">Dec 2025 – Present</time>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed">Leading architecture and delivery of a cloud-native, AI-driven TPRM platform. Set technology strategy, designed the event-driven backbone on Azure, and aligned engineering execution with enterprise risk and compliance objectives across global stakeholders.</p>
+                        <a href="public/project-tprm-platform.html" class="mt-3 inline-flex items-center gap-2 text-cyan-300 text-sm font-semibold hover:text-cyan-200 transition-colors">
+                            <i class="fas fa-arrow-right text-xs"></i> TPRM case study
+                        </a>
+                    </div>
+                </li>
+                <li class="mb-10 ml-8">
+                    <div class="absolute -left-3 w-6 h-6 rounded-full bg-gradient-to-r from-accent to-accent2"></div>
+                    <div class="glass rounded-xl p-6">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-3">
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">Principal Data Engineer &amp; Engineering Lead</h3>
+                                <p class="text-accent text-sm font-medium">Darby Telematics &amp; Danlaw Inc</p>
+                            </div>
+                            <time class="text-accent text-sm whitespace-nowrap">Mar 2019 – Nov 2025</time>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed">Led a 12-person engineering team building Deep View Analytics (real-time vehicle telemetry, 1M+ events/day) and C6 Insights (GenAI climate-tech platform). Drove 30% infrastructure cost reduction, established engineering practices, and scaled the team from 3 to 12 engineers.</p>
+                        <div class="mt-3 flex flex-wrap gap-4">
+                            <a href="public/project-deep-view-analytics.html" class="inline-flex items-center gap-2 text-cyan-300 text-sm font-semibold hover:text-cyan-200 transition-colors">
+                                <i class="fas fa-arrow-right text-xs"></i> Deep View case study
+                            </a>
+                            <a href="public/project-c6insights.html" class="inline-flex items-center gap-2 text-cyan-300 text-sm font-semibold hover:text-cyan-200 transition-colors">
+                                <i class="fas fa-arrow-right text-xs"></i> C6 Insights case study
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="ml-8">
+                    <div class="absolute -left-3 w-6 h-6 rounded-full bg-gradient-to-r from-accent2 to-purple-500"></div>
+                    <div class="glass rounded-xl p-6">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-3">
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">Senior Software Engineer</h3>
+                                <p class="text-accent2 text-sm font-medium">NEC India Pvt Ltd</p>
+                            </div>
+                            <time class="text-accent2 text-sm whitespace-nowrap">Aug 2012 – Feb 2019</time>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed">Built Spark/Hadoop data pipelines and contributed to AI video analytics (QLM), predictive inventory (PAOS), and IoT edge deployments. Collaborated with NEC Labs USA on ML integration.</p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- AI & ML Initiatives Subsection (Engineer mode) -->
+    <section data-mode="engineer" class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
                 AI & ML Initiatives
@@ -1406,8 +1701,8 @@ Designed for high-volume enterprise workflows with distributed, fault-tolerant e
         </div>
     </section>
 
-    <!-- Tech Stack Evolution Section -->
-    <section class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative overflow-hidden">
+    <!-- Tech Stack Evolution Section (Engineer mode) -->
+    <section data-mode="engineer" class="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900 relative overflow-hidden">
         <!-- Background decoration -->
         <div class="absolute inset-0 opacity-5">
             <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
@@ -1538,8 +1833,8 @@ Designed for high-volume enterprise workflows with distributed, fault-tolerant e
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800">
+    <!-- Education Section (Engineer mode) -->
+    <section data-mode="engineer" class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">
                 Education
@@ -1589,8 +1884,8 @@ Designed for high-volume enterprise workflows with distributed, fault-tolerant e
         </div>
     </section>
 
-    <!-- Let's Connect CTA -->
-    <section class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800 relative overflow-hidden">
+    <!-- Let's Connect CTA (Engineer mode) -->
+    <section data-mode="engineer" class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800 relative overflow-hidden">
         <!-- Background decoration -->
         <div class="absolute inset-0 opacity-5">
             <div class="absolute top-0 left-1/4 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
@@ -1644,6 +1939,31 @@ Designed for high-volume enterprise workflows with distributed, fault-tolerant e
                         <span>Open to Mentoring</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Let's Connect CTA (CTO mode) -->
+    <section data-mode="cto" class="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-accent2 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Let's Connect</h2>
+            <p class="text-gray-300 mb-2 text-lg">Exploring CTO and VP Engineering opportunities in AI-first organizations.</p>
+            <p class="text-gray-400 mb-8">If you are building something ambitious and need a technology leader who has shipped at enterprise scale, I would like to hear about it.</p>
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="mailto:nitender.kumar11@gmail.com" class="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-accent to-accent2 text-white font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="https://linkedin.com/in/nitender-kumar" target="_blank" rel="noopener" class="group inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold transition hover:shadow-xl hover:scale-105" style="background-color: #0077b5;">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                    <i class="fas fa-external-link-alt text-xs opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -1719,7 +2039,7 @@ Focused on building scalable, production-grade AI platforms that drive measurabl
                         © 2025 Nitender Kumar. Built with ❤️ using modern web technologies.
                     </p>
                     <div class="flex gap-4 mt-4 md:mt-0">
-                        <a href="assets/NITENDER_KUMAR_DL_V5_2025.pdf" download="Nitender_Kumar_Principal_Data_Engineer_Resume.pdf" class="text-accent hover:text-accent2 text-sm transition-colors" data-gtm="download_resume_footer">
+                        <a href="assets/NITENDER_KUMAR_DL_V5_2025.pdf" download="Nitender_Kumar_Resume.pdf" class="text-accent hover:text-accent2 text-sm transition-colors" data-gtm="download_resume_footer">
                             <i class="fas fa-download mr-1"></i>Download Resume
                         </a>
                         <span class="text-gray-600">|</span>

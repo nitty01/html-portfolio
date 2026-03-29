@@ -33,6 +33,9 @@
         })(window, document, "clarity", "script", "w2ujjjjps6");
     </script>
     
+    <!-- Site Mode Configuration -->
+    <script src="../js/site-mode.js"></script>
+    
     <!-- Centralized Theme Configuration -->
     <script src="../js/theme-config.js"></script>
     
@@ -44,6 +47,7 @@
     
     <!-- Centralized Styles -->
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/site-mode.css">
     
     <!-- Theme Switcher Script -->
     <script src="../js/theme-switcher.js"></script>
@@ -203,9 +207,10 @@
         </a>
         <div class="flex items-center gap-2 md:gap-4">
             <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="about.html">About Me</a>
-            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="../index.html#projects">Projects</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" data-mode="engineer" href="../index.html#projects">Projects</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" data-mode="cto" href="../index.html#case-studies">Case Studies</a>
             <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="contact.html">Contact</a>
-            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="tech-playground.html">Tech Playground</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" data-mode="engineer" href="tech-playground.html">Tech Playground</a>
             <a class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all text-sm md:text-base" href="https://www.linkedin.com/in/nitender-kumar" target="_blank" rel="noopener">
                 <i class="fab fa-linkedin"></i>
                 LinkedIn
@@ -237,8 +242,8 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
-        <!-- Hero Section -->
-        <section class="text-center mb-16 fade-in-up relative overflow-hidden">
+        <!-- Hero Section (Engineer mode) -->
+        <section data-mode="engineer" class="text-center mb-16 fade-in-up relative overflow-hidden">
             <!-- Background decorations -->
             <div class="absolute inset-0 opacity-5 pointer-events-none">
                 <div class="animated-bg-element w-64 h-64 bg-accent top-10 left-10"></div>
@@ -290,11 +295,53 @@
             </div>
         </section>
 
+        <!-- Hero Section (CTO mode) -->
+        <section data-mode="cto" class="text-center mb-16 fade-in-up relative overflow-hidden">
+            <div class="absolute inset-0 opacity-5 pointer-events-none">
+                <div class="animated-bg-element w-64 h-64 bg-accent top-10 left-10"></div>
+                <div class="animated-bg-element w-48 h-48 bg-accent2 bottom-20 right-20" style="animation-delay: -5s;"></div>
+            </div>
+            <div class="relative z-10">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-award mr-2"></i>13+ Years in Technology Leadership
+                    </span>
+                </div>
+                <div class="relative inline-block mb-8 profile-pic-container">
+                    <img src="../assets/images/profile_pic.jpg" alt="Nitender Kumar" class="w-48 h-48 rounded-full mx-auto shadow-2xl border-4 border-accent/20 object-cover" style="object-position: center 25%;">
+                </div>
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-6">
+                    <span class="gradient-text">Nitender Kumar</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
+                    Technology leader building engineering teams and AI platforms that turn enterprise complexity into competitive advantage.
+                </p>
+            </div>
+        </section>
+
+        <!-- Executive Bio (CTO mode) -->
+        <section data-mode="cto" class="mb-16 fade-in-up">
+            <div class="glass rounded-2xl p-8 max-w-4xl mx-auto border border-white/10 space-y-6">
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    I started as a software engineer building Spark pipelines and Hadoop clusters at NEC. Over seven years, I grew into the person teams called when something needed to work at scale. That hands-on foundation taught me how systems actually fail, which turns out to be the most useful thing a technology leader can know.
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    At Darby Telematics and Danlaw, I moved from building systems to building the team that builds systems. I grew the engineering organization from 3 to 12, shipped Deep View Analytics (1M+ daily telemetry events, 30% cost reduction), and led the C6 Insights climate-tech platform from concept to production. These years shaped my belief that platforms compound and teams scale, while projects and heroes do not.
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    Now, as Associate Director and AI Architect at a global consulting firm, I set technology strategy for an enterprise TPRM platform, designing event-driven AI systems on Azure and aligning engineering execution with business outcomes across global stakeholders.
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    I hold an M.Tech in Data Science &amp; Engineering from BITS Pilani and a B.Tech in Electronics &amp; Communication. I am looking for a CTO or VP Engineering role where I can set technology strategy, build a high-performing engineering culture, and connect platform investments to measurable business results.
+                </p>
+            </div>
+        </section>
+
         <!-- Section Separator -->
         <div class="section-separator"></div>
 
-        <!-- What I'm Looking For -->
-        <section class="mb-16 fade-in-up">
+        <!-- What I'm Looking For (Engineer mode) -->
+        <section data-mode="engineer" class="mb-16 fade-in-up">
             <div class="glass rounded-2xl p-8 max-w-4xl mx-auto">
                 <div class="inline-block mb-4">
                     <span class="px-3 py-1 bg-accent2/20 text-accent2 text-xs font-semibold rounded-full border border-accent2/30">
@@ -336,7 +383,7 @@
         </section>
 
         <!-- About Content -->
-        <section class="grid lg:grid-cols-2 gap-12 mb-16">
+        <section class="grid lg:grid-cols-2 gap-12 mb-16" data-mode="engineer">
             <!-- Personal Story -->
             <div class="glass rounded-2xl p-8 fade-in-up hover:shadow-xl transition-all duration-300">
                 <div class="inline-block mb-4">
@@ -413,10 +460,65 @@
             </div>
         </section>
 
+        <section class="grid xl:grid-cols-[1.15fr_0.85fr] gap-8 mb-16" data-mode="cto">
+            <div class="glass rounded-2xl p-8 fade-in-up hover:shadow-xl transition-all duration-300">
+                <div class="inline-block mb-4">
+                    <span class="px-3 py-1 bg-accent/20 text-accent text-xs font-semibold rounded-full border border-accent/30">
+                        <i class="fas fa-compass mr-1"></i>Executive Narrative
+                    </span>
+                </div>
+                <h2 class="text-3xl font-bold text-accent2 mb-6 flex items-center gap-3">
+                    <i class="fas fa-chess-king"></i>
+                    Leadership Story
+                </h2>
+                <div class="space-y-4 text-gray-300 leading-relaxed">
+                    <p>
+                        My path into technology leadership started at the system level: building data platforms, analytics products, and cloud architectures that had to work under real operational pressure. Over time, that work expanded from solving technical complexity to shaping how teams make decisions, how platforms create leverage, and how technology strategy supports business outcomes.
+                    </p>
+                    <p>
+                        Across mobility, connected platforms, risk-sensitive systems, and AI-led product initiatives, I have learned that the highest-value technology work is rarely just about shipping code. It is about creating clarity across product, engineering, and business teams; choosing architectural bets that scale with the company; and building operating models that let teams deliver reliably.
+                    </p>
+                    <p>
+                        Today, the role I am building toward is centered on that broader mandate: strengthening engineering organizations, turning platform investment into measurable execution speed, and helping companies use data and AI as durable business capabilities rather than isolated experiments.
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass rounded-2xl p-8 fade-in-up hover:shadow-xl transition-all duration-300">
+                <div class="inline-block mb-4">
+                    <span class="px-3 py-1 bg-accent2/20 text-accent2 text-xs font-semibold rounded-full border border-accent2/30">
+                        <i class="fas fa-sitemap mr-1"></i>Operating Model
+                    </span>
+                </div>
+                <h2 class="text-3xl font-bold text-accent2 mb-6 flex items-center gap-3">
+                    <i class="fas fa-layer-group"></i>
+                    Operating Principles
+                </h2>
+                <div class="space-y-5">
+                    <div class="border border-white/10 rounded-xl p-4 bg-white/5">
+                        <h3 class="text-xl font-semibold text-white mb-2">Business-Aligned Architecture</h3>
+                        <p class="text-gray-300">I favor architecture decisions that improve delivery speed, resilience, and economics, not technical elegance in isolation.</p>
+                    </div>
+                    <div class="border border-white/10 rounded-xl p-4 bg-white/5">
+                        <h3 class="text-xl font-semibold text-white mb-2">Platforms That Create Leverage</h3>
+                        <p class="text-gray-300">Shared platforms should reduce repeated work, raise delivery quality, and give product teams the ability to move faster with confidence.</p>
+                    </div>
+                    <div class="border border-white/10 rounded-xl p-4 bg-white/5">
+                        <h3 class="text-xl font-semibold text-white mb-2">Clear Ownership and Accountability</h3>
+                        <p class="text-gray-300">Teams perform best when responsibilities are explicit, technical trade-offs are visible, and operating rhythms are consistent.</p>
+                    </div>
+                    <div class="border border-white/10 rounded-xl p-4 bg-white/5">
+                        <h3 class="text-xl font-semibold text-white mb-2">Responsible AI and Data Governance</h3>
+                        <p class="text-gray-300">AI adoption only scales when privacy, compliance, security, and reliability are designed into the system from the start.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Section Separator -->
         <div class="section-separator"></div>
         <!-- Industries of Interest -->
-        <section class="mb-16">
+        <section class="mb-16" data-mode="engineer">
             <div class="text-center mb-8">
                 <div class="inline-block mb-6">
                     <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
@@ -576,11 +678,43 @@
                 </div>
             </div>
         </section>
+
+        <section class="mb-16" data-mode="cto">
+            <div class="text-center mb-8">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-bullseye mr-2"></i>Executive Fit
+                    </span>
+                </div>
+                <h2 class="text-4xl font-bold mb-4 gradient-text">Where I Create the Most Leverage</h2>
+                <p class="text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
+                    I am most effective in environments where technology strategy, platform decisions, and delivery execution need to work together to create durable business advantage.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass rounded-2xl p-8 fade-in-up border border-accent/20">
+                    <h3 class="text-2xl font-semibold text-white mb-3">Risk, Compliance, and Governance Platforms</h3>
+                    <p class="text-gray-300 leading-relaxed">Building systems where data lineage, auditability, resilience, and controlled change matter as much as feature velocity.</p>
+                </div>
+                <div class="glass rounded-2xl p-8 fade-in-up border border-accent2/20">
+                    <h3 class="text-2xl font-semibold text-white mb-3">Climate Tech and Mobility</h3>
+                    <p class="text-gray-300 leading-relaxed">Turning operational complexity into scalable product and platform capabilities for connected fleets, optimization, and decision support.</p>
+                </div>
+                <div class="glass rounded-2xl p-8 fade-in-up border border-accent2/20">
+                    <h3 class="text-2xl font-semibold text-white mb-3">Connected Vehicle and Analytics Products</h3>
+                    <p class="text-gray-300 leading-relaxed">Creating data-intensive platforms that combine real-time ingestion, observability, product analytics, and cross-functional delivery discipline.</p>
+                </div>
+                <div class="glass rounded-2xl p-8 fade-in-up border border-accent/20">
+                    <h3 class="text-2xl font-semibold text-white mb-3">AI-First Enterprise Products</h3>
+                    <p class="text-gray-300 leading-relaxed">Helping organizations move from experimentation to production by aligning AI use cases with platform readiness, governance, and business value.</p>
+                </div>
+            </div>
+        </section>
         <!-- Section Separator -->
         <div class="section-separator"></div>
 
         <!-- Design Philosophy Section -->
-        <section class="mb-16">
+        <section class="mb-16" data-mode="engineer">
             <div class="text-center mb-8">
                 <div class="inline-block mb-6">
                     <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
@@ -661,7 +795,7 @@
         <div class="section-separator"></div>
 
         <!-- S.O.L.I.D. Design Principles Section -->
-        <section class="mb-16">
+        <section class="mb-16" data-mode="engineer">
             <div class="text-center mb-8">
                 <div class="inline-block mb-6">
                     <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
@@ -735,11 +869,53 @@
                 </div>
             </div>
         </section>
+
+        <section class="mb-16" data-mode="cto">
+            <div class="text-center mb-8">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-network-wired mr-2"></i>Leadership Lens
+                    </span>
+                </div>
+                <h2 class="text-4xl font-bold mb-4 gradient-text">Technology Leadership Principles</h2>
+                <p class="text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
+                    The strongest technology organizations balance architectural rigor with delivery pragmatism, giving teams the structure to move fast without accumulating unmanaged risk.
+                </p>
+            </div>
+            <div class="glass rounded-2xl p-8 fade-in-up">
+                <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                        <h3 class="text-xl font-semibold text-white mb-3">Platform Before Point Solutions</h3>
+                        <p class="text-gray-300 text-sm">I invest in shared foundations when they meaningfully improve speed, quality, and reuse across multiple teams.</p>
+                    </div>
+                    <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                        <h3 class="text-xl font-semibold text-white mb-3">Execution With Guardrails</h3>
+                        <p class="text-gray-300 text-sm">Teams should have autonomy, but within clear standards for reliability, observability, security, and cost discipline.</p>
+                    </div>
+                    <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                        <h3 class="text-xl font-semibold text-white mb-3">Architecture Tied to Business Models</h3>
+                        <p class="text-gray-300 text-sm">Technical roadmaps are strongest when they reflect revenue models, customer expectations, and operating constraints.</p>
+                    </div>
+                    <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                        <h3 class="text-xl font-semibold text-white mb-3">Ownership Is an Organizational Design Choice</h3>
+                        <p class="text-gray-300 text-sm">Delivery improves when team boundaries, system accountability, and decision rights are explicit and durable.</p>
+                    </div>
+                    <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                        <h3 class="text-xl font-semibold text-white mb-3">Data and AI Need Governance to Scale</h3>
+                        <p class="text-gray-300 text-sm">Responsible use of data, models, and automation is not a policy document alone; it must be embedded in platform design.</p>
+                    </div>
+                    <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                        <h3 class="text-xl font-semibold text-white mb-3">Leaders Build Multipliers</h3>
+                        <p class="text-gray-300 text-sm">My goal is to create teams, tools, and decision frameworks that make the whole organization more effective over time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- Section Separator -->
         <div class="section-separator"></div>
 
         <!-- What People Say Section -->
-        <section class="mb-16">
+        <section class="mb-16" data-mode="engineer">
             <div class="text-center mb-8">
                 <div class="inline-block mb-6">
                     <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
@@ -869,18 +1045,42 @@
                         </div>
                         <p class="text-gray-300 italic testimonial-text">"I had the pleasure of working closely with Nitender on challenging projects. His problem-solving mindset and ability to design scalable architectures were invaluable. Beyond his technical strength, he fostered a collaborative environment where everyone could contribute effectively."</p>
                     </div>
-                    <div class="testimonial-card bg-white/10 backdrop-blur-md rounded-xl shadow-glass p-6 md:p-8 min-w-[320px] max-w-md">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">AD</div>
-                            <div>
-                                <h4 class="font-bold text-white text-lg">Arnab Das</h4>
-                                <p class="text-gray-400 text-sm">Product Marketing & GTM Colleague</p>
-                                <a href="https://www.linkedin.com/in/arnab-d-846970192/" target="_blank" rel="noopener" class="text-accent hover:text-accent2 text-sm transition-colors"><i class="fab fa-linkedin mr-1"></i>LinkedIn</a>
-                            </div>
-                        </div>
-                        <p class="text-gray-300 italic testimonial-text">"Working with Nitender was always easy and rewarding. He listens carefully, keeps the customer's perspective at the center, and builds solutions that make sense not just technically but also for the people who use them. His thoughtful approach made it simple to connect our product and marketing goals with what he delivered."</p>
-                    </div>
                     <!-- Duplicates removed; JS handles seamless looping by cloning the track at runtime -->
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16" data-mode="cto">
+            <div class="text-center mb-8">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-quote-left mr-2"></i>Executive Proof
+                    </span>
+                </div>
+                <h2 class="text-4xl font-bold mb-4 gradient-text">Trusted by Leaders I Have Worked With</h2>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-6">
+                <div class="glass rounded-2xl p-8 fade-in-up border border-accent/20">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">RM</div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">Ram Madhavan</h3>
+                            <p class="text-gray-400 text-sm">Manager & Mentor</p>
+                            <a href="https://www.linkedin.com/in/ram-madhavan-2885825/" target="_blank" rel="noopener" class="text-accent hover:text-accent2 text-sm transition-colors"><i class="fab fa-linkedin mr-1"></i>LinkedIn</a>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed italic">"Nitender has consistently impressed me with his ability to bridge deep technical expertise with strong leadership skills. Under my mentorship, he quickly grew into a go-to person for designing scalable data solutions and mentoring junior team members. His proactive approach, clarity of thought, and ability to translate business problems into data-driven solutions make him an invaluable asset to any team."</p>
+                </div>
+                <div class="glass rounded-2xl p-8 fade-in-up border border-accent2/20">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">AS</div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">Ashwin Sabapathy</h3>
+                            <p class="text-gray-400 text-sm">Director</p>
+                            <a href="https://www.linkedin.com/in/ashwin-sabapathy/" target="_blank" rel="noopener" class="text-accent hover:text-accent2 text-sm transition-colors"><i class="fab fa-linkedin mr-1"></i>LinkedIn</a>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed italic">"Nitender is a standout professional who consistently demonstrates ownership and accountability. At the leadership level, I have seen him take on complex challenges, whether it was streamlining large-scale data pipelines or optimizing performance for critical analytics workloads. His ability to align technical execution with business strategy sets him apart. He brings both depth in engineering and breadth in vision, which makes him an exceptional asset to any organization."</p>
                 </div>
             </div>
         </section>
@@ -889,7 +1089,7 @@
         <div class="section-separator"></div>
 
         <!-- Skills & Expertise -->
-        <section class="mb-16">
+        <section class="mb-16" data-mode="engineer">
             <div class="text-center mb-8">
                 <div class="inline-block mb-6">
                     <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
@@ -952,11 +1152,57 @@
             </div>
         </section>
 
+        <section class="mb-16" data-mode="cto">
+            <div class="text-center mb-8">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-briefcase mr-2"></i>Executive Scope
+                    </span>
+                </div>
+                <h2 class="text-4xl font-bold mb-4 gradient-text">What I Build and Scale</h2>
+                <p class="text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
+                    My scope is strongest where technology leadership must connect platform strategy, team capability, operating discipline, and measurable product outcomes.
+                </p>
+            </div>
+            <div class="glass rounded-2xl p-8 fade-in-up">
+                <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+                    <div class="text-center group hover:bg-white/5 p-6 rounded-xl transition-all duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-road"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Platform Strategy</h3>
+                        <p class="text-gray-400 text-sm">Shaping the roadmap for data, AI, and cloud capabilities that improve organizational leverage.</p>
+                    </div>
+                    <div class="text-center group hover:bg-white/5 p-6 rounded-xl transition-all duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Engineering Leadership</h3>
+                        <p class="text-gray-400 text-sm">Creating clarity in ownership, mentoring technical leaders, and improving how teams plan and deliver.</p>
+                    </div>
+                    <div class="text-center group hover:bg-white/5 p-6 rounded-xl transition-all duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">AI Productization</h3>
+                        <p class="text-gray-400 text-sm">Moving AI use cases from experimentation into production with the right data, governance, and delivery model.</p>
+                    </div>
+                    <div class="text-center group hover:bg-white/5 p-6 rounded-xl transition-all duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent to-accent2 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Reliability and Cost Governance</h3>
+                        <p class="text-gray-400 text-sm">Balancing performance, resilience, and economics so platforms remain sustainable as scale increases.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Section Separator -->
         <div class="section-separator"></div>
 
         <!-- Fun Facts / Outside Work Section -->
-        <section class="mb-16">
+        <section class="mb-16" data-mode="engineer">
             <div class="text-center mb-8">
                 <div class="inline-block mb-6">
                     <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
@@ -993,10 +1239,10 @@
         </section>
 
         <!-- Section Separator -->
-        <div class="section-separator"></div>
+        <div class="section-separator" data-mode="engineer"></div>
 
         <!-- Call to Action -->
-        <section class="text-center fade-in-up relative overflow-hidden">
+        <section class="text-center fade-in-up relative overflow-hidden" data-mode="engineer">
             <!-- Background decorations -->
             <div class="absolute inset-0 opacity-5 pointer-events-none">
                 <div class="animated-bg-element w-64 h-64 bg-accent top-10 right-10"></div>
@@ -1035,9 +1281,54 @@
                         <i class="fas fa-envelope"></i>
                         Get In Touch
                     </a>
-                    <a href="../assets/NITENDER_KUMAR_DL_V5_2025.pdf" download="Nitender_Kumar_Principal_Data_Engineer_Resume.pdf" class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all border border-white/20 hover:border-accent/40">
+                    <a href="../assets/NITENDER_KUMAR_DL_V5_2025.pdf" download="Nitender_Kumar_Resume.pdf" class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all border border-white/20 hover:border-accent/40">
                         <i class="fas fa-download"></i>
                         Download Resume
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="text-center fade-in-up relative overflow-hidden" data-mode="cto">
+            <div class="absolute inset-0 opacity-5 pointer-events-none">
+                <div class="animated-bg-element w-64 h-64 bg-accent top-10 right-10"></div>
+                <div class="animated-bg-element w-48 h-48 bg-accent2 bottom-20 left-20" style="animation-delay: -7s;"></div>
+            </div>
+
+            <div class="glass rounded-2xl p-8 md:p-12 relative z-10">
+                <div class="inline-block mb-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent2/20 rounded-full text-accent text-sm font-semibold border border-accent/30">
+                        <i class="fas fa-handshake mr-2"></i>Leadership Conversations
+                    </span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4">Building AI-First Technology Organizations</h2>
+                <p class="text-gray-300 mb-8 max-w-3xl mx-auto text-lg">
+                    I am most interested in CTO, VP Engineering, and senior technology leadership conversations where platform strategy, AI adoption, and engineering execution need to move in step.
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-4 mb-8 max-w-4xl mx-auto">
+                    <div class="glass rounded-lg p-4 border border-accent/20">
+                        <i class="fas fa-chess-knight text-accent text-xl mb-2"></i>
+                        <p class="text-sm text-gray-300">CTO / VP Engineering Mandates</p>
+                    </div>
+                    <div class="glass rounded-lg p-4 border border-accent/20">
+                        <i class="fas fa-brain text-accent text-xl mb-2"></i>
+                        <p class="text-sm text-gray-300">AI and Platform Transformation</p>
+                    </div>
+                    <div class="glass rounded-lg p-4 border border-accent/20">
+                        <i class="fas fa-people-arrows text-accent text-xl mb-2"></i>
+                        <p class="text-sm text-gray-300">Team and Operating Model Design</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all cta-button">
+                        <i class="fas fa-envelope"></i>
+                        Start a Conversation
+                    </a>
+                    <a href="../assets/NITENDER_KUMAR_DL_V5_2025.pdf" download="Nitender_Kumar_Resume.pdf" class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all border border-white/20 hover:border-accent/40">
+                        <i class="fas fa-download"></i>
+                        Download Leadership Resume
                     </a>
                 </div>
             </div>
@@ -1097,8 +1388,11 @@
                     <h3 class="text-2xl font-bold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4">
                         Nitender Kumar
                     </h3>
-                    <p class="text-gray-400 mb-4 max-w-md">
+                    <p class="text-gray-400 mb-4 max-w-md" data-mode="engineer">
                         Principal Data Engineer & AI Solution Architect passionate about building scalable data solutions that drive business impact.
+                    </p>
+                    <p class="text-gray-400 mb-4 max-w-md" data-mode="cto">
+                        Technology leader focused on building AI-first platforms, scalable engineering organizations, and operating models that turn technical complexity into business leverage.
                     </p>
                     <div class="flex gap-4">
                         <a href="https://linkedin.com/in/nitender-kumar" class="w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition-transform hover:bg-[#005885]" style="background-color: #0077b5;">
@@ -1115,9 +1409,10 @@
                     <h4 class="text-white font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
                         <li><a href="about.html" class="text-gray-400 hover:text-accent transition-colors">About Me</a></li>
-                        <li><a href="../index.html#projects" class="text-gray-400 hover:text-accent transition-colors">Projects</a></li>
+                        <li data-mode="engineer"><a href="../index.html#projects" class="text-gray-400 hover:text-accent transition-colors">Projects</a></li>
+                        <li data-mode="cto"><a href="../index.html#case-studies" class="text-gray-400 hover:text-accent transition-colors">Case Studies</a></li>
                         <li><a href="contact.html" class="text-gray-400 hover:text-accent transition-colors">Contact</a></li>
-                        <li><a href="tech-playground.html" class="text-gray-400 hover:text-accent transition-colors">Tech Playground</a></li>
+                        <li data-mode="engineer"><a href="tech-playground.html" class="text-gray-400 hover:text-accent transition-colors">Tech Playground</a></li>
                     </ul>
                 </div>
                 
@@ -1152,7 +1447,7 @@
                         © 2025 Nitender Kumar. Built with ❤️ using modern web technologies.
                     </p>
                     <div class="flex gap-4 mt-4 md:mt-0">
-                        <a href="../assets/NITENDER_KUMAR_DL_V5_2025.pdf" download="Nitender_Kumar_Principal_Data_Engineer_Resume.pdf" class="text-accent hover:text-accent2 text-sm transition-colors">
+                        <a href="../assets/NITENDER_KUMAR_DL_V5_2025.pdf" download="Nitender_Kumar_Resume.pdf" class="text-accent hover:text-accent2 text-sm transition-colors">
                             <i class="fas fa-download mr-1"></i>Download Resume
                         </a>
                         <span class="text-gray-600">|</span>

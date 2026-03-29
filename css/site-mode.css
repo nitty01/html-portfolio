@@ -1,0 +1,12 @@
+/**
+ * Dual-mode visibility rules.
+ * Works with data-site-mode attribute on <html> set by js/site-mode.js.
+ */
+
+[data-site-mode="cto"] [data-mode="engineer"] {
+  display: none !important;
+}
+
+[data-site-mode="engineer"] [data-mode="cto"] {
+  display: none !important;
+}

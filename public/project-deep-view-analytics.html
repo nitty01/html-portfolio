@@ -33,6 +33,9 @@
         })(window, document, "clarity", "script", "w2ujjjjps6");
     </script>
     
+    <!-- Site Mode Configuration -->
+    <script src="../js/site-mode.js"></script>
+    
     <!-- Centralized Theme Configuration -->
     <script src="../js/theme-config.js"></script>
     
@@ -44,6 +47,7 @@
     
     <!-- Centralized Styles -->
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/site-mode.css">
     <link rel="stylesheet" href="../css/mermaid-diagrams.css">
     
     <!-- Theme Switcher Script -->
@@ -67,9 +71,10 @@
         </a>
         <div class="flex items-center gap-2 md:gap-4">
             <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="about.html">About Me</a>
-            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="../index.html#projects">Projects</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" data-mode="engineer" href="../index.html#projects">Projects</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" data-mode="cto" href="../index.html#case-studies">Case Studies</a>
             <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="contact.html">Contact</a>
-            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="tech-playground.html">Tech Playground</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" data-mode="engineer" href="tech-playground.html">Tech Playground</a>
             <a class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all text-sm md:text-base" href="https://www.linkedin.com/in/nitender-kumar" target="_blank" rel="noopener">
                 <i class="fab fa-linkedin"></i>
                 LinkedIn
@@ -98,6 +103,7 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
+        <div data-mode="engineer">
         <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
             <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Executive Summary</h2>
             <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
@@ -298,6 +304,78 @@
                 <li>Drove cost-performance trade-offs including ARM-based deployments</li>
             </ul>
         </section>
+        </div>
+        <div data-mode="cto">
+            <section class="max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <a href="../index.html#case-studies" class="inline-flex items-center gap-2 text-accent hover:text-accent2 transition-colors text-sm font-semibold">
+                        <i class="fas fa-arrow-left"></i> Back to Case Studies
+                    </a>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Deep View Analytics</h1>
+                <p class="text-accent text-sm uppercase tracking-wider font-semibold mb-8">Data Platform | Connected Vehicle Intelligence</p>
+
+                <div class="space-y-10">
+                    <div class="glass rounded-2xl p-8 border border-white/10">
+                        <h2 class="text-2xl font-bold text-white mb-4">Business Problem</h2>
+                        <p class="text-gray-300 leading-relaxed">A connected vehicle platform needed real-time analytics across over a million daily OBD-II telemetry events for fleet management, driver behavior analysis, and predictive maintenance. The legacy batch processing system could not support operational decisions that required sub-minute latency, and infrastructure costs were growing faster than revenue.</p>
+                    </div>
+
+                    <div class="glass rounded-2xl p-8 border border-white/10">
+                        <h2 class="text-2xl font-bold text-white mb-4">Strategic Decision</h2>
+                        <p class="text-gray-300 leading-relaxed">We designed a real-time streaming architecture with cost-conscious infrastructure from day one. Rather than migrating the batch system incrementally, we built a parallel platform with full observability instrumented into every pipeline stage, allowing us to right-size infrastructure continuously and avoid the cost overruns that plagued the previous system.</p>
+                    </div>
+
+                    <div class="glass rounded-2xl p-8 border border-white/10">
+                        <h2 class="text-2xl font-bold text-white mb-4">Architecture at a Glance</h2>
+                        <p class="text-gray-300 leading-relaxed mb-4">PySpark for large-scale telemetry processing, FastAPI for service APIs, PostgreSQL and MongoDB for structured and unstructured storage, RabbitMQ for message queuing, and Docker/Kubernetes for orchestration. Full CI/CD pipeline with observability (SLIs, SLOs, tracing, cost attribution) across every processing stage.</p>
+                        <details class="mt-4" data-loaded="false" ontoggle="if (this.open && this.dataset.loaded !== 'true') { this.dataset.loaded = 'true'; loadDiagram('overview', 'cto'); }">
+                            <summary class="text-accent cursor-pointer font-semibold text-sm hover:text-accent2 transition-colors">View Architecture (L1 &amp; L2)</summary>
+                            <div class="mt-4">
+                                <div class="diagram-toggle">
+                                    <button class="toggle-btn active" id="cto-overview-btn" onclick="switchDiagram('overview', 'cto')">
+                                        <i class="fas fa-eye mr-2"></i>Overview
+                                    </button>
+                                    <button class="toggle-btn" id="cto-detailed-btn" onclick="switchDiagram('detailed', 'cto')">
+                                        <i class="fas fa-sitemap mr-2"></i>Detailed Architecture
+                                    </button>
+                                </div>
+                                <h3 class="text-accent2 font-bold text-lg mb-4" id="cto-diagram-title">Architecture Overview</h3>
+                                <p id="cto-diagram-arch-label" class="text-sm text-gray-500 mt-2">Overview Architecture (L1)</p>
+                                <div id="cto-diagram-container" class="diagram-container">
+                                    <div class="diagram-loading">
+                                        <div class="text-center">
+                                            <i class="fas fa-spinner fa-spin text-2xl text-accent mb-2"></i>
+                                            <p class="text-gray-400">Loading architecture diagram...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-center text-sm text-gray-400 mt-4 italic max-w-3xl mx-auto">Kafka-driven microservices feeding MongoDB and PostgreSQL with real-time APIs and dashboards, including downstream product consumption.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="glass rounded-2xl p-8 border border-white/10">
+                        <h2 class="text-2xl font-bold text-white mb-4">Key Trade-offs</h2>
+                        <ul class="text-gray-300 space-y-3 leading-relaxed">
+                            <li><strong class="text-white">Open-source stack over vendor lock-in:</strong> Higher operational overhead but long-term portability and cost control.</li>
+                            <li><strong class="text-white">Observability as a first-class feature:</strong> Upfront investment in instrumentation enabled the 30% cost reduction that justified the entire platform rebuild.</li>
+                            <li><strong class="text-white">Parallel build over incremental migration:</strong> Higher short-term cost, but clean architecture unencumbered by legacy constraints.</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass rounded-2xl p-8 border border-white/10">
+                        <h2 class="text-2xl font-bold text-white mb-4">Business Outcome</h2>
+                        <p class="text-gray-300 leading-relaxed">Over 1 million telemetry events processed daily with sub-minute latency. 30% infrastructure cost reduction ($36k annual savings) achieved through observability-driven optimization. The platform supports fleet management, driver behavior analytics, carbon tracking, and predictive maintenance on a single shared backbone.</p>
+                    </div>
+
+                    <div class="glass rounded-2xl p-8 border border-white/10">
+                        <h2 class="text-2xl font-bold text-white mb-4">My Role</h2>
+                        <p class="text-gray-300 leading-relaxed">Platform Architect and Team Lead. Grew the engineering team from 3 to 12 engineers. Designed the streaming architecture, established engineering practices (CI/CD, code review, SLI/SLO frameworks), drove the cost optimization initiative, and mentored engineers into domain ownership across the platform.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
     <!-- Enhanced Footer -->
@@ -381,9 +459,10 @@
     <script>
         let mermaidConfig = window.MermaidPortfolioConfig.getMermaidBaseConfig();
 
-        let currentZoom = 1;
-        let isFullscreen = false;
-        let currentDiagramType = 'overview';
+        const diagramStates = {
+            engineer: { zoom: 1, isFullscreen: false, currentType: 'overview' },
+            cto: { zoom: 1, isFullscreen: false, currentType: 'overview' }
+        };
 
         // Initialize Mermaid
         mermaid.initialize(mermaidConfig);
@@ -420,8 +499,28 @@
         // Load and render diagram from .mmd file
         
         // Load and render diagram from .mmd file (patched: injects init directive safely)
-        async function loadDiagram(type = 'overview') {
+        function getDiagramRefs(mode = 'engineer') {
+            return mode === 'cto' ? {
+                containerId: 'cto-diagram-container',
+                zoomId: 'cto-diagram-zoom',
+                overviewBtnId: 'cto-overview-btn',
+                detailedBtnId: 'cto-detailed-btn',
+                titleId: 'cto-diagram-title',
+                archLabelId: 'cto-diagram-arch-label'
+            } : {
+                containerId: 'diagram-container',
+                zoomId: 'diagram-zoom',
+                overviewBtnId: 'overview-btn',
+                detailedBtnId: 'detailed-btn',
+                titleId: 'diagram-title',
+                archLabelId: 'diagram-arch-label'
+            };
+        }
+
+        async function loadDiagram(type = 'overview', mode = 'engineer') {
             try {
+                const refs = getDiagramRefs(mode);
+                const state = diagramStates[mode];
                 const filePath = diagramFiles[type];
                 const response = await fetch(filePath);
                 const diagramText = await response.text();
@@ -449,22 +548,23 @@
 
                 const finalDiagram = initDirective + finalText;
 
-                const diagramContainer = document.getElementById('diagram-container');
+                const diagramContainer = document.getElementById(refs.containerId);
+                if (!diagramContainer) return;
                 diagramContainer.innerHTML = `
-                    <div class="diagram-zoom" id="diagram-zoom" style="transform: scale(${currentZoom});">
+                    <div class="diagram-zoom" id="${refs.zoomId}" style="transform: scale(${state.zoom});">
                         <div class="mermaid">${finalDiagram}</div>
                     </div>
                     <div class="diagram-controls">
-                        <button class="diagram-control-btn" onclick="zoomIn()" title="Zoom In">
+                        <button class="diagram-control-btn" onclick="zoomIn('${mode}')" title="Zoom In">
                             <i class="fas fa-search-plus"></i>
                         </button>
-                        <button class="diagram-control-btn" onclick="zoomOut()" title="Zoom Out">
+                        <button class="diagram-control-btn" onclick="zoomOut('${mode}')" title="Zoom Out">
                             <i class="fas fa-search-minus"></i>
                         </button>
-                        <button class="diagram-control-btn" onclick="resetZoom()" title="Reset Zoom">
+                        <button class="diagram-control-btn" onclick="resetZoom('${mode}')" title="Reset Zoom">
                             <i class="fas fa-expand-arrows-alt"></i>
                         </button>
-                        <button class="diagram-control-btn" onclick="toggleFullscreen()" title="Fullscreen">
+                        <button class="diagram-control-btn" onclick="toggleFullscreen('${mode}')" title="Fullscreen">
                             <i class="fas fa-expand"></i>
                         </button>
                     </div>
@@ -472,10 +572,13 @@
 
                 // Re-initialize Mermaid and process the new diagram content
                 mermaid.initialize(mermaidConfig);
-                await mermaid.init();
+                await mermaid.init(undefined, diagramContainer.querySelectorAll('.mermaid'));
             } catch (error) {
                 console.error('Error loading diagram:', error);
-                document.getElementById('diagram-container').innerHTML = `
+                const refs = getDiagramRefs(mode);
+                const diagramContainer = document.getElementById(refs.containerId);
+                if (!diagramContainer) return;
+                diagramContainer.innerHTML = `
                     <div class="text-center text-red-400">
                         <i class="fas fa-exclamation-triangle text-2xl mb-2"></i>
                         <p>Error loading architecture diagram</p>
@@ -485,73 +588,78 @@
         }
 
         // Switch between overview and detailed diagrams
-        function switchDiagram(type) {
-            currentDiagramType = type;
-            
-            // Update button states
-            document.getElementById('overview-btn').classList.toggle('active', type === 'overview');
-            document.getElementById('detailed-btn').classList.toggle('active', type === 'detailed');
-            
-            // Update title
-            const title = document.getElementById('diagram-title');
+        function switchDiagram(type, mode = 'engineer') {
+            const refs = getDiagramRefs(mode);
+            const state = diagramStates[mode];
+            state.currentType = type;
+
+            const overviewBtn = document.getElementById(refs.overviewBtnId);
+            const detailedBtn = document.getElementById(refs.detailedBtnId);
+            if (overviewBtn) overviewBtn.classList.toggle('active', type === 'overview');
+            if (detailedBtn) detailedBtn.classList.toggle('active', type === 'detailed');
+
+            const title = document.getElementById(refs.titleId);
             title.textContent = type === 'overview' ? 'Architecture Overview' : 'Detailed Architecture';
-            const archLabel = document.getElementById('diagram-arch-label');
+            const archLabel = document.getElementById(refs.archLabelId);
             if (archLabel) {
                 archLabel.textContent = type === 'overview' ? 'Overview Architecture (L1)' : 'Detailed Architecture (L2 – Production View)';
             }
-            
-            // Load the new diagram
-            loadDiagram(type);
+
+            loadDiagram(type, mode);
         }
 
         // Zoom functions
-        function zoomIn() {
-            currentZoom = Math.min(currentZoom * 1.2, 3);
-            updateZoom();
+        function zoomIn(mode = 'engineer') {
+            const state = diagramStates[mode];
+            state.zoom = Math.min(state.zoom * 1.2, 3);
+            updateZoom(mode);
         }
 
-        function zoomOut() {
-            currentZoom = Math.max(currentZoom / 1.2, 0.5);
-            updateZoom();
+        function zoomOut(mode = 'engineer') {
+            const state = diagramStates[mode];
+            state.zoom = Math.max(state.zoom / 1.2, 0.5);
+            updateZoom(mode);
         }
 
-        function resetZoom() {
-            currentZoom = 1;
-            updateZoom();
+        function resetZoom(mode = 'engineer') {
+            diagramStates[mode].zoom = 1;
+            updateZoom(mode);
         }
 
-        function updateZoom() {
-            const diagramZoom = document.getElementById('diagram-zoom');
+        function updateZoom(mode = 'engineer') {
+            const refs = getDiagramRefs(mode);
+            const diagramZoom = document.getElementById(refs.zoomId);
             if (diagramZoom) {
-                diagramZoom.style.transform = `scale(${currentZoom})`;
+                diagramZoom.style.transform = `scale(${diagramStates[mode].zoom})`;
             }
         }
 
-        function toggleFullscreen() {
-            const diagramContainer = document.getElementById('diagram-container');
-            const diagramZoom = document.getElementById('diagram-zoom');
+        function toggleFullscreen(mode = 'engineer') {
+            const refs = getDiagramRefs(mode);
+            const state = diagramStates[mode];
+            const diagramContainer = document.getElementById(refs.containerId);
+            const diagramZoom = document.getElementById(refs.zoomId);
+
+            if (!diagramContainer) return;
             
-            if (!isFullscreen) {
-                // Enter fullscreen
-                isFullscreen = true;
+            if (!state.isFullscreen) {
+                state.isFullscreen = true;
                 diagramContainer.classList.add('diagram-fullscreen');
-                diagramZoom.style.transform = 'scale(1)';
-                currentZoom = 1;
+                if (diagramZoom) diagramZoom.style.transform = 'scale(1)';
+                state.zoom = 1;
                 
-                // Add close button
                 const closeBtn = document.createElement('button');
                 closeBtn.className = 'close-fullscreen';
                 closeBtn.innerHTML = '<i class="fas fa-times"></i> Close';
-                closeBtn.onclick = () => toggleFullscreen();
+                closeBtn.setAttribute('data-diagram-mode', mode);
+                closeBtn.onclick = () => toggleFullscreen(mode);
                 document.body.appendChild(closeBtn);
             } else {
-                // Exit fullscreen
-                isFullscreen = false;
+                state.isFullscreen = false;
                 diagramContainer.classList.remove('diagram-fullscreen');
-                diagramZoom.style.transform = `scale(${currentZoom})`;
+                if (diagramZoom) diagramZoom.style.transform = `scale(${state.zoom})`;
                 
-                // Remove close button
-                const closeBtn = document.querySelector('.close-fullscreen');
+                const closeBtn = document.querySelector(`.close-fullscreen[data-diagram-mode="${mode}"]`);
                 if (closeBtn) {
                     closeBtn.remove();
                 }
@@ -561,7 +669,7 @@
         // Initialize Mermaid with dark theme
         document.addEventListener('DOMContentLoaded', function() {
             // Load initial diagram when page loads
-            loadDiagram('overview');
+            loadDiagram('overview', 'engineer');
 
             // Scroll to top
             const scrollToTopBtn = document.getElementById('scroll-to-top');

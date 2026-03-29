@@ -20,6 +20,16 @@
     { id: 'nec-iot-big-data', name: 'NEC IoT Big Data', file: 'project-nec-iot-big-data.html', date: '2022-08' }
   ];
 
+  const featuredProjectSequence = projectSequence.slice(0, 3);
+
+  function getCurrentMode() {
+    return window.SITE_MODE === 'engineer' ? 'engineer' : 'cto';
+  }
+
+  function getActiveSequence() {
+    return getCurrentMode() === 'cto' ? featuredProjectSequence : projectSequence;
+  }
+
   // Get current project ID from the page
   function getCurrentProjectId() {
     const path = window.location.pathname;
@@ -45,25 +55,27 @@
     const currentId = getCurrentProjectId();
     if (!currentId) return null;
 
-    const currentIndex = projectSequence.findIndex(p => p.id === currentId);
+    const activeSequence = getActiveSequence();
+    const currentIndex = activeSequence.findIndex(p => p.id === currentId);
     if (currentIndex === -1) return null;
 
     // Next = older project (index + 1, going forward in time)
-    const nextProject = currentIndex < projectSequence.length - 1 
-      ? projectSequence[currentIndex + 1] 
+    const nextProject = currentIndex < activeSequence.length - 1 
+      ? activeSequence[currentIndex + 1] 
       : null;
     
     // Previous = newer project (index - 1, going backward in time)
     const prevProject = currentIndex > 0 
-      ? projectSequence[currentIndex - 1] 
+      ? activeSequence[currentIndex - 1] 
       : null;
 
     return {
-      current: projectSequence[currentIndex],
+      current: activeSequence[currentIndex],
       previous: prevProject,
       next: nextProject,
       index: currentIndex,
-      total: projectSequence.length
+      total: activeSequence.length,
+      mode: getCurrentMode()
     };
   }
 
@@ -73,6 +85,9 @@
     if (!navInfo) return;
 
     // Create navigation HTML
+    const allProjectsHref = navInfo.mode === 'cto' ? '../index.html#case-studies' : '../index.html#projects';
+    const allProjectsLabel = navInfo.mode === 'cto' ? 'Case Studies' : 'All Projects';
+
     const navHTML = `
       <div class="project-navigation glass rounded-xl p-6 mb-8 border border-accent/20">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -96,10 +111,10 @@
                 </div>`
             }
             
-            <a href="../index.html#projects" 
+            <a href="${allProjectsHref}" 
                class="project-nav-btn flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-accent/20 to-accent2/20 hover:from-accent/30 hover:to-accent2/30 rounded-lg font-medium transition-all duration-300 hover:scale-105 border border-accent/30" style="color: var(--text-light);">
               <i class="fas fa-th"></i>
-              <span class="hidden sm:inline">All Projects</span>
+              <span class="hidden sm:inline">${allProjectsLabel}</span>
             </a>
             
             ${navInfo.next 
@@ -139,7 +154,8 @@
   window.ProjectNavigation = {
     getCurrentProjectId: getCurrentProjectId,
     getNavigationInfo: getNavigationInfo,
-    projectSequence: projectSequence
+    projectSequence: projectSequence,
+    featuredProjectSequence: featuredProjectSequence
   };
 
 })();

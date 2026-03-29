@@ -61,12 +61,16 @@
         })(window, document, "clarity", "script", "w2ujjjjps6");
     </script>
     
+    <!-- Site Mode Configuration -->
+    <script src="../js/site-mode.js"></script>
+    
     <script src="../js/theme-config.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = window.tailwindConfig;
     </script>
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/site-mode.css">
     <link rel="stylesheet" href="../css/mermaid-diagrams.css">
     <script src="../js/theme-switcher.js"></script>
     <script src="../js/project-navigation.js"></script>
@@ -83,9 +87,10 @@
         </a>
         <div class="flex items-center gap-2 md:gap-4">
             <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="about.html">About Me</a>
-            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="../index.html#projects">Projects</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" data-mode="engineer" href="../index.html#projects">Projects</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" data-mode="cto" href="../index.html#case-studies">Case Studies</a>
             <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="contact.html">Contact</a>
-            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" href="tech-playground.html">Tech Playground</a>
+            <a class="text-sm md:text-base font-semibold text-accent2 hover:text-accent transition-colors px-3 py-2 rounded-lg hover:bg-white/10" data-mode="engineer" href="tech-playground.html">Tech Playground</a>
             <a class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent to-accent2 text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all text-sm md:text-base" href="https://www.linkedin.com/in/nitender-kumar" target="_blank" rel="noopener">
                 <i class="fab fa-linkedin"></i>
                 LinkedIn
@@ -112,6 +117,7 @@
     </nav>
 
     <main class="container mx-auto px-4 py-8">
+        <div data-mode="engineer">
         <!-- Executive Summary (first in main) -->
         <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
             <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Executive Summary</h2>
@@ -372,6 +378,79 @@ Designed as a reusable enterprise platform adaptable across compliance, document
                 <li>Ensuring governance, security, and compliance including data privacy, prompt injection safeguards, and multi-tenant design</li>
             </ul>
         </section>
+        </div>
+
+        <div data-mode="cto">
+            <section class="max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <a href="../index.html#case-studies" class="inline-flex items-center gap-2 text-accent hover:text-accent2 transition-colors text-sm font-semibold">
+                        <i class="fas fa-arrow-left"></i> Back to Case Studies
+                    </a>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">AI-Driven TPRM Platform</h1>
+                <p class="text-accent text-sm uppercase tracking-wider font-semibold mb-8">Risk & Compliance | Global Consulting Firm</p>
+
+                <div class="space-y-10">
+                    <div class="glass rounded-2xl p-8 border border-white/10">
+                        <h2 class="text-2xl font-bold text-white mb-4">Business Problem</h2>
+                        <p class="text-gray-300 leading-relaxed">A global consulting firm needed to evaluate third-party vendor risk across thousands of suppliers. The existing process was manual, took weeks per vendor, was error-prone, and could not scale to meet regulatory and compliance deadlines. The business needed a way to automate risk assessment without sacrificing accuracy or auditability.</p>
+                    </div>
+
+                    <div class="glass rounded-2xl p-8 border border-white/10">
+                        <h2 class="text-2xl font-bold text-white mb-4">Strategic Decision</h2>
+                        <p class="text-gray-300 leading-relaxed">Rather than augmenting the manual review process with tooling, we chose to build an event-driven AI platform from scratch. The key bet was that an agent-based architecture with document intelligence could handle the full assessment lifecycle end-to-end, from intake through risk scoring to workflow delivery, without human intervention for routine cases.</p>
+                    </div>
+
+                    <div class="glass rounded-2xl p-8 border border-white/10">
+                        <h2 class="text-2xl font-bold text-white mb-4">Architecture at a Glance</h2>
+                        <p class="text-gray-300 leading-relaxed mb-4">Cloud-native on Azure with ServiceNow as the integration layer. Azure Service Bus handles asynchronous communication between services. An Agent Runtime orchestrates context-driven AI workflows dynamically. Document Intelligence extracts and classifies structured and unstructured risk data. Cosmos DB provides workflow state, traceability, and distributed execution support.</p>
+                        <details class="mt-4" data-loaded="false" ontoggle="if (this.open && this.dataset.loaded !== 'true') { this.dataset.loaded = 'true'; loadDiagram('overview', 'cto'); }">
+                            <summary class="text-accent cursor-pointer font-semibold text-sm hover:text-accent2 transition-colors">View Architecture (L1 &amp; L2)</summary>
+                            <div class="mt-4">
+                                <div class="diagram-toggle">
+                                    <button class="toggle-btn active" id="cto-overview-btn" onclick="switchDiagram('overview', 'cto')">
+                                        <i class="fas fa-eye mr-2"></i>Overview
+                                    </button>
+                                    <button class="toggle-btn" id="cto-detailed-btn" onclick="switchDiagram('detailed', 'cto')">
+                                        <i class="fas fa-sitemap mr-2"></i>Detailed Architecture
+                                    </button>
+                                </div>
+                                <h3 class="text-accent2 font-bold text-lg mb-4" id="cto-diagram-title">Architecture Overview</h3>
+                                <p id="cto-diagram-arch-label" class="text-sm text-gray-500 mt-2">Overview Architecture (L1)</p>
+                                <div id="cto-diagram-container" class="diagram-container">
+                                    <div class="diagram-loading">
+                                        <div class="text-center">
+                                            <i class="fas fa-spinner fa-spin text-2xl text-accent mb-2"></i>
+                                            <p class="text-gray-400">Loading architecture diagram...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-center text-sm text-gray-400 mt-4 italic max-w-3xl mx-auto">Event-driven AI platform integrating ServiceNow, Azure Service Bus, Agent Runtime, and Document Intelligence.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="glass rounded-2xl p-8 border border-white/10">
+                        <h2 class="text-2xl font-bold text-white mb-4">Key Trade-offs</h2>
+                        <ul class="text-gray-300 space-y-3 leading-relaxed">
+                            <li><strong class="text-white">Event-driven over synchronous:</strong> Higher initial complexity, but fault tolerance and independent scaling for each processing stage.</li>
+                            <li><strong class="text-white">Cosmos DB over relational:</strong> Schema flexibility for diverse vendor document structures; eventual consistency acceptable for this domain.</li>
+                            <li><strong class="text-white">Agent Runtime over static pipelines:</strong> Dynamic workflow construction enables new risk assessment types without code changes.</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass rounded-2xl p-8 border border-white/10">
+                        <h2 class="text-2xl font-bold text-white mb-4">Business Outcome</h2>
+                        <p class="text-gray-300 leading-relaxed">Reduced vendor risk assessment cycle from weeks of manual review to minutes of automated processing. The platform scales horizontally to handle enterprise-level vendor volumes and provides full audit trails for compliance. Routine risk assessments now require zero manual intervention.</p>
+                    </div>
+
+                    <div class="glass rounded-2xl p-8 border border-white/10">
+                        <h2 class="text-2xl font-bold text-white mb-4">My Role</h2>
+                        <p class="text-gray-300 leading-relaxed">Architecture Lead and Platform Owner. Set the technology strategy, designed the event-driven backbone, made the key build-vs-buy decisions, aligned engineering execution with enterprise compliance objectives, and collaborated with global stakeholders across risk, compliance, and operations.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer class="bg-gray-900/95 backdrop-blur-lg border-t border-gray-800 mt-16">
@@ -482,9 +561,10 @@ Designed as a reusable enterprise platform adaptable across compliance, document
     <script>
         let mermaidConfig = window.MermaidPortfolioConfig.getMermaidBaseConfig();
 
-        let currentZoom = 1;
-        let isFullscreen = false;
-        let currentDiagramType = 'overview';
+        const diagramStates = {
+            engineer: { zoom: 1, isFullscreen: false, currentType: 'overview' },
+            cto: { zoom: 1, isFullscreen: false, currentType: 'overview' }
+        };
 
         mermaid.initialize(mermaidConfig);
 
@@ -513,8 +593,28 @@ Designed as a reusable enterprise platform adaptable across compliance, document
             return { text: normalized, renderer };
         }
 
-        async function loadDiagram(type = 'overview') {
+        function getDiagramRefs(mode = 'engineer') {
+            return mode === 'cto' ? {
+                containerId: 'cto-diagram-container',
+                zoomId: 'cto-diagram-zoom',
+                overviewBtnId: 'cto-overview-btn',
+                detailedBtnId: 'cto-detailed-btn',
+                titleId: 'cto-diagram-title',
+                archLabelId: 'cto-diagram-arch-label'
+            } : {
+                containerId: 'diagram-container',
+                zoomId: 'diagram-zoom',
+                overviewBtnId: 'overview-btn',
+                detailedBtnId: 'detailed-btn',
+                titleId: 'diagram-title',
+                archLabelId: 'diagram-arch-label'
+            };
+        }
+
+        async function loadDiagram(type = 'overview', mode = 'engineer') {
             try {
+                const refs = getDiagramRefs(mode);
+                const state = diagramStates[mode];
                 const filePath = diagramFiles[type];
                 const response = await fetch(filePath);
                 const diagramText = await response.text();
@@ -540,32 +640,36 @@ Designed as a reusable enterprise platform adaptable across compliance, document
 
                 const finalDiagram = initDirective + finalText;
 
-                const diagramContainer = document.getElementById('diagram-container');
+                const diagramContainer = document.getElementById(refs.containerId);
+                if (!diagramContainer) return;
                 diagramContainer.innerHTML = `
-                    <div class="diagram-zoom" id="diagram-zoom" style="transform: scale(${currentZoom});">
+                    <div class="diagram-zoom" id="${refs.zoomId}" style="transform: scale(${state.zoom});">
                         <div class="mermaid">${finalDiagram}</div>
                     </div>
                     <div class="diagram-controls">
-                        <button class="diagram-control-btn" onclick="zoomIn()" title="Zoom In">
+                        <button class="diagram-control-btn" onclick="zoomIn('${mode}')" title="Zoom In">
                             <i class="fas fa-search-plus"></i>
                         </button>
-                        <button class="diagram-control-btn" onclick="zoomOut()" title="Zoom Out">
+                        <button class="diagram-control-btn" onclick="zoomOut('${mode}')" title="Zoom Out">
                             <i class="fas fa-search-minus"></i>
                         </button>
-                        <button class="diagram-control-btn" onclick="resetZoom()" title="Reset Zoom">
+                        <button class="diagram-control-btn" onclick="resetZoom('${mode}')" title="Reset Zoom">
                             <i class="fas fa-expand-arrows-alt"></i>
                         </button>
-                        <button class="diagram-control-btn" onclick="toggleFullscreen()" title="Fullscreen">
+                        <button class="diagram-control-btn" onclick="toggleFullscreen('${mode}')" title="Fullscreen">
                             <i class="fas fa-expand"></i>
                         </button>
                     </div>
                 `;
 
                 mermaid.initialize(mermaidConfig);
-                await mermaid.init();
+                await mermaid.init(undefined, diagramContainer.querySelectorAll('.mermaid'));
             } catch (error) {
                 console.error('Error loading diagram:', error);
-                document.getElementById('diagram-container').innerHTML = `
+                const refs = getDiagramRefs(mode);
+                const diagramContainer = document.getElementById(refs.containerId);
+                if (!diagramContainer) return;
+                diagramContainer.innerHTML = `
                     <div class="text-center text-red-400">
                         <i class="fas fa-exclamation-triangle text-2xl mb-2"></i>
                         <p>Error loading architecture diagram</p>
@@ -574,66 +678,78 @@ Designed as a reusable enterprise platform adaptable across compliance, document
             }
         }
 
-        function switchDiagram(type) {
-            currentDiagramType = type;
-            document.getElementById('overview-btn').classList.toggle('active', type === 'overview');
-            document.getElementById('detailed-btn').classList.toggle('active', type === 'detailed');
-            const title = document.getElementById('diagram-title');
+        function switchDiagram(type, mode = 'engineer') {
+            const refs = getDiagramRefs(mode);
+            const state = diagramStates[mode];
+            state.currentType = type;
+            const overviewBtn = document.getElementById(refs.overviewBtnId);
+            const detailedBtn = document.getElementById(refs.detailedBtnId);
+            if (overviewBtn) overviewBtn.classList.toggle('active', type === 'overview');
+            if (detailedBtn) detailedBtn.classList.toggle('active', type === 'detailed');
+            const title = document.getElementById(refs.titleId);
             title.textContent = type === 'overview' ? 'Architecture Overview' : 'Detailed Architecture';
-            const archLabel = document.getElementById('diagram-arch-label');
+            const archLabel = document.getElementById(refs.archLabelId);
             if (archLabel) {
                 archLabel.textContent = type === 'overview' ? 'Overview Architecture (L1)' : 'Detailed Architecture (L2 – Production View)';
             }
-            loadDiagram(type);
+            loadDiagram(type, mode);
         }
 
-        function zoomIn() {
-            currentZoom = Math.min(currentZoom * 1.2, 3);
-            updateZoom();
+        function zoomIn(mode = 'engineer') {
+            const state = diagramStates[mode];
+            state.zoom = Math.min(state.zoom * 1.2, 3);
+            updateZoom(mode);
         }
 
-        function zoomOut() {
-            currentZoom = Math.max(currentZoom / 1.2, 0.5);
-            updateZoom();
+        function zoomOut(mode = 'engineer') {
+            const state = diagramStates[mode];
+            state.zoom = Math.max(state.zoom / 1.2, 0.5);
+            updateZoom(mode);
         }
 
-        function resetZoom() {
-            currentZoom = 1;
-            updateZoom();
+        function resetZoom(mode = 'engineer') {
+            diagramStates[mode].zoom = 1;
+            updateZoom(mode);
         }
 
-        function updateZoom() {
-            const diagramZoom = document.getElementById('diagram-zoom');
+        function updateZoom(mode = 'engineer') {
+            const refs = getDiagramRefs(mode);
+            const diagramZoom = document.getElementById(refs.zoomId);
             if (diagramZoom) {
-                diagramZoom.style.transform = `scale(${currentZoom})`;
+                diagramZoom.style.transform = `scale(${diagramStates[mode].zoom})`;
             }
         }
 
-        function toggleFullscreen() {
-            const diagramContainer = document.getElementById('diagram-container');
-            const diagramZoom = document.getElementById('diagram-zoom');
+        function toggleFullscreen(mode = 'engineer') {
+            const refs = getDiagramRefs(mode);
+            const state = diagramStates[mode];
+            const diagramContainer = document.getElementById(refs.containerId);
+            const diagramZoom = document.getElementById(refs.zoomId);
             
-            if (!isFullscreen) {
-                isFullscreen = true;
+            if (!diagramContainer) return;
+
+            if (!state.isFullscreen) {
+                state.isFullscreen = true;
                 diagramContainer.classList.add('diagram-fullscreen');
                 if (diagramZoom) diagramZoom.style.transform = 'scale(1)';
-                currentZoom = 1;
+                state.zoom = 1;
                 const closeBtn = document.createElement('button');
                 closeBtn.className = 'close-fullscreen';
                 closeBtn.innerHTML = '<i class="fas fa-times"></i> Close';
-                closeBtn.onclick = () => toggleFullscreen();
+                closeBtn.setAttribute('data-diagram-mode', mode);
+                closeBtn.onclick = () => toggleFullscreen(mode);
                 document.body.appendChild(closeBtn);
             } else {
-                isFullscreen = false;
+                state.isFullscreen = false;
                 diagramContainer.classList.remove('diagram-fullscreen');
-                if (diagramZoom) diagramZoom.style.transform = `scale(${currentZoom})`;
-                const closeBtn = document.querySelector('.close-fullscreen');
+                if (diagramZoom) diagramZoom.style.transform = `scale(${state.zoom})`;
+                const closeBtn = document.querySelector(`.close-fullscreen[data-diagram-mode="${mode}"]`);
                 if (closeBtn) closeBtn.remove();
             }
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            loadDiagram('overview');
+            loadDiagram('overview', 'engineer');
 
             const scrollToTopBtn = document.getElementById('scroll-to-top');
             if (scrollToTopBtn) {
