@@ -112,7 +112,7 @@ function initRoleRotator() {
         return; // Skip animation if user prefers reduced motion
     }
 
-    const roles = ['Data Engineer', 'Cloud Architect', 'Principal Engineer'];
+    const roles = ['VP Engineering', 'CTO', 'Head of Engineering', 'AI Platform Leader'];
     let idx = 0;
 
     const roleElement = document.createElement('div');

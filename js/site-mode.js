@@ -1,7 +1,7 @@
 /**
  * Site mode configuration — controls which portfolio version renders.
  * Valid values: 'cto' | 'engineer'
- * Default: 'cto' (Technology Leader narrative)
+ * Default: 'cto' (CTO / VP Engineering narrative)
  *
  * To switch: change SITE_MODE below, commit, and push. No build step needed.
  * This file MUST load synchronously in <head> before Tailwind/CSS to prevent FOUC.
@@ -9,7 +9,7 @@
 (function () {
   'use strict';
 
-  var SITE_MODE = 'engineer';
+  var SITE_MODE = 'cto';
 
   window.SITE_MODE = SITE_MODE;
   document.documentElement.setAttribute('data-site-mode', SITE_MODE);
@@ -19,12 +19,12 @@
 
     var metaMap = {
       cto: {
-        title: 'Nitender Kumar | Technology Leader',
-        description: 'Technology leader driving AI platform strategy, team building, and enterprise-scale delivery across risk, climate tech, and data intelligence.'
+        title: 'Nitender Kumar | Technology Leader — CTO & VP Engineering',
+        description: 'Engineering executive building AI platforms and data systems at enterprise scale. 12+ person teams, 5TB+/day streaming, governed GenAI, 30% cloud cost reduction. Open to CTO and VP Engineering roles.'
       },
       engineer: {
-        title: 'Nitender Kumar | Associate Director \u2013 AI Architect',
-        description: 'Associate Director, AI Architect. Enterprise AI platforms, GenAI systems, and event-driven architecture on Azure\u2014risk, compliance, and decision intelligence at scale.'
+        title: 'Nitender Kumar | Platform & AI Engineering Leader',
+        description: 'Technology leader shipping production AI platforms, terabyte-scale streaming, and multi-tenant agentic systems. Executive scope across architecture, cloud economics, and engineering delivery.'
       }
     };
 

@@ -12,26 +12,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.svg">
     <meta name="theme-color" content="#06b6d4">
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Y1JBT1EXB"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-6Y1JBT1EXB', {
-        debug_mode: true  // Enable debug mode for localhost testing
-      });
-    </script>
-    
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "w2ujjjjps6");
-    </script>
+    <!-- Analytics -->
+    <script src="../js/analytics-config.js"></script>
+    <script src="../js/analytics.js"></script>
+    <script src="../js/contact-modal.js"></script>
     
     <!-- Site Mode Configuration -->
     <script src="../js/site-mode.js"></script>
@@ -243,7 +227,7 @@
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
         <!-- Hero Section (Engineer mode) -->
-        <section data-mode="engineer" class="text-center mb-16 fade-in-up relative overflow-hidden">
+        <section data-mode="engineer" class="text-center mb-16 fade-in-up relative overflow-hidden" id="about-hero-engineer">
             <!-- Background decorations -->
             <div class="absolute inset-0 opacity-5 pointer-events-none">
                 <div class="animated-bg-element w-64 h-64 bg-accent top-10 left-10"></div>
@@ -270,7 +254,7 @@
                     <span class="gradient-text">About Me</span>
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                    Principal Data Engineer & AI Solution Architect passionate about building scalable data solutions that drive business impact.
+                    Technology leader shipping production AI platforms and terabyte-scale data systems—positioned for CTO and VP Engineering mandates.
                 </p>
 
                 <!-- Key Metrics -->
@@ -329,10 +313,10 @@
                     At Darby Telematics and Danlaw, I moved from building systems to building the team that builds systems. I grew the engineering organization from 3 to 12, shipped Deep View Analytics (1M+ daily telemetry events, 30% cost reduction), and led the C6 Insights climate-tech platform from concept to production. These years shaped my belief that platforms compound and teams scale, while projects and heroes do not.
                 </p>
                 <p class="text-lg text-gray-300 leading-relaxed">
-                    Now, as Associate Director and AI Architect at a global consulting firm, I set technology strategy for an enterprise TPRM platform, designing event-driven AI systems on Azure and aligning engineering execution with business outcomes across global stakeholders.
+                    Today I serve as technology leader for global AI platform programs—TPRM and Architecture Copilot Studio—owning strategy, cloud economics, and event-driven Azure delivery aligned with risk, compliance, and executive stakeholders.
                 </p>
                 <p class="text-lg text-gray-300 leading-relaxed">
-                    I hold an M.Tech in Data Science &amp; Engineering from BITS Pilani and a B.Tech in Electronics &amp; Communication. I am looking for a CTO or VP Engineering role where I can set technology strategy, build a high-performing engineering culture, and connect platform investments to measurable business results.
+                    M.Tech in Data Science &amp; Engineering (BITS Pilani). Ready for CTO and VP Engineering roles where I own technology strategy, engineering culture, and platform investments tied to revenue, cost, and risk outcomes.
                 </p>
             </div>
         </section>
@@ -345,15 +329,15 @@
             <div class="glass rounded-2xl p-8 max-w-4xl mx-auto">
                 <div class="inline-block mb-4">
                     <span class="px-3 py-1 bg-accent2/20 text-accent2 text-xs font-semibold rounded-full border border-accent2/30">
-                        <i class="fas fa-compass mr-1"></i>What I'm Looking For
+                        <i class="fas fa-compass mr-1"></i>Executive Mandate
                     </span>
                 </div>
                 <h2 class="text-3xl font-bold text-accent2 mb-4 flex items-center gap-3">
                     <i class="fas fa-briefcase"></i>
-                    Next Role Focus
+                    Target Roles
                 </h2>
                 <p class="text-gray-300 mb-4">
-                    I'm looking for hands-on GenAI-focused leadership roles where I can architect and ship production data & AI platforms, while mentoring teams and working closely with product and business stakeholders.
+                    Open to CTO, VP Engineering, and Head of Engineering roles where platform strategy, team building, and cloud/platform economics roll up to one technology executive—with room to scale beyond a single squad.
                 </p>
                 <div class="grid md:grid-cols-2 gap-6 text-gray-300 text-sm">
                     <div>
@@ -362,9 +346,9 @@
                             Roles
                         </h3>
                         <ul class="list-disc list-inside space-y-1">
-                            <li>Principal / Staff Data Engineer (GenAI & data platforms)</li>
-                            <li>AI / Data Platform & Solution Architect (hands-on)</li>
-                            <li>Tech lead for GenAI and data platform teams</li>
+                            <li>CTO (growth-stage, product-led)</li>
+                            <li>VP Engineering / Head of Engineering</li>
+                            <li>SVP Platform &amp; AI (regulated enterprise)</li>
                         </ul>
                     </div>
                     <div>
@@ -373,9 +357,9 @@
                             Domains
                         </h3>
                         <ul class="list-disc list-inside space-y-1">
-                            <li>Climate tech, mobility, and fleet optimization</li>
-                            <li>Data-heavy SaaS / product companies</li>
-                            <li>Teams investing in GenAI and modern data platforms</li>
+                            <li>Climate tech, mobility, fleet intelligence</li>
+                            <li>RegTech, risk, compliance SaaS</li>
+                            <li>Series B–D product companies investing in production GenAI</li>
                         </ul>
                     </div>
                 </div>
@@ -1303,7 +1287,7 @@
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4">Building AI-First Technology Organizations</h2>
                 <p class="text-gray-300 mb-8 max-w-3xl mx-auto text-lg">
-                    I am most interested in CTO, VP Engineering, and senior technology leadership conversations where platform strategy, AI adoption, and engineering execution need to move in step.
+                    Available for CTO and VP Engineering conversations where platform strategy, AI adoption, and engineering execution must move as one operating system—not separate workstreams.
                 </p>
 
                 <div class="grid md:grid-cols-3 gap-4 mb-8 max-w-4xl mx-auto">
@@ -1389,7 +1373,7 @@
                         Nitender Kumar
                     </h3>
                     <p class="text-gray-400 mb-4 max-w-md" data-mode="engineer">
-                        Principal Data Engineer & AI Solution Architect passionate about building scalable data solutions that drive business impact.
+                        Technology leader open to CTO and VP Engineering roles—platform strategy, production GenAI, and engineering delivery at scale.
                     </p>
                     <p class="text-gray-400 mb-4 max-w-md" data-mode="cto">
                         Technology leader focused on building AI-first platforms, scalable engineering organizations, and operating models that turn technical complexity into business leverage.
@@ -1542,84 +1526,6 @@
             // Observe all sections
             document.querySelectorAll('section').forEach(section => {
                 observer.observe(section);
-            });
-        });
-    </script>
-    <!-- Contact Modal -->
-    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Get in Touch</h3>
-                <button onclick="closeContactModal()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            <div class="space-y-4">
-                <div class="text-center">
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">Choose your preferred way to contact me:</p>
-                </div>
-                <div class="space-y-3">
-                    <button onclick="copyEmailToClipboard()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                        <i class="fas fa-copy"></i>
-                        Copy Email Address
-                    </button>
-                    <button onclick="openEmailClient()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
-                        <i class="fas fa-envelope"></i>
-                        Open Email Client
-                    </button>
-                    <button onclick="openLinkedIn()" class="w-full flex items-center justify-center gap-3 px-4 py-3 text-white rounded-lg transition-colors hover:bg-[#005885]" style="background-color: #0077b5;">
-                        <i class="fab fa-linkedin"></i>
-                        Connect on LinkedIn
-                    </button>
-                </div>
-                <div class="text-center text-sm text-gray-500 dark:text-gray-400">
-                    <p>Email: nitender.kumar11@gmail.com</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</body>
-</html>
-
-    <script>
-        // Enhanced mailto handling to ensure proper email client opening
-        document.addEventListener('DOMContentLoaded', function() {
-            // Handle all mailto links
-            const mailtoLinks = document.querySelectorAll('a[href^="mailto:"]');
-            
-            mailtoLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Get the mailto URL
-                    const mailtoUrl = this.getAttribute('href');
-                    
-                    // Try multiple methods to open the email client
-                    try {
-                        // Method 1: Direct window.location (most reliable)
-                        window.location.href = mailtoUrl;
-                    } catch (error) {
-                        try {
-                            // Method 2: Create a temporary link and click it
-                            const tempLink = document.createElement('a');
-                            tempLink.href = mailtoUrl;
-                            tempLink.style.display = 'none';
-                            document.body.appendChild(tempLink);
-                            tempLink.click();
-                            document.body.removeChild(tempLink);
-                        } catch (error2) {
-                            try {
-                                // Method 3: Use window.open as fallback
-                                window.open(mailtoUrl, '_self');
-                            } catch (error3) {
-                                // Method 4: Copy to clipboard and show message
-                                navigator.clipboard.writeText(mailtoUrl.replace('mailto:', ''));
-                                alert('Email address copied to clipboard: ' + mailtoUrl.replace('mailto:', ''));
-                            }
-                        }
-                    }
-                });
             });
         });
     </script>
