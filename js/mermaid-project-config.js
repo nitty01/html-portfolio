@@ -1,6 +1,6 @@
 /**
  * Portfolio-wide Mermaid defaults for project pages (L1/L2 architecture diagrams).
- * Theme: dark base + slate palette — avoids pure-black node/cluster fills.
+ * Theme: dark base + slate palette - avoids pure-black node/cluster fills.
  * Self-Analytics: pass { flowchartPadding: 20, nodeSpacing: 60, rankSpacing: 60 } for ELK layouts.
  */
 (function (global) {
@@ -39,7 +39,7 @@
       loopTextColor: '#cbd5e1',
       activationBorderColor: '#64748b',
       sequenceNumberColor: '#f1f5f9',
-      /* Color scale — replace near-black defaults from dark theme */
+      /* Color scale - replace near-black defaults from dark theme */
       cScale0: '#164e63',
       cScale1: '#155e75',
       cScale2: '#0e7490',
@@ -57,7 +57,7 @@
 
   /**
    * @param {Object} [options]
-   * @param {number} [options.flowchartPadding] — default 0; Self-Analytics uses 20
+   * @param {number} [options.flowchartPadding] - default 0; Self-Analytics uses 20
    * @param {number} [options.nodeSpacing]
    * @param {number} [options.rankSpacing]
    */

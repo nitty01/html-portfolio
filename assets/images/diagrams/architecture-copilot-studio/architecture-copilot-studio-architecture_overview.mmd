@@ -1,0 +1,68 @@
+---
+config:
+  flowchart:
+    nodeSpacing: 48
+    rankSpacing: 64
+  layout: elk
+---
+flowchart TB
+subgraph USERS["👥 Architects"]
+    ARCH["Solution Architects"]
+end
+subgraph EXPERIENCE["🖥️ Studio Experience - Azure"]
+    CHAT["AI Copilot Chat<br/>guided conversation"]
+    CANVAS["Diagram Canvas<br/>live Mermaid edit · user control"]
+    STAGES["Design Stage Navigator<br/>req · diagram · cloud · cost · compare"]
+end
+subgraph EDGE["🚪 Edge"]
+    AFD["Azure Front Door"]
+    APIM["API Management"]
+    ENTRA["Microsoft Entra ID"]
+    SIG["Azure SignalR<br/>canvas and stage sync"]
+end
+subgraph PIPELINE["📐 AI Design Pipeline - LangGraph"]
+    S1["① Requirements<br/>AI discovery"]
+    S2["② Diagram<br/>cloud-agnostic Mermaid"]
+    S3["③ Cloud Map<br/>Azure AWS GCP"]
+    S4["④ Cost Model<br/>monthly and yearly"]
+    S5["⑤ Compare<br/>multi-cloud matrix"]
+    S1 --> S2 --> S3 --> S4 --> S5
+end
+subgraph TOOLS["🔧 Azure Functions"]
+    T_REQ["requirements.synthesize"]
+    T_MER["diagram.generate_mermaid"]
+    T_MAP["cloud.map_components"]
+    T_COST["cost.estimate_periods"]
+    T_CMP["cloud.compare_matrix"]
+end
+subgraph DATA["💾 State and Artifacts"]
+    COSMOS["Cosmos DB<br/>sessions stages checkpoints"]
+    BLOB["Blob Storage<br/>Mermaid mappings estimates"]
+end
+subgraph AI["🤖 Models"]
+    AOAI["Azure OpenAI<br/>Content Safety"]
+end
+subgraph BUS["📨 Async"]
+    SB["Service Bus DLQ"]
+end
+ARCH --> CHAT
+ARCH --> CANVAS
+ARCH --> STAGES
+CHAT --> AFD
+CANVAS --> AFD
+STAGES --> AFD
+AFD --> APIM
+APIM --> ENTRA
+APIM --> SIG
+APIM --> PIPELINE
+PIPELINE --> T_REQ
+PIPELINE --> T_MER
+PIPELINE --> T_MAP
+PIPELINE --> T_COST
+PIPELINE --> T_CMP
+PIPELINE --> AOAI
+PIPELINE --> COSMOS
+PIPELINE --> BLOB
+SIG --> COSMOS
+PIPELINE --> SB
+SB --> PIPELINE

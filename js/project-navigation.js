@@ -11,6 +11,7 @@
   // Project sequence based on timeline (most recent first)
   // Format: { id: 'project-id', name: 'Project Name', file: 'project-filename.html', date: 'YYYY-MM' }
   const projectSequence = [
+    { id: 'architecture-copilot-studio', name: 'Architecture Copilot Studio', file: 'project-architecture-copilot-studio.html', date: '2025-12' },
     { id: 'tprm-platform', name: 'AI-Driven TPRM Platform', file: 'project-tprm-platform.html', date: '2025-12' },
     { id: 'c6insights', name: 'C6 Insights', file: 'project-c6insights.html', date: '2024-01' },
     { id: 'deep-view-analytics', name: 'Deep View Analytics', file: 'project-deep-view-analytics.html', date: '2024-01' },
@@ -37,6 +38,7 @@
     
     // Map filename to project ID
     const fileToId = {
+      'project-architecture-copilot-studio.html': 'architecture-copilot-studio',
       'project-tprm-platform.html': 'tprm-platform',
       'project-c6insights.html': 'c6insights',
       'project-deep-view-analytics.html': 'deep-view-analytics',

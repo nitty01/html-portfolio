@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep View Analytics | Nitender Kumar Portfolio</title>
+    <title>Architecture Copilot Studio | Nitender Kumar Portfolio</title>
     
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.svg">
@@ -20,27 +19,16 @@
     <!-- Site Mode Configuration -->
     <script src="../js/site-mode.js"></script>
     
-    <!-- Centralized Theme Configuration -->
     <script src="../js/theme-config.js"></script>
-    
-    <!-- TailwindCSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = window.tailwindConfig;
     </script>
-    
-    <!-- Centralized Styles -->
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/site-mode.css">
     <link rel="stylesheet" href="../css/mermaid-diagrams.css">
-    
-    <!-- Theme Switcher Script -->
     <script src="../js/theme-switcher.js"></script>
-    
-    <!-- Project Navigation Script -->
     <script src="../js/project-navigation.js"></script>
-    
-    <!-- Additional Libraries -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
     <script src="../js/mermaid-project-config.js"></script>
@@ -48,7 +36,6 @@
 </head>
 
 <body class="dark min-h-screen font-sans text-gray-200">
-    <!-- Enhanced Navigation -->
     <nav class="w-full flex items-center justify-between py-4 px-4 bg-gray-900/95 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-gray-800/50">
         <a class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text hover:scale-105 transition-transform" href="../index.html">
             Nitender Kumar
@@ -63,7 +50,6 @@
                 <i class="fab fa-linkedin"></i>
                 LinkedIn
             </a>
-            <!-- Theme Switcher -->
             <div class="theme-switcher">
                 <button id="theme-switcher-btn" class="theme-switcher-btn" aria-label="Change theme" aria-expanded="false" aria-haspopup="true" onclick="toggleThemeDropdown()">
                     <i id="current-theme-icon" class="fas fa-palette"></i>
@@ -85,57 +71,58 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
         <div data-mode="engineer">
+        <!-- Executive Summary (first in main) -->
         <section class="bg-gray-800/60 rounded-2xl shadow-glass p-8 mb-10">
             <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Executive Summary</h2>
             <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
-                <p>Organizations need a single analytics backbone to unify vehicle telemetry, marketing signals, and IoT data without sacrificing latency or data quality at scale.</p>
-                <p>Deep View Analytics is a comprehensive processing platform for real-time and batch analytics, with microservices, Kafka-backed pipelines, and cloud-native operations.</p>
-                <p>The platform powers <a href="project-c6insights.html" class="text-accent2 hover:text-accent underline">C6 Insights</a> for climate tech and fleet optimization-including downstream reporting and decision support.</p>
+                <p>Global solution architects needed more than a chatbot-they needed a <strong class="text-white">guided studio</strong> to move from requirements through diagrams, cloud mapping, cost views, and multi-cloud comparison in one workspace.</p>
+                <p>Designed and led Architecture Copilot Studio on <strong class="text-white">Azure</strong>: an interactive copilot plus real-time <strong class="text-white">diagram canvas</strong> (Mermaid), with LangGraph driving five AI design stages and Cosmos DB holding session, canvas, and checkpoint state.</p>
+                <p>Architects retain control at every stage-editing diagrams on the canvas while the platform maps components to Azure, AWS, and GCP, then surfaces monthly and yearly cost estimates and side-by-side cloud comparisons.</p>
             </div>
         </section>
 
         <section class="mb-10">
-            <h1 class="text-4xl md:text-5xl font-extrabold uppercase bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4 drop-shadow-lg">DEEP VIEW ANALYTICS</h1>
-            <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl project-description hero-desc">A comprehensive data analytics platform that processes vehicle telemetry data, marketing data, and IoT sensor data to provide real-time insights and predictive analytics.</p>
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">Current Work</span>
+                <span class="text-gray-500 text-sm">|</span>
+                <span class="text-cyan-300 font-medium text-sm">Global Consulting Firm</span>
+            </div>
+            <h1 class="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-3 leading-tight">Architecture Copilot Studio</h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-3xl project-description hero-desc">Interactive Architecture Studio - Copilot Chat, Live Diagram Canvas, and AI-Guided Design Stages</p>
         </section>
 
         <section class="grid md:grid-cols-2 gap-10 mb-10 items-start">
             <div>
                 <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Designation</h2>
-                <div class="inline-block bg-gradient-to-r from-accent to-accent2 text-white px-4 py-2 rounded-lg font-semibold shadow-glass">Platform Architect &amp; Engineering Lead</div>
+                <div class="inline-block bg-gradient-to-r from-accent to-accent2 text-white px-4 py-2 rounded-lg font-semibold shadow-glass">Technology Leader - AI Platform Strategy</div>
             </div>
             <div>
                 <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Technologies</h2>
+                <p class="text-sm text-gray-300 leading-relaxed mb-3">Azure (OpenAI, Container Apps, Functions, Cosmos DB, Service Bus, API Management, Blob), LangGraph, Durable Functions</p>
                 <div class="flex flex-wrap gap-3 mb-2">
-                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Python</span>
-                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">FastAPI</span>
-                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">MongoDB</span>
-                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">PostgreSQL</span>
-                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Apache Kafka</span>
-                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Docker</span>
-                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Kubernetes</span>
-                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">AWS</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Azure</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">LangGraph</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Cosmos DB</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">Functions</span>
+                    <span class="bg-gradient-to-r from-accent to-accent2 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-glass">FinOps</span>
                 </div>
             </div>
             <div>
                 <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Role</h2>
                 <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base">
-                    <li>Architected and implemented the end-to-end data pipeline for processing multi-source data streams</li>
-                    <li>Designed microservices architecture for real-time data processing and analytics</li>
-                    <li>Developed data validation and transformation logic for ensuring data quality</li>
-                    <li>Implemented monitoring and alerting systems for production data pipelines</li>
-                    <li>Collaborated with cross-functional teams to define data requirements and SLAs</li>
+                    <li>Product and platform owner for copilot + canvas experience with staged architecture design workflow</li>
+                    <li>LangGraph pipeline: requirements → Mermaid diagram → cloud mapping → cost (monthly/yearly) → multi-cloud compare</li>
+                    <li>Real-time canvas sync (SignalR), Cosmos/Blob artifacts per stage, FinOps gate before model spend</li>
                 </ul>
             </div>
             <div>
                 <h2 class="uppercase text-accent font-bold text-lg mb-2 tracking-wide">Overview</h2>
                 <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base">
-                    <li>Unified analytics platform for telemetry, marketing, and IoT streams with real-time and batch paths</li>
-                    <li>APIs, analytics engine, and dashboards for operational and product consumers</li>
-                    <li>Foundational platform for C6 Insights fleet and sustainability workloads</li>
+                    <li>Five-stage AI journey with human approval gates between stages</li>
+                    <li>Cloud-agnostic Mermaid first, then target-cloud service mapping and cost modeling</li>
+                    <li>Component-level comparison across Azure, AWS, and GCP from the same architecture graph</li>
                 </ul>
             </div>
         </section>
@@ -143,34 +130,100 @@
         <section class="mb-10">
             <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Business Impact</h2>
             <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
-                <li>Built scalable data ingestion pipeline processing 1M+ events per day</li>
-                <li>Reduced data processing latency by 60% through optimized microservices architecture</li>
-                <li>Implemented real-time analytics dashboard serving 500+ concurrent users</li>
-                <li>Established data governance framework ensuring 99.9% data accuracy</li>
-                <li>Reduced infrastructure costs by 30% using ARM-based container deployments</li>
+                <li>Replaced fragile linear prompt chains with checkpointed LangGraph workflows-partial recovery instead of full restarts</li>
+                <li>Reduced golden-path CI regressions from ~one in four to under one in ten via versioned tool contracts and graph schemas</li>
+                <li>Design-time cost gates blocked high-spend graph paths before frontier model calls-material Azure OpenAI spend reduction</li>
+                <li>Architects resumed timed-out sub-agents from last checkpoint without manual copy-paste of intermediate outputs</li>
             </ul>
         </section>
 
-        <section class="bg-gradient-to-br from-slate-900/50 via-cyan-900/20 to-slate-900/50 rounded-2xl shadow-glass p-8 mb-10 border border-cyan-500/20">
+        <section class="bg-gradient-to-br from-cyan-900/30 via-slate-900/40 to-teal-900/30 rounded-2xl shadow-glass p-8 mb-10 border-2 border-cyan-500/30">
             <div class="flex items-center gap-3 mb-6">
-                <div class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-lg flex items-center justify-center text-white text-2xl">
-                    <i class="fas fa-layer-group" aria-hidden="true"></i>
+                <div class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-teal-600 rounded-lg flex items-center justify-center text-white text-2xl">
+                    <i class="fas fa-brain" aria-hidden="true"></i>
                 </div>
-                <h2 class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-cyan-300 to-indigo-300 text-transparent bg-clip-text">Platform &amp; Processing Highlights</h2>
+                <h2 class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-cyan-300 to-teal-300 text-transparent bg-clip-text">Platform Capabilities</h2>
             </div>
-            <p class="text-gray-300 mb-8 max-w-3xl leading-relaxed">Core processing patterns and integration surfaces for high-volume analytics and downstream products.</p>
-            <div class="grid md:grid-cols-3 gap-6">
-                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-cyan-500/20">
-                    <h3 class="text-lg font-bold text-white mb-2">Streaming &amp; pipelines</h3>
-                    <p class="text-gray-300 text-sm">Kafka-backed ingestion with microservices for real-time processing and validated delivery to storage layers.</p>
+            <p class="text-gray-300 mb-8 max-w-3xl leading-relaxed">
+                An interactive studio-not a one-shot chat. Architects work in copilot conversation and a live canvas while the platform advances through governed design stages backed by LangGraph and Azure Functions.
+            </p>
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-emerald-500/20 hover:border-emerald-500/40 transition-colors">
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-comments text-emerald-400 text-2xl" aria-hidden="true"></i>
+                            <h3 class="text-xl font-bold text-white">Copilot Chat</h3>
+                        </div>
+                        <span class="shrink-0 px-2 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-200">Stage 0</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">AI-guided dialogue across the engagement-context, constraints, and stage transitions tied to the active design step.</p>
+                    <p class="text-sm text-gray-400"><span class="text-emerald-300 font-semibold">Business Value:</span> Natural interaction without losing structured pipeline progress.</p>
                 </article>
-                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-cyan-500/20">
-                    <h3 class="text-lg font-bold text-white mb-2">Serving &amp; experience</h3>
-                    <p class="text-gray-300 text-sm">REST and WebSocket interfaces plus analytics dashboards for operational and business users.</p>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-cyan-500/20 hover:border-cyan-500/40 transition-colors">
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-vector-square text-cyan-400 text-2xl" aria-hidden="true"></i>
+                            <h3 class="text-xl font-bold text-white">Diagram Canvas</h3>
+                        </div>
+                        <span class="shrink-0 px-2 py-1 rounded-full text-xs font-semibold bg-cyan-500/20 text-cyan-200">Workspace</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">Real-time Mermaid rendering and editing; SignalR syncs canvas state so architects override or refine AI output instantly.</p>
+                    <p class="text-sm text-gray-400"><span class="text-cyan-300 font-semibold">Business Value:</span> User control over the architecture artifact, not read-only AI diagrams.</p>
                 </article>
-                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-cyan-500/20">
-                    <h3 class="text-lg font-bold text-white mb-2">Downstream products</h3>
-                    <p class="text-gray-300 text-sm">Powers C6 Insights for fleet, emissions, and optimization scenarios on shared data foundations.</p>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-emerald-500/20 hover:border-emerald-500/40 transition-colors">
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-clipboard-list text-emerald-400 text-2xl" aria-hidden="true"></i>
+                            <h3 class="text-xl font-bold text-white">Requirements (AI)</h3>
+                        </div>
+                        <span class="shrink-0 px-2 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-200">Stage ①</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">Structured requirement synthesis-scope, NFRs, constraints-before any diagram is generated.</p>
+                    <p class="text-sm text-gray-400"><span class="text-emerald-300 font-semibold">Business Value:</span> Grounds downstream diagrams and cost models in agreed needs.</p>
+                </article>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-emerald-500/20 hover:border-emerald-500/40 transition-colors">
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-project-diagram text-emerald-400 text-2xl" aria-hidden="true"></i>
+                            <h3 class="text-xl font-bold text-white">Cloud-Agnostic Mermaid</h3>
+                        </div>
+                        <span class="shrink-0 px-2 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-200">Stage ②</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">L1/L2/L3 diagrams as vendor-neutral Mermaid; persisted to Blob and editable on the canvas.</p>
+                    <p class="text-sm text-gray-400"><span class="text-emerald-300 font-semibold">Business Value:</span> One logical architecture before locking into a cloud.</p>
+                </article>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-indigo-500/20 hover:border-indigo-500/40 transition-colors">
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-cloud text-indigo-400 text-2xl" aria-hidden="true"></i>
+                            <h3 class="text-xl font-bold text-white">Cloud Mapping</h3>
+                        </div>
+                        <span class="shrink-0 px-2 py-1 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-200">Stage ③</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">Maps each component in the Mermaid graph to concrete Azure, AWS, or GCP services; re-runs when the canvas changes.</p>
+                    <p class="text-sm text-gray-400"><span class="text-indigo-300 font-semibold">Business Value:</span> Target-cloud blueprints derived from the same neutral design.</p>
+                </article>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-amber-500/20 hover:border-amber-500/40 transition-colors">
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-coins text-amber-400 text-2xl" aria-hidden="true"></i>
+                            <h3 class="text-xl font-bold text-white">Cost Estimation</h3>
+                        </div>
+                        <span class="shrink-0 px-2 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-200">Stage ④</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">Monthly and yearly estimates per mapped stack; Cost Gate blocks runaway model/tool spend before execution.</p>
+                    <p class="text-sm text-gray-400"><span class="text-amber-300 font-semibold">Business Value:</span> FinOps visibility at blueprint time, not after deployment.</p>
+                </article>
+                <article class="bg-gray-900/60 rounded-xl p-6 shadow-glass border border-purple-500/20 hover:border-purple-500/40 transition-colors md:col-span-2 xl:col-span-1">
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-balance-scale text-purple-400 text-2xl" aria-hidden="true"></i>
+                            <h3 class="text-xl font-bold text-white">Multi-Cloud Compare</h3>
+                        </div>
+                        <span class="shrink-0 px-2 py-1 rounded-full text-xs font-semibold bg-purple-500/20 text-purple-200">Stage ⑤</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">Side-by-side comparison of Azure, AWS, and GCP options for every component used in the architecture-cost, fit, and operational notes.</p>
+                    <p class="text-sm text-gray-400"><span class="text-purple-300 font-semibold">Business Value:</span> Informed cloud choice from the actual component graph, not generic benchmarks.</p>
                 </article>
             </div>
         </section>
@@ -179,16 +232,22 @@
             <h2 class="uppercase text-accent font-bold text-lg mb-6 tracking-wide">Key Components</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
-                    <p class="text-gray-300"><strong class="text-white">API Gateway:</strong> Entry point for services and streaming clients</p>
+                    <p class="text-gray-300"><strong class="text-white">Studio shell:</strong> Copilot chat, diagram canvas, stage stepper-Front Door, API Management, Entra ID</p>
                 </div>
                 <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
-                    <p class="text-gray-300"><strong class="text-white">Data Processing Services:</strong> Microservices for validation, transformation, and routing</p>
+                    <p class="text-gray-300"><strong class="text-white">Real-time canvas:</strong> Azure SignalR for live Mermaid edits, stage status, and collaborative session sync</p>
                 </div>
                 <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
-                    <p class="text-gray-300"><strong class="text-white">Analytics Engine:</strong> Real-time and batch analytics over curated datasets</p>
+                    <p class="text-gray-300"><strong class="text-white">LangGraph stages:</strong> Requirements → Mermaid → cloud map → monthly/yearly cost → multi-cloud compare → publish</p>
                 </div>
                 <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
-                    <p class="text-gray-300"><strong class="text-white">Real-time Dashboard:</strong> Operational and product visibility for concurrent users</p>
+                    <p class="text-gray-300"><strong class="text-white">Artifact store:</strong> Cosmos DB session/checkpoints; Blob for Mermaid source, mappings, estimates, compare reports</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">Stage tools (Functions):</strong> synthesize requirements, generate Mermaid, map clouds, estimate periods, compare matrix</p>
+                </div>
+                <div class="bg-gray-800/60 rounded-xl p-6 shadow-glass">
+                    <p class="text-gray-300"><strong class="text-white">AI + FinOps:</strong> Azure OpenAI gateway, AI Search pricing refs, Cost Gate and Cost Management chargeback</p>
                 </div>
             </div>
         </section>
@@ -196,10 +255,10 @@
         <section class="mb-10">
             <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Architecture Decisions</h2>
             <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
-                <li>Microservices plus Kafka to decouple producers and consumers and absorb traffic spikes</li>
-                <li>MongoDB and PostgreSQL for document and relational workloads respectively</li>
-                <li>Kubernetes with auto-scaling for elastic compute aligned to pipeline load</li>
-                <li>Prometheus, Grafana, and custom dashboards for observability across stacks</li>
+                <li>Cloud-agnostic Mermaid before cloud mapping-neutral design drives Azure/AWS/GCP targets and comparisons</li>
+                <li>Canvas edit loops re-trigger mapping and cost stages without restarting the full engagement session</li>
+                <li>Staged LangGraph pipeline with human gates-each stage persisted and resumable via Cosmos DB and Service Bus</li>
+                <li>FinOps Cost Gate before heavy model calls; monthly and yearly estimates tied to mapped components</li>
             </ul>
         </section>
 
@@ -209,7 +268,7 @@
                     <span class="inline-block transition-transform duration-300 group-open:rotate-90">
                         <svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                     </span>
-                    Architecture Diagrams &amp; Technical Details
+                    View Architecture (L1 &amp; L2)
                 </summary>
                 <style>summary::-webkit-details-marker { display:none; }</style>
                 <div class="mt-4">
@@ -246,17 +305,17 @@
                             </button>
                         </div>
                     </div>
-                    <p class="text-center text-sm text-gray-400 mt-4 italic max-w-3xl mx-auto">Kafka-driven microservices feeding MongoDB and PostgreSQL with real-time APIs and dashboards-including downstream C6 Insights consumption.</p>
+                    <p class="text-center text-sm text-gray-400 mt-4 italic max-w-3xl mx-auto">Copilot + canvas studio on Azure; five-stage LangGraph pipeline from AI requirements through Mermaid, cloud mapping, cost (monthly/yearly), and multi-cloud compare.</p>
                 </div>
                 <div class="mt-8">
                     <h4 class="text-accent font-bold text-base mb-2">Technical Architecture</h4>
                     <ul class="list-disc list-inside space-y-1 text-gray-300">
-                        <li><strong>Data Flow:</strong> Multi-source data ingestion through Kafka, real-time processing with microservices, and storage in MongoDB and PostgreSQL</li>
-                        <li><strong>Components:</strong> API Gateway, Data Processing Services, Analytics Engine, and Real-time Dashboard</li>
-                        <li><strong>Integration:</strong> RESTful APIs and WebSocket connections for real-time data streaming</li>
-                        <li><strong>Scalability:</strong> Containerized microservices with Kubernetes orchestration and auto-scaling</li>
-                        <li><strong>Platform Usage:</strong> Powers C6 Insights platform for climate tech and fleet optimization use cases</li>
-                        <li><strong>Monitoring:</strong> Comprehensive observability with Prometheus, Grafana, and custom dashboards</li>
+                        <li><strong>Experience:</strong> Copilot chat, live Mermaid canvas (SignalR), stage navigator with per-stage approval</li>
+                        <li><strong>Pipeline:</strong> ① Requirements ② Agnostic Mermaid ③ Cloud map ④ Cost (monthly/yearly) ⑤ Multi-cloud compare → publish</li>
+                        <li><strong>Orchestration:</strong> LangGraph on Container Apps; canvas edits loop diagram/map/cost stages</li>
+                        <li><strong>Artifacts:</strong> Blob - <code>mermaid/</code>, <code>mappings/</code>, <code>estimates/</code>, <code>compare/</code>; Cosmos - sessions and checkpoints</li>
+                        <li><strong>Tools:</strong> requirements.synthesize, diagram.generate_mermaid, cloud.map_components, cost.estimate_periods, cloud.compare_matrix</li>
+                        <li><strong>Platform:</strong> Azure OpenAI, AI Search, Cost Gate, Application Insights, Cost Management</li>
                     </ul>
                 </div>
             </details>
@@ -264,31 +323,40 @@
 
         <section class="mb-10">
             <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Transformation Impact</h2>
+
             <ul class="text-gray-300 mt-3 space-y-2">
-                <li><strong>Before:</strong> Fragmented pipelines, higher latency to insight, limited concurrency for analytics users</li>
-                <li><strong>After:</strong> Unified streaming and batch platform with strong governance, lower latency, and 500+ concurrent dashboard users</li>
+              <li><strong>Before:</strong> Linear prompt chains, token state loss, ~18–25% golden CI regressions, runaway Azure OpenAI spend</li>
+              <li><strong>After:</strong> Checkpointed LangGraph, pre-invoke cost gates, resume-based recovery, governed blueprint catalog</li>
             </ul>
         </section>
 
         <section class="mb-10">
             <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Platform Capability</h2>
-            <p class="text-gray-300 mt-3">Reusable analytics backbone for multi-source ingestion, real-time serving, and productized downstream experiences such as C6 Insights.</p>
+
+            <p class="text-gray-300 mt-3">
+Designed as a reusable global platform for architecture blueprints-extendable to adjacent governance and advisory workflows without one-off prompt engineering per engagement.
+            </p>
         </section>
 
         <section class="mb-10">
             <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Scale &amp; Complexity</h2>
-            <p class="text-gray-300 mt-3">1M+ events per day through Kafka and microservices; ARM-optimized Kubernetes workloads delivering cost efficiency alongside scale.</p>
+
+            <p class="text-gray-300 mt-3">
+                Multi-tenant global usage with regional workers, checkpoint leases, token ledgers, and CI regression budgets per graph_version.
+            </p>
         </section>
 
         <section class="mb-10">
             <h2 class="uppercase text-accent font-bold text-lg mb-4 tracking-wide">Leadership &amp; Contributions</h2>
             <ul class="bg-gray-800/60 rounded-xl p-6 shadow-glass space-y-3 text-base list-disc list-inside text-gray-300">
-                <li>Led end-to-end architecture for pipelines, quality controls, and production observability</li>
-                <li>Aligned engineering and stakeholders on SLAs, governance (99.9% accuracy target), and operational readiness</li>
-                <li>Drove cost-performance trade-offs including ARM-based deployments</li>
+                <li>Platform strategy and L1/L2/L3 architecture for shared GenAI studio delivery</li>
+                <li>FinOps partnership: design-time cost mapping, chargeback tags, golden-path spend ceilings in CI</li>
+                <li>Engineering standards for LangGraph graphs, tool schemas, and checkpoint recovery patterns</li>
+                <li>Governance: Azure OpenAI Content Safety, tool allowlists, tenant isolation, prompt-injection controls on RAG</li>
             </ul>
         </section>
         </div>
+
         <div data-mode="cto">
             <section class="max-w-4xl mx-auto">
                 <div class="mb-8">
@@ -296,23 +364,23 @@
                         <i class="fas fa-arrow-left"></i> Back to Case Studies
                     </a>
                 </div>
-                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Deep View Analytics</h1>
-                <p class="text-accent text-sm uppercase tracking-wider font-semibold mb-8">Data Platform | Connected Vehicle Intelligence</p>
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text">Architecture Copilot Studio</h1>
+                <p class="text-accent text-sm uppercase tracking-wider font-semibold mb-8">GenAI Platform | Global Consulting Firm</p>
 
                 <div class="space-y-10">
                     <div class="glass rounded-2xl p-8 border border-white/10">
                         <h2 class="text-2xl font-bold text-white mb-4">Business Problem</h2>
-                        <p class="text-gray-300 leading-relaxed">A connected vehicle platform needed real-time analytics across over a million daily OBD-II telemetry events for fleet management, driver behavior analysis, and predictive maintenance. The legacy batch processing system could not support operational decisions that required sub-minute latency, and infrastructure costs were growing faster than revenue.</p>
+                        <p class="text-gray-300 leading-relaxed">Architects needed a single workspace to gather requirements with AI, produce editable architecture diagrams, map those designs to target clouds, understand monthly and yearly cost, and compare Azure, AWS, and GCP options-without juggling separate tools or losing control of the diagram.</p>
                     </div>
 
                     <div class="glass rounded-2xl p-8 border border-white/10">
                         <h2 class="text-2xl font-bold text-white mb-4">Strategic Decision</h2>
-                        <p class="text-gray-300 leading-relaxed">We designed a real-time streaming architecture with cost-conscious infrastructure from day one. Rather than migrating the batch system incrementally, we built a parallel platform with full observability instrumented into every pipeline stage, allowing us to right-size infrastructure continuously and avoid the cost overruns that plagued the previous system.</p>
+                        <p class="text-gray-300 leading-relaxed">Build an interactive studio: copilot conversation plus a real-time diagram canvas, with a staged LangGraph backend that advances only when each step (requirements, Mermaid, cloud mapping, cost, comparison) is complete and architect-approved.</p>
                     </div>
 
                     <div class="glass rounded-2xl p-8 border border-white/10">
                         <h2 class="text-2xl font-bold text-white mb-4">Architecture at a Glance</h2>
-                        <p class="text-gray-300 leading-relaxed mb-4">PySpark for large-scale telemetry processing, FastAPI for service APIs, PostgreSQL and MongoDB for structured and unstructured storage, RabbitMQ for message queuing, and Docker/Kubernetes for orchestration. Full CI/CD pipeline with observability (SLIs, SLOs, tracing, cost attribution) across every processing stage.</p>
+                        <p class="text-gray-300 leading-relaxed mb-4">On <strong class="text-white">Azure</strong>, architects use copilot chat and a SignalR-backed Mermaid canvas. LangGraph on Container Apps runs five AI stages; Functions implement stage tools; Cosmos DB and Blob hold session, canvas, mappings, and cost/compare outputs; Cost Gate and Azure OpenAI power governed, FinOps-aware generation.</p>
                         <details class="mt-4" data-loaded="false" ontoggle="if (this.open && this.dataset.loaded !== 'true') { this.dataset.loaded = 'true'; loadDiagram('overview', 'cto'); }">
                             <summary class="text-accent cursor-pointer font-semibold text-sm hover:text-accent2 transition-colors">View Architecture (L1 &amp; L2)</summary>
                             <div class="mt-4">
@@ -334,7 +402,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="text-center text-sm text-gray-400 mt-4 italic max-w-3xl mx-auto">Kafka-driven microservices feeding MongoDB and PostgreSQL with real-time APIs and dashboards, including downstream product consumption.</p>
+                                <p class="text-center text-sm text-gray-400 mt-4 italic max-w-3xl mx-auto">Five-stage design pipeline with copilot, canvas, and multi-cloud cost/compare on Azure.</p>
                             </div>
                         </details>
                     </div>
@@ -342,31 +410,29 @@
                     <div class="glass rounded-2xl p-8 border border-white/10">
                         <h2 class="text-2xl font-bold text-white mb-4">Key Trade-offs</h2>
                         <ul class="text-gray-300 space-y-3 leading-relaxed">
-                            <li><strong class="text-white">Open-source stack over vendor lock-in:</strong> Higher operational overhead but long-term portability and cost control.</li>
-                            <li><strong class="text-white">Observability as a first-class feature:</strong> Upfront investment in instrumentation enabled the 30% cost reduction that justified the entire platform rebuild.</li>
-                            <li><strong class="text-white">Parallel build over incremental migration:</strong> Higher short-term cost, but clean architecture unencumbered by legacy constraints.</li>
+                            <li><strong class="text-white">Neutral Mermaid first:</strong> Cloud mapping and cost/comparison derive from one editable graph-not three separate diagrams.</li>
+                            <li><strong class="text-white">Canvas-driven loops:</strong> User edits on the canvas re-invoke map/cost stages without restarting requirements from scratch.</li>
+                            <li><strong class="text-white">Staged gates:</strong> Human approval between stages; FinOps Cost Gate before expensive model/tool chains.</li>
                         </ul>
                     </div>
 
                     <div class="glass rounded-2xl p-8 border border-white/10">
                         <h2 class="text-2xl font-bold text-white mb-4">Business Outcome</h2>
-                        <p class="text-gray-300 leading-relaxed">Over 1 million telemetry events processed daily with sub-minute latency. 30% infrastructure cost reduction ($36k annual savings) achieved through observability-driven optimization. The platform supports fleet management, driver behavior analytics, carbon tracking, and predictive maintenance on a single shared backbone.</p>
+                        <p class="text-gray-300 leading-relaxed">Golden-path CI failures dropped from roughly one in four to under one in ten. Architects regained hours per engagement via checkpoint resume instead of manual state copy-paste. Material reduction in monthly Azure OpenAI spend after mandatory design-time gates. Platform patterns reused for adjacent global programs.</p>
                     </div>
 
                     <div class="glass rounded-2xl p-8 border border-white/10">
                         <h2 class="text-2xl font-bold text-white mb-4">My Role</h2>
-                        <p class="text-gray-300 leading-relaxed">Platform Architect and Team Lead. Grew the engineering team from 3 to 12 engineers. Designed the streaming architecture, established engineering practices (CI/CD, code review, SLI/SLO frameworks), drove the cost optimization initiative, and mentored engineers into domain ownership across the platform.</p>
+                        <p class="text-gray-300 leading-relaxed">Technology Leader - AI Platform Strategy. Owned studio product direction, LangGraph and FinOps architecture, tool contract governance, and alignment with global architecture and delivery leadership.</p>
                     </div>
                 </div>
             </section>
         </div>
     </main>
 
-    <!-- Enhanced Footer -->
     <footer class="bg-gray-900/95 backdrop-blur-lg border-t border-gray-800 mt-16">
         <div class="max-w-7xl mx-auto px-4 py-12">
             <div class="grid md:grid-cols-4 gap-8">
-                <!-- Brand -->
                 <div class="md:col-span-2">
                     <h3 class="text-2xl font-bold bg-gradient-to-r from-accent to-accent2 text-transparent bg-clip-text mb-4">
                         Nitender Kumar
@@ -384,7 +450,6 @@
                     </div>
                 </div>
                 
-                <!-- Quick Links -->
                 <div>
                     <h4 class="text-white font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
@@ -395,7 +460,6 @@
                     </ul>
                 </div>
                 
-                <!-- Contact Info -->
                 <div>
                     <h4 class="text-white font-semibold mb-4">Get In Touch</h4>
                     <ul class="space-y-2 text-gray-400">
@@ -419,7 +483,6 @@
                 </div>
             </div>
             
-            <!-- Bottom Bar -->
             <div class="border-t border-gray-800 pt-8 mt-8 text-center">
                 <div class="flex flex-col md:flex-row justify-between items-center">
                     <p class="text-gray-400 text-sm">
@@ -430,7 +493,7 @@
                             <i class="fas fa-download mr-1"></i>Download Resume
                         </a>
                         <span class="text-gray-600">|</span>
-                        <button id="scroll-to-top" class="text-accent hover:text-accent2 text-sm transition-colors">
+                        <button id="scroll-to-top" type="button" class="text-accent hover:text-accent2 text-sm transition-colors">
                             <i class="fas fa-arrow-up mr-1"></i>Back to Top
                         </button>
                     </div>
@@ -439,7 +502,39 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Get in Touch</h3>
+                <button onclick="closeContactModal()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div class="text-center">
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Choose your preferred way to contact me:</p>
+                </div>
+                <div class="space-y-3">
+                    <button onclick="copyEmailToClipboard()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        <i class="fas fa-copy"></i>
+                        Copy Email Address
+                    </button>
+                    <button onclick="openEmailClient()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                        <i class="fas fa-envelope"></i>
+                        Open Email Client
+                    </button>
+                    <button onclick="openLinkedIn()" class="w-full flex items-center justify-center gap-3 px-4 py-3 text-white rounded-lg transition-colors hover:bg-[#005885]" style="background-color: #0077b5;">
+                        <i class="fab fa-linkedin"></i>
+                        Connect on LinkedIn
+                    </button>
+                </div>
+                <div class="text-center text-sm text-gray-500 dark:text-gray-400">
+                    <p>Email: nitender.kumar11@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         let mermaidConfig = window.MermaidPortfolioConfig.getMermaidBaseConfig();
 
@@ -448,16 +543,13 @@
             cto: { zoom: 1, isFullscreen: false, currentType: 'overview' }
         };
 
-        // Initialize Mermaid
         mermaid.initialize(mermaidConfig);
 
-        // Diagram file paths
         const diagramFiles = {
-            overview: '../assets/images/diagrams/deep-view-analytics/deep-view-analytics-architecture_overview.mmd',
-            detailed: '../assets/images/diagrams/deep-view-analytics/deep-view-analytics-architecture_detailed.mmd'
+            overview: '../assets/images/diagrams/architecture-copilot-studio/architecture-copilot-studio-architecture_overview.mmd',
+            detailed: '../assets/images/diagrams/architecture-copilot-studio/architecture-copilot-studio-architecture_detailed.mmd'
         };
 
-        // Extract YAML-like front matter (--- ... ---) and convert to Mermaid init directive
         function preprocessMermaid(text) {
             const fmMatch = text.startsWith('---') ? text.match(/^---[\s\S]*?---\s*/m) : null;
             let renderer = null;
@@ -467,12 +559,10 @@
                 if (layoutMatch) renderer = layoutMatch[1].toLowerCase();
                 text = text.slice(fm.length);
             }
-            // Normalize first non-empty line: prefer "flowchart" keyword
             const lines = text.split('\n');
             for (let i = 0; i < lines.length; i++) {
                 const ln = lines[i].trim();
                 if (!ln) continue;
-                // Replace legacy 'graph' with 'flowchart'
                 lines[i] = lines[i].replace(/^graph\s+/i, 'flowchart ');
                 break;
             }
@@ -480,9 +570,6 @@
             return { text: normalized, renderer };
         }
 
-        // Load and render diagram from .mmd file
-        
-        // Load and render diagram from .mmd file (patched: injects init directive safely)
         function getDiagramRefs(mode = 'engineer') {
             return mode === 'cto' ? {
                 containerId: 'cto-diagram-container',
@@ -514,8 +601,6 @@
                     mermaidConfig.flowchart = Object.assign({}, mermaidConfig.flowchart, { defaultRenderer: pre.renderer });
                 }
 
-                // Build a safe init directive from mermaidConfig so diagrams use the same theme
-                // Only include serializable keys to avoid circular refs or functions
                 const safeFlowchart = {
                     useMaxWidth: mermaidConfig.flowchart && mermaidConfig.flowchart.useMaxWidth,
                     curve: mermaidConfig.flowchart && mermaidConfig.flowchart.curve,
@@ -554,7 +639,6 @@
                     </div>
                 `;
 
-                // Re-initialize Mermaid and process the new diagram content
                 mermaid.initialize(mermaidConfig);
                 await mermaid.init(undefined, diagramContainer.querySelectorAll('.mermaid'));
             } catch (error) {
@@ -571,28 +655,23 @@
             }
         }
 
-        // Switch between overview and detailed diagrams
         function switchDiagram(type, mode = 'engineer') {
             const refs = getDiagramRefs(mode);
             const state = diagramStates[mode];
             state.currentType = type;
-
             const overviewBtn = document.getElementById(refs.overviewBtnId);
             const detailedBtn = document.getElementById(refs.detailedBtnId);
             if (overviewBtn) overviewBtn.classList.toggle('active', type === 'overview');
             if (detailedBtn) detailedBtn.classList.toggle('active', type === 'detailed');
-
             const title = document.getElementById(refs.titleId);
             title.textContent = type === 'overview' ? 'Architecture Overview' : 'Detailed Architecture';
             const archLabel = document.getElementById(refs.archLabelId);
             if (archLabel) {
                 archLabel.textContent = type === 'overview' ? 'Overview Architecture (L1)' : 'Detailed Architecture (L2 – Production View)';
             }
-
             loadDiagram(type, mode);
         }
 
-        // Zoom functions
         function zoomIn(mode = 'engineer') {
             const state = diagramStates[mode];
             state.zoom = Math.min(state.zoom * 1.2, 3);
@@ -623,15 +702,14 @@
             const state = diagramStates[mode];
             const diagramContainer = document.getElementById(refs.containerId);
             const diagramZoom = document.getElementById(refs.zoomId);
-
-            if (!diagramContainer) return;
             
+            if (!diagramContainer) return;
+
             if (!state.isFullscreen) {
                 state.isFullscreen = true;
                 diagramContainer.classList.add('diagram-fullscreen');
                 if (diagramZoom) diagramZoom.style.transform = 'scale(1)';
                 state.zoom = 1;
-                
                 const closeBtn = document.createElement('button');
                 closeBtn.className = 'close-fullscreen';
                 closeBtn.innerHTML = '<i class="fas fa-times"></i> Close';
@@ -642,102 +720,20 @@
                 state.isFullscreen = false;
                 diagramContainer.classList.remove('diagram-fullscreen');
                 if (diagramZoom) diagramZoom.style.transform = `scale(${state.zoom})`;
-                
                 const closeBtn = document.querySelector(`.close-fullscreen[data-diagram-mode="${mode}"]`);
-                if (closeBtn) {
-                    closeBtn.remove();
-                }
+                if (closeBtn) closeBtn.remove();
             }
         }
 
-        // Initialize Mermaid with dark theme
         document.addEventListener('DOMContentLoaded', function() {
-            // Load initial diagram when page loads
             loadDiagram('overview', 'engineer');
 
-            // Scroll to top
             const scrollToTopBtn = document.getElementById('scroll-to-top');
             if (scrollToTopBtn) {
                 scrollToTopBtn.addEventListener('click', () => {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
             }
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-            });
-        });
-    </script>
-    <!-- Contact Modal -->
-    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Get in Touch</h3>
-                <button onclick="closeContactModal()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            <div class="space-y-4">
-                <div class="text-center">
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">Choose your preferred way to contact me:</p>
-                </div>
-                <div class="space-y-3">
-                    <button onclick="copyEmailToClipboard()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                        <i class="fas fa-copy"></i>
-                        Copy Email Address
-                    </button>
-                    <button onclick="openEmailClient()" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
-                        <i class="fas fa-envelope"></i>
-                        Open Email Client
-                    </button>
-                    <button onclick="openLinkedIn()" class="w-full flex items-center justify-center gap-3 px-4 py-3 text-white rounded-lg transition-colors hover:bg-[#005885]" style="background-color: #0077b5;">
-                        <i class="fab fa-linkedin"></i>
-                        Connect on LinkedIn
-                    </button>
-                </div>
-                <div class="text-center text-sm text-gray-500 dark:text-gray-400">
-                    <p>Email: nitender.kumar11@gmail.com</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Enhanced mailto handling to ensure proper email client opening
-        document.addEventListener('DOMContentLoaded', function() {
-            const mailtoLinks = document.querySelectorAll('a[href^="mailto:"]');
-            mailtoLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const mailtoUrl = this.getAttribute('href');
-                    try {
-                        window.location.href = mailtoUrl;
-                    } catch (error) {
-                        try {
-                            const tempLink = document.createElement('a');
-                            tempLink.href = mailtoUrl;
-                            tempLink.style.display = 'none';
-                            document.body.appendChild(tempLink);
-                            tempLink.click();
-                            document.body.removeChild(tempLink);
-                        } catch (error2) {
-                            try {
-                                window.open(mailtoUrl, '_self');
-                            } catch (error3) {
-                                navigator.clipboard.writeText(mailtoUrl.replace('mailto:', ''));
-                                alert('Email address copied to clipboard: ' + mailtoUrl.replace('mailto:', ''));
-                            }
-                        }
-                    }
-                });
-            });
         });
     </script>
 </body>

@@ -26,7 +26,7 @@
   outline: none !important;
 }
 
-/* Subgraphs / clusters — visible frame, no pure-black fill */
+/* Subgraphs / clusters - visible frame, no pure-black fill */
 .mermaid .cluster rect {
   fill: rgba(30, 41, 59, 0.55) !important;
   stroke-width: 1px !important;
@@ -37,7 +37,7 @@
   fill: #e2e8f0 !important;
 }
 
-/* Default node shapes — slate fills (theme may still set per-node classDef) */
+/* Default node shapes - slate fills (theme may still set per-node classDef) */
 .mermaid .node rect,
 .mermaid .node circle,
 .mermaid .node ellipse,
@@ -46,7 +46,7 @@
   stroke: rgba(148, 163, 184, 0.55) !important;
 }
 
-/* Edge label text — keep readable without overriding classDef on nodes */
+/* Edge label text - keep readable without overriding classDef on nodes */
 .mermaid .edgeLabel text {
   fill: #e2e8f0 !important;
 }

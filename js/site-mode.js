@@ -1,5 +1,5 @@
 /**
- * Site mode configuration — controls which portfolio version renders.
+ * Site mode configuration - controls which portfolio version renders.
  * Valid values: 'cto' | 'engineer'
  * Default: 'cto' (CTO / VP Engineering narrative)
  *
@@ -19,7 +19,7 @@
 
     var metaMap = {
       cto: {
-        title: 'Nitender Kumar | Technology Leader — CTO & VP Engineering',
+        title: 'Nitender Kumar | Technology Leader - CTO & VP Engineering',
         description: 'Engineering executive building AI platforms and data systems at enterprise scale. 12+ person teams, 5TB+/day streaming, governed GenAI, 30% cloud cost reduction. Open to CTO and VP Engineering roles.'
       },
       engineer: {
