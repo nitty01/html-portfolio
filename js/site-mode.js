@@ -45,7 +45,7 @@
     var resumeFilename = mode === 'cto'
       ? 'Nitender_Kumar_Technology_Leader_Resume.pdf'
       : 'Nitender_Kumar_Resume.pdf';
-    var downloadLinks = document.querySelectorAll('a[href*="NITENDER_KUMAR_DL"]');
+    var downloadLinks = document.querySelectorAll('a[href$="resume.pdf"]');
     for (var i = 0; i < downloadLinks.length; i++) {
       downloadLinks[i].setAttribute('download', resumeFilename);
     }
